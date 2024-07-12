@@ -244,7 +244,7 @@
     <!--============================
         HOME BLOGS START
     ==============================-->
-        @include('frontend.home.blogs')
+        @include('frontend.home.sections.blogs')
     <!--============================
         HOME BLOGS END
     ==============================-->
