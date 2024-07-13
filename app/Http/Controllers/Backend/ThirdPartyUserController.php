@@ -9,6 +9,6 @@ class ThirdPartyUserController extends Controller
 {
     public function dashboard()
     {
-        return view('third_party_user.dashboard');
+        return view('third_party_user.dashboard.dashboard');
     }
 }
