@@ -6,6 +6,8 @@ use App\Http\Controllers\Backend\AdminUserController;
 use App\Http\Controllers\Backend\ThirdPartyUserController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\UserDashboardController;
+use App\Http\Controllers\Frontend\UserProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +35,8 @@ Route::get('admin_user/login', [AdminUserController::class, 'login'])->name('adm
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 'user.'], function()
 {
     Route::get('dashboard', [UserDashboardController::class, 'index'])->name('dashboard');
+    //User profile
+    Route::get('dashboard', [UserProfileController::class, 'index'])->name('profile');
+    //User profile update
+    Route::put('profile', [UserProfileController::class, 'updateProfile'])->name('profile.update');
 });
