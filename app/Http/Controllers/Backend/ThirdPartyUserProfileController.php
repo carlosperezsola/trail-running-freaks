@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use File;
 
-class UserProfileController extends Controller
+class ThirdPartyUserProfileController extends Controller
 {
     public function index()
     {
-        return view('frontend.dashboard.profile');
+        return view('third_party_user.dashboard.profile');
     }
 
     public function updateProfile(Request $request)
