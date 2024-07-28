@@ -19,6 +19,7 @@
                         class="fas fa-columns"></i> <span>Manage Categories</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{route('admin_user.category.index')}}">Category</a></li>
+                    <li><a class="nav-link" href="{{route('admin_user.sub-category.index')}}">Sub Category</a></li>
                 </ul>
             </li>
 
