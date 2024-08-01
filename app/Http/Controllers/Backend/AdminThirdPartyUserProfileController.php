@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\ThirdParty;
+use App\Traits\ImageUploadTrait;
 
 class AdminThirdPartyUserProfileController extends Controller
 {
+    use ImageUploadTrait;
     /**
      * Display a listing of the resource.
      */
@@ -33,7 +35,7 @@ class AdminThirdPartyUserProfileController extends Controller
     {
         $request->validate([
             'banner' => ['nullable','image', 'max:3000'],
-            'shop_name' => ['required', 'max:200'],
+            //'shop_name' => ['required', 'max:200'],
             'phone' => ['required', 'max:50'],
             'email' => ['required', 'email', 'max:200'],
             'address' => ['required'],
@@ -43,18 +45,18 @@ class AdminThirdPartyUserProfileController extends Controller
             'insta_link' => ['nullable', 'url'],
         ]);
 
-        $vendor = ThirdParty::where('user_id', Auth::user()->id)->first();
-        $bannerPath = $this->updateImage($request, 'banner', 'uploads', $vendor->banner);
-        $vendor->banner = empty(!$bannerPath) ? $bannerPath : $vendor->banner;
-        $vendor->phone = $request->phone;
-        $vendor->shop_name = $request->shop_name;
-        $vendor->email = $request->email;
-        $vendor->address = $request->address;
-        $vendor->description = $request->description;
-        $vendor->fb_link = $request->fb_link;
-        $vendor->tw_link = $request->tw_link;
-        $vendor->insta_link = $request->insta_link;
-        $vendor->save();
+        $thirdParty = ThirdParty::where('user_id', Auth::user()->id)->first();
+        $bannerPath = $this->updateImage($request, 'banner', 'uploads', $thirdParty->banner);
+        $thirdParty->banner = empty(!$bannerPath) ? $bannerPath : $thirdParty->banner;
+        $thirdParty->phone = $request->phone;
+        //$thirdParty->shop_name = $request->shop_name;
+        $thirdParty->email = $request->email;
+        $thirdParty->address = $request->address;
+        $thirdParty->description = $request->description;
+        $thirdParty->fb_link = $request->fb_link;
+        $thirdParty->tw_link = $request->tw_link;
+        $thirdParty->insta_link = $request->insta_link;
+        $thirdParty->save();
 
         toastr('Updated Successfully!', 'success');
 
