@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use Database\Seeders\AdminUserProfileSeeder;
+
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,5 +22,6 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(UserSeeder::class);
+        $this->call(AdminUserProfileSeeder::class);
     }
 }
