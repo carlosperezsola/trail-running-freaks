@@ -67,7 +67,8 @@ class BrandController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $brand = Brand::findOrFail($id);
+        return view('admin_user.brand.edit', compact('brand'));
     }
 
     /**
@@ -75,7 +76,26 @@ class BrandController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'logo' => ['image', 'max:2000'],
+            'name' => ['required', 'max:200'],
+            'is_featured' => ['required'],
+            'status' => ['required']
+        ]);
+
+        $brand = Brand::findOrFail($id);
+
+        $logoPath = $this->updateImage($request, 'logo', 'uploads', $brand->logo);
+
+        $brand->logo = empty(!$logoPath) ? $logoPath : $brand->logo;
+        $brand->name = $request->name;
+        $brand->slug = Str::slug($request->name);
+        $brand->is_featured = $request->is_featured;
+        $brand->status = $request->status;
+        $brand->save();
+
+        toastr('Updated Successfully!', 'success');
+        return redirect()->route('admin_user.brand.index');
     }
 
     /**
@@ -83,6 +103,22 @@ class BrandController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $brand = Brand::findOrFail($id);
+        /*if(Product::where('brand_id', $brand->id)->count() > 0){
+            return response(['status' => 'error', 'message' => 'This brand have products you can\'t delete it.']);
+        }*/
+        $this->deleteImage($brand->logo);
+        $brand->delete();
+
+        return response(['status' => 'success', 'message' => 'Deleted Successfully!']);
+    }
+
+    public function changeStatus(Request $request)
+    {
+        $category = Brand::findOrFail($request->id);
+        $category->status = $request->status == 'true' ? 1 : 0;
+        $category->save();
+
+        return response(['message' => 'Status has been updated!']);
     }
 }

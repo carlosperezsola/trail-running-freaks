@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Traits;
-use File;
+
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
 trait ImageUploadTrait {
