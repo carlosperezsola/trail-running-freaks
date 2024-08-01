@@ -54,8 +54,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="inputState">Child Category</label>
-                                            <select id="inputState" class="form-control child-category"
-                                                name="child_category">
+                                            <select id="inputState" class="form-control child-category" name="child_category">
                                                 <option value="">Select</option>
                                             </select>
                                         </div>
@@ -92,23 +91,20 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Offer Start Date</label>
-                                            <input type="text" class="form-control datepicker" name="offer_start_date"
-                                                value="{{ old('offer_start_date') }}">
+                                            <input type="text" class="form-control datepicker" name="offer_start_date" value="{{ old('offer_start_date') }}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Offer End Date</label>
-                                            <input type="text" class="form-control datepicker" name="offer_end_date"
-                                                value="{{ old('offer_end_date') }}">
+                                            <input type="text" class="form-control datepicker" name="offer_end_date" value="{{ old('offer_end_date') }}">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Stock Quantity</label>
-                                    <input type="number" min="0" class="form-control" name="qty"
-                                        value="{{ old('qty') }}">
+                                    <input type="number" min="0" class="form-control" name="qty" value="{{ old('qty') }}">
                                 </div>
 
                                 <div class="form-group">
@@ -142,8 +138,7 @@
 
                                 <div class="form-group">
                                     <label>Seo Title</label>
-                                    <input type="text" class="form-control" name="seo_title"
-                                        value="{{ old('seo_title') }}">
+                                    <input type="text" class="form-control" name="seo_title" value="{{ old('seo_title') }}">
                                 </div>
 
                                 <div class="form-group">
