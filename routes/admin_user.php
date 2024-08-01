@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\AdminThirdPartyUserProfileController;
 use App\Http\Controllers\Backend\AdminUserController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProfileUserController;
@@ -36,3 +37,6 @@ Route::resource('child-category', ChildCategoryController::class);
 /** Brand routes */
 Route::put('brand/change-status', [BrandController::class, 'changeStatus'])->name('brand.change-status');
 Route::resource('brand', BrandController::class);
+
+/** Third party profile routes */
+Route::resource('third-party-profile', AdminThirdPartyUserProfileController::class);
