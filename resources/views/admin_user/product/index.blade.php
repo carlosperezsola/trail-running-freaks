@@ -15,20 +15,23 @@
                         <div class="card-header">
                             <h4>All Products</h4>
                             <div class="card-header-action">
-                                <a href="{{ route('admin_user.products.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Create New</a>
+                                <a href="{{ route('admin_user.products.create') }}" class="btn btn-primary"><i
+                                        class="fas fa-plus"></i> Create New</a>
                             </div>
                         </div>
                         <div class="card-body">
                             {{ $dataTable->table() }}
                         </div>
+
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 @endsection
 
-<?php /* @push('scripts')
+@push('scripts')
     {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
 
     <script>
@@ -51,7 +54,8 @@
                         console.log(error);
                     }
                 })
+
             })
         })
     </script>
-@endpush */ ?>
+@endpush
