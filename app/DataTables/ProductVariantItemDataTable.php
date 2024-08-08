@@ -24,8 +24,8 @@ class ProductVariantItemDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', function($query){
 
-                $editBtn = "<a href='".route('admin_user.products-variant-item.edit', $query->id)."' class='btn btn-primary'><i class='far fa-edit'></i></a>";
-                $deleteBtn = "<a href='".route('admin_user.products-variant-item.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
+                $editBtn = "<a href='".route('admin.products-variant-item.edit', $query->id)."' class='btn btn-primary'><i class='far fa-edit'></i></a>";
+                $deleteBtn = "<a href='".route('admin.products-variant-item.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
 
                 return $editBtn.$deleteBtn;
             })
@@ -45,7 +45,7 @@ class ProductVariantItemDataTable extends DataTable
             })
             ->addColumn('is_default', function($query){
                 if($query->is_default == 1){
-                    return '<i class="badge badge-success">default</i>';
+                    return '<i class="badge badge-success">defalut</i>';
                 }else {
                     return '<i class="badge badge-danger">no</i>';
                 }
@@ -62,7 +62,7 @@ class ProductVariantItemDataTable extends DataTable
      */
     public function query(ProductVariantItem $model): QueryBuilder
     {
-        return $model->newQuery();
+        return $model->where('product_variant_id', request()->variantId)->newQuery();
     }
 
     /**
