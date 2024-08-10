@@ -1,9 +1,9 @@
-@extends('third_party_user.dashboard.layouts.main')
+@extends('third_party_user.layouts.main')
 
 @section('container')
     <section id="wsus__dashboard">
         <div class="container-fluid">
-            @include('third_party_user.dashboard.layouts.sidebar')
+            @include('third_party_user.layouts.sidebar')
             <div class="row">
                 <div class="col-xl-9 col-xxl-10 col-lg-9 ms-auto">
                     <div class="dashboard_content">

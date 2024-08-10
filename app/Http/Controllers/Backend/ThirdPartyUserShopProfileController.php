@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\thirdParty;
+use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\ThirdParty;
-use App\Traits\ImageUploadTrait;
 
-class AdminThirdPartyUserProfileController extends Controller
+class ThirdPartyUserShopProfileController extends Controller
 {
     use ImageUploadTrait;
     /**
@@ -16,8 +16,8 @@ class AdminThirdPartyUserProfileController extends Controller
      */
     public function index()
     {
-        $profile = ThirdParty::where('user_id', Auth::user()->id)->first();
-        return view('admin_user.third-party-profile.index', compact('profile'));
+        $profile = thirdParty::where('user_id', Auth::user()->id)->first();
+        return view('third_party_user.shop-profile.index', compact('profile'));
     }
 
     /**
@@ -45,7 +45,7 @@ class AdminThirdPartyUserProfileController extends Controller
             'insta_link' => ['nullable', 'url'],
         ]);
 
-        $thirdParty = ThirdParty::where('user_id', Auth::user()->id)->first();
+        $thirdParty = thirdParty::where('user_id', Auth::user()->id)->first();
         $bannerPath = $this->updateImage($request, 'banner', 'uploads', $thirdParty->banner);
         $thirdParty->banner = empty(!$bannerPath) ? $bannerPath : $thirdParty->banner;
         $thirdParty->shop_name = $request->shop_name;
@@ -61,7 +61,6 @@ class AdminThirdPartyUserProfileController extends Controller
         toastr('Updated Successfully!', 'success');
 
         return redirect()->back();
-
     }
 
     /**
