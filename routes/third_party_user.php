@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\ThirdPartyProductController;
 use App\Http\Controllers\Backend\ThirdPartyUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\ThirdPartyUserProfileController;
@@ -16,3 +17,6 @@ Route::post('profile', [ThirdPartyUserProfileController::class, 'updatePassword'
 
 /** Third party shop profile  */
 Route::resource('shop-profile', ThirdPartyUserShopProfileController::class);
+
+/** Product Routes */
+Route::resource('products', ThirdPartyProductController::class);
