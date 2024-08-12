@@ -28,7 +28,7 @@
     </section>
 @endsection
 
-<?php /*@push('scripts')
+@push('scripts')
     {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
 
     <script>
@@ -54,4 +54,4 @@
             })
         })
     </script>
-@endpush*/ ?>
+@endpush

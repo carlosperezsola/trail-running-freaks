@@ -44,6 +44,6 @@ class User extends Authenticatable
 
     public function thirdParty()
     {
-        return $this->hasOne(thirdParty::class);
+        return $this->hasOne(ThirdParty::class);
     }
 }

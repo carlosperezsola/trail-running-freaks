@@ -15,16 +15,23 @@ class ThirdPartyUserShopProfileSeeder extends Seeder
     {
         $user = User::where('email', 'third_party_user@gmail.com')->first();
 
-        $thirdParty = new ThirdParty();
-        $thirdParty->banner = 'uploads/1343.jpg';
-        $thirdParty->shop_name = 'Vendor Shop';
-        $thirdParty->phone = '12321312';
-        $thirdParty->email = 'third_party_user@gmail.com';
-        $thirdParty->address = 'Usa';
-        $thirdParty->description = 'shop description';
-        $thirdParty->user_id = $user->id;
-        $thirdParty->status = 1;
+        if ($user) { // Verifica si el usuario existe
+            $thirdParty = new ThirdParty();
+            $thirdParty->banner = 'uploads/1343.jpg';
+            $thirdParty->shop_name = 'Vendor Shop';
+            $thirdParty->phone = '12321312';
+            $thirdParty->email = 'third_party_user@gmail.com';
+            $thirdParty->address = 'Usa';
+            $thirdParty->description = 'shop description';
+            $thirdParty->user_id = $user->id;
+            $thirdParty->status = 1;
 
-        $thirdParty->save();
+            $thirdParty->save();
+
+        } else {
+            
+            $this->command->error("User with email third_party_user@gmail.com not found.");
+        }
     }
 }
+
