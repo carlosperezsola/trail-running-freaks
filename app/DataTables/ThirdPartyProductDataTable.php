@@ -25,12 +25,12 @@ class ThirdPartyProductDataTable extends DataTable
             $editBtn = "<a href='".route('third_party_user.products.edit', $query->id)."' class='btn btn-primary'><i class='far fa-edit'></i></a>";
             $deleteBtn = "<a href='".route('third_party_user.products.destroy', $query->id)."' class='btn btn-danger delete-item' ><i class='far fa-trash-alt'></i></a>";
 
-            $moreBtn = '<div class="btn-group dropstart" style="margin-left:3px">
+            $moreBtn = '<div class="btn-group dropstart ms-1">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fas fa-cog"></i>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item has-icon" href="'.route('admin_user.products-image-gallery.index', ['product' => $query->id]).'"> Image Gallery</a></li>
+                    <li><a class="dropdown-item has-icon" href="'.route('third_party_user.products-image-gallery.index', ['product' => $query->id]).'"> Image Gallery</a></li>
                     <li><a class="dropdown-item has-icon" href="'.route('admin_user.products-variant.index', ['product' => $query->id]).'"> Variants</a></li>
                 </ul>
             </div>';

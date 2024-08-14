@@ -8,11 +8,9 @@ use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class ProductImageGalleryDataTable extends DataTable
+class ThirdPartyProductImageGalleryDataTable extends DataTable
 {
     /**
      * Build the DataTable class.
@@ -22,16 +20,16 @@ class ProductImageGalleryDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', function($query){
-                $deleteBtn = "<a href='".route('admin_user.products-image-gallery.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
+        ->addColumn('action', function($query){
+            $deleteBtn = "<a href='".route('third_party_user.products-image-gallery.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
 
-                return $deleteBtn;
-            })
-            ->addColumn('image', function($query){
-                return "<img width='200px' src='".asset($query->image)."' ></img>";
-            })
-            ->rawColumns(['image', 'action'])
-            ->setRowId('id');
+            return $deleteBtn;
+        })
+        ->addColumn('image', function($query){
+            return "<img width='100px' src='".asset($query->image)."' ></img>";
+        })
+        ->rawColumns(['image', 'action'])
+        ->setRowId('id');
     }
 
     /**
@@ -48,7 +46,7 @@ class ProductImageGalleryDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('productimagegallery-table')
+                    ->setTableId('thirdpartyproductimagegallery-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     //->dom('Bfrtip')
@@ -85,6 +83,6 @@ class ProductImageGalleryDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'ProductImageGallery_' . date('YmdHis');
+        return 'ThirdPartyProductImageGallery_' . date('YmdHis');
     }
 }

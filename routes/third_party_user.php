@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\ThirdPartyProductController;
+use App\Http\Controllers\Backend\ThirdPartyProductImageGalleryController;
 use App\Http\Controllers\Backend\ThirdPartyUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\ThirdPartyUserProfileController;
@@ -25,7 +26,7 @@ Route::put('product/change-status', [ThirdPartyProductController::class, 'change
 Route::resource('products', ThirdPartyProductController::class);
 
 /** Products image gallery route */
-Route::resource('products-image-gallery', ThirdPartyProductController::class);
+Route::resource('products-image-gallery', ThirdPartyProductImageGalleryController::class);
 
 /** Products variant item route */
-Route::get('products-variant-item/{productId}/{variantId}', [ThirdPartyProductController::class, 'index'])->name('products-variant-item.index');
+//Route::get('products-variant-item/{productId}/{variantId}', [ThirdPartyProductController::class, 'index'])->name('products-variant-item.index');
