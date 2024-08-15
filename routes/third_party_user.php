@@ -19,4 +19,13 @@ Route::post('profile', [ThirdPartyUserProfileController::class, 'updatePassword'
 Route::resource('shop-profile', ThirdPartyUserShopProfileController::class);
 
 /** Product Routes */
+Route::get('product/get-subcategories', [ThirdPartyProductController::class, 'getSubCategories'])->name('product.get-subcategories');
+Route::get('product/get-child-categories', [ThirdPartyProductController::class, 'getChildCategories'])->name('product.get-child-categories');
+Route::put('product/change-status', [ThirdPartyProductController::class, 'changeStatus'])->name('product.change-status');
 Route::resource('products', ThirdPartyProductController::class);
+
+/** Products image gallery route */
+Route::resource('products-image-gallery', ThirdPartyProductController::class);
+
+/** Products variant item route */
+Route::get('products-variant-item/{productId}/{variantId}', [ThirdPartyProductController::class, 'index'])->name('products-variant-item.index');
