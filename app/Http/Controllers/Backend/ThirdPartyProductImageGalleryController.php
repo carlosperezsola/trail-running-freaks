@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductImageGallery;
 use App\Traits\ImageUploadTrait;
+use Illuminate\Support\Facades\Auth;
 
 class ThirdPartyProductImageGalleryController extends Controller
 {
@@ -19,10 +20,9 @@ class ThirdPartyProductImageGalleryController extends Controller
     {
         $product = Product::findOrFail($request->product);
 
-        /** Check product vendor */
-        /*if($product->vendor_id !== Auth::user()->vendor->id){
+        if($product->thirdParty_id !== Auth::user()->thirdParty->id){
             abort(404);
-        }*/
+        }
 
         return $dataTable->render('third_party_user.product.image-gallery.index', compact('product'));
     }
@@ -90,9 +90,9 @@ class ThirdPartyProductImageGalleryController extends Controller
     {
         $productImage = ProductImageGallery::findOrFail($id);
 
-        /* if($productImage->product->vendor_id !== Auth::user()->vendor->id){
+        if($productImage->product->thirdParty_id !== Auth::user()->thirdParty->id){
             abort(404);
-        } */
+        }
 
         $this->deleteImage($productImage->image);
         $productImage->delete();
