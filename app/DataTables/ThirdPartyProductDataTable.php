@@ -74,7 +74,7 @@ class ThirdPartyProductDataTable extends DataTable
         ->addColumn('approved', function($query){
             if($query->is_approved === 1){
                 return '<i class="badge bg-success">Approved</i>';
-            }else {
+            } else {
                 return '<i class="badge bg-warning">Pending</i>';
             }
         })

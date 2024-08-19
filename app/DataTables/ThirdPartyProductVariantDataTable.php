@@ -10,7 +10,6 @@ use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
-use Illuminate\Support\Facades\Auth;
 
 class ThirdPartyProductVariantDataTable extends DataTable
 {
@@ -23,7 +22,7 @@ class ThirdPartyProductVariantDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function($query){
-                $variantItems = "<a href='".route('admin_user.products-variant-item.index', ['productId' => request()->product, 'variantId' => $query->id])."' class='btn btn-info me-1 text-white'><i class='far fa-edit'></i> Variant Items</a>";
+                $variantItems = "<a href='".route('third_party_user.products-variant-item.index', ['productId' => request()->product, 'variantId' => $query->id])."' class='btn btn-info me-1 text-white'><i class='far fa-edit'></i> Variant Items</a>";
 
                 $editBtn = "<a href='".route('third_party_user.products-variant.edit', $query->id)."' class='btn btn-primary'><i class='far fa-edit'></i></a>";
                 $deleteBtn = "<a href='".route('third_party_user.products-variant.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";

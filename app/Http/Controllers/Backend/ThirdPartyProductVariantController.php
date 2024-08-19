@@ -19,9 +19,9 @@ class ThirdPartyProductVariantController extends Controller
     {
         $product = Product::findOrFail($request->product);
         
-        /*if($product->thirdParty_id !== Auth::user()->thirdParty->id){
+        if($product->thirdParty_id !== Auth::user()->thirdParty->id){
             abort(404);
-        }*/
+        }
 
         return $dataTable->render('third_party_user.product.product-variant.index', compact('product'));
     }
@@ -71,9 +71,9 @@ class ThirdPartyProductVariantController extends Controller
     {
         $variant = ProductVariant::findOrFail($id);
 
-        /*if($variant->product->vendor_id !== Auth::user()->vendor->id){
+        if($variant->product->thirdParty_id !== Auth::user()->thirdParty->id){
             abort(404);
-        }*/
+        }
         return view('third_party_user.product.product-variant.edit', compact('variant'));
     }
 
@@ -89,9 +89,9 @@ class ThirdPartyProductVariantController extends Controller
 
         $variant = ProductVariant::findOrFail($id);
 
-        /*if($variant->product->vendor_id !== Auth::user()->vendor->id){
+        if($variant->product->thirdParty_id !== Auth::user()->thirdParty->id){
             abort(404);
-        }*/
+        }
         
         $variant->name = $request->name;
         $variant->status = $request->status;
@@ -109,9 +109,9 @@ class ThirdPartyProductVariantController extends Controller
     {
         $variant = ProductVariant::findOrFail($id);
         
-        /*if($variant->product->vendor_id !== Auth::user()->vendor->id){
+        if($variant->product->thirdParty_id !== Auth::user()->thirdParty->id){
             abort(404);
-        }*/
+        }
 
         $variantItemCheck = ProductVariantItem::where('product_variant_id', $variant->id)->count();
         if($variantItemCheck > 0){
