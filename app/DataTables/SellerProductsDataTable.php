@@ -11,7 +11,7 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 use Illuminate\Support\Facades\Auth;
 
-class ProductDataTable extends DataTable
+class SellerProductsDataTable extends DataTable
 {
     /**
      * Build the DataTable class.
@@ -83,8 +83,9 @@ class ProductDataTable extends DataTable
      */
     public function query(Product $model): QueryBuilder
     {
-        return $model->where('thirdParty_id', Auth::user()->thirdParty->id)->newQuery();
+        return $model->where('thirdParty_id', '!=', Auth::user()->thirdParty->id)->newQuery();
     }
+
 
     /**
      * Optional method if you want to use the html builder.
@@ -92,7 +93,7 @@ class ProductDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('product-table')
+                    ->setTableId('sellerproducts-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     //->dom('Bfrtip')
@@ -114,7 +115,6 @@ class ProductDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-
             Column::make('id'),
             Column::make('thumb_image'),
             Column::make('name'),
@@ -134,6 +134,6 @@ class ProductDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Product_' . date('YmdHis');
+        return 'SellerProducts_' . date('YmdHis');
     }
 }
