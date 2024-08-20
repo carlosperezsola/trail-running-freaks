@@ -11,6 +11,6 @@ class Product extends Model
 
     public function thirdParty()
     {
-        return $this->belongsTo(ThirdParty::class);
+        return $this->belongsTo(ThirdParty::class, 'thirdParty_id');
     }
 }

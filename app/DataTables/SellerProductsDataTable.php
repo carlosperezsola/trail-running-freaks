@@ -73,8 +73,18 @@ class SellerProductsDataTable extends DataTable
                     </label>';
                 }
                 return $button;
+                })
+                
+            ->addColumn('thirdParty', function($query){
+                return $query->thirdParty ? $query->thirdParty->shop_name : 'N/A';
+            })                
+            ->addColumn('approve', function($query){
+                return "<select class='form-control is_approve' data-id='$query->id'>
+                <option value='0'>Pending</option>
+                <option selected value='1'>Approved</option>
+                </select>";
             })
-            ->rawColumns(['image', 'type', 'status', 'action'])
+            ->rawColumns(['image', 'type', 'status', 'action', 'approve'])
             ->setRowId('id');
     }
 
@@ -83,9 +93,10 @@ class SellerProductsDataTable extends DataTable
      */
     public function query(Product $model): QueryBuilder
     {
-        return $model->where('thirdParty_id', '!=', Auth::user()->thirdParty->id)->newQuery();
+        return $model->where('thirdParty_id', '!=', Auth::user()->thirdParty->id)
+            ->where('is_approved', 1)
+            ->newQuery();
     }
-
 
     /**
      * Optional method if you want to use the html builder.
@@ -116,11 +127,13 @@ class SellerProductsDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('thumb_image'),
+            Column::make('thirdParty'),
+            Column::make('image'),
             Column::make('name'),
             Column::make('price'),
             Column::make('type')->width(150),
             Column::make('status'),
+            Column::make('approve')->width(100),
             Column::computed('action')
             ->exportable(false)
             ->printable(false)
