@@ -44,7 +44,10 @@
                     'admin_user.third-party-profile.*',
                 ]) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i><span>Ecommerce</span></a>
-                <ul class="dropdown-menu">                    
+                <ul class="dropdown-menu">
+                    <li class="{{ setActive(['admin_user.third-party-profile.*']) }}"><a class="nav-link"
+                        href="{{ route('admin_user.count-down.index') }}">Count Down</a>
+                    </li>                
                     <li class="{{setActive(['admin_user.third-party-profile.*'])}}">
                         <a class="nav-link" href="{{route('admin_user.third-party-profile.index')}}">Third Party Profile</a>
                     </li>
