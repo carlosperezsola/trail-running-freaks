@@ -69,15 +69,15 @@ Route::put('products-variant-item-update/{variantItemId}', [ProductVariantItemCo
 Route::delete('products-variant-item/{variantItemId}', [ProductVariantItemController::class, 'destroy'])->name('products-variant-item.destroy');
 Route::put('products-variant-item-status', [ProductVariantItemController::class, 'changeStatus'])->name('products-variant-item.changes-status');
 
-/** Count Down Routes */
-Route::get('count-down', [CountDownController::class, 'index'])->name('count-down.index');
-Route::put('count-down', [CountDownController::class, 'update'])->name('count-down.update');
-//Route::post('count-down/add-product', [CountDownController::class, 'addProduct'])->name('count-down.add-product');
-//Route::put('count-down/show-at-home/status-change', [CountDownController::class, 'chageShowAtHomeStatus'])->name('count-down.show-at-home.change-status');
-//Route::put('count-down-status', [CountDownController::class, 'changeStatus'])->name('count-down-status');
-//Route::delete('count-down/{id}', [CountDownController::class, 'destory'])->name('count-down.destory');
-
 /** Seller product routes */
 Route::get('seller-products', [SellerProductController::class, 'index'])->name('seller-products.index');
 Route::get('seller-pending-products', [SellerProductController::class, 'pendingProducts'])->name('seller-pending-products.index');
 Route::put('change-approve-status', [SellerProductController::class, 'changeApproveStatus'])->name('change-approve-status');
+
+/** Count Down Routes */
+Route::get('count-down', [CountDownController::class, 'index'])->name('count-down.index');
+Route::put('count-down', [CountDownController::class, 'update'])->name('count-down.update');
+Route::post('count-down/add-product', [CountDownController::class, 'addProduct'])->name('count-down.add-product');
+Route::put('count-down/show-at-home/status-change', [CountDownController::class, 'changeShowAtHomeStatus'])->name('count-down.show-at-home.change-status');
+Route::put('count-down-status', [CountDownController::class, 'changeStatus'])->name('count-down-status');
+Route::delete('count-down/{id}', [CountDownController::class, 'destroy'])->name('count-down.destroy');

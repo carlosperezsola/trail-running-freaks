@@ -39,7 +39,7 @@
                             <h4>Add Count Down Products</h4>
                         </div>
                         <div class="card-body">
-                            <form action="" method="POST">
+                            <form action="{{route('admin_user.count-down.add-product')}}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label>Add Product</label>
@@ -97,11 +97,11 @@
     </section>
 @endsection
 
-<?php /*@push('scripts')
+@push('scripts')
     {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
     <script>
         $(document).ready(function() {
-            // chage the Count Down status
+            // change the Count Down status
             $('body').on('click', '.change-status', function() {
                 let isChecked = $(this).is(':checked');
                 let id = $(this).data('id');
@@ -122,7 +122,7 @@
                 })
             })
 
-            // chage show at home status
+            // change show at home status
             $('body').on('click', '.change-at-home-status', function() {
                 let isChecked = $(this).is(':checked');
                 let id = $(this).data('id');
@@ -144,4 +144,4 @@
             })
         })
     </script>
-@endpush */ ?>
+@endpush
