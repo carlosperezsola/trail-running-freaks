@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\ThirdPartyUserController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\UserDashboardController;
 use App\Http\Controllers\Frontend\UserProfileController;
+use App\Http\Controllers\Frontend\CountDownController;
 
 
 /*
@@ -31,6 +32,8 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::get('admin_user/login', [AdminUserController::class, 'login'])->name('admin_user.login');
+
+Route::get('count-down', [CountDownController::class, 'index'])->name('count-down');
 
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 'user.'], function()
 {
