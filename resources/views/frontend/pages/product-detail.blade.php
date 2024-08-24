@@ -57,9 +57,9 @@
                                 <p class="wsus__stock_area"><span class="in_stock">stock out</span> ({{$product->qty}} item)</p>
                             @endif
                             @if (checkDiscount($product))
-                                <h4>{{$product->currency_icon}}{{$product->offer_price}} <del>{{$product->currency_icon}}{{$product->price}}</del></h4>
+                                <h4>{{$settings->currency_icon}}{{$product->currency_icon}}{{$product->offer_price}} <del>{{$settings->currency_icon}}{{$product->currency_icon}}{{$product->price}}</del></h4>
                             @else
-                                <h4>{{$product->currency_icon}}{{$product->price}}</h4>
+                                <h4>{{$settings->currency_icon}}{{$product->currency_icon}}{{$product->price}}</h4>
                             @endif
                             <p class="description">{!! $product->short_description !!}</p>
                             <div class="wsus__selectbox">

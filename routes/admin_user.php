@@ -15,6 +15,7 @@ use App\Http\Controllers\Backend\ProductVariantItemController;
 use App\Http\Controllers\Backend\CountDownController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\SellerProductController;
+use App\Http\Controllers\Backend\SettingController;
 
 Route::get('dashboard', [AdminUserController::class, 'dashboard'])
     ->name('dashboard');
@@ -81,3 +82,10 @@ Route::post('count-down/add-product', [CountDownController::class, 'addProduct']
 Route::put('count-down/show-at-home/status-change', [CountDownController::class, 'changeShowAtHomeStatus'])->name('count-down.show-at-home.change-status');
 Route::put('count-down-status', [CountDownController::class, 'changeStatus'])->name('count-down-status');
 Route::delete('count-down/{id}', [CountDownController::class, 'destroy'])->name('count-down.destroy');
+
+/** settings routes */
+Route::get('settings', [SettingController::class, 'index'])->name('settings.index');
+Route::put('generale-setting-update', [SettingController::class, 'generalSettingUpdate'])->name('generale-setting-update');
+//Route::put('email-setting-update', [SettingController::class, 'emailConfigSettingUpdate'])->name('email-setting-update');
+//Route::put('logo-setting-update', [SettingController::class, 'logoSettingUpdate'])->name('logo-setting-update');
+//Route::put('pusher-setting-update', [SettingController::class, 'pusherSettingUpdate'])->name('pusher-setting-update');
