@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\CountDownController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\SellerProductController;
 use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\ShippingRuleController;
 
 Route::get('dashboard', [AdminUserController::class, 'dashboard'])
     ->name('dashboard');
@@ -75,7 +76,7 @@ Route::get('seller-products', [SellerProductController::class, 'index'])->name('
 Route::get('seller-pending-products', [SellerProductController::class, 'pendingProducts'])->name('seller-pending-products.index');
 Route::put('change-approve-status', [SellerProductController::class, 'changeApproveStatus'])->name('change-approve-status');
 
-/** Count Down Routes */
+/** Count Down routes */
 Route::get('count-down', [CountDownController::class, 'index'])->name('count-down.index');
 Route::put('count-down', [CountDownController::class, 'update'])->name('count-down.update');
 Route::post('count-down/add-product', [CountDownController::class, 'addProduct'])->name('count-down.add-product');
@@ -83,9 +84,13 @@ Route::put('count-down/show-at-home/status-change', [CountDownController::class,
 Route::put('count-down-status', [CountDownController::class, 'changeStatus'])->name('count-down-status');
 Route::delete('count-down/{id}', [CountDownController::class, 'destroy'])->name('count-down.destroy');
 
-/** settings routes */
+/** Settings routes */
 Route::get('settings', [SettingController::class, 'index'])->name('settings.index');
 Route::put('generale-setting-update', [SettingController::class, 'generalSettingUpdate'])->name('generale-setting-update');
 //Route::put('email-setting-update', [SettingController::class, 'emailConfigSettingUpdate'])->name('email-setting-update');
 //Route::put('logo-setting-update', [SettingController::class, 'logoSettingUpdate'])->name('logo-setting-update');
 //Route::put('pusher-setting-update', [SettingController::class, 'pusherSettingUpdate'])->name('pusher-setting-update');
+
+/** Shipping rules routes */
+Route::put('shipping-rule/change-status', [ShippingRuleController::class, 'changeStatus'])->name('shipping-rule.change-status');
+Route::resource('shipping-rule', ShippingRuleController::class);
