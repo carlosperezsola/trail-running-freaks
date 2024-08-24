@@ -9,6 +9,7 @@ use App\Http\Controllers\Frontend\UserDashboardController;
 use App\Http\Controllers\Frontend\UserProfileController;
 use App\Http\Controllers\Frontend\CountDownController;
 use App\Http\Controllers\Frontend\FrontendProductController;
+use App\Http\Controllers\Frontend\UserAddressController;
 
 
 /*
@@ -50,4 +51,7 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 
     Route::put('profile', [UserProfileController::class, 'updateProfile'])->name('profile.update');
     //User profile update password
     Route::post('profile', [UserProfileController::class, 'updatePassword'])->name('profile.update.password');
+
+    /** User address route */
+    Route::resource('address', UserAddressController::class);
 });
