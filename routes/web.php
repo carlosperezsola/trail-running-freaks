@@ -8,6 +8,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\UserDashboardController;
 use App\Http\Controllers\Frontend\UserProfileController;
 use App\Http\Controllers\Frontend\CountDownController;
+use App\Http\Controllers\Frontend\FrontendProductController;
 
 
 /*
@@ -34,6 +35,11 @@ require __DIR__.'/auth.php';
 Route::get('admin_user/login', [AdminUserController::class, 'login'])->name('admin_user.login');
 
 Route::get('count-down', [CountDownController::class, 'index'])->name('count-down');
+
+/** Product route */
+//Route::get('products', [FrontendProductController::class, 'productsIndex'])->name('products.index');
+Route::get('product-detail/{slug}', [FrontendProductController::class, 'showProduct'])->name('product-detail');
+//Route::get('change-product-list-view', [FrontendProductController::class, 'chageListView'])->name('change-product-list-view');
 
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 'user.'], function()
 {
