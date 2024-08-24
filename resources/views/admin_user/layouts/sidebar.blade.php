@@ -61,12 +61,15 @@
             <li
                 class="dropdown {{ setActive([
                     'admin_user.third-party-profile.*',
+                    'admin_user.shipping-rule.*'
                 ]) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i><span>Ecommerce</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ setActive(['admin_user.third-party-profile.*']) }}"><a class="nav-link"
                         href="{{ route('admin_user.count-down.index') }}">Count Down</a>
-                    </li>                
+                    </li>
+                    <li class="{{ setActive(['admin_user.shipping-rule.*']) }}"><a class="nav-link"
+                        href="{{ route('admin_user.shipping-rule.index') }}">Shipping Rule</a></li>             
                     <li class="{{setActive(['admin_user.third-party-profile.*'])}}">
                         <a class="nav-link" href="{{route('admin_user.third-party-profile.index')}}">Third Party Profile</a>
                     </li>
