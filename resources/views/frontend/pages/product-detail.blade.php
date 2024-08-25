@@ -36,11 +36,15 @@
                                         </a>
                                     @endif
                                     <ul class='exzoom_img_ul'>
-                                        <li><img class="zoom ing-fluid w-100" src="{{ asset($product->thumb_image) }}"
-                                                alt="product"></li>
+                                        <li>
+                                            <img class="zoom ing-fluid w-100" src="{{ asset($product->thumb_image) }}"
+                                                alt="product">
+                                        </li>
                                         @foreach ($product->productImageGalleries as $productImage)
-                                            <li><img class="zoom ing-fluid w-100" src="{{ asset($productImage->image) }}"
-                                                    alt="product"></li>
+                                            <li>
+                                                <img class="zoom ing-fluid w-100" src="{{ asset($productImage->image) }}"
+                                                    alt="product">
+                                            </li>
                                         @endforeach
                                     </ul>
                                 </div>
@@ -75,7 +79,7 @@
                             <form class="shopping-cart-form">
                                 <div class="wsus__selectbox">
                                     <div class="row">
-                                        <input type="hidden" name="product_id" value="{{$product->id}}">
+                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
                                         @foreach ($product->variants as $variant)
                                             <div class="col-xl-6 col-sm-6">
                                                 <h5 class="mb-2">{{ $variant->name }}: </h5>
@@ -353,7 +357,7 @@
                 $.ajax({
                     method: 'POST',
                     data: formData,
-                    url: "{{route('add-to-cart') }}",
+                    url: "{{ route('add-to-cart') }}",
                     success: function(data) {
 
                     },
