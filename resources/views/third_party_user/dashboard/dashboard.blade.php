@@ -1,5 +1,9 @@
 @extends('third_party_user.layouts.main')
 
+@section('title')
+    {{ $settings->site_name }} || Dashboard
+@endsection
+
 @section('container')
     <section id="wsus__dashboard">
         <div class="container-fluid">

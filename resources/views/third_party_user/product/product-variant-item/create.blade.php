@@ -1,8 +1,8 @@
 @extends('third_party_user.layouts.main')
 
-<?php /* @section('title')
-    {{ $settings->site_name }} || Product Variant Item
-@endsection */ ?>
+@section('title')
+    {{ $settings->site_name }} || Product Variant Item Section
+@endsection
 
 @section('container')
     <section id="wsus__dashboard">

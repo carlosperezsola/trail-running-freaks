@@ -1,10 +1,10 @@
 @extends('frontend.layouts.main')
 
-@section('container')
+@section('title')
+    {{ $settings->site_name }} || Reset Password
+@endsection
 
-    <!--============================
-        BREADCRUMB START
-    ==============================-->
+@section('container')
     <section id="wsus__breadcrumb">
         <div class="wsus_breadcrumb_overlay">
             <div class="container">
@@ -20,14 +20,6 @@
             </div>
         </div>
     </section>
-    <!--============================
-        BREADCRUMB END
-    ==============================-->
-
-
-    <!--============================
-        CHANGE PASSWORD START
-    ==============================-->
     <section id="wsus__login_register">
         <div class="container">
             <div class="row">
@@ -40,7 +32,8 @@
 
                             <div class="wsus__single_pass">
                                 <label>Email</label>
-                                <input id="email" type="email" name="email" value="{{old('email', $request->email)}}" placeholder="Email">
+                                <input id="email" type="email" name="email"
+                                    value="{{ old('email', $request->email) }}" placeholder="Email">
                             </div>
                             <div class="wsus__single_pass">
                                 <label>New password</label>
@@ -48,7 +41,8 @@
                             </div>
                             <div class="wsus__single_pass">
                                 <label>Confirm password</label>
-                                <input id="password_confirmation" type="password" name="password_confirmation" placeholder="Confirm Password">
+                                <input id="password_confirmation" type="password" name="password_confirmation"
+                                    placeholder="Confirm Password">
                             </div>
                             <button class="common_btn" type="submit">submit</button>
                         </div>
@@ -57,8 +51,4 @@
             </div>
         </div>
     </section>
-    <!--============================
-        CHANGE PASSWORD END
-    ==============================-->
-
 @endsection

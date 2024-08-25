@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'currecy_list' => [
+    'currency_list' => [
         'Albania Lek' => 'ALL',
         'Afghanistan Afghani' => 'AFN',
         'Argentina Peso' => 'ARS',
