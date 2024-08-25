@@ -7,9 +7,19 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductVariantItem;
 use Cart;
+use Illuminate\Support\Facades\Session;
+use App\Models\Advertisement;
 
 class CartController extends Controller
 {
+    /** Show cart page  */
+    public function cartDetails()
+    {
+        $cartItems = Cart::content();
+
+        return view('frontend.pages.cart-detail', compact('cartItems'/*, 'cartpage_banner_section'*/));
+    }
+
     /** Add item to cart */
     public function addToCart(Request $request)
     {
@@ -52,12 +62,31 @@ class CartController extends Controller
         $cartData['price'] = $productPrice;
         $cartData['weight'] = 10;
         $cartData['options']['variants'] = $variants;
-        //$cartData['options']['variants_total'] = $variantTotalAmount;
+        $cartData['options']['variants_total'] = $variantTotalAmount;
         $cartData['options']['image'] = $product->thumb_image;
         $cartData['options']['slug'] = $product->slug;
 
         Cart::add($cartData);
 
         return response(['status' => 'success', 'message' => 'Added to cart successfully!']);
+    }
+
+    /** Update product quantity */
+    public function updateProductQty(Request $request)
+    {        
+        // $productId = Cart::get($request->rowId)->id;
+        // $product = Product::findOrFail($productId);
+
+        // // check product quantity
+        // if($product->qty === 0){
+        //     return response(['status' => 'error', 'message' => 'Product stock out']);
+        // }elseif($product->qty < $request->qty){
+        //     return response(['status' => 'error', 'message' => 'Quantity not available in our stock']);
+        // }
+
+        Cart::update($request->rowId, $request->quantity);
+        // $productTotal = $this->getProductTotal($request->rowId);
+
+        return response(['status' => 'success', 'message' => 'Product Quantity Updated!'/*, 'product_total' => $productTotal*/]);
     }
 }
