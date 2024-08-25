@@ -10,6 +10,7 @@ use App\Http\Controllers\Frontend\UserProfileController;
 use App\Http\Controllers\Frontend\CountDownController;
 use App\Http\Controllers\Frontend\FrontendProductController;
 use App\Http\Controllers\Frontend\UserAddressController;
+use App\Http\Controllers\Frontend\CartController;
 
 
 /*
@@ -38,9 +39,10 @@ Route::get('admin_user/login', [AdminUserController::class, 'login'])->name('adm
 Route::get('count-down', [CountDownController::class, 'index'])->name('count-down');
 
 /** Product route */
-//Route::get('products', [FrontendProductController::class, 'productsIndex'])->name('products.index');
 Route::get('product-detail/{slug}', [FrontendProductController::class, 'showProduct'])->name('product-detail');
-//Route::get('change-product-list-view', [FrontendProductController::class, 'chageListView'])->name('change-product-list-view');
+
+/** Cart routes */
+Route::post('add-to-cart', [CartController::class, 'addToCart'])->name('add-to-cart');
 
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 'user.'], function()
 {
