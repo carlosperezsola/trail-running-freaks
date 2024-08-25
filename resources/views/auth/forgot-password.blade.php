@@ -1,10 +1,10 @@
     @extends('frontend.layouts.main')
 
-    @section('container')
+    @section('title')
+        {{ $settings->site_name }} || Password Forgotten
+    @endsection
 
-        <!--============================
-            BREADCRUMB START
-        ==============================-->
+    @section('container')
         <section id="wsus__breadcrumb">
             <div class="wsus_breadcrumb_overlay">
                 <div class="container">
@@ -20,14 +20,6 @@
                 </div>
             </div>
         </section>
-        <!--============================
-            BREADCRUMB END
-        ==============================-->
-
-
-        <!--============================
-            FORGET PASSWORD START
-        ==============================-->
         <section id="wsus__login_register">
             <div class="container">
                 <div class="row">
@@ -38,22 +30,19 @@
                             <p>enter the email address to register with <span>e-shop</span></p>
                             <div class="wsus__login">
                                 <form method="POST" action="{{ route('password.email') }}">
-                                    @csrf                                    
+                                    @csrf
                                     <div class="wsus__login_input">
                                         <i class="fal fa-envelope"></i>
-                                        <input id="email" type="email" name="email" value="{{old('email')}}" placeholder="Your Email">
+                                        <input id="email" type="email" name="email" value="{{ old('email') }}"
+                                            placeholder="Your Email">
                                     </div>
                                     <button class="common_btn" type="submit">send</button>
                                 </form>
                             </div>
-                            <a class="see_btn mt-4" href="{{route('login')}}">go to login</a>
+                            <a class="see_btn mt-4" href="{{ route('login') }}">go to login</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!--============================
-            FORGET PASSWORD END
-        ==============================-->
-
     @endsection

@@ -1,5 +1,9 @@
 @extends('frontend.layouts.main')
 
+@section('title')
+    {{$settings->site_name}}
+@endsection
+
 @section('container')
 
     <!--==========================

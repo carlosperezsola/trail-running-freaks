@@ -1,6 +1,10 @@
 @extends('frontend.layouts.main')
 
-@section('container')    
+@section('title')
+    {{ $settings->site_name }} || Product Details Section
+@endsection
+
+@section('container')
     <section id="wsus__breadcrumb">
         <div class="wsus_breadcrumb_overlay">
             <div class="container">
@@ -27,14 +31,16 @@
                                 <div class="exzoom_img_box">
                                     @if ($product->video_link)
                                         <a class="venobox wsus__pro_det_video" data-autoplay="true" data-vbtype="video"
-                                            href="{{$product->video_link}}">
+                                            href="{{ $product->video_link }}">
                                             <i class="fas fa-play"></i>
                                         </a>
                                     @endif
                                     <ul class='exzoom_img_ul'>
-                                        <li><img class="zoom ing-fluid w-100" src="{{asset($product->thumb_image)}}" alt="product"></li>
+                                        <li><img class="zoom ing-fluid w-100" src="{{ asset($product->thumb_image) }}"
+                                                alt="product"></li>
                                         @foreach ($product->productImageGalleries as $productImage)
-                                            <li><img class="zoom ing-fluid w-100" src="{{asset($productImage->image)}}" alt="product"></li>
+                                            <li><img class="zoom ing-fluid w-100" src="{{ asset($productImage->image) }}"
+                                                    alt="product"></li>
                                         @endforeach
                                     </ul>
                                 </div>
@@ -50,27 +56,33 @@
                     </div>
                     <div class="col-xl-8 col-md-7 col-lg-7">
                         <div class="wsus__pro_details_text">
-                            <a class="title" href="javascript:;">{{$product->name}}</a>
+                            <a class="title" href="javascript:;">{{ $product->name }}</a>
                             @if ($product->qty > 0)
-                                <p class="wsus__stock_area"><span class="in_stock">in stock</span> ({{$product->qty}} item)</p>
+                                <p class="wsus__stock_area"><span class="in_stock">in stock</span> ({{ $product->qty }}
+                                    item)</p>
                             @elseif ($product->qty === 0)
-                                <p class="wsus__stock_area"><span class="in_stock">stock out</span> ({{$product->qty}} item)</p>
+                                <p class="wsus__stock_area"><span class="in_stock">stock out</span> ({{ $product->qty }}
+                                    item)</p>
                             @endif
                             @if (checkDiscount($product))
-                                <h4>{{$settings->currency_icon}}{{$product->currency_icon}}{{$product->offer_price}} <del>{{$settings->currency_icon}}{{$product->currency_icon}}{{$product->price}}</del></h4>
+                                <h4>{{ $settings->currency_icon }}{{ $product->currency_icon }}{{ $product->offer_price }}
+                                    <del>{{ $settings->currency_icon }}{{ $product->currency_icon }}{{ $product->price }}</del>
+                                </h4>
                             @else
-                                <h4>{{$settings->currency_icon}}{{$product->currency_icon}}{{$product->price}}</h4>
+                                <h4>{{ $settings->currency_icon }}{{ $product->currency_icon }}{{ $product->price }}</h4>
                             @endif
                             <p class="description">{!! $product->short_description !!}</p>
                             <div class="wsus__selectbox">
-                                <div class="row">                         
-                                    @foreach ($product->variants as $variant)                                    
+                                <div class="row">
+                                    @foreach ($product->variants as $variant)
                                         <div class="col-xl-6 col-sm-6">
-                                            <h5 class="mb-2">{{$variant->name}}: </h5>
+                                            <h5 class="mb-2">{{ $variant->name }}: </h5>
                                             <select class="select_2" name="variants_items[]">
                                                 @foreach ($variant->productVariantItems as $variantItem)
                                                     @if ($variantItem->status != 0)
-                                                        <option value="{{$variantItem->id}}" {{$variantItem->is_default == 1 ? 'selected' : ''}}>{{$variantItem->name}} ({{$variantItem->price}}€)</option>
+                                                        <option value="{{ $variantItem->id }}"
+                                                            {{ $variantItem->is_default == 1 ? 'selected' : '' }}>
+                                                            {{ $variantItem->name }} ({{ $variantItem->price }}€)</option>
                                                     @endif
                                                 @endforeach
                                             </select>
@@ -81,21 +93,20 @@
                             <div class="wsus__quentity">
                                 <h5>Quantity:</h5>
                                 <div class="select_number">
-                                    <input class="number_area" name="qty" type="text" min="1" max="100" value="1" />
+                                    <input class="number_area" name="qty" type="text" min="1" max="100"
+                                        value="1" />
                                 </div>
-
                             </div>
                             <ul class="wsus__button_area">
                                 <li>
                                     <button type="submit" class="add_cart" href="#">add to cart</button>
                                 </li>
                             </ul>
-                            <p class="brand_model"><span>brand :</span> {{$product->brand->name}}</p>                            
+                            <p class="brand_model"><span>brand :</span> {{ $product->brand->name }}</p>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-xl-12">
                     <div class="wsus__pro_det_description">
@@ -118,9 +129,9 @@
                                     <div class="row">
                                         <div class="col-xl-12">
                                             <div class="wsus__description_area">
-                                                {!!$product->long_description!!}
+                                                {!! $product->long_description !!}
                                             </div>
-                                        </div>                                        
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="pills-contact" role="tabpanel"
@@ -129,22 +140,23 @@
                                         <div class="row">
                                             <div class="col-xl-6 col-xxl-5 col-md-6">
                                                 <div class="wsus__vebdor_img">
-                                                    <img src="{{asset($product->thirdParty->banner)}}" alt="vensor" class="img-fluid w-100">
+                                                    <img src="{{ asset($product->thirdParty->banner) }}" alt="vensor"
+                                                        class="img-fluid w-100">
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-xxl-7 col-md-6 mt-4 mt-md-0">
                                                 <div class="wsus__pro_det_vendor_text">
-                                                    <h4>{{$product->thirdParty->user->name}}</h4>
-                                                    <p><span>Store Name:</span> {{$product->thirdParty->shop_name}}</p>
-                                                    <p><span>Address:</span> {{$product->thirdParty->address}}</p>
-                                                    <p><span>Phone:</span> {{$product->thirdParty->phone}}</p>
-                                                    <p><span>E-mail:</span> {{$product->thirdParty->email}}</p>
+                                                    <h4>{{ $product->thirdParty->user->name }}</h4>
+                                                    <p><span>Store Name:</span> {{ $product->thirdParty->shop_name }}</p>
+                                                    <p><span>Address:</span> {{ $product->thirdParty->address }}</p>
+                                                    <p><span>Phone:</span> {{ $product->thirdParty->phone }}</p>
+                                                    <p><span>E-mail:</span> {{ $product->thirdParty->email }}</p>
                                                     <a href="vendor_details.html" class="see_btn">visit store</a>
                                                 </div>
                                             </div>
                                             <div class="col-xl-12">
                                                 <div class="wsus__vendor_details">
-                                                    {!!$product->thirdParty->description!!}
+                                                    {!! $product->thirdParty->description !!}
                                                 </div>
                                             </div>
                                         </div>
@@ -315,7 +327,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>

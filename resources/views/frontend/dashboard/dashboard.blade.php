@@ -1,8 +1,8 @@
 @extends('frontend.dashboard.layouts.main')
 
-<? php /* @section('title')
-    {{ $settings->site_name }} || Dahsboard
-@endsection */ ?>
+@section('title')
+    {{$settings->site_name}} || Dashboard
+@endsection
 
 @section('container')
     <section id="wsus__dashboard">
