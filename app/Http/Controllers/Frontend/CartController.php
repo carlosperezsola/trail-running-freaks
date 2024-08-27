@@ -85,8 +85,62 @@ class CartController extends Controller
         // }
 
         Cart::update($request->rowId, $request->quantity);
-        // $productTotal = $this->getProductTotal($request->rowId);
+        $productTotal = $this->getProductTotal($request->rowId);
 
-        return response(['status' => 'success', 'message' => 'Product Quantity Updated!'/*, 'product_total' => $productTotal*/]);
+        return response(['status' => 'success', 'message' => 'Product Quantity Updated!', 'product_total' => $productTotal]);
+    }
+
+    /** Get product total */
+    public function getProductTotal($rowId)
+    {
+       $product = Cart::get($rowId);
+       $total = ($product->price + $product->options->variants_total) * $product->qty;
+       return $total;
+    }
+
+    /** get cart total amount */
+    public function cartTotal()
+    {
+        $total = 0;
+        foreach(Cart::content() as $product){
+            $total += $this->getProductTotal($product->rowId);
+        }
+
+        return $total;
+    }
+
+    /** Clear all cart products */
+    public function clearCart()
+    {
+        Cart::destroy();
+        return response(['status' => 'success', 'message' => 'Cart cleared successfully']);
+    }
+
+    /** Remove product from cart */
+    public function removeProduct($rowId)
+    {
+        Cart::remove($rowId);
+        toastr('Product removed succesfully!', 'success', 'Success');
+        return redirect()->back();
+    }
+
+    /** Get cart count */
+    public function getCartCount()
+    {
+        return Cart::content()->count();
+    }
+
+    /** Get all cart products */
+    public function getCartProducts()
+    {
+        return Cart::content();
+    }
+
+    /** Remove product from sidebar cart */
+    public function removeSidebarProduct(Request $request)
+    {
+        Cart::remove($request->rowId);
+
+        return response(['status' => 'success', 'message' => 'Product removed successfully!']);
     }
 }

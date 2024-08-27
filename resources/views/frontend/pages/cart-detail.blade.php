@@ -62,19 +62,17 @@
                                                 <p>{!! $item->name !!}</p>
                                                 @foreach ($item->options->variants as $key => $variant)
                                                     <span>{{ $key }}: {{ $variant['name'] }}
-                                                        ({{ $settings->currency_icon . $variant['price'] }})</span>
+                                                        ({{ $settings->currency_icon . $variant['price'] }})
+                                                    </span>
                                                 @endforeach
                                             </td>
                                             <td class="wsus__pro_tk">
                                                 <h6>{{ $settings->currency_icon . $item->price }}</h6>
                                             </td>
                                             <td class="wsus__pro_tk">
-                                                <h6>
-                                                    {{ $settings->currency_icon . $item->price + $item->options->variants_price }}
-                                                </h6>
-                                                {{-- <h6 id="{{ $item->rowId }}">
+                                                <h6 id="{{ $item->rowId }}">
                                                     {{ $settings->currency_icon . ($item->price + $item->options->variants_total) * $item->qty }}
-                                                </h6> --}}
+                                                </h6>
                                             </td>
                                             <td class="wsus__pro_select">
                                                 <div class="product_qty_wrapper">
@@ -86,10 +84,17 @@
                                                 </div>
                                             </td>
                                             <td class="wsus__pro_icon">
-                                                <a href=""><i class="far fa-times"></i></a>
+                                                <a href="{{route('cart.remove-product', $item->rowId)}}"><i class="far fa-times"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
+                                    @if (count($cartItems) === 0)
+                                        <tr class="d-flex" >
+                                            <td class="wsus__pro_icon" rowspan="2" style="width:100%">
+                                                Cart is empty!
+                                            </td>
+                                        </tr>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -155,7 +160,7 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-            
+
             $('.product-increment').on('click', function() {
                 let input = $(this).siblings('.product-qty');
                 let quantity = parseInt(input.val()) + 1;
@@ -169,18 +174,83 @@
                         rowId: rowId,
                         quantity: quantity
                     },
-                    success: function(data){
-                    if(data.status === 'success'){
-                        
-                        toastr.success(data.message)
+                    success: function(data) {
+                        if (data.status === 'success') {
+                            let productId = '#' + rowId;
+                            let totalAmount = "{{ $settings->currency_icon }}" + data.product_total
+                            $(productId).text(totalAmount)
+                            toastr.success(data.message)
 
-                    }else if (data.status === 'error'){
-                        
-                        toastr.error(data.message)
-                    }
-                },
+                        } else if (data.status === 'error') {
+
+                            toastr.error(data.message)
+                        }
+                    },
                     error: function(data) {
-                        
+
+                    }
+                })
+            })
+            $('.product-decrement').on('click', function() {
+                let input = $(this).siblings('.product-qty');
+                let quantity = parseInt(input.val()) - 1;
+                let rowId = input.data('rowid');
+
+                if (quantity < 1) {
+                    quantity = 1;
+                }
+
+                input.val(quantity);
+
+                $.ajax({
+                    url: "{{ route('cart.update-quantity') }}",
+                    method: 'POST',
+                    data: {
+                        rowId: rowId,
+                        quantity: quantity
+                    },
+                    success: function(data) {
+                        if (data.status === 'success') {
+                            let productId = '#' + rowId;
+                            let totalAmount = "{{ $settings->currency_icon }}" + data.product_total                            
+                            $(productId).text(totalAmount)
+                            toastr.success(data.message)
+
+                        } else if (data.status === 'error') {
+
+                            toastr.error(data.message)
+                        }
+                    },
+                    error: function(data) {
+
+                    }
+                })
+            })
+            $('.clear_cart').on('click', function(e){
+            e.preventDefault();
+            Swal.fire({
+                    title: 'Are you sure?',
+                    text: "This action will clear your cart!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, clear it!'
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        $.ajax({
+                            type: 'get',
+                            url: "{{route('clear.cart')}}",
+                            success: function(data){
+                                if(data.status === 'success'){
+                                    window.location.reload();
+                                }
+                            },
+                            error: function(xhr, status, error){
+                                console.log(error);
+                            }
+                        })
                     }
                 })
             })

@@ -57,7 +57,22 @@
                             @else
                                 <p class="wsus__price">{{ $product->price }}€</p>
                             @endif
-                            <a class="add_cart" href="#">add to cart</a>
+                            <form class="shopping-cart-form">
+                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                @foreach ($product->variants as $variant)
+                                    <select class="d-none" name="variants_items[]">
+                                        @foreach ($variant->productVariantItems as $variantItem)
+                                            <option value="{{ $variantItem->id }}"
+                                                {{ $variantItem->is_default == 1 ? 'selected' : '' }}>
+                                                {{ $variantItem->name }}
+                                                ({{ $variantItem->price }}€)
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                @endforeach                            
+                                <input name="qty" type="hidden" min="1" max="100" value="1" />
+                                <button class="add_cart" href="#" type="submit">add to cart</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -88,34 +103,39 @@
                                     <div class="row modal_slider">
                                         <div class="col-xl-12">
                                             <div class="modal_slider_img">
-                                                <img src="{{ asset($product->thumb_image) }}" alt="{{ asset($product->name) }}" class="img-fluid w-100">
+                                                <img src="{{ asset($product->thumb_image) }}"
+                                                    alt="{{ asset($product->name) }}" class="img-fluid w-100">
                                             </div>
                                         </div>
                                         @if (count($product->productImageGalleries) == 0)
                                             <div class="col-xl-12">
                                                 <div class="modal_slider_img">
-                                                    <img src="{{ asset($product->thumb_image) }}" alt="{{ asset($product->name) }}" class="img-fluid w-100">
+                                                    <img src="{{ asset($product->thumb_image) }}"
+                                                        alt="{{ asset($product->name) }}" class="img-fluid w-100">
                                                 </div>
                                             </div>
                                         @endif
                                         @foreach ($product->productImageGalleries as $productImage)
                                             <div class="col-xl-12">
                                                 <div class="modal_slider_img">
-                                                    <img src="{{ asset($productImage->image) }}" alt="{{ asset($product->name) }}" class="img-fluid w-100">
+                                                    <img src="{{ asset($productImage->image) }}"
+                                                        alt="{{ asset($product->name) }}" class="img-fluid w-100">
                                                 </div>
                                             </div>
                                         @endforeach
-                                    </div>                                 
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-12 col-sm-12 col-md-12 col-lg-6">
                                 <div class="wsus__pro_details_text">
-                                    <a class="title" href="#">{{$product->name}}</a>
+                                    <a class="title" href="#">{{ $product->name }}</a>
                                     @if ($product->qty > 0)
-                                        <p class="wsus__stock_area"><span class="in_stock">in stock</span> ({{ $product->qty }}
+                                        <p class="wsus__stock_area"><span class="in_stock">in stock</span>
+                                            ({{ $product->qty }}
                                             item)</p>
                                     @elseif ($product->qty === 0)
-                                        <p class="wsus__stock_area"><span class="in_stock">stock out</span> ({{ $product->qty }}
+                                        <p class="wsus__stock_area"><span class="in_stock">stock out</span>
+                                            ({{ $product->qty }}
                                             item)</p>
                                     @endif
                                     @if (checkDiscount($product))
@@ -123,7 +143,8 @@
                                             <del>{{ $settings->currency_icon }}{{ $product->currency_icon }}{{ $product->price }}</del>
                                         </h4>
                                     @else
-                                        <h4>{{ $settings->currency_icon }}{{ $product->currency_icon }}{{ $product->price }}</h4>
+                                        <h4>{{ $settings->currency_icon }}{{ $product->currency_icon }}{{ $product->price }}
+                                        </h4>
                                     @endif
                                     <p class="description">{!! $product->short_description !!}</p>
                                     <form class="shopping-cart-form">
@@ -131,36 +152,40 @@
                                             <div class="row">
                                                 <input type="hidden" name="product_id" value="{{ $product->id }}">
                                                 @foreach ($product->variants as $variant)
-                                                    <div class="col-xl-6 col-sm-6">
-                                                        <h5 class="mb-2">{{ $variant->name }}: </h5>
-                                                        <select class="select_2" name="variants_items[]">
-                                                            @foreach ($variant->productVariantItems as $variantItem)
-                                                                @if ($variantItem->status != 0)
-                                                                    <option value="{{ $variantItem->id }}"
-                                                                        {{ $variantItem->is_default == 1 ? 'selected' : '' }}>
-                                                                        {{ $variantItem->name }} ({{ $variantItem->price }}€)
-                                                                    </option>
-                                                                @endif
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
+                                                    @if ($variant->status != 0)
+                                                        <div class="col-xl-6 col-sm-6">
+                                                            <h5 class="mb-2">{{ $variant->name }}: </h5>
+                                                            <select class="select_2" name="variants_items[]">
+                                                                @foreach ($variant->productVariantItems as $variantItem)
+                                                                    @if ($variantItem->status != 0)
+                                                                        <option value="{{ $variantItem->id }}"
+                                                                            {{ $variantItem->is_default == 1 ? 'selected' : '' }}>
+                                                                            {{ $variantItem->name }}
+                                                                            ({{ $variantItem->price }}€)
+                                                                        </option>
+                                                                    @endif
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    @endif
                                                 @endforeach
                                             </div>
                                         </div>
                                         <div class="wsus__quentity">
                                             <h5>Quantity:</h5>
                                             <div class="select_number">
-                                                <input class="number_area" name="qty" type="text" min="1"
-                                                    max="100" value="1" />
+                                                <input class="number_area" name="qty" type="text"
+                                                    min="1" max="100" value="1" />
                                             </div>
                                         </div>
                                         <ul class="wsus__button_area">
                                             <li>
-                                                <button type="submit" class="add_cart" href="#">add to cart</button>
+                                                <button type="submit" class="add_cart" href="#">add to
+                                                    cart</button>
                                             </li>
                                         </ul>
                                     </form>
-                                    <p class="brand_model"><span>brand :</span> {{ $product->brand->name }}</p>                                    
+                                    <p class="brand_model"><span>brand :</span> {{ $product->brand->name }}</p>
                                 </div>
                             </div>
                         </div>

@@ -143,6 +143,8 @@
     <script src={{ asset('frontend/js/venobox.min.js') }}></script>
     <!--toaster js-->
     <script src={{ asset('//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js') }}></script>
+    <!--Sweetalert js-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!--classycountdown js-->
     <script src={{ asset('frontend/js/jquery.classycountdown.js') }}></script>
 
@@ -156,7 +158,8 @@
                 toastr.error("{{ $error }}")
             @endforeach
         @endif
-    </script>    
+    </script>
+    @include('frontend.layouts.scripts'); 
     @stack('scripts')
 </body>
 

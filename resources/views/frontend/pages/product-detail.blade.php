@@ -81,19 +81,18 @@
                                     <div class="row">
                                         <input type="hidden" name="product_id" value="{{ $product->id }}">
                                         @foreach ($product->variants as $variant)
-                                            <div class="col-xl-6 col-sm-6">
-                                                <h5 class="mb-2">{{ $variant->name }}: </h5>
-                                                <select class="select_2" name="variants_items[]">
-                                                    @foreach ($variant->productVariantItems as $variantItem)
-                                                        @if ($variantItem->status != 0)
-                                                            <option value="{{ $variantItem->id }}"
-                                                                {{ $variantItem->is_default == 1 ? 'selected' : '' }}>
-                                                                {{ $variantItem->name }} ({{ $variantItem->price }}€)
-                                                            </option>
-                                                        @endif
-                                                    @endforeach
-                                                </select>
-                                            </div>
+                                            @if ($variant->status != 0)
+                                                <div class="col-xl-6 col-sm-6">
+                                                    <h5 class="mb-2">{{$variant->name}}: </h5>
+                                                    <select class="select_2" name="variants_items[]">
+                                                        @foreach ($variant->productVariantItems as $variantItem)
+                                                            @if ($variantItem->status != 0)
+                                                                <option value="{{$variantItem->id}}" {{$variantItem->is_default == 1 ? 'selected' : ''}}>{{$variantItem->name}} (${{$variantItem->price}})</option>
+                                                            @endif
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            @endif
                                         @endforeach
                                     </div>
                                 </div>
@@ -339,33 +338,3 @@
         </div>
     </section> --}}
 @endsection
-
-@push('scripts')
-    <script>
-        $(document).ready(function() {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            $('.shopping-cart-form').on('submit', function(e) {
-                e.preventDefault()
-                let formData = $(this).serialize();
-                //console.log(formData);
-
-                $.ajax({
-                    method: 'POST',
-                    data: formData,
-                    url: "{{ route('add-to-cart') }}",
-                    success: function(data) {
-
-                    },
-                    error: function(data) {
-
-                    }
-                })
-            })
-        })
-    </script>
-@endpush
