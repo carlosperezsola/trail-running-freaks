@@ -84,12 +84,13 @@
                                                 </div>
                                             </td>
                                             <td class="wsus__pro_icon">
-                                                <a href="{{route('cart.remove-product', $item->rowId)}}"><i class="far fa-times"></i></a>
+                                                <a href="{{ route('cart.remove-product', $item->rowId) }}"><i
+                                                        class="far fa-times"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
                                     @if (count($cartItems) === 0)
-                                        <tr class="d-flex" >
+                                        <tr class="d-flex">
                                             <td class="wsus__pro_icon" rowspan="2" style="width:100%">
                                                 Cart is empty!
                                             </td>
@@ -103,18 +104,18 @@
                 <div class="col-xl-3">
                     <div class="wsus__cart_list_footer_button" id="sticky_sidebar">
                         <h6>total cart</h6>
-                        <p>subtotal: <span>$124.00</span></p>
-                        <p>delivery: <span>$00.00</span></p>
-                        <p>discount: <span>$10.00</span></p>
-                        <p class="total"><span>total:</span> <span>$134.00</span></p>
-
-                        <form>
-                            <input type="text" placeholder="Coupon Code">
+                        <p>subtotal: <span id="sub_total">{{ $settings->currency_icon }}{{ getCartTotal() }}</span></p>
+                        </p>
+                        <p class="total"><span>total:</span> <span
+                                id="cart_total"></span></p>
+                        <form id="coupon_form">
+                            <input type="text" placeholder="Coupon Code" name="coupon_code"
+                                value="{{ session()->has('coupon') ? session()->get('coupon')['coupon_code'] : '' }}">
                             <button type="submit" class="common_btn">apply</button>
                         </form>
-                        <a class="common_btn mt-4 w-100 text-center" href="check_out.html">checkout</a>
-                        <a class="common_btn mt-1 w-100 text-center" href="product_grid_view.html"><i
-                                class="fab fa-shopify"></i> go shop</a>
+                        <a class="common_btn mt-4 w-100 text-center" href="">checkout</a>
+                        <a class="common_btn mt-1 w-100 text-center" href=""><i
+                                class="fab fa-shopify"></i> Keep Shopping</a>
                     </div>
                 </div>
             </div>
@@ -177,8 +178,10 @@
                     success: function(data) {
                         if (data.status === 'success') {
                             let productId = '#' + rowId;
-                            let totalAmount = "{{ $settings->currency_icon }}" + data.product_total
+                            let totalAmount = "{{ $settings->currency_icon }}" + data
+                                .product_total
                             $(productId).text(totalAmount)
+                            renderCartSubTotal();
                             toastr.success(data.message)
 
                         } else if (data.status === 'error') {
@@ -212,8 +215,10 @@
                     success: function(data) {
                         if (data.status === 'success') {
                             let productId = '#' + rowId;
-                            let totalAmount = "{{ $settings->currency_icon }}" + data.product_total                            
+                            let totalAmount = "{{ $settings->currency_icon }}" + data
+                                .product_total
                             $(productId).text(totalAmount)
+                            renderCartSubTotal()
                             toastr.success(data.message)
 
                         } else if (data.status === 'error') {
@@ -226,9 +231,9 @@
                     }
                 })
             })
-            $('.clear_cart').on('click', function(e){
-            e.preventDefault();
-            Swal.fire({
+            $('.clear_cart').on('click', function(e) {
+                e.preventDefault();
+                Swal.fire({
                     title: 'Are you sure?',
                     text: "This action will clear your cart!",
                     icon: 'warning',
@@ -236,24 +241,37 @@
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'Yes, clear it!'
-                    }).then((result) => {
+                }).then((result) => {
                     if (result.isConfirmed) {
 
                         $.ajax({
                             type: 'get',
-                            url: "{{route('clear.cart')}}",
-                            success: function(data){
-                                if(data.status === 'success'){
+                            url: "{{ route('clear.cart') }}",
+                            success: function(data) {
+                                if (data.status === 'success') {
                                     window.location.reload();
                                 }
                             },
-                            error: function(xhr, status, error){
+                            error: function(xhr, status, error) {
                                 console.log(error);
                             }
                         })
                     }
                 })
             })
+            
+            function renderCartSubTotal(){
+                $.ajax({
+                    method: 'GET',
+                    url: "{{ route('cart.sidebar-product-total') }}",
+                    success: function(data) {
+                        $('#sub_total').text("{{$settings->currency_icon}}"+data);
+                    },
+                    error: function(data) {
+                        console.log(data);
+                    }
+                })
+            }
         })
     </script>
 @endpush

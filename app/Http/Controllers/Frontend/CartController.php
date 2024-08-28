@@ -17,6 +17,15 @@ class CartController extends Controller
     {
         $cartItems = Cart::content();
 
+        if(count($cartItems) === 0){
+            //Session::forget('coupon');
+            toastr('Please add some products in your cart for view the cart page', 'warning', 'Cart is empty!');
+            return redirect()->route('home');
+        }
+
+        //$cartpage_banner_section = Advertisement::where('key', 'cartpage_banner_section')->first();
+        //$cartpage_banner_section = json_decode($cartpage_banner_section?->value);
+
         return view('frontend.pages.cart-detail', compact('cartItems'/*, 'cartpage_banner_section'*/));
     }
 
@@ -73,16 +82,16 @@ class CartController extends Controller
 
     /** Update product quantity */
     public function updateProductQty(Request $request)
-    {        
-        // $productId = Cart::get($request->rowId)->id;
-        // $product = Product::findOrFail($productId);
+    {
+        $productId = Cart::get($request->rowId)->id;
+        $product = Product::findOrFail($productId);
 
-        // // check product quantity
-        // if($product->qty === 0){
-        //     return response(['status' => 'error', 'message' => 'Product stock out']);
-        // }elseif($product->qty < $request->qty){
-        //     return response(['status' => 'error', 'message' => 'Quantity not available in our stock']);
-        // }
+        // check product quantity
+        if ($product->qty === 0) {
+            return response(['status' => 'error', 'message' => 'Product stock out']);
+        } elseif ($product->qty < $request->qty) {
+            return response(['status' => 'error', 'message' => 'Quantity not available in our stock']);
+        }
 
         Cart::update($request->rowId, $request->quantity);
         $productTotal = $this->getProductTotal($request->rowId);
@@ -93,16 +102,16 @@ class CartController extends Controller
     /** Get product total */
     public function getProductTotal($rowId)
     {
-       $product = Cart::get($rowId);
-       $total = ($product->price + $product->options->variants_total) * $product->qty;
-       return $total;
+        $product = Cart::get($rowId);
+        $total = ($product->price + $product->options->variants_total) * $product->qty;
+        return $total;
     }
 
     /** get cart total amount */
     public function cartTotal()
     {
         $total = 0;
-        foreach(Cart::content() as $product){
+        foreach (Cart::content() as $product) {
             $total += $this->getProductTotal($product->rowId);
         }
 

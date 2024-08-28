@@ -120,5 +120,18 @@
                 }
             })
         }
+
+        function getCartTotal() {
+            $.ajax({
+                method: 'GET',
+                url: "{{ route('cart.sidebar-product-total') }}",
+                success: function(data) {
+                    return data;
+                },
+                error: function(data) {
+
+                }
+            })
+        }
     })
 </script>
