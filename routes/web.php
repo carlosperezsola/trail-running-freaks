@@ -11,7 +11,8 @@ use App\Http\Controllers\Frontend\CountDownController;
 use App\Http\Controllers\Frontend\FrontendProductController;
 use App\Http\Controllers\Frontend\UserAddressController;
 use App\Http\Controllers\Frontend\CartController;
-
+use App\Http\Controllers\Backend\CheckOutController;
+use App\Http\Controllers\Backend\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,4 +65,13 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 
 
     /** User address route */
     Route::resource('address', UserAddressController::class);
+
+    /** Checkout routes */
+    Route::get('checkout', [CheckOutController::class, 'index'])->name('checkout');
+    Route::post('checkout/address-create', [CheckOutController::class, 'createAddress'])->name('checkout.address.create');
+    Route::post('checkout/form-submit', [CheckOutController::class, 'checkOutFormSubmit'])->name('checkout.form-submit');
+
+    /** Payment routes */
+    Route::get('payment', [PaymentController::class, 'index'])->name('payment');
+    //Route::get('payment-success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
 });
