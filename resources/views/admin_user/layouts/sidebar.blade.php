@@ -1,4 +1,3 @@
-
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
@@ -10,11 +9,13 @@
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
             <li class="dropdown active">
-                <a href="{{route('admin_user.dashboard')}}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                <a href="{{ route('admin_user.dashboard') }}" class="nav-link"><i
+                        class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
             <li class="menu-header">Starter</li>
 
-            <li class="dropdown {{ setActive(['admin_user.category.*', 'admin_user.sub-category.*', 'admin_user.child-category.*']) }}">
+            <li
+                class="dropdown {{ setActive(['admin_user.category.*', 'admin_user.sub-category.*', 'admin_user.child-category.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-list"></i>
                     <span>Manage Categories</span></a>
                 <ul class="dropdown-menu">
@@ -48,47 +49,48 @@
                             'admin_user.products-image-gallery.*',
                             'admin_user.products-variant.*',
                             'admin_user.products-variant-item.*',
+                            'admin_user.payment-settings.*',
                         ]) }}">
                         <a class="nav-link" href="{{ route('admin_user.products.index') }}">Products</a>
                     </li>
                     <li class="{{ setActive(['admin_user.seller-products.*']) }}"><a class="nav-link"
                             href="{{ route('admin_user.seller-products.index') }}">Seller Products</a></li>
                     <li class="{{ setActive(['admin_user.seller-pending-products.*']) }}"><a class="nav-link"
-                            href="{{ route('admin_user.seller-pending-products.index') }}">Seller Pending Products</a></li>
+                            href="{{ route('admin_user.seller-pending-products.index') }}">Seller Pending Products</a>
+                    </li>
                 </ul>
             </li>
 
-            <li
-                class="dropdown {{ setActive([
-                    'admin_user.third-party-profile.*',
-                    'admin_user.shipping-rule.*'
-                ]) }}">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i><span>Ecommerce</span></a>
+            <li class="dropdown {{ setActive(['admin_user.third-party-profile.*', 'admin_user.shipping-rule.*']) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
+                        class="fas fa-columns"></i><span>Ecommerce</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ setActive(['admin_user.third-party-profile.*']) }}"><a class="nav-link"
-                        href="{{ route('admin_user.count-down.index') }}">Count Down</a>
+                            href="{{ route('admin_user.count-down.index') }}">Count Down</a>
                     </li>
                     <li class="{{ setActive(['admin_user.shipping-rule.*']) }}"><a class="nav-link"
-                        href="{{ route('admin_user.shipping-rule.index') }}">Shipping Rule</a></li>             
-                    <li class="{{setActive(['admin_user.third-party-profile.*'])}}">
-                        <a class="nav-link" href="{{route('admin_user.third-party-profile.index')}}">Third Party Profile</a>
+                            href="{{ route('admin_user.shipping-rule.index') }}">Shipping Rule</a></li>
+                    <li class="{{ setActive(['admin_user.third-party-profile.*']) }}">
+                        <a class="nav-link" href="{{ route('admin_user.third-party-profile.index') }}">Third Party
+                            Profile</a>
+                    </li>
+                    <li class="{{ setActive(['admin_user.payment-settings.*']) }}"><a class="nav-link"
+                            href="{{ route('admin_user.payment-settings.index') }}">Payment Settings</a>
                     </li>
                 </ul>
             </li>
 
-            <li
-                class="dropdown {{ setActive([
-                    'admin_user.slider.*'
-                ])}}">
+            <li class="dropdown {{ setActive(['admin_user.slider.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cog"></i>
                     <span>Manage Website</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ setActive(['admin_user.slider.*']) }}"><a class="nav-link"
-                        href="{{ route('admin_user.slider.index') }}">Slider</a></li>
+                            href="{{ route('admin_user.slider.index') }}">Slider</a></li>
                 </ul>
             </li>
 
-            <li><a class="nav-link" href="{{route('admin_user.settings.index')}}"><i class="far fa-square"></i><span>Settings</span></a></li>
+            <li><a class="nav-link" href="{{ route('admin_user.settings.index') }}"><i
+                        class="far fa-square"></i><span>Settings</span></a></li>
 
             <?php /*<li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
@@ -98,7 +100,8 @@
                     <li><a class="nav-link" href="layout-transparent.html">Transparent Sidebar</a></li>
                     <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
                 </ul>
-            </li>*/?>           
+            </li>*/
+            ?>
         </ul>
     </aside>
 </div>

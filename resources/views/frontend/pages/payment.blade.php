@@ -53,8 +53,8 @@
                                 <div class="row">
                                     <div class="col-xl-12 m-auto">
                                         <div class="wsus__payment_area">
-                                            {{-- <a class="nav-link common_btn text-center"
-                                                href="{{ route('user.paypal.payment') }}">Pay with Paypal</a> --}}
+                                            <a class="nav-link common_btn text-center"
+                                                href="{{ route('user.paypal.payment') }}">Pay with Paypal</a>
                                         </div>
                                     </div>
                                 </div>
@@ -68,11 +68,10 @@
                     </div>
                     <div class="col-xl-4 col-lg-4">
                         <div class="wsus__pay_booking_summary" id="sticky_sidebar2">
-                            {{-- <h5>Order Summary</h5>
-                            <p>subtotal : <span>{{ $settings->currency_icon }}{{ getCartTotal() }}</span></p>
-                            <p>shipping fee(+) : <span>{{ $settings->currency_icon }}{{ getShppingFee() }}</span></p>
-                            <p>coupon(-) : <span>{{ $settings->currency_icon }}{{ getCartDiscount() }}</span></p>
-                            <h6>total <span>{{ $settings->currency_icon }}{{ getFinalPayableAmount() }}</span></h6> --}}
+                            <h5>Order Summary</h5>
+                            <p>subtotal: <span>{{ $settings->currency_icon }}{{ getCartTotal() }}</span></p>
+                            <p>shipping fee(+) : <span>{{ $settings->currency_icon }}{{ getShippingFee() }}</span></p>
+                            <h6>total <span>{{ $settings->currency_icon }}{{ getFinalPayableAmount() }}</span></h6>
                         </div>
                     </div>
                 </div>

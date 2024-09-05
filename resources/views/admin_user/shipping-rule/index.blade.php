@@ -11,7 +11,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>All Shpping rules</h4>
+                            <h4>All shipping rules</h4>
                             <div class="card-header-action">
                                 <a href="{{ route('admin_user.shipping-rule.create') }}" class="btn btn-primary"><i
                                         class="fas fa-plus"></i> Create New</a>
