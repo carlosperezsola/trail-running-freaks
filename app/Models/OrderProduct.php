@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class OrderProduct extends Model
 {
     use HasFactory;
+
+    public function thirdParty()
+    {
+        return $this->belongsTo(ThirdParty::class, 'thirdParty_id');
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
+
 }
