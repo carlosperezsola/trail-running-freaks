@@ -79,45 +79,11 @@
                     </li>
                 </ul>
             </li>
-
-            <li
-                class="dropdown {{ setActive([
-                    'admin_user.order.*',
-                    'admin_user.pending-orders',
-                    'admin_user.processed-orders',
-                    'admin_user.dropped-off-orders',
-                    'admin_user.shipped-orders',
-                    'admin_user.out-for-delivery-orders',
-                    'admin_user.delivered-orders',
-                    'admin_user.canceled-orders',
-                ]) }}">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cart-plus"></i>
-                    <span>Orders</span></a>
-                <ul class="dropdown-menu">
-                    <li class="{{ setActive(['admin_user.order.*']) }}"><a class="nav-link"
-                            href="{{ route('admin_user.order.index') }}">All Orders</a></li>
-                    {{-- <li class="{{ setActive(['admin_user.pending-orders']) }}"><a class="nav-link"
-                            href="{{ route('admin_user.pending-orders') }}">All Pending Orders</a></li>
-                    <li class="{{ setActive(['admin_user.processed-orders']) }}"><a class="nav-link"
-                            href="{{ route('admin_user.processed-orders') }}">All processed Orders</a></li>
-                    <li class="{{ setActive(['admin_user.dropped-off']) }}"><a class="nav-link"
-                            href="{{ route('admin_user.dropped-off-orders') }}">All Dropped Off Orders</a></li>
-
-                    <li class="{{ setActive(['admin_user.shipped-orders']) }}"><a class="nav-link"
-                            href="{{ route('admin_user.shipped-orders') }}">All Shipped Orders</a></li>
-                    <li class="{{ setActive(['admin_user.out-for-delivery-orders']) }}"><a class="nav-link"
-                            href="{{ route('admin_user.out-for-delivery-orders') }}">All Out For Delivery Orders</a></li>
-
-
-                    <li class="{{ setActive(['admin_user.delivered-orders']) }}"><a class="nav-link"
-                            href="{{ route('admin_user.delivered-orders') }}">All Delivered Orders</a></li>
-
-                    <li class="{{ setActive(['admin_user.canceled-orders']) }}"><a class="nav-link"
-                            href="{{ route('admin_user.canceled-orders') }}">All Canceled Orders</a></li> --}}
-
-                </ul>
+            <li>
+                <a class="nav-link" href="{{ route('admin_user.order.index') }}">
+                    <i class="fas fa-cart-plus"></i><span>Orders</span>
+                </a>
             </li>
-
             <li class="dropdown {{ setActive(['admin_user.slider.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cog"></i>
                     <span>Manage Website</span></a>
@@ -126,9 +92,11 @@
                             href="{{ route('admin_user.slider.index') }}">Slider</a></li>
                 </ul>
             </li>
-
-            <li><a class="nav-link" href="{{ route('admin_user.settings.index') }}"><i
-                        class="far fa-square"></i><span>Settings</span></a></li>
+            <li>
+                <a class="nav-link" href="{{ route('admin_user.settings.index') }}">
+                    <i class="far fa-square"></i><span>Settings</span>
+                </a>
+            </li>
 
             <?php /*<li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
