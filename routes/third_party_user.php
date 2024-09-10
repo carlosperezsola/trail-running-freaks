@@ -1,13 +1,15 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\ThirdPartyProductController;
 use App\Http\Controllers\Backend\ThirdPartyProductImageGalleryController;
 use App\Http\Controllers\Backend\ThirdPartyUserController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\ThirdPartyUserProfileController;
 use App\Http\Controllers\Backend\ThirdPartyUserShopProfileController;
 use App\Http\Controllers\Backend\ThirdPartyProductVariantController;
 use App\Http\Controllers\Backend\ThirdPartyProductVariantItemController;
+use App\Http\Controllers\Backend\ThirdPartyOrderController;
+
 
 /** Third party routes  */
 Route::get('dashboard', [ThirdPartyUserController::class, 'dashboard'])->name('dashboard');
@@ -48,3 +50,8 @@ Route::put('products-variant-item-update/{variantItemId}', [ThirdPartyProductVar
 Route::delete('products-variant-item/{variantItemId}', [ThirdPartyProductVariantItemController::class, 'destroy'])->name('products-variant-item.destroy');
 
 Route::put('products-variant-item-status', [ThirdPartyProductVariantItemController::class, 'changeStatus'])->name('products-variant-item.changes-status');
+
+/** Orders route */
+Route::get('orders', [ThirdPartyOrderController::class, 'index'])->name('orders.index');
+Route::get('orders/show/{id}', [ThirdPartyOrderController::class, 'show'])->name('orders.show');
+Route::get('orders/status/{id}', [ThirdPartyOrderController::class, 'orderStatus'])->name('orders.status');
