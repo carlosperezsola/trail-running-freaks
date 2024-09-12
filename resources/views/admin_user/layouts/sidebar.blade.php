@@ -90,6 +90,8 @@
                 <ul class="dropdown-menu">
                     <li class="{{ setActive(['admin_user.slider.*']) }}"><a class="nav-link"
                             href="{{ route('admin_user.slider.index') }}">Slider</a></li>
+                    <li class="{{ setActive(['admin_user.slider.*']) }}"><a class="nav-link"
+                            href="{{ route('admin_user.home-page-setting.index') }}">Home Page Settings</a></li>
                 </ul>
             </li>
             <li>
