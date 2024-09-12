@@ -13,6 +13,7 @@ use App\Http\Controllers\Frontend\UserAddressController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckOutController;
 use App\Http\Controllers\Frontend\PaymentController;
+use App\Http\Controllers\Frontend\UserOrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,6 +66,10 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 
 
     /** User address route */
     Route::resource('address', UserAddressController::class);
+    
+    /** Order routes */
+    Route::get('orders', [UserOrderController::class, 'index'])->name('orders.index');
+    Route::get('orders/show/{id}', [UserOrderController::class, 'show'])->name('orders.show');
 
     /** Checkout routes */
     Route::get('checkout', [CheckOutController::class, 'index'])->name('checkout');
