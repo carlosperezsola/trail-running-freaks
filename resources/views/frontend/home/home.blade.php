@@ -35,27 +35,9 @@
     <!--============================
             BRAND SLIDER START
         ==============================-->
-    {{-- @include('frontend.home.sections.brand-slider') --}}
+    @include('frontend.home.sections.brand-slider')
     <!--============================
             BRAND SLIDER END
-        ==============================-->
-
-
-    <!--============================
-            SINGLE BANNER START
-        ==============================-->
-    {{-- @include('frontend.home.sections.single-banner') --}}
-    <!--============================
-            SINGLE BANNER END
-        ==============================-->
-
-
-    <!--============================
-            HOT DEALS START
-        ==============================-->
-    {{-- @include('frontend.home.sections.hot-deals') --}}
-    <!--============================
-            HOT DEALS END
         ==============================-->
 
 
