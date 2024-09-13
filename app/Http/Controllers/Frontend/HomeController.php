@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\CountDown;
 use App\Models\CountDownItem;
 use App\Models\Slider;
-use Illuminate\Http\Request;
+use App\Models\HomePageSetting;
 
 class HomeController extends Controller
 {
@@ -15,11 +15,13 @@ class HomeController extends Controller
         $sliders = Slider::where('status', 1)->orderBy('serial', 'asc')->get();
         $countDownDate = CountDown::first();
         $countDownItems = CountDownItem::where('show_at_home', 1)->where('status', 1)->get();
+        $popularCategory = HomePageSetting::where('key', 'popular_category_section')->first();
         return view('frontend.home.home',
             compact(
                 'sliders',
                 'countDownDate',
-                'countDownItems'
+                'countDownItems',
+                'popularCategory'
             ));
     }
 }

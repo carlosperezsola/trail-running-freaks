@@ -26,7 +26,7 @@
     <!--============================
             MONTHLY TOP PRODUCT START
         ==============================-->
-    {{-- @include('frontend.home.sections.top-categories') --}}
+    @include('frontend.home.sections.top-categories')
     <!--============================
             MONTHLY TOP PRODUCT END
         ==============================-->
