@@ -94,6 +94,30 @@
                             href="{{ route('admin_user.home-page-setting.index') }}">Home Page Settings</a></li>
                 </ul>
             </li>
+            <li
+                class="dropdown {{ setActive([
+                    'admin_user.footer-info.index'//,
+                    // 'admin_user.footer-socials.*',
+                    // 'admin_user.footer-grid-two.*',
+                    // 'admin_user.footer-grid-three.*',
+                ]) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
+                        class="fas fa-th-large"></i><span>Footer</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ setActive(['admin_user.footer-info.index']) }}"><a class="nav-link"
+                            href="{{ route('admin_user.footer-info.index') }}">Footer Info</a></li>
+
+                    {{-- <li class="{{ setActive(['admin_user.footer-socials.*']) }}"><a class="nav-link"
+                            href="{{ route('admin_user.footer-socials.index') }}">Footer Socials</a></li>
+
+                    <li class="{{ setActive(['admin_user.footer-grid-two.*']) }}"><a class="nav-link"
+                            href="{{ route('admin_user.footer-grid-two.index') }}">Footer Grid Two</a></li>
+
+                    <li class="{{ setActive(['admin_user.footer-grid-three.*']) }}"><a class="nav-link"
+                            href="{{ route('admin_user.footer-grid-three.index') }}">Footer Grid Three</a></li> --}}
+
+                </ul>
+            </li>
             <li>
                 <a class="nav-link" href="{{ route('admin_user.settings.index') }}">
                     <i class="far fa-square"></i><span>Settings</span>
