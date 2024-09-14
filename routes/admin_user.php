@@ -23,6 +23,7 @@ use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\HomePageSettingController;
 use App\Http\Controllers\Backend\FooterInfoController;
 use App\Http\Controllers\Backend\FooterSocialController;
+use App\Http\Controllers\Backend\FooterGridController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('dashboard', [AdminUserController::class, 'dashboard'])
@@ -108,18 +109,12 @@ Route::get('payment-status', [OrderController::class, 'changePaymentStatus'])->n
 Route::get('order-status', [OrderController::class, 'changeOrderStatus'])->name('order.status');
 Route::resource('order', OrderController::class);
 
-/** footer routes */
+/** Footer routes */
 Route::resource('footer-info', FooterInfoController::class);
 Route::put('footer-socials/change-status', [FooterSocialController::class, 'changeStatus'])->name('footer-socials.change-status');
 Route::resource('footer-socials', FooterSocialController::class);
-
-// Route::put('footer-grid-two/change-status', [FooterGridTwoController::class, 'changeStatus'])->name('footer-grid-two.change-status');
-// Route::put('footer-grid-two/change-title', [FooterGridTwoController::class, 'changeTitle'])->name('footer-grid-two.change-title');
-// Route::resource('footer-grid-two', FooterGridTwoController::class);
-
-// Route::put('footer-grid-three/change-status', [FooterGridThreeController::class, 'changeStatus'])->name('footer-grid-three.change-status');
-// Route::put('footer-grid-three/change-title', [FooterGridThreeController::class, 'changeTitle'])->name('footer-grid-three.change-title');
-// Route::resource('footer-grid-three', FooterGridThreeController::class);
+Route::put('footer-grid/change-status', [FooterGridController::class, 'changeStatus'])->name('footer-grid.change-status');
+Route::resource('footer-grid', FooterGridController::class);
 
 /** Payment settings routes */
 Route::get('payment-settings', [PaymentSettingController::class, 'index'])->name('payment-settings.index');

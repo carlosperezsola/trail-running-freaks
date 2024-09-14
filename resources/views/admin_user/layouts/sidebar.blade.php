@@ -94,9 +94,8 @@
             <li
                 class="dropdown {{ setActive([
                     'admin_user.footer-info.index',
-                    'admin_user.footer-socials.*'//,
-                    // 'admin_user.footer-grid-two.*',
-                    // 'admin_user.footer-grid-three.*',
+                    'admin_user.footer-socials.*',
+                    'admin_user.footer-grid.*'
                 ]) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-th-large"></i><span>Footer</span></a>
@@ -105,10 +104,8 @@
                             href="{{ route('admin_user.footer-info.index') }}">Footer Info</a></li>
                     <li class="{{ setActive(['admin_user.footer-socials.*']) }}"><a class="nav-link"
                             href="{{ route('admin_user.footer-socials.index') }}">Footer Socials</a></li>
-                    {{-- <li class="{{ setActive(['admin_user.footer-grid-two.*']) }}"><a class="nav-link"
-                            href="{{ route('admin_user.footer-grid-two.index') }}">Footer Grid Two</a></li>
-                    <li class="{{ setActive(['admin_user.footer-grid-three.*']) }}"><a class="nav-link"
-                            href="{{ route('admin_user.footer-grid-three.index') }}">Footer Grid Three</a></li> --}}
+                    <li class="{{ setActive(['admin_user.footer-grid.*']) }}"><a class="nav-link"
+                            href="{{ route('admin_user.footer-grid.index') }}">Footer General Info</a></li>
                 </ul>
             </li>
             <li>
