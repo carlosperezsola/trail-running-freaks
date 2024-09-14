@@ -34,7 +34,7 @@
                         </a>
                         <ul class="wsus__single_pro_icon">
                             <li><a href="#" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal-{{ $product->id }}"><i class="far fa-eye"></i></a>
+                                    data-bs-target="#product-{{ $product->id }}"><i class="far fa-eye"></i></a>
                             </li>
                             <li><a href="#"><i class="far fa-heart"></i></a></li>
                             <li><a href="#"><i class="far fa-random"></i></a>
@@ -85,7 +85,7 @@
         $product = \App\Models\Product::find($item->product_id);
     @endphp
     <section class="product_popup_modal">
-        <div class="modal fade" id="exampleModal-{{ $product->id }}" tabindex="-1" aria-hidden="true">
+        <div class="modal fade" id="product-{{ $product->id }}" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
