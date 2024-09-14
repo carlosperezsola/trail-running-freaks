@@ -30,9 +30,6 @@
                                 <div class="col-10">
                                     <div class="tab-content" id="nav-tabContent">
                                         @include('admin_user.home-page-setting.sections.popular-category-section')
-                                        {{-- @include('admin.home-page-setting.sections.product-slider-section-one')
-                                        @include('admin.home-page-setting.sections.product-slider-section-two')
-                                        @include('admin.home-page-setting.sections.product-slider-section-three') --}}
                                     </div>
                                 </div>
                             </div>

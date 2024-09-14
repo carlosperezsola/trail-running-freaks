@@ -13,7 +13,6 @@
                         class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
             <li class="menu-header">Starter</li>
-
             <li
                 class="dropdown {{ setActive(['admin_user.category.*', 'admin_user.sub-category.*', 'admin_user.child-category.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-list"></i>
@@ -27,7 +26,6 @@
                             href="{{ route('admin_user.child-category.index') }}">Child Category</a></li>
                 </ul>
             </li>
-
             <li
                 class="dropdown {{ setActive([
                     'admin_user.brand.*',
@@ -60,7 +58,6 @@
                     </li>
                 </ul>
             </li>
-
             <li class="dropdown {{ setActive(['admin_user.third-party-profile.*', 'admin_user.shipping-rule.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-columns"></i><span>Ecommerce</span></a>
@@ -96,26 +93,19 @@
             </li>
             <li
                 class="dropdown {{ setActive([
-                    'admin_user.footer-info.index'//,
-                    // 'admin_user.footer-socials.*',
-                    // 'admin_user.footer-grid-two.*',
-                    // 'admin_user.footer-grid-three.*',
+                    'admin_user.footer-info.index',
+                    'admin_user.footer-socials.*',
+                    'admin_user.footer-grid.*'
                 ]) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-th-large"></i><span>Footer</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ setActive(['admin_user.footer-info.index']) }}"><a class="nav-link"
                             href="{{ route('admin_user.footer-info.index') }}">Footer Info</a></li>
-
-                    {{-- <li class="{{ setActive(['admin_user.footer-socials.*']) }}"><a class="nav-link"
+                    <li class="{{ setActive(['admin_user.footer-socials.*']) }}"><a class="nav-link"
                             href="{{ route('admin_user.footer-socials.index') }}">Footer Socials</a></li>
-
-                    <li class="{{ setActive(['admin_user.footer-grid-two.*']) }}"><a class="nav-link"
-                            href="{{ route('admin_user.footer-grid-two.index') }}">Footer Grid Two</a></li>
-
-                    <li class="{{ setActive(['admin_user.footer-grid-three.*']) }}"><a class="nav-link"
-                            href="{{ route('admin_user.footer-grid-three.index') }}">Footer Grid Three</a></li> --}}
-
+                    <li class="{{ setActive(['admin_user.footer-grid.*']) }}"><a class="nav-link"
+                            href="{{ route('admin_user.footer-grid.index') }}">Footer General Info</a></li>
                 </ul>
             </li>
             <li>
@@ -123,7 +113,6 @@
                     <i class="far fa-square"></i><span>Settings</span>
                 </a>
             </li>
-
             <?php /*<li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-columns"></i> <span>Layout</span></a>

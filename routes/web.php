@@ -14,6 +14,7 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckOutController;
 use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\UserOrderController;
+use App\Http\Controllers\Frontend\NewsletterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,10 @@ Route::get('cart-count', [CartController::class, 'getCartCount'])->name('cart-co
 Route::get('cart-products', [CartController::class, 'getCartProducts'])->name('cart-products');
 Route::post('cart/remove-sidebar-product', [CartController::class, 'removeSidebarProduct'])->name('cart.remove-sidebar-product');
 Route::get('cart/sidebar-product-total', [CartController::class, 'cartTotal'])->name('cart.sidebar-product-total');
+
+/** Newsletter routes */
+Route::post('newsletter-request', [NewsletterController::class, 'newsLetterRequset'])->name('newsletter-request');
+Route::get('newsletter-verify/{token}', [NewsletterController::class, 'newsLetterEmailVerify'])->name('newsletter-verify');
 
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 'user.'], function()
 {
