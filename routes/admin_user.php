@@ -94,7 +94,8 @@ Route::delete('count-down/{id}', [CountDownController::class, 'destroy'])->name(
 
 /** Settings routes */
 Route::get('settings', [SettingController::class, 'index'])->name('settings.index');
-Route::put('generale-setting-update', [SettingController::class, 'generalSettingUpdate'])->name('generale-setting-update');
+Route::put('general-setting-update', [SettingController::class, 'generalSettingUpdate'])->name('general-setting-update');
+Route::put('email-setting-update', [SettingController::class, 'emailConfigSettingUpdate'])->name('email-setting-update');
 
 /** home page setting route */
 Route::get('home-page-setting', [HomePageSettingController::class, 'index'])->name('home-page-setting.index');

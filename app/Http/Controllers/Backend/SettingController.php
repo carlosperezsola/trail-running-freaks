@@ -5,20 +5,21 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\GeneralSetting;
+use App\Models\EmailConfiguration;
 
 class SettingController extends Controller
 {
     public function index()
     {
         $generalSettings = GeneralSetting::first();
-        //$emailSettings = EmailConfiguration::first();
+        $emailSettings = EmailConfiguration::first();
         //$logoSetting = LogoSetting::first();
         //$pusherSetting = PusherSetting::first();
-        return view('admin_user.setting.index', compact('generalSettings'/*, 'emailSettings', 'logoSetting', 'pusherSetting'*/));
+        return view('admin_user.setting.index', compact('generalSettings', 'emailSettings'/*, 'logoSetting', 'pusherSetting'*/));
     }
 
     public function generalSettingUpdate(Request $request)
-    {        
+    {
         $request->validate([
             'site_name' => ['required', 'max:200'],
             'layout' => ['required', 'max:200'],
@@ -46,6 +47,32 @@ class SettingController extends Controller
         toastr('Updated successfully!', 'success', 'Success');
 
         return redirect()->back();
+    }
 
+    public function emailConfigSettingUpdate(Request $request)
+    {
+        $request->validate([
+            'email' => ['required', 'email'],
+            'host' => ['required', 'max:200'],
+            'username' => ['required', 'max:200'],
+            'password' => ['required', 'max:200'],
+            'port' => ['required', 'max:200'],
+            'encryption' => ['required', 'max:200'],
+        ]);
+
+        EmailConfiguration::updateOrCreate(
+            ['id' => 1],
+            [
+                'email' => $request->email,
+                'host' => $request->host,
+                'username' => $request->username,
+                'password' => $request->password,
+                'port' => $request->port,
+                'encryption' => $request->encryption,
+            ]
+        );
+
+        toastr('Updates successfully!', 'success', 'success');
+        return redirect()->back();
     }
 }

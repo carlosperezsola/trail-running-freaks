@@ -24,7 +24,8 @@
                     <p><i class="fal fa-map-marker-alt"></i> {{ @$footerInfo->address }}</p>
                     <ul class="wsus__footer_social">
                         @foreach ($FooterSocial as $link)
-                            <li><a class="behance" target="_blank" href="{{ $link->url }}"><i class="{{ $link->icon }}"></i></a>
+                            <li><a class="behance" target="_blank" href="{{ $link->url }}"><i
+                                        class="{{ $link->icon }}"></i></a>
                             </li>
                         @endforeach
                     </ul>
@@ -49,7 +50,7 @@
                     <form action="" method="POST" id="newsletter">
                         @csrf
                         <input type="text" placeholder="Email" name="email" class="newsletter_email">
-                        <button type="submit" class="common_btn subscribe_btn">subscribe</button>
+                        <button type="submit" class="common_btn subscribe_btn">Subscribe</button>
                     </form>
                     <div class="footer_payment">
                         <p>We're using safe payment for :</p>

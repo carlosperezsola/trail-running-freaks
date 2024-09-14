@@ -26,8 +26,8 @@
                                 <div class="col-10">
                                     <div class="tab-content" id="nav-tabContent">
                                         @include('admin_user.setting.general-setting')
-										<?php /*@include('admin.setting.email-configuration')
-                                        @include('admin.setting.logo-setting')
+										@include('admin_user.setting.email-configuration')
+                                        <?php /*@include('admin.setting.logo-setting')
                                         @include('admin.setting.pusher-setting') */ ?>
                                     </div>
                                 </div>
