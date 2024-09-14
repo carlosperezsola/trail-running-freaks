@@ -2,9 +2,9 @@
     $footerInfo = Cache::rememberForever('footer_info', function () {
         return \App\Models\FooterInfo::first();
     });
-    // $footerSocials = Cache::rememberForever('footer_socials', function () {
-    //     return \App\Models\FooterSocial::where('status', 1)->get();
-    // });
+    $FooterSocial = Cache::rememberForever('footer_socials', function () {
+        return \App\Models\FooterSocial::where('status', 1)->get();
+    });
     // $footerGridTwoLinks = Cache::rememberForever('footer_grid_two', function () {
     //     return \App\Models\FooterGridTwo::where('status', 1)->get();
     // });
@@ -26,12 +26,12 @@
                     <a class="action" href="mailto:{{ @$footerInfo->email }}"><i
                             class="far fa-envelope"></i>{{ @$footerInfo->email }}</a>
                     <p><i class="fal fa-map-marker-alt"></i> {{ @$footerInfo->address }}</p>
-                    {{-- <ul class="wsus__footer_social">
-                        @foreach ($footerSocials as $link)
-                            <li><a class="behance" href="{{ $link->url }}"><i class="{{ $link->icon }}"></i></a>
+                    <ul class="wsus__footer_social">
+                        @foreach ($FooterSocial as $link)
+                            <li><a class="behance" target="_blank" href="{{ $link->url }}"><i class="{{ $link->icon }}"></i></a>
                             </li>
                         @endforeach
-                    </ul> --}}
+                    </ul>
                 </div>
             </div>
             <div class="col-xl-2 col-sm-5 col-md-4 col-lg-2">

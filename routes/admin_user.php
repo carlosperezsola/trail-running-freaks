@@ -22,6 +22,7 @@ use App\Http\Controllers\Backend\StripeSettingController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\HomePageSettingController;
 use App\Http\Controllers\Backend\FooterInfoController;
+use App\Http\Controllers\Backend\FooterSocialController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('dashboard', [AdminUserController::class, 'dashboard'])
@@ -109,8 +110,8 @@ Route::resource('order', OrderController::class);
 
 /** footer routes */
 Route::resource('footer-info', FooterInfoController::class);
-// Route::put('footer-socials/change-status', [FooterSocialController::class, 'changeStatus'])->name('footer-socials.change-status');
-// Route::resource('footer-socials', FooterSocialController::class);
+Route::put('footer-socials/change-status', [FooterSocialController::class, 'changeStatus'])->name('footer-socials.change-status');
+Route::resource('footer-socials', FooterSocialController::class);
 
 // Route::put('footer-grid-two/change-status', [FooterGridTwoController::class, 'changeStatus'])->name('footer-grid-two.change-status');
 // Route::put('footer-grid-two/change-title', [FooterGridTwoController::class, 'changeTitle'])->name('footer-grid-two.change-title');
