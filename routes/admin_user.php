@@ -25,6 +25,7 @@ use App\Http\Controllers\Backend\FooterInfoController;
 use App\Http\Controllers\Backend\FooterSocialController;
 use App\Http\Controllers\Backend\FooterGridController;
 use App\Http\Controllers\Backend\SubscribersController;
+use App\Http\Controllers\Backend\BannerController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('dashboard', [AdminUserController::class, 'dashboard'])
@@ -115,6 +116,13 @@ Route::resource('order', OrderController::class);
 Route::get('subscribers', [SubscribersController::class, 'index'])->name('subscribers.index');
 Route::delete('subscribers/{id}', [SubscribersController::class, 'destroy'])->name('subscribers.destroy');
 Route::post('subscribers-send-mail', [SubscribersController::class, 'sendMail'])->name('subscribers-send-mail');
+
+/** Banner routes */
+Route::get('banner', [BannerController::class, 'index'])->name('banner.index');
+Route::put('banner/homepage-banner-section', [BannerController::class, 'homepageBannersection'])->name('homepage-banner-section');
+Route::put('banner/homepage-banner-section-four', [BannerController::class, 'homepageBannersectionFour'])->name('homepage-banner-section-four');
+Route::put('banner/productpage-banner', [BannerController::class, 'productPageBanner'])->name('productpage-banner');
+Route::put('banner/cartpage-banner', [BannerController::class, 'cartPageBanner'])->name('cartpage-banner');
 
 /** Footer routes */
 Route::resource('footer-info', FooterInfoController::class);
