@@ -24,6 +24,7 @@ use App\Http\Controllers\Backend\HomePageSettingController;
 use App\Http\Controllers\Backend\FooterInfoController;
 use App\Http\Controllers\Backend\FooterSocialController;
 use App\Http\Controllers\Backend\FooterGridController;
+use App\Http\Controllers\Backend\SubscribersController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('dashboard', [AdminUserController::class, 'dashboard'])
@@ -109,6 +110,11 @@ Route::resource('shipping-rule', ShippingRuleController::class);
 Route::get('payment-status', [OrderController::class, 'changePaymentStatus'])->name('payment.status');
 Route::get('order-status', [OrderController::class, 'changeOrderStatus'])->name('order.status');
 Route::resource('order', OrderController::class);
+
+/** Subscribers routes */
+Route::get('subscribers', [SubscribersController::class, 'index'])->name('subscribers.index');
+Route::delete('subscribers/{id}', [SubscribersController::class, 'destroy'])->name('subscribers.destroy');
+Route::post('subscribers-send-mail', [SubscribersController::class, 'sendMail'])->name('subscribers-send-mail');
 
 /** Footer routes */
 Route::resource('footer-info', FooterInfoController::class);
