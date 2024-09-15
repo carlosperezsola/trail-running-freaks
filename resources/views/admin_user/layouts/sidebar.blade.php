@@ -109,6 +109,12 @@
                 </ul>
             </li>
             <li>
+                <a class="nav-link {{ setActive(['admin_user.subscribers.*']) }}"
+                href="{{ route('admin_user.subscribers.index') }}">
+                    <i class="fas fa-user"></i><span>Subscribers</span>
+                </a>
+            </li>
+            <li>
                 <a class="nav-link" href="{{ route('admin_user.settings.index') }}">
                     <i class="far fa-square"></i><span>Settings</span>
                 </a>
