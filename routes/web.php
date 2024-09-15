@@ -61,6 +61,10 @@ Route::get('cart/sidebar-product-total', [CartController::class, 'cartTotal'])->
 Route::post('newsletter-request', [NewsletterController::class, 'newsLetterRequset'])->name('newsletter-request');
 Route::get('newsletter-verify/{token}', [NewsletterController::class, 'newsLetterEmailVerify'])->name('newsletter-verify');
 
+/** Third party page routes */
+Route::get('thirdParty', [HomeController::class, 'thirdPartyPage'])->name('thirdParty.index');
+Route::get('thirdParty-product/{id}', [HomeController::class, 'thirdPartyProductsPage'])->name('thirdParty.products');
+
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 'user.'], function()
 {
     Route::get('dashboard', [UserDashboardController::class, 'index'])->name('dashboard');

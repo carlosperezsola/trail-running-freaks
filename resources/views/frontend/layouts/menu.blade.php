@@ -114,7 +114,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="vendor.html">vendor</a></li>
+                        <li><a href="{{route('thirdParty.index')}}">Third Party</a></li>
                         <li><a href="blog.html">blog</a></li>
                         <li><a href="daily_deals.html">campain</a></li>
                         <li class="wsus__relative_li"><a href="#">pages <i class="fas fa-caret-down"></i></a>
@@ -222,7 +222,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="vendor.html">vendor</a></li>
+                        <li><a href="{{route('thirdParty.index')}}">Third Party</a></li>
                         <li><a href="blog.html">blog</a></li>
                         <li><a href="daily_deals.html">campain</a></li>
                         <li><a href="#" class="accordion-button collapsed" data-bs-toggle="collapse"
