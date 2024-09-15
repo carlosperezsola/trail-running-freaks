@@ -8,11 +8,15 @@ use App\Models\CountDownItem;
 use App\Models\Slider;
 use App\Models\HomePageSetting;
 use App\Models\Brand;
+use App\Models\Banner;
 
 class HomeController extends Controller
 {
     public function index() 
     {
+        $homepage_section_banner = Banner::where('key', 'homepage_section_banner')->first();
+        $homepage_section_banner = json_decode($homepage_section_banner->value);
+
         $sliders = Slider::where('status', 1)->orderBy('serial', 'asc')->get();
         $countDownDate = CountDown::first();
         $countDownItems = CountDownItem::where('show_at_home', 1)->where('status', 1)->get();
@@ -24,7 +28,8 @@ class HomeController extends Controller
                 'countDownDate',
                 'countDownItems',
                 'popularCategory',
-                'brands'
+                'brands',
+                'homepage_section_banner',
             ));
     }
 }

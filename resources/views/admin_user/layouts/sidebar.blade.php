@@ -91,12 +91,13 @@
                             href="{{ route('admin_user.home-page-setting.index') }}">Home Page Settings</a></li>
                 </ul>
             </li>
+            <li>
+                <a class="nav-link {{ setActive(['admin_user.banner.*']) }}" href="{{ route('admin_user.banner.index') }}">
+                    <i class="fas fa-ad"></i> <span>Banners</span>
+                </a>
+            </li>
             <li
-                class="dropdown {{ setActive([
-                    'admin_user.footer-info.index',
-                    'admin_user.footer-socials.*',
-                    'admin_user.footer-grid.*'
-                ]) }}">
+                class="dropdown {{ setActive(['admin_user.footer-info.index', 'admin_user.footer-socials.*', 'admin_user.footer-grid.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-th-large"></i><span>Footer</span></a>
                 <ul class="dropdown-menu">
@@ -110,7 +111,7 @@
             </li>
             <li>
                 <a class="nav-link {{ setActive(['admin_user.subscribers.*']) }}"
-                href="{{ route('admin_user.subscribers.index') }}">
+                    href="{{ route('admin_user.subscribers.index') }}">
                     <i class="fas fa-user"></i><span>Subscribers</span>
                 </a>
             </li>
