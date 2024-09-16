@@ -26,6 +26,7 @@ use App\Http\Controllers\Backend\FooterSocialController;
 use App\Http\Controllers\Backend\FooterGridController;
 use App\Http\Controllers\Backend\SubscribersController;
 use App\Http\Controllers\Backend\BannerController;
+use App\Http\Controllers\Backend\AboutUsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('dashboard', [AdminUserController::class, 'dashboard'])
@@ -123,6 +124,10 @@ Route::put('banner/homepage-banner-section', [BannerController::class, 'homepage
 Route::put('banner/homepage-banner-section-four', [BannerController::class, 'homepageBannersectionFour'])->name('homepage-banner-section-four');
 Route::put('banner/productpage-banner', [BannerController::class, 'productPageBanner'])->name('productpage-banner');
 Route::put('banner/cartpage-banner', [BannerController::class, 'cartPageBanner'])->name('cartpage-banner');
+
+/** About us routes */
+Route::get('about-us', [AboutUsController::class, 'index'])->name('about-us.index');
+Route::put('about-us/update', [AboutUsController::class, 'update'])->name('about-us.update');
 
 /** Footer routes */
 Route::resource('footer-info', FooterInfoController::class);

@@ -3,7 +3,6 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\AdminUserController;
-use App\Http\Controllers\Backend\ThirdPartyUserController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\UserDashboardController;
 use App\Http\Controllers\Frontend\UserProfileController;
@@ -15,6 +14,7 @@ use App\Http\Controllers\Frontend\CheckOutController;
 use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\UserOrderController;
 use App\Http\Controllers\Frontend\NewsletterController;
+use App\Http\Controllers\Frontend\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +60,9 @@ Route::get('cart/sidebar-product-total', [CartController::class, 'cartTotal'])->
 /** Newsletter routes */
 Route::post('newsletter-request', [NewsletterController::class, 'newsLetterRequset'])->name('newsletter-request');
 Route::get('newsletter-verify/{token}', [NewsletterController::class, 'newsLetterEmailVerify'])->name('newsletter-verify');
+
+/** About us page route */
+Route::get('about-us', [PageController::class, 'aboutUs'])->name('about-us');
 
 /** Third party page routes */
 Route::get('thirdParty', [HomeController::class, 'thirdPartyPage'])->name('thirdParty.index');
