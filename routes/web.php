@@ -67,6 +67,10 @@ Route::get('about-us', [PageController::class, 'aboutUs'])->name('about-us');
 /** Terms & conditions page route */
 Route::get('terms-and-conditions', [PageController::class, 'termsAndCondition'])->name('terms-and-conditions');
 
+/** Contact route */
+Route::get('contact', [PageController::class, 'contact'])->name('contact');
+Route::post('contact', [PageController::class, 'manageContactForm'])->name('manage-contact-form');
+
 /** Third party page routes */
 Route::get('thirdParty', [HomeController::class, 'thirdPartyPage'])->name('thirdParty.index');
 Route::get('thirdParty-product/{id}', [HomeController::class, 'thirdPartyProductsPage'])->name('thirdParty.products');

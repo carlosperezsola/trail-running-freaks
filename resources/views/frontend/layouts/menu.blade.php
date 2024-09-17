@@ -114,7 +114,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="{{route('thirdParty.index')}}">Third Party</a></li>
+                        <li><a href="{{ route('thirdParty.index') }}">Third Party</a></li>
                         <li><a href="blog.html">blog</a></li>
                         <li><a href="daily_deals.html">campain</a></li>
                         <li class="wsus__relative_li"><a href="#">pages <i class="fas fa-caret-down"></i></a>
@@ -138,7 +138,7 @@
                         <li><a href="daily_deals.html">daily deals</a></li>
                     </ul>
                     <ul class="wsus__menu_item wsus__menu_item_right">
-                        <li><a href="contact.html">contact</a></li>
+                        <li><a class="{{ setActive(['contact']) }}" href="{{ route('contact') }}">contact</a></li>
                         <li><a href="dsahboard.html">my account</a></li>
                         <li><a href="{{ route('login') }}">login</a></li>
                     </ul>
@@ -222,7 +222,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="{{route('thirdParty.index')}}">Third Party</a></li>
+                        <li><a href="{{ route('thirdParty.index') }}">Third Party</a></li>
                         <li><a href="blog.html">blog</a></li>
                         <li><a href="daily_deals.html">campain</a></li>
                         <li><a href="#" class="accordion-button collapsed" data-bs-toggle="collapse"

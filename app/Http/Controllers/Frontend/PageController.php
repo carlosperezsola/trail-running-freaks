@@ -24,25 +24,24 @@ class PageController extends Controller
         return view('frontend.pages.terms-and-condition', compact('terms'));
     }
 
-    // public function contact()
-    // {
-    //     return view('frontend.pages.contact');
-    // }
+    public function contact()
+    {
+        return view('frontend.pages.contact');
+    }
 
-    // public function handleContactForm(Request $request)
-    // {
-    //     $request->validate([
-    //         'name' => ['required', 'max:200'],
-    //         'email' => ['required', 'email'],
-    //         'subject' => ['required', 'max:200'],
-    //         'message' => ['required', 'max:1000']
-    //     ]);
+    public function manageContactForm(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'max:200'],
+            'email' => ['required', 'email'],
+            'subject' => ['required', 'max:200'],
+            'message' => ['required', 'max:1000']
+        ]);
 
-    //     $setting = EmailConfiguration::first();
+        $setting = EmailConfiguration::first();
 
-    //     Mail::to($setting->email)->send(new Contact($request->subject, $request->message, $request->email));
+        Mail::to($setting->email)->send(new Contact($request->subject, $request->message, $request->email));
 
-    //     return response(['status' => 'success', 'message' => 'Mail sent successfully!']);
-
-    // }
+        return response(['status' => 'success', 'message' => 'Mail sent successfully!']);
+    }
 }
