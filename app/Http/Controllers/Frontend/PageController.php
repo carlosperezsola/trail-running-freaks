@@ -18,11 +18,11 @@ class PageController extends Controller
         return view('frontend.pages.about-us', compact('aboutUs'));
     }
 
-    // public function termsAndCondition()
-    // {
-    //     $terms = TermsAndCondition::first();
-    //     return view('frontend.pages.terms-and-condition', compact('terms'));
-    // }
+    public function termsAndCondition()
+    {
+        $terms = TermsAndCondition::first();
+        return view('frontend.pages.terms-and-condition', compact('terms'));
+    }
 
     // public function contact()
     // {

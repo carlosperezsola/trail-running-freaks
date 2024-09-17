@@ -81,10 +81,8 @@
                     <i class="fas fa-cart-plus"></i><span>Orders</span>
                 </a>
             </li>
-            <li class="dropdown {{ setActive([
-                'admin_user.slider.*',
-                'admin_user.about-us.*'
-                ]) }}">
+            <li
+                class="dropdown {{ setActive(['admin_user.slider.*', 'admin_user.about-us.*', 'admin_user.terms-and-conditions.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cog"></i>
                     <span>Manage Website</span></a>
                 <ul class="dropdown-menu">
@@ -92,15 +90,20 @@
                         <a class="nav-link" href="{{ route('admin_user.slider.index') }}">Slider</a>
                     </li>
                     <li class="{{ setActive(['admin_user.slider.*']) }}">
-                        <a class="nav-link" href="{{ route('admin_user.home-page-setting.index') }}">Home Page Settings</a>
+                        <a class="nav-link" href="{{ route('admin_user.home-page-setting.index') }}">Home Page
+                            Settings</a>
                     </li>
                     <li class="{{ setActive(['admin_user.about-us.index']) }}">
                         <a class="nav-link" href="{{ route('admin_user.about-us.index') }}">About Us Page</a>
                     </li>
+                    <li class="{{ setActive(['admin_user.terms-and-conditions.index']) }}">
+                        <a class="nav-link" href="{{ route('admin_user.terms-and-conditions.index') }}">Terms & Conditions Page</a>
+                    </li>
                 </ul>
             </li>
             <li>
-                <a class="nav-link {{ setActive(['admin_user.banner.*']) }}" href="{{ route('admin_user.banner.index') }}">
+                <a class="nav-link {{ setActive(['admin_user.banner.*']) }}"
+                    href="{{ route('admin_user.banner.index') }}">
                     <i class="fas fa-ad"></i> <span>Banners</span>
                 </a>
             </li>
