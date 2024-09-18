@@ -46,24 +46,26 @@
                         <li><a href="#"><i class="fal fa-gem"></i> View All Categories</a></li>
                     </ul>
                     <ul class="wsus__menu_item">
-                        <li><a class="{{setActive(['home'])}}" href="{{url('/')}}">home</a></li>
-                        <li><a class="{{setActive(['thirdParty.index'])}}" href="{{ route('thirdParty.index') }}">third party</a></li>
-                        <li><a class="{{setActive(['count-down'])}}" href="{{ route('count-down') }}">race Top</a></li>
-                        <li><a class="{{setActive(['about-us'])}}" href="{{route('about-us')}}">about us</a></li>
-                        <li><a class="{{setActive(['contact'])}}" href="{{route('contact')}}">contact</a></li>
+                        <li><a class="{{ setActive(['home']) }}" href="{{ url('/') }}">home</a></li>
+                        <li><a class="{{ setActive(['thirdParty.index']) }}"
+                                href="{{ route('thirdParty.index') }}">third party</a></li>
+                        <li><a class="{{ setActive(['count-down']) }}" href="{{ route('count-down') }}">race Top</a>
+                        </li>
+                        <li><a class="{{ setActive(['about-us']) }}" href="{{ route('about-us') }}">about us</a></li>
+                        <li><a class="{{ setActive(['contact']) }}" href="{{ route('contact') }}">contact</a></li>
                     </ul>
                     <ul class="wsus__menu_item wsus__menu_item_right">
                         {{-- <li><a href="{{route('product-traking.index')}}">track order</a></li> --}}
                         @if (auth()->check())
-                            @if (auth()->user()->role === 'user')
-                                <li><a href="{{route('user.dashboard')}}">my account</a></li>
-                            @elseif (auth()->user()->role === 'vendor')
-                                <li><a href="{{route('third_party_user.dashbaord')}}">Third Party Dashboard</a></li>
-                            @elseif (auth()->user()->role === 'admin')
-                                <li><a href="{{route('admin_user.dashbaord')}}">Admin Dashboard</a></li>
+                            @if (auth()->user()->type_user === 'regular')
+                                <li><a href="{{ route('user.dashboard') }}">my account</a></li>
+                            @elseif (auth()->user()->type_user === 'third-party')
+                                <li><a href="{{ route('third_party_user.dashboard') }}">Third Party Dashboard</a></li>
+                            @elseif (auth()->user()->type_user === 'admin')
+                                <li><a href="{{ route('admin_user.dashboard') }}">Admin Dashboard</a></li>
                             @endif
                         @else
-                            <li><a href="{{route('login')}}">login</a></li>
+                            <li><a href="{{ route('login') }}">login</a></li>
                         @endif
                     </ul>
                 </div>
@@ -126,46 +128,12 @@
             <div class="wsus__mobile_menu_main_menu">
                 <div class="accordion accordion-flush" id="accordionFlushExample2">
                     <ul>
-                        <li><a href="index.html">home</a></li>
-                        <li><a href="#" class="accordion-button collapsed" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseThree" aria-expanded="false"
-                                aria-controls="flush-collapseThree">shop</a>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFlushExample2">
-                                <div class="accordion-body">
-                                    <ul>
-                                        <li><a href="#">men's</a></li>
-                                        <li><a href="#">wemen's</a></li>
-                                        <li><a href="#">kid's</a></li>
-                                        <li><a href="#">others</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li><a href="{{ route('thirdParty.index') }}">Third Party</a></li>
-                        <li><a href="blog.html">blog</a></li>
-                        <li><a href="daily_deals.html">campain</a></li>
-                        <li><a href="#" class="accordion-button collapsed" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseThree101" aria-expanded="false"
-                                aria-controls="flush-collapseThree101">pages</a>
-                            <div id="flush-collapseThree101" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFlushExample2">
-                                <div class="accordion-body">
-                                    <ul>
-                                        <li><a href="404.html">404</a></li>
-                                        <li><a href="faqs.html">faq</a></li>
-                                        <li><a href="invoice.html">invoice</a></li>
-                                        <li><a href="about_us.html">about</a></li>
-                                        <li><a href="team.html">team</a></li>
-                                        <li><a href="product_grid_view.html">product grid view</a></li>
-                                        <li><a href="product_grid_view.html">product list view</a></li>
-                                        <li><a href="team_details.html">team details</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li><a href="track_order.html">track order</a></li>
-                        <li><a href="daily_deals.html">daily deals</a></li>
+                        <li><a class="{{ setActive(['home']) }}" href="{{ url('/') }}">home</a></li>
+                        <li><a class="{{ setActive(['thirdParty.index']) }}" href="{{ route('thirdParty.index') }}">third party</a></li>
+                        <li><a class="{{ setActive(['count-down']) }}" href="{{ route('count-down') }}">race Top</a></li>
+                        <li><a class="{{ setActive(['about-us']) }}" href="{{ route('about-us') }}">about us</a></li>
+                        <li><a class="{{ setActive(['contact']) }}" href="{{ route('contact') }}">contact</a></li>
+                        {{-- <li><a href="{{route('product-traking.index')}}">track order</a></li> --}}
                     </ul>
                 </div>
             </div>

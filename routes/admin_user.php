@@ -30,8 +30,7 @@ use App\Http\Controllers\Backend\AboutUsController;
 use App\Http\Controllers\Backend\TermsAndConditionController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('dashboard', [AdminUserController::class, 'dashboard'])
-    ->name('dashboard');
+Route::get('dashboard', [AdminUserController::class, 'dashboard'])->name('dashboard');
 
 /** Profile routes */
 Route::get('profile', [ProfileUserController::class, 'index'])->name('profile');
