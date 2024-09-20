@@ -7,8 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductVariantItem;
 use Cart;
-use Illuminate\Support\Facades\Session;
-use App\Models\Advertisement;
 
 class CartController extends Controller
 {
@@ -17,15 +15,12 @@ class CartController extends Controller
     {
         $cartItems = Cart::content();
 
-        if(count($cartItems) === 0){
+        if (count($cartItems) === 0) {
             toastr('Please add some products in your cart for view the cart page', 'warning', 'Cart is empty!');
             return redirect()->route('home');
         }
 
-        //$cartpage_banner_section = Advertisement::where('key', 'cartpage_banner_section')->first();
-        //$cartpage_banner_section = json_decode($cartpage_banner_section?->value);
-
-        return view('frontend.pages.cart-detail', compact('cartItems'/*, 'cartpage_banner_section'*/));
+        return view('frontend.pages.cart-detail', compact('cartItems'));
     }
 
     /** Add item to cart */
@@ -33,8 +28,7 @@ class CartController extends Controller
     {
 
         $product = Product::findOrFail($request->product_id);
-
-        //check product quantity
+        
         if ($product->qty === 0) {
             return response(['status' => 'error', 'message' => 'Product stock out']);
         } elseif ($product->qty < $request->qty) {
@@ -52,7 +46,6 @@ class CartController extends Controller
                 $variantTotalAmount += $variantItem->price;
             }
         }
-
 
         /** check discount */
         $productPrice = 0;
@@ -85,7 +78,6 @@ class CartController extends Controller
         $productId = Cart::get($request->rowId)->id;
         $product = Product::findOrFail($productId);
 
-        // check product quantity
         if ($product->qty === 0) {
             return response(['status' => 'error', 'message' => 'Product stock out']);
         } elseif ($product->qty < $request->qty) {
