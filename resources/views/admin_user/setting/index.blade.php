@@ -27,8 +27,8 @@
                                     <div class="tab-content" id="nav-tabContent">
                                         @include('admin_user.setting.general-setting')
 										@include('admin_user.setting.email-configuration')
-                                        <?php /*@include('admin.setting.logo-setting')
-                                        @include('admin.setting.pusher-setting') */ ?>
+                                        @include('admin_user.setting.logo-setting')
+                                        {{-- @include('admin_user.setting.pusher-setting') --}}
                                     </div>
                                 </div>
                             </div>

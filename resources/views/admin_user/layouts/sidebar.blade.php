@@ -1,10 +1,10 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html">Stisla</a>
+            <a href="">{{ $settings->site_name }}</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">St</a>
+            <a href="">||</a>
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
@@ -12,7 +12,7 @@
                 <a href="{{ route('admin_user.dashboard') }}" class="nav-link"><i
                         class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
-            <li class="menu-header">Starter</li>
+            <li class="menu-header">Ecommerce</li>
             <li
                 class="dropdown {{ setActive(['admin_user.category.*', 'admin_user.sub-category.*', 'admin_user.child-category.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-list"></i>
@@ -97,7 +97,8 @@
                         <a class="nav-link" href="{{ route('admin_user.about-us.index') }}">About Us Page</a>
                     </li>
                     <li class="{{ setActive(['admin_user.terms-and-conditions.index']) }}">
-                        <a class="nav-link" href="{{ route('admin_user.terms-and-conditions.index') }}">Terms & Conditions Page</a>
+                        <a class="nav-link" href="{{ route('admin_user.terms-and-conditions.index') }}">Terms &
+                            Conditions Page</a>
                     </li>
                 </ul>
             </li>
@@ -107,6 +108,7 @@
                     <i class="fas fa-ad"></i> <span>Banners</span>
                 </a>
             </li>
+            <li class="menu-header">More features</li>
             <li
                 class="dropdown {{ setActive(['admin_user.footer-info.index', 'admin_user.footer-socials.*', 'admin_user.footer-grid.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
@@ -128,19 +130,9 @@
             </li>
             <li>
                 <a class="nav-link" href="{{ route('admin_user.settings.index') }}">
-                    <i class="far fa-square"></i><span>Settings</span>
+                    <i class="fas fa-wrench"></i><span>Settings</span>
                 </a>
             </li>
-            <?php /*<li class="dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
-                        class="fas fa-columns"></i> <span>Layout</span></a>
-                <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="layout-default.html">Default Layout</a></li>
-                    <li><a class="nav-link" href="layout-transparent.html">Transparent Sidebar</a></li>
-                    <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
-                </ul>
-            </li>*/
-            ?>
         </ul>
     </aside>
 </div>

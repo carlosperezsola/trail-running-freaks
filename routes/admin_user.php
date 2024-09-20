@@ -30,8 +30,7 @@ use App\Http\Controllers\Backend\AboutUsController;
 use App\Http\Controllers\Backend\TermsAndConditionController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('dashboard', [AdminUserController::class, 'dashboard'])
-    ->name('dashboard');
+Route::get('dashboard', [AdminUserController::class, 'dashboard'])->name('dashboard');
 
 /** Profile routes */
 Route::get('profile', [ProfileUserController::class, 'index'])->name('profile');
@@ -100,6 +99,7 @@ Route::delete('count-down/{id}', [CountDownController::class, 'destroy'])->name(
 Route::get('settings', [SettingController::class, 'index'])->name('settings.index');
 Route::put('general-setting-update', [SettingController::class, 'generalSettingUpdate'])->name('general-setting-update');
 Route::put('email-setting-update', [SettingController::class, 'emailConfigSettingUpdate'])->name('email-setting-update');
+Route::put('logo-setting-update', [SettingController::class, 'logoSettingUpdate'])->name('logo-setting-update');
 
 /** home page setting route */
 Route::get('home-page-setting', [HomePageSettingController::class, 'index'])->name('home-page-setting.index');

@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\SubCategory;
 use App\Models\ChildCategory;
+use App\Models\Product;
+use App\Models\HomePageSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -93,7 +95,7 @@ class ChildCategoryController extends Controller
         $request->validate([
             'category' => ['required'],
             'sub_category' => ['required'],
-            'name' => ['required', 'max:200', 'unique:child_categories,name,'.$id],
+            'name' => ['required', 'max:200', 'unique:child_categories,name,' . $id],
             'status' => ['required']
         ]);
 
@@ -116,19 +118,19 @@ class ChildCategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        /*$childCategory = ChildCategory::findOrFail($id);
-        if(Product::where('child_category_id', $childCategory->id)->count() > 0){
-            return response(['status' => 'error', 'message' => 'This item contain relation can\'t delete it.']);
+        $childCategory = ChildCategory::findOrFail($id);
+        if (Product::where('child_category_id', $childCategory->id)->count() > 0) {
+            return response(['status' => 'error', 'message' => 'This item contains relations which can\'t be deleted.']);
         }
         $homeSettings = HomePageSetting::all();
 
-        foreach($homeSettings as $item){
+        foreach ($homeSettings as $item) {
             $array = json_decode($item->value, true);
             $collection = collect($array);
-            if($collection->contains('child_category', $childCategory->id)){
-                return response(['status' => 'error', 'message' => 'This item contain relation can\'t delete it.']);
+            if ($collection->contains('child_category', $childCategory->id)) {
+                return response(['status' => 'error', 'message' => 'This item contains relations which can\'t be deleted.']);
             }
-        }*/
+        }
 
         $childCategory = ChildCategory::findOrFail($id);
         $childCategory->delete();

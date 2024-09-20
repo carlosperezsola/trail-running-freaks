@@ -9590,3 +9590,10 @@ a:not([href]):not([class]):hover {
 	border: 1px solid #08C;
 	background: #fff;
 }
+
+.wsus__hot_deals__single_img {
+	width: 20% !important;
+	height: 20% !important;
+	margin-right: 10px;
+	float: left;
+}
