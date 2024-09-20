@@ -27,8 +27,7 @@
                     <div class="wsus__check_form">
                         <div class="d-flex">
                             <h5>Shipping Details </h5>
-                            <a href="javascript:;" style="margin-left:auto;" class="common_btn" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">add new address</a>
+                            <a href="javascript:;" class="common_btn ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">add new address</a>
                         </div>
                         <div class="row">
                             @foreach ($addresses as $address)
