@@ -55,7 +55,6 @@
                         <li><a class="{{ setActive(['contact']) }}" href="{{ route('contact') }}">contact</a></li>
                     </ul>
                     <ul class="wsus__menu_item wsus__menu_item_right">
-                        {{-- <li><a href="{{route('product-traking.index')}}">track order</a></li> --}}
                         @if (auth()->check())
                             @if (auth()->user()->type_user === 'regular')
                                 <li><a href="{{ route('user.profile') }}">my account</a></li>
@@ -76,8 +75,17 @@
 <section id="wsus__mobile_menu">
     <span class="wsus__mobile_menu_close"><i class="fal fa-times"></i></span>
     <ul class="wsus__mobile_menu_header_icon d-inline-flex">
-        <li><a href="wishlist.html"><i class="far fa-heart"></i> <span>2</span></a></li>
-        <li><a href="compare.html"><i class="far fa-random"></i> </i><span>3</span></a></li>
+        @if (auth()->check())
+            @if (auth()->user()->type_user === 'regular')
+                <li><a href="{{ route('user.profile') }}"><i class="far fa-user"></i></a></li>
+            @elseif (auth()->user()->type_user === 'third-party')
+                <li><a href="{{ route('third_party_user.dashboard') }}"><i class="far fa-user"></i></a></li>
+            @elseif (auth()->user()->type_user === 'admin')
+                <li><a href="{{ route('admin_user.dashboard') }}"><i class="far fa-user"></i></a></li>
+            @endif
+        @else
+            <li><a href="{{ route('login') }}"><i class="fal fa-user"></i></a></li>
+        @endif
     </ul>
     <form action="{{ route('products.index') }}">
         <input type="text" placeholder="Search..." name="search" value="{{ request()->search }}">
@@ -129,11 +137,13 @@
                 <div class="accordion accordion-flush" id="accordionFlushExample2">
                     <ul>
                         <li><a class="{{ setActive(['home']) }}" href="{{ url('/') }}">home</a></li>
-                        <li><a class="{{ setActive(['thirdParty.index']) }}" href="{{ route('thirdParty.index') }}">third party</a></li>
-                        <li><a class="{{ setActive(['count-down']) }}" href="{{ route('count-down') }}">race Top</a></li>
-                        <li><a class="{{ setActive(['about-us']) }}" href="{{ route('about-us') }}">about us</a></li>
+                        <li><a class="{{ setActive(['thirdParty.index']) }}"
+                                href="{{ route('thirdParty.index') }}">third party</a></li>
+                        <li><a class="{{ setActive(['count-down']) }}" href="{{ route('count-down') }}">race Top</a>
+                        </li>
+                        <li><a class="{{ setActive(['about-us']) }}" href="{{ route('about-us') }}">about us</a>
+                        </li>
                         <li><a class="{{ setActive(['contact']) }}" href="{{ route('contact') }}">contact</a></li>
-                        {{-- <li><a href="{{route('product-traking.index')}}">track order</a></li> --}}
                     </ul>
                 </div>
             </div>

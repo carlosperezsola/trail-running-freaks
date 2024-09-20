@@ -28,8 +28,8 @@
                             <i class="fas fa-user-headset"></i>
                         </div>
                         <div class="wsus__call_text">
-                            <p>{{$settings->contact_email}}</p>
-                            <p>{{$settings->contact_phone}}</p>
+                            <p>{{ $settings->contact_email }}</p>
+                            <p>{{ $settings->contact_phone }}</p>
                         </div>
                     </div>
                     <ul class="wsus__icon_area">
