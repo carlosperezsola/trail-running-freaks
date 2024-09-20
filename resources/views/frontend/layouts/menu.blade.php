@@ -58,7 +58,7 @@
                         {{-- <li><a href="{{route('product-traking.index')}}">track order</a></li> --}}
                         @if (auth()->check())
                             @if (auth()->user()->type_user === 'regular')
-                                <li><a href="{{ route('user.dashboard') }}">my account</a></li>
+                                <li><a href="{{ route('user.profile') }}">my account</a></li>
                             @elseif (auth()->user()->type_user === 'third-party')
                                 <li><a href="{{ route('third_party_user.dashboard') }}">Third Party Dashboard</a></li>
                             @elseif (auth()->user()->type_user === 'admin')
