@@ -1,8 +1,6 @@
 @php
     $popularCategories = json_decode($popularCategory->value, true);
-    // dd($popularCategories)
 @endphp
-
 <section id="wsus__monthly_top" class="wsus__monthly_top_2">
     <div class="container">
         <div class="row">
@@ -10,6 +8,10 @@
                 <div class="wsus__section_header for_md">
                     <h3>Popular Categories</h3>
                     <div class="monthly_top_filter">
+                        @php
+                            $products = [];
+                        @endphp
+
                         @foreach ($popularCategories as $key => $popularCategory)
                             @php
                                 $lastKey = [];
@@ -76,7 +78,8 @@
                                         <h5>{!! limitText($item->name) !!}</h5>
                                         @if (checkDiscount($item))
                                             <p class="wsus__tk">{{ $settings->currency_icon }}{{ $item->offer_price }}
-                                                <del>{{ $settings->currency_icon }}{{ $item->price }}</del></p>
+                                                <del>{{ $settings->currency_icon }}{{ $item->price }}</del>
+                                            </p>
                                         @else
                                             <p class="wsus__tk">{{ $settings->currency_icon }}{{ $item->price }}</p>
                                         @endif

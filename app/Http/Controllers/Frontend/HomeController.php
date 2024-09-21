@@ -12,6 +12,7 @@ use App\Models\Banner;
 use App\Models\Product;
 use App\Models\ThirdParty;
 use App\Models\Category;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Response;
 
 class HomeController extends Controller
@@ -21,7 +22,10 @@ class HomeController extends Controller
         $homepage_section_banner = Banner::where('key', 'homepage_section_banner')->first();
         $homepage_section_banner = json_decode($homepage_section_banner->value);
 
-        $sliders = Slider::where('status', 1)->orderBy('serial', 'asc')->get();
+        $sliders = Cache::rememberForever('sliders', function(){
+            return Slider::where('status', 1)->orderBy('serial', 'asc')->get();
+        });
+
         $countDownDate = CountDown::first();
         $countDownItems = CountDownItem::where('show_at_home', 1)->where('status', 1)->pluck('product_id')->toArray();
         $popularCategory = HomePageSetting::where('key', 'popular_category_section')->first();

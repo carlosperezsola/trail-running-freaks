@@ -43,7 +43,7 @@ class FooterGridController extends Controller
         $footer->status = $request->status;
         $footer->save();
 
-        Cache::forget('footer_grid');
+        Cache::forget('footer_grids');
 
         toastr('Created Successfully!', 'success', 'success');
 
@@ -77,7 +77,7 @@ class FooterGridController extends Controller
         $footer->status = $request->status;
         $footer->save();
 
-        Cache::forget('footer_grid');
+        Cache::forget('footer_grids');
 
         toastr('Update Successfully!', 'success', 'success');
 
@@ -91,7 +91,7 @@ class FooterGridController extends Controller
     {
         $footer = FooterGrid::findOrFail($id);
         $footer->delete();
-        Cache::forget('footer_grid');
+        Cache::forget('footer_grids');
 
         return response(['status' => 'success', 'message' => 'Deleted successfully!']);
     }
@@ -102,7 +102,7 @@ class FooterGridController extends Controller
         $footer->status = $request->status == 'true' ? 1 : 0;
         $footer->save();
 
-        Cache::forget('footer_grid');
+        Cache::forget('footer_grids');
 
         return response(['message' => 'Status has been updated!']);
     }
