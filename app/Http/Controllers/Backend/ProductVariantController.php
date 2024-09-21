@@ -48,7 +48,6 @@ class ProductVariantController extends Controller
         toastr('Created Successfully!', 'success', 'success');
 
         return redirect()->route('admin_user.products-variant.index', ['product' => $request->product]);
-
     }
 
     /**
@@ -96,7 +95,7 @@ class ProductVariantController extends Controller
         $variant = ProductVariant::findOrFail($id);
         $variantItemCheck = ProductVariantItem::where('product_variant_id', $variant->id)->count();
         if($variantItemCheck > 0){
-            return response(['status' => 'error', 'message' => 'This variant contain variant items in it delete the variant items first for delete this variant!']);
+            return response(['status' => 'error', 'message' => 'This variant contain variant items in it. Delete the variant items before deleting the variant!']);
         }
         $variant->delete();
 

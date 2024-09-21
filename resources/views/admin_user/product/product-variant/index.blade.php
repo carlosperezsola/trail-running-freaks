@@ -1,7 +1,6 @@
 @extends('admin_user.layouts.main')
 
 @section('container')
-    <!-- Main Content -->
     <section class="section">
         <div class="section-header">
             <h1>Product Variant</h1>
@@ -10,7 +9,6 @@
             <a href="{{ route('admin_user.products.index') }}" class="btn btn-primary">Back</a>
         </div>
         <div class="section-body">
-
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -24,24 +22,20 @@
                         <div class="card-body">
                             {{ $dataTable->table() }}
                         </div>
-
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 @endsection
 
 @push('scripts')
     {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
-
     <script>
         $(document).ready(function() {
             $('body').on('click', '.change-status', function() {
                 let isChecked = $(this).is(':checked');
                 let id = $(this).data('id');
-
                 $.ajax({
                     url: "{{ route('admin_user.products-variant.change-status') }}",
                     method: 'PUT',
@@ -56,7 +50,6 @@
                         console.log(error);
                     }
                 })
-
             })
         })
     </script>
