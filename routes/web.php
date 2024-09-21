@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Backend\AdminUserController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\UserDashboardController;
 use App\Http\Controllers\Frontend\UserProfileController;
@@ -36,8 +35,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
-
-Route::get('admin_user/login', [AdminUserController::class, 'login'])->name('admin_user.login');
 
 Route::get('count-down', [CountDownController::class, 'index'])->name('count-down');
 

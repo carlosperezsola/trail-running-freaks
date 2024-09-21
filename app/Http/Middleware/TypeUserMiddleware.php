@@ -16,18 +16,15 @@ class TypeUserMiddleware
     public function handle(Request $request, Closure $next, $typeUser): Response
     {
         if ($request->user()->type_user !== $typeUser) {
-            // Redirigir a la ruta de dashboard específica según el tipo de usuario
-            switch ($request->user()->type_user) {
-                case 'admin_user':
-                    return redirect()->route('admin_user.dashboard');
-                case 'third-party':
-                    return redirect()->route('third_party_user.dashboard');
-                case 'user':
-                    return redirect()->route('user.profile');
+            if ($request->user()->type_user == 'third-party') {
+                return redirect()->route('third_party_user.dashboard');
+            } elseif ($request->user()->type_user == 'admin') {
+                return redirect()->route('admin_user.dashboard');
+            } else {
+                return redirect()->route('user.dashboard');
             }
         }
 
         return $next($request);
     }
-
 }
