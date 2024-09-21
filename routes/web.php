@@ -68,6 +68,9 @@ Route::get('terms-and-conditions', [PageController::class, 'termsAndCondition'])
 Route::get('contact', [PageController::class, 'contact'])->name('contact');
 Route::post('contact', [PageController::class, 'manageContactForm'])->name('manage-contact-form');
 
+/** Product routes */
+Route::get('show-product-modal/{id}', [HomeController::class, 'ShowProductModal'])->name('show-product-modal');
+
 /** Third party page routes */
 Route::get('thirdParty', [HomeController::class, 'thirdPartyPage'])->name('thirdParty.index');
 Route::get('thirdParty-product/{id}', [HomeController::class, 'thirdPartyProductsPage'])->name('thirdParty.products');

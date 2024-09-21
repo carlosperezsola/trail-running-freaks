@@ -22,7 +22,7 @@
     <!--============================
                     MONTHLY TOP PRODUCT START
                 ==============================-->
-    @include('frontend.home.sections.top-categories')
+    {{-- @include('frontend.home.sections.top-categories')
     <!--============================
                     MONTHLY TOP PRODUCT END
                 ==============================-->
@@ -36,7 +36,7 @@
     <!--============================
                     TRIPLE GRID SECTION START
                 ==============================-->
-    @include('frontend.home.sections.triple-grid')
+    @include('frontend.home.sections.triple-grid') --}}
     <!--============================
                     TRIPLE GRID SECTION END
                 ==============================-->
