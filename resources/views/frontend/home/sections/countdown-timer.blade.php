@@ -15,7 +15,7 @@
         <div class="row flash_sell_slider">
             @foreach ($countDownItems as $item)
                 @php
-                    $product = \App\Models\Product::find($item->product_id);
+                    $product = \App\Models\Product::with(['variants', 'category'])->find($item->product_id);
                 @endphp
                 <div class="col-xl-3 col-sm-6 col-lg-4">
                     <div class="wsus__product_item">
@@ -33,22 +33,13 @@
                                 alt="product" class="img-fluid w-100 img_2" />
                         </a>
                         <ul class="wsus__single_pro_icon">
-                            <li><a href="#" data-bs-toggle="modal"
-                                    data-bs-target="#product-{{ $product->id }}"><i class="far fa-eye"></i></a>
+                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#product" class="show_product_modal" data-id="{{ $product->id }}"><i class="far fa-eye"></i></a>
                             </li>
                             <li><a href="#"><i class="far fa-heart"></i></a></li>
                             <li><a href="#"><i class="far fa-random"></i></a>
                         </ul>
                         <div class="wsus__product_details">
                             <a class="wsus__category" href="#">{{ $product->category->name }} </a>
-                            <p class="wsus__pro_rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                                <span>(133 review)</span>
-                            </p>
                             <a class="wsus__pro_name"
                                 href="{{ route('product-detail', $product->slug) }}">{{ $product->name }}</a>
                             @if (checkDiscount($product))

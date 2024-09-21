@@ -168,5 +168,26 @@
                 }
             })
         })
+
+        $('.show_product_modal').on('click', function() {
+            let id = $(this).data('id');
+
+            $.ajax({
+                mehtod: 'GET',
+                url: '{{ route('show-product-modal', ':id') }}'.replace(":id", id),
+                beforeSend: function() {
+                    $('.product-modal-content').html('<span class="loader"></span>')
+                },
+                success: function(response) {
+                    $('.product-modal-content').html(response)
+                },
+                error: function(xhr, status, error) {
+
+                },
+                complete: function() {
+
+                }
+            })
+        })
     })
 </script>
