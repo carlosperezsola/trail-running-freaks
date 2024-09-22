@@ -54,7 +54,8 @@
                         <li><a class="{{ setActive(['about-us']) }}" href="{{ route('about-us') }}">about us</a></li>
                         <li><a class="{{ setActive(['contact']) }}" href="{{ route('contact') }}">contact</a></li>
                     </ul>
-                    <ul class="wsus__menu_item wsus__menu_item_right">
+                    <ul class="wsus__menu_item wsus__menu_item_right">                        
+                        <li><a href="{{route('product-tracking.index')}}">track my orders</a></li>
                         @if (auth()->check())
                             @if (auth()->user()->type_user === 'regular')
                                 <li><a href="{{ route('user.profile') }}">my account</a></li>
@@ -144,6 +145,7 @@
                         <li><a class="{{ setActive(['about-us']) }}" href="{{ route('about-us') }}">about us</a>
                         </li>
                         <li><a class="{{ setActive(['contact']) }}" href="{{ route('contact') }}">contact</a></li>
+                        <li><a href="{{route('product-tracking.index')}}">track my orders</a></li>
                     </ul>
                 </div>
             </div>
