@@ -14,6 +14,7 @@ use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\UserOrderController;
 use App\Http\Controllers\Frontend\NewsletterController;
 use App\Http\Controllers\Frontend\PageController;
+use App\Http\Controllers\Frontend\ProductTrackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,9 @@ Route::get('terms-and-conditions', [PageController::class, 'termsAndCondition'])
 /** Contact route */
 Route::get('contact', [PageController::class, 'contact'])->name('contact');
 Route::post('contact', [PageController::class, 'manageContactForm'])->name('manage-contact-form');
+
+/** Product track route */
+Route::get('product-tracking', [ProductTrackController::class, 'index'])->name('product-tracking.index');
 
 /** Product routes */
 Route::get('show-product-modal/{id}', [HomeController::class, 'ShowProductModal'])->name('show-product-modal');
