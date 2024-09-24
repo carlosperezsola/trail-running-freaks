@@ -82,7 +82,7 @@ Route::get('thirdParty-product/{id}', [HomeController::class, 'thirdPartyProduct
 Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 'user.'], function () {
     Route::get('dashboard', [UserDashboardController::class, 'index'])->name('dashboard');
     //User profile
-    Route::get('dashboard', [UserProfileController::class, 'index'])->name('profile');
+    Route::get('profile', [UserProfileController::class, 'index'])->name('profile');
     //User profile update
     Route::put('profile', [UserProfileController::class, 'updateProfile'])->name('profile.update');
     //User profile update password
