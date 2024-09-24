@@ -39,8 +39,8 @@
   ==============================-->
     <div class="wsus__dashboard_menu">
         <div class="wsusd__dashboard_user">
-            <img src="{{ asset(auth()->user()->user_img) }}" alt="img" class="img-fluid">
-            <p>{{ auth()->user()->user_name }}</p>
+            <img src="{{ asset(auth()->user()->image) }}" alt="img" class="img-fluid">
+            <p>{{ auth()->user()->name }}</p>
         </div>
     </div>
     <!--=============================
