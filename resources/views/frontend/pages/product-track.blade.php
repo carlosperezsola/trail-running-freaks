@@ -72,7 +72,7 @@
                             </div>
                         </div>
                         <div class="col-xl-12">
-                            <ul class="progtrckr" data-progtrckr-steps="4">
+                            <ul class="progtrckr d-flex justify-content-center" data-progtrckr-steps="4">
                                 <li class="progtrckr_done icon_one check_mark">Pending</li>
                                 @if (@$order->order_status == 'canceled')
                                     <li class="icon_four red_mark">Order Canceled</li>
