@@ -1,4 +1,4 @@
-@extends('third_party_user.layouts.main')
+@extends('frontend.dashboard.layouts.main')
 
 @section('title')
     {{ $settings->site_name }} || Product

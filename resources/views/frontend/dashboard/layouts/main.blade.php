@@ -7,10 +7,11 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <title>
         @yield('title')
     </title>
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="{{ $logoSetting->favicon }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/select2.min.css') }}">
@@ -19,12 +20,13 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/jquery.calendar.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/add_row_custon.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/mobile_menu.css') }}">
-    <link rel="stylesheet" href="css/jquery.exzoom.css">
+    <link rel="stylesheet" href="{{ asset('frontend/css/jquery.exzoom.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/multiple-image-video.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/ranger_style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/jquery.classycountdown.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/venobox.min.css') }}">
-    <link rel="stylesheet" href={{ asset('//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css') }}>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
@@ -33,20 +35,18 @@
 
 <body>
 
-
     <!--=============================
     DASHBOARD MENU START
   ==============================-->
     <div class="wsus__dashboard_menu">
         <div class="wsusd__dashboard_user">
-            <img src="{{ asset(auth()->user()->image) }}" alt="img" class="img-fluid">
-            <p>{{ auth()->user()->name }}</p>
+            <img src="{{ asset(auth()->user()->user_img) }}" alt="img" class="img-fluid">
+            <p>{{ auth()->user()->user_name }}</p>
         </div>
     </div>
     <!--=============================
     DASHBOARD MENU END
   ==============================-->
-
 
     <!--=============================
     DASHBOARD START
@@ -55,7 +55,6 @@
     <!--=============================
     DASHBOARD START
   ==============================-->
-
 
     <!--============================
       SCROLL BUTTON START
@@ -66,7 +65,6 @@
     <!--============================
     SCROLL BUTTON  END
   ==============================-->
-
 
     <!--jquery library js-->
     <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}"></script>
@@ -100,17 +98,15 @@
     <script src="{{ asset('frontend/js/isotope.pkgd.min.js') }}"></script>
     <!--venobox js-->
     <script src="{{ asset('frontend/js/venobox.min.js') }}"></script>
-    <!--toaster js-->
-    <script src={{ asset('//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js') }}></script>
     <!--classycountdown js-->
     <script src="{{ asset('frontend/js/jquery.classycountdown.js') }}"></script>
-    <!--sweetalert js-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!--Sweetalert js-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <!--main/custom js-->
     <script src="{{ asset('frontend/js/main.js') }}"></script>
-
-    <!--Show dynamic validation errors-->
+    <!-- Show Dynamic Validation Erros-->
     <script>
         @if ($errors->any())
             @foreach ($errors->all() as $error)
@@ -118,7 +114,7 @@
             @endforeach
         @endif
     </script>
-
+    <!-- Dynamic Delete alart -->
     <script>
         $(document).ready(function() {
             $.ajaxSetup({
@@ -126,12 +122,9 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-
             $('body').on('click', '.delete-item', function(event) {
                 event.preventDefault();
-
                 let deleteUrl = $(this).attr('href');
-
                 Swal.fire({
                     title: 'Are you sure?',
                     text: "You won't be able to revert this!",
@@ -145,7 +138,6 @@
                         $.ajax({
                             type: 'DELETE',
                             url: deleteUrl,
-
                             success: function(data) {
                                 if (data.status == 'success') {
                                     Swal.fire(
@@ -171,6 +163,7 @@
             })
         })
     </script>
+    @stack('scripts')
 </body>
 
 </html>
