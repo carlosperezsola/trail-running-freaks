@@ -5,7 +5,7 @@
 @endsection
 
 @section('container')
-    <section id="wsus__dashboard">
+    <section id="trf__dashboard">
         <div class="container-fluid">
             @include('third_party_user.layouts.sidebar')
             <div class="row">
@@ -19,8 +19,8 @@
                             <a href="{{ route('third_party_user.products-variant-item.create', ['productId' => $product->id, 'variantId' => $variant->id]) }}"
                                 class="btn btn-primary"><i class="fas fa-plus"></i> Create Variant Item</a>
                         </div>
-                        <div class="wsus__dashboard_profile">
-                            <div class="wsus__dash_pro_area">
+                        <div class="trf__dashboard_profile">
+                            <div class="trf__dash_pro_area">
                                 {{ $dataTable->table() }}
                             </div>
                         </div>

@@ -39,8 +39,8 @@
     <!--=============================
     DASHBOARD MENU START
   ==============================-->
-    <div class="wsus__dashboard_menu">
-        <div class="wsusd__dashboard_user">
+    <div class="trf__dashboard_menu">
+        <div class="trfd__dashboard_user">
             <img src="{{ asset(auth()->user()->user_img) }}" alt="img" class="img-fluid">
             <p>{{ auth()->user()->user_name }}</p>
         </div>
@@ -60,7 +60,7 @@
     <!--============================
       SCROLL BUTTON START
     ==============================-->
-    <div class="wsus__scroll_btn">
+    <div class="trf__scroll_btn">
         <i class="fas fa-chevron-up"></i>
     </div>
     <!--============================

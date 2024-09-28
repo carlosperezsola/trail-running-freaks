@@ -5,8 +5,8 @@
 @endsection
 
 @section('container')
-    <section id="wsus__breadcrumb">
-        <div class="wsus_breadcrumb_overlay">
+    <section id="trf__breadcrumb">
+        <div class="trf_breadcrumb_overlay">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -21,44 +21,44 @@
             </div>
         </div>
     </section>
-    <section id="wsus__cart_view">
+    <section id="trf__cart_view">
         <div class="container">
             <div class="row">
                 <div class="col-xl-9">
-                    <div class="wsus__cart_list">
+                    <div class="trf__cart_list">
                         <div class="table-responsive">
                             <table>
                                 <tbody>
                                     <tr class="d-flex">
-                                        <th class="wsus__pro_img">
+                                        <th class="trf__pro_img">
                                             product item
                                         </th>
 
-                                        <th class="wsus__pro_name">
+                                        <th class="trf__pro_name">
                                             product details
                                         </th>
 
-                                        <th class="wsus__pro_tk">
+                                        <th class="trf__pro_tk">
                                             unit price
                                         </th>
 
-                                        <th class="wsus__pro_tk">
+                                        <th class="trf__pro_tk">
                                             total
                                         </th>
 
-                                        <th class="wsus__pro_select">
+                                        <th class="trf__pro_select">
                                             quantity
                                         </th>
-                                        <th class="wsus__pro_icon">
+                                        <th class="trf__pro_icon">
                                             <a href="#" class="common_btn clear_cart">clear cart</a>
                                         </th>
                                     </tr>
                                     @foreach ($cartItems as $item)
                                         <tr class="d-flex">
-                                            <td class="wsus__pro_img"><img src="{{ asset($item->options->image) }}"
+                                            <td class="trf__pro_img"><img src="{{ asset($item->options->image) }}"
                                                     alt="product" class="img-fluid w-100">
                                             </td>
-                                            <td class="wsus__pro_name">
+                                            <td class="trf__pro_name">
                                                 <p>{!! $item->name !!}</p>
                                                 @foreach ($item->options->variants as $key => $variant)
                                                     <span>{{ $key }}: {{ $variant['name'] }}
@@ -66,15 +66,15 @@
                                                     </span>
                                                 @endforeach
                                             </td>
-                                            <td class="wsus__pro_tk">
+                                            <td class="trf__pro_tk">
                                                 <h6>{{ $settings->currency_icon . $item->price }}</h6>
                                             </td>
-                                            <td class="wsus__pro_tk">
+                                            <td class="trf__pro_tk">
                                                 <h6 id="{{ $item->rowId }}">
                                                     {{ $settings->currency_icon . ($item->price + $item->options->variants_total) * $item->qty }}
                                                 </h6>
                                             </td>
-                                            <td class="wsus__pro_select">
+                                            <td class="trf__pro_select">
                                                 <div class="product_qty_wrapper">
                                                     <button class="btn btn-danger product-decrement">-</button>
                                                     <input class="product-qty" data-rowid="{{ $item->rowId }}"
@@ -83,7 +83,7 @@
                                                     <button class="btn btn-success product-increment">+</button>
                                                 </div>
                                             </td>
-                                            <td class="wsus__pro_icon">
+                                            <td class="trf__pro_icon">
                                                 <a href="{{ route('cart.remove-product', $item->rowId) }}"><i
                                                         class="far fa-times"></i></a>
                                             </td>
@@ -91,7 +91,7 @@
                                     @endforeach
                                     @if (count($cartItems) === 0)
                                         <tr class="d-flex">
-                                            <td class="wsus__pro_icon" rowspan="2" style="width:100%">
+                                            <td class="trf__pro_icon" rowspan="2" style="width:100%">
                                                 Cart is empty!
                                             </td>
                                         </tr>
@@ -102,7 +102,7 @@
                     </div>
                 </div>
                 <div class="col-xl-3">
-                    <div class="wsus__cart_list_footer_button" id="sticky_sidebar">
+                    <div class="trf__cart_list_footer_button" id="sticky_sidebar">
                         <h6>total cart</h6>
                         <p>subtotal: <span id="sub_total">{{ $settings->currency_icon }}{{ getCartTotal() }}</span></p>
                         </p>
@@ -121,15 +121,15 @@
             </div>
         </div>
     </section>
-    <section id="wsus__single_banner">
+    <section id="trf__single_banner">
         <div class="container">
             <div class="row">
                 <div class="col-xl-6 col-lg-6">
-                    <div class="wsus__single_banner_content">
-                        <div class="wsus__single_banner_img">
+                    <div class="trf__single_banner_content">
+                        <div class="trf__single_banner_img">
                             <img src="images/single_banner_2.jpg" alt="banner" class="img-fluid w-100">
                         </div>
-                        <div class="wsus__single_banner_text">
+                        <div class="trf__single_banner_text">
                             <h6>sell on <span>35% off</span></h6>
                             <h3>smart watch</h3>
                             <a class="shop_btn" href="#">shop now</a>
@@ -137,11 +137,11 @@
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6">
-                    <div class="wsus__single_banner_content single_banner_2">
-                        <div class="wsus__single_banner_img">
+                    <div class="trf__single_banner_content single_banner_2">
+                        <div class="trf__single_banner_img">
                             <img src="images/single_banner_3.jpg" alt="banner" class="img-fluid w-100">
                         </div>
-                        <div class="wsus__single_banner_text">
+                        <div class="trf__single_banner_text">
                             <h6>New Collection</h6>
                             <h3>Cosmetics</h3>
                             <a class="shop_btn" href="#">shop now</a>

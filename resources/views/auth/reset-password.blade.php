@@ -5,8 +5,8 @@
 @endsection
 
 @section('container')
-    <section id="wsus__breadcrumb">
-        <div class="wsus_breadcrumb_overlay">
+    <section id="trf__breadcrumb">
+        <div class="trf_breadcrumb_overlay">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -20,26 +20,26 @@
             </div>
         </div>
     </section>
-    <section id="wsus__login_register">
+    <section id="trf__login_register">
         <div class="container">
             <div class="row">
                 <div class="col-xl-5 col-md-10 col-lg-7 m-auto">
                     <form method="POST" action="{{ route('password.store') }}">
                         @csrf
-                        <div class="wsus__change_password">
+                        <div class="trf__change_password">
                             <h4>Reset password</h4>
                             <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
-                            <div class="wsus__single_pass">
+                            <div class="trf__single_pass">
                                 <label>Email</label>
                                 <input id="email" type="email" name="email"
                                     value="{{ old('email', $request->email) }}" placeholder="Email">
                             </div>
-                            <div class="wsus__single_pass">
+                            <div class="trf__single_pass">
                                 <label>New password</label>
                                 <input id="password" type="password" name="password" placeholder="New Password">
                             </div>
-                            <div class="wsus__single_pass">
+                            <div class="trf__single_pass">
                                 <label>Confirm password</label>
                                 <input id="password_confirmation" type="password" name="password_confirmation"
                                     placeholder="Confirm Password">

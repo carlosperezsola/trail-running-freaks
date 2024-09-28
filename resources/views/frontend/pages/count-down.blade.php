@@ -5,8 +5,8 @@
 @endsection
 
 @section('container')
-    <section id="wsus__breadcrumb">
-        <div class="wsus_breadcrumb_overlay">
+    <section id="trf__breadcrumb">
+        <div class="trf_breadcrumb_overlay">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -20,13 +20,13 @@
             </div>
         </div>
     </section>
-    <section id="wsus__daily_deals">
+    <section id="trf__daily_deals">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
-                    <div class="wsus__section_header rounded-0">
+                    <div class="trf__section_header rounded-0">
                         <h3>Count Down</h3>
-                        <div class="wsus__offer_countdown">
+                        <div class="trf__offer_countdown">
                             <span class="end_text">ends time :</span>
                             <div class="simply-countdown simply-countdown-one"></div>
                         </div>

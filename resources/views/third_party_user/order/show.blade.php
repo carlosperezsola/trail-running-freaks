@@ -9,22 +9,22 @@
 @endsection
 
 @section('container')
-    <section id="wsus__dashboard">
+    <section id="trf__dashboard">
         <div class="container-fluid">
             @include('third_party_user.layouts.sidebar')
             <div class="row">
                 <div class="col-xl-9 col-xxl-10 col-lg-9 ms-auto">
                     <div class="dashboard_content mt-2 mt-md-0">
                         <h3><i class="far fa-user"></i> Order Details</h3>
-                        <div class="wsus__dashboard_profile">
+                        <div class="trf__dashboard_profile">
                             <section id="" class="invoice-print">
                                 <div class="">
-                                    <div class="wsus__invoice_area">
-                                        <div class="wsus__invoice_header">
-                                            <div class="wsus__invoice_content">
+                                    <div class="trf__invoice_area">
+                                        <div class="trf__invoice_header">
+                                            <div class="trf__invoice_content">
                                                 <div class="row">
                                                     <div class="col-xl-4 col-md-4 mb-5 mb-md-0">
-                                                        <div class="wsus__invoice_single">
+                                                        <div class="trf__invoice_single">
                                                             <h5>Billing Information</h5>
                                                             <h6>{{ $address->name }}</h6>
                                                             <p>{{ $address->email }}</p>
@@ -35,7 +35,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4 col-md-4 mb-5 mb-md-0">
-                                                        <div class="wsus__invoice_single text-md-start">
+                                                        <div class="trf__invoice_single text-md-start">
                                                             <h5>shipping information</h5>
                                                             <h6>{{ $address->name }}</h6>
                                                             <p>{{ $address->email }}</p>
@@ -46,7 +46,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-xl-4 col-md-4">
-                                                        <div class="wsus__invoice_single text-md-start">
+                                                        <div class="trf__invoice_single text-md-start">
                                                             <h5>Order id: #{{ $order->invoice_id }}</h5>
                                                             <h6>Order status: {{ config('order_status.order_status_admin_user')[$order->order_status]['status'] }}
                                                             </h6>
@@ -58,7 +58,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="wsus__invoice_description">
+                                            <div class="trf__invoice_description">
                                                 <div class="table-responsive">
                                                     <table class="table">
                                                         <tr>
@@ -117,7 +117,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="wsus__invoice_footer">
+                                        <div class="trf__invoice_footer">
                                             <p><span>Total Amount:</span> {{ $settings->currency_icon }}
                                                 {{ $total }} </p>
                                         </div>
