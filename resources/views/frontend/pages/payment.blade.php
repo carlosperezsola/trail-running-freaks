@@ -5,8 +5,8 @@
 @endsection
 
 @section('container')
-    <section id="wsus__breadcrumb">
-        <div class="wsus_breadcrumb_overlay">
+    <section id="trf__breadcrumb">
+        <div class="trf_breadcrumb_overlay">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -20,12 +20,12 @@
             </div>
         </div>
     </section>
-    <section id="wsus__cart_view">
+    <section id="trf__cart_view">
         <div class="container">
-            <div class="wsus__pay_info_area">
+            <div class="trf__pay_info_area">
                 <div class="row">
                     <div class="col-xl-3 col-lg-3">
-                        <div class="wsus__payment_menu" id="sticky_sidebar">
+                        <div class="trf__payment_menu" id="sticky_sidebar">
                             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
                                 aria-orientation="vertical">
                                 {{-- <button class="nav-link common_btn active" id="v-pills-home-tab" data-bs-toggle="pill"
@@ -46,7 +46,7 @@
                                 aria-labelledby="v-pills-home-tab">
                                 <div class="row">
                                     <div class="col-xl-12 m-auto">
-                                        <div class="wsus__payment_area">
+                                        <div class="trf__payment_area">
                                             <a class="nav-link common_btn text-center"
                                                 href="{{ route('user.paypal.payment') }}">Pay with Paypal</a>
                                         </div>
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-4">
-                        <div class="wsus__pay_booking_summary" id="sticky_sidebar2">
+                        <div class="trf__pay_booking_summary" id="sticky_sidebar2">
                             <h5>Order Summary</h5>
                             <p>subtotal: <span>{{ $settings->currency_icon }}{{ getCartTotal() }}</span></p>
                             <p>shipping fee(+) : <span>{{ $settings->currency_icon }}{{ getShippingFee() }}</span></p>

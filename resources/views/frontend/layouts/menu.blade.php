@@ -12,26 +12,26 @@
         ->get();
 @endphp
 
-<nav class="wsus__main_menu d-none d-lg-block">
+<nav class="trf__main_menu d-none d-lg-block">
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
                 <div class="relative_contect d-flex">
-                    <div class="wsus_menu_category_bar">
+                    <div class="trf_menu_category_bar">
                         <i class="far fa-bars"></i>
                     </div>
-                    <ul class="wsus_menu_cat_item show_home toggle_menu">
+                    <ul class="trf_menu_cat_item show_home toggle_menu">
                         @foreach ($categories as $category)
-                            <li><a class="{{ count($category->subCategories) > 0 ? 'wsus__droap_arrow' : '' }}"
+                            <li><a class="{{ count($category->subCategories) > 0 ? 'trf__droap_arrow' : '' }}"
                                     href="{{ route('products.index', ['category' => $category->slug]) }}"><i
                                         class="{{ $category->icon }}"></i> {{ $category->name }} </a>
                                 @if (count($category->subCategories) > 0)
-                                    <ul class="wsus_menu_cat_droapdown">
+                                    <ul class="trf_menu_cat_droapdown">
                                         @foreach ($category->subCategories as $subCategory)
                                             <li><a href="#">{{ $subCategory->name }} <i
                                                         class="{{ count($subCategory->childCategories) > 0 ? 'fas fa-angle-right' : '' }}"></i></a>
                                                 @if (count($subCategory->childCategories) > 0)
-                                                    <ul class="wsus__sub_category">
+                                                    <ul class="trf__sub_category">
                                                         @foreach ($subCategory->childCategories as $childCategory)
                                                             <li><a href="#">{{ $childCategory->name }}</a> </li>
                                                         @endforeach
@@ -45,7 +45,7 @@
                         @endforeach
                         <li><a href="#"><i class="fal fa-gem"></i> View All Categories</a></li>
                     </ul>
-                    <ul class="wsus__menu_item">
+                    <ul class="trf__menu_item">
                         <li><a class="{{ setActive(['home']) }}" href="{{ url('/') }}">home</a></li>
                         <li><a class="{{ setActive(['thirdParty.index']) }}"
                                 href="{{ route('thirdParty.index') }}">third party</a></li>
@@ -54,7 +54,7 @@
                         <li><a class="{{ setActive(['about-us']) }}" href="{{ route('about-us') }}">about us</a></li>
                         <li><a class="{{ setActive(['contact']) }}" href="{{ route('contact') }}">contact</a></li>
                     </ul>
-                    <ul class="wsus__menu_item wsus__menu_item_right">                        
+                    <ul class="trf__menu_item trf__menu_item_right">                        
                         <li><a href="{{route('product-tracking.index')}}">track my orders</a></li>
                         @if (auth()->check())
                             @if (auth()->user()->type_user === 'regular')
@@ -73,9 +73,9 @@
         </div>
     </div>
 </nav>
-<section id="wsus__mobile_menu">
-    <span class="wsus__mobile_menu_close"><i class="fal fa-times"></i></span>
-    <ul class="wsus__mobile_menu_header_icon d-inline-flex">
+<section id="trf__mobile_menu">
+    <span class="trf__mobile_menu_close"><i class="fal fa-times"></i></span>
+    <ul class="trf__mobile_menu_header_icon d-inline-flex">
         @if (auth()->check())
             @if (auth()->user()->type_user === 'regular')
                 <li><a href="{{ route('user.profile') }}"><i class="far fa-user"></i></a></li>
@@ -104,9 +104,9 @@
     </ul>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-            <div class="wsus__mobile_menu_main_menu">
+            <div class="trf__mobile_menu_main_menu">
                 <div class="accordion accordion-flush" id="accordionFlushExample">
-                    <ul class="wsus_mobile_menu_category">
+                    <ul class="trf_mobile_menu_category">
                         @foreach ($categories as $categoryItem)
                             <li>
                                 <a href="#"
@@ -134,7 +134,7 @@
             </div>
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-            <div class="wsus__mobile_menu_main_menu">
+            <div class="trf__mobile_menu_main_menu">
                 <div class="accordion accordion-flush" id="accordionFlushExample2">
                     <ul>
                         <li><a class="{{ setActive(['home']) }}" href="{{ url('/') }}">home</a></li>

@@ -5,8 +5,8 @@
 @endsection
 
 @section('container')
-    <section id="wsus__breadcrumb">
-        <div class="wsus_breadcrumb_overlay">
+    <section id="trf__breadcrumb">
+        <div class="trf_breadcrumb_overlay">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -20,9 +20,9 @@
             </div>
         </div>
     </section>
-    <section id="wsus__cart_view">
+    <section id="trf__cart_view">
         <div class="container">
-            <div class="wsus__pay_info_area">
+            <div class="trf__pay_info_area">
                 <div class="row">
                     <div class="card">
                         <div class="cart-body p-5">

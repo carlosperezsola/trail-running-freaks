@@ -5,8 +5,8 @@
 @endsection
 
 @section('container')
-    <section id="wsus__breadcrumb">
-        <div class="wsus_breadcrumb_overlay">
+    <section id="trf__breadcrumb">
+        <div class="trf_breadcrumb_overlay">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -20,18 +20,18 @@
             </div>
         </div>
     </section>
-    <section id="wsus__product_page">
+    <section id="trf__product_page">
         <div class="container">
             <div class="row">
                 <div class="col-xl-3 col-lg-4">
-                    <div class="wsus__sidebar_filter ">
+                    <div class="trf__sidebar_filter ">
                         <p>filter</p>
-                        <span class="wsus__filter_icon">
+                        <span class="trf__filter_icon">
                             <i class="far fa-minus" id="minus"></i>
                             <i class="far fa-plus" id="plus"></i>
                         </span>
                     </div>
-                    <div class="wsus__product_sidebar" id="sticky_sidebar">
+                    <div class="trf__product_sidebar" id="sticky_sidebar">
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
@@ -106,8 +106,8 @@
                 <div class="col-xl-9 col-lg-8">
                     <div class="row">
                         <div class="col-xl-12 d-none d-md-block mt-md-4 mt-lg-0">
-                            <div class="wsus__product_topbar">
-                                <div class="wsus__product_topbar_left">
+                            <div class="trf__product_topbar">
+                                <div class="trf__product_topbar_left">
                                     <div class="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                         <button
                                             class="nav-link {{ session()->has('product_list_style') && session()->get('product_list_style') == 'grid' ? 'active' : '' }} {{ !session()->has('product_list_style') ? 'active' : '' }} list-view"
@@ -133,40 +133,40 @@
                                 <div class="row">
                                     @foreach ($products as $product)
                                         <div class="col-xl-4 col-sm-6">
-                                            <div class="wsus__product_item">
-                                                <span class="wsus__new">{{ productType($product->product_type) }}</span>
+                                            <div class="trf__product_item">
+                                                <span class="trf__new">{{ productType($product->product_type) }}</span>
                                                 @if (checkDiscount($product))
                                                     <span
-                                                        class="wsus__minus">-{{ calculateDiscountPercent($product->price, $product->offer_price) }}%</span>
+                                                        class="trf__minus">-{{ calculateDiscountPercent($product->price, $product->offer_price) }}%</span>
                                                 @endif
-                                                <a class="wsus__pro_link"
+                                                <a class="trf__pro_link"
                                                     href="{{ route('product-detail', $product->slug) }}">
                                                     <img src="{{ asset($product->thumb_image) }}" alt="product"
                                                         class="img-fluid w-100 img_1" />
                                                     <img src="@if (isset($product->productImageGalleries[0]->image)) {{ asset($product->productImageGalleries[0]->image) }}@else {{ asset($product->thumb_image) }} @endif"
                                                         alt="product" class="img-fluid w-100 img_2" />
                                                 </a>
-                                                <ul class="wsus__single_pro_icon">
+                                                <ul class="trf__single_pro_icon">
                                                     <li><a href="#" data-bs-toggle="modal" data-bs-target="#product" class="show_product_modal" data-id="{{ $product->id }}"><i class="far fa-eye"></i></a>
                                                     </li>
                                                 </ul>
-                                                <div class="wsus__product_details">
+                                                <div class="trf__product_details">
                                                     <!-- Null check for product category -->
                                                     @if ($product->category)
-                                                        <a class="wsus__category"
+                                                        <a class="trf__category"
                                                             href="#">{{ $product->category->name }}</a>
                                                     @else
-                                                        <a class="wsus__category" href="#">Uncategorized</a>
+                                                        <a class="trf__category" href="#">Uncategorized</a>
                                                     @endif
-                                                    <a class="wsus__pro_name"
+                                                    <a class="trf__pro_name"
                                                         href="{{ route('product-detail', $product->slug) }}">{{ limitText($product->name, 53) }}</a>
                                                     @if (checkDiscount($product))
-                                                        <p class="wsus__price">
+                                                        <p class="trf__price">
                                                             {{ $settings->currency_icon }}{{ $product->offer_price }}
                                                             <del>{{ $settings->currency_icon }}{{ $product->price }}</del>
                                                         </p>
                                                     @else
-                                                        <p class="wsus__price">
+                                                        <p class="trf__price">
                                                             {{ $settings->currency_icon }}{{ $product->price }}</p>
                                                     @endif
                                                     <form class="shopping-cart-form">
@@ -202,13 +202,13 @@
                                 <div class="row">
                                     @foreach ($products as $product)
                                         <div class="col-xl-12">
-                                            <div class="wsus__product_item wsus__list_view">
-                                                <span class="wsus__new">{{ productType($product->product_type) }}</span>
+                                            <div class="trf__product_item trf__list_view">
+                                                <span class="trf__new">{{ productType($product->product_type) }}</span>
                                                 @if (checkDiscount($product))
                                                     <span
-                                                        class="wsus__minus">-{{ calculateDiscountPercent($product->price, $product->offer_price) }}%</span>
+                                                        class="trf__minus">-{{ calculateDiscountPercent($product->price, $product->offer_price) }}%</span>
                                                 @endif
-                                                <a class="wsus__pro_link"
+                                                <a class="trf__pro_link"
                                                     href="{{ route('product-detail', $product->slug) }}">
                                                     <img src="{{ asset($product->thumb_image) }}" alt="product"
                                                         class="img-fluid w-100 img_1" />
@@ -219,22 +219,22 @@
                                                 "
                                                         alt="product" class="img-fluid w-100 img_2" />
                                                 </a>
-                                                <div class="wsus__product_details">
-                                                    <a class="wsus__category"
+                                                <div class="trf__product_details">
+                                                    <a class="trf__category"
                                                         href="#">{{ @$product->category->name }} </a>
-                                                    <a class="wsus__pro_name"
+                                                    <a class="trf__pro_name"
                                                         href="{{ route('product-detail', $product->slug) }}">{{ $product->name }}</a>
                                                     @if (checkDiscount($product))
-                                                        <p class="wsus__price">
+                                                        <p class="trf__price">
                                                             {{ $settings->currency_icon }}{{ $product->offer_price }}
                                                             <del>{{ $settings->currency_icon }}{{ $product->price }}</del>
                                                         </p>
                                                     @else
-                                                        <p class="wsus__price">
+                                                        <p class="trf__price">
                                                             {{ $settings->currency_icon }}{{ $product->price }}</p>
                                                     @endif
                                                     <p class="list_description">{{ $product->short_description }}</p>
-                                                    <ul class="wsus__single_pro_icon">
+                                                    <ul class="trf__single_pro_icon">
                                                         <form class="shopping-cart-form">
                                                             <input type="hidden" name="product_id"
                                                                 value="{{ $product->id }}">

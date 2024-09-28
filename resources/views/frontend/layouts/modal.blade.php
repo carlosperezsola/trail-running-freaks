@@ -3,9 +3,9 @@
             class="far fa-times"></i></button>
     <div class="row">
         <div class="col-xl-6 col-12 col-sm-10 col-md-8 col-lg-6 m-auto display">
-            <div class="wsus__quick_view_img">
+            <div class="trf__quick_view_img">
                 @if ($product->video_link)
-                    <a class="venobox wsus__pro_det_video" data-autoplay="true" data-vbtype="video"
+                    <a class="venobox trf__pro_det_video" data-autoplay="true" data-vbtype="video"
                         href="{{ $product->video_link }}">
                         <i class="fas fa-play"></i>
                     </a>
@@ -21,14 +21,14 @@
             </div>
         </div>
         <div class="col-xl-6 col-12 col-sm-12 col-md-12 col-lg-6">
-            <div class="wsus__pro_details_text">
+            <div class="trf__pro_details_text">
                 <a class="title" href="#">{{ limitText($product->name, 150) }}</a>
                 @if ($product->qty > 0)
-                    <p class="wsus__stock_area"><span class="in_stock">in stock</span>
+                    <p class="trf__stock_area"><span class="in_stock">in stock</span>
                         ({{ $product->qty }}
                         item)</p>
                 @elseif ($product->qty === 0)
-                    <p class="wsus__stock_area"><span class="in_stock">stock out</span>
+                    <p class="trf__stock_area"><span class="in_stock">stock out</span>
                         ({{ $product->qty }}
                         item)</p>
                 @endif
@@ -42,7 +42,7 @@
                 @endif
                 <p class="description">{!! limitText($product->short_description, 200) !!}</p>
                 <form class="shopping-cart-form">
-                    <div class="wsus__selectbox">
+                    <div class="trf__selectbox">
                         <div class="row">
                             <input type="hidden" name="product_id" value="{{ $product->id }}">
                             @foreach ($product->variants as $variant)
@@ -65,14 +65,14 @@
                             @endforeach
                         </div>
                     </div>
-                    <div class="wsus__quentity">
+                    <div class="trf__quentity">
                         <h5>Quantity:</h5>
                         <div class="select_number">
                             <input class="number_area" name="qty" type="text"
                                 min="1" max="100" value="1" />
                         </div>
                     </div>
-                    <ul class="wsus__button_area">
+                    <ul class="trf__button_area">
                         <li><button type="submit" class="add_cart" href="#">add to cart</button></li>
                     </ul>
                 </form>
