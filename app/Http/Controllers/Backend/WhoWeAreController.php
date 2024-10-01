@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\AboutUs;
+use App\Models\WhoWeAre;
 use Illuminate\Http\Request;
 
-class AboutUsController extends Controller
+class WhoWeAreController extends Controller
 {
     public function index()
     {
-        $content = AboutUs::first();
-        return view('admin_user.about-us.index', compact('content'));
+        $content = WhoWeAre::first();
+        return view('admin_user.who-we-are.index', compact('content'));
     }
 
     public function update(Request $request)
@@ -20,7 +20,7 @@ class AboutUsController extends Controller
             'content' => ['required']
         ]);
 
-        AboutUs::updateOrCreate(
+        WhoWeAre::updateOrCreate(
             ['id' => 1],
             [
                 'content' => $request->content

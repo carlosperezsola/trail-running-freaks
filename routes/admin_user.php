@@ -26,7 +26,7 @@ use App\Http\Controllers\Backend\FooterSocialController;
 use App\Http\Controllers\Backend\FooterGridController;
 use App\Http\Controllers\Backend\SubscribersController;
 use App\Http\Controllers\Backend\BannerController;
-use App\Http\Controllers\Backend\AboutUsController;
+use App\Http\Controllers\Backend\WhoWeAreController;
 use App\Http\Controllers\Backend\TermsAndConditionController;
 use Illuminate\Support\Facades\Route;
 
@@ -126,9 +126,9 @@ Route::put('banner/homepage-banner-section-four', [BannerController::class, 'hom
 Route::put('banner/productpage-banner', [BannerController::class, 'productPageBanner'])->name('productpage-banner');
 Route::put('banner/cartpage-banner', [BannerController::class, 'cartPageBanner'])->name('cartpage-banner');
 
-/** About us routes */
-Route::get('about-us', [AboutUsController::class, 'index'])->name('about-us.index');
-Route::put('about-us/update', [AboutUsController::class, 'update'])->name('about-us.update');
+/** Who we are routes */
+Route::get('who-we-are', [WhoWeAreController::class, 'index'])->name('who-we-are.index');
+Route::put('who-we-are/update', [WhoWeAreController::class, 'update'])->name('who-we-are.update');
 
 /** Terms & conditons routes */
 Route::get('terms-and-conditions', [TermsAndConditionController::class, 'index'])->name('terms-and-conditions.index');

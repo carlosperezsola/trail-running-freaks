@@ -82,7 +82,7 @@
                 </a>
             </li>
             <li
-                class="dropdown {{ setActive(['admin_user.slider.*', 'admin_user.about-us.*', 'admin_user.terms-and-conditions.*']) }}">
+                class="dropdown {{ setActive(['admin_user.slider.*', 'admin_user.who-we-are.*', 'admin_user.terms-and-conditions.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cog"></i>
                     <span>Manage Website</span></a>
                 <ul class="dropdown-menu">
@@ -93,8 +93,8 @@
                         <a class="nav-link" href="{{ route('admin_user.home-page-setting.index') }}">Home Page
                             Settings</a>
                     </li>
-                    <li class="{{ setActive(['admin_user.about-us.index']) }}">
-                        <a class="nav-link" href="{{ route('admin_user.about-us.index') }}">About Us Page</a>
+                    <li class="{{ setActive(['admin_user.who-we-are.index']) }}">
+                        <a class="nav-link" href="{{ route('admin_user.who-we-are.index') }}">Who We Are Page</a>
                     </li>
                     <li class="{{ setActive(['admin_user.terms-and-conditions.index']) }}">
                         <a class="nav-link" href="{{ route('admin_user.terms-and-conditions.index') }}">Terms &

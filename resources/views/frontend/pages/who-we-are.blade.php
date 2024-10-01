@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('title')
-    {{ $settings->site_name }} || About Us
+    {{ $settings->site_name }} || Who We Are
 @endsection
 
 @section('container')
@@ -10,10 +10,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h4>About Us</h4>
+                        <h4>Who We Are</h4>
                         <ul>
                             <li><a href="{{ route('home') }}">home</a></li>
-                            <li><a href="javascript:;">About Us</a></li>
+                            <li><a href="javascript:;">Who We Are</a></li>
                         </ul>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="card">
                         <div class="cart-body p-5">
-                            {!! @$aboutUs->content !!}
+                            {!! @$whoWeAre->content !!}
                         </div>
                     </div>
                 </div>

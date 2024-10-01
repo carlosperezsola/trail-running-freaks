@@ -3,7 +3,7 @@
 @section('container')
     <section class="section">
         <div class="section-header">
-            <h1>About Us</h1>
+            <h1>Who We Are</h1>
         </div>
         <div class="section-body">
             <div class="row">
@@ -12,7 +12,7 @@
                         <div class="card-header">
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin_user.about-us.update') }}" method="POST">
+                            <form action="{{ route('admin_user.who-we-are.update') }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">

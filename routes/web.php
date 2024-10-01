@@ -59,8 +59,8 @@ Route::get('cart/sidebar-product-total', [CartController::class, 'cartTotal'])->
 Route::post('newsletter-request', [NewsletterController::class, 'newsLetterRequset'])->name('newsletter-request');
 Route::get('newsletter-verify/{token}', [NewsletterController::class, 'newsLetterEmailVerify'])->name('newsletter-verify');
 
-/** About us page route */
-Route::get('about-us', [PageController::class, 'aboutUs'])->name('about-us');
+/** Who we are page route */
+Route::get('who-we-are', [PageController::class, 'whoWeAre'])->name('who-we-are');
 
 /** Terms & conditions page route */
 Route::get('terms-and-conditions', [PageController::class, 'termsAndCondition'])->name('terms-and-conditions');

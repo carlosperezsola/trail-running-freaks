@@ -51,7 +51,7 @@
                                 href="{{ route('thirdParty.index') }}">third party</a></li>
                         <li><a class="{{ setActive(['count-down']) }}" href="{{ route('count-down') }}">race Top</a>
                         </li>
-                        <li><a class="{{ setActive(['about-us']) }}" href="{{ route('about-us') }}">about us</a></li>
+                        <li><a class="{{ setActive(['who-we-are']) }}" href="{{ route('who-we-are') }}">who we are</a></li>
                         <li><a class="{{ setActive(['contact']) }}" href="{{ route('contact') }}">contact</a></li>
                     </ul>
                     <ul class="trf__menu_item trf__menu_item_right">                        
@@ -142,7 +142,7 @@
                                 href="{{ route('thirdParty.index') }}">third party</a></li>
                         <li><a class="{{ setActive(['count-down']) }}" href="{{ route('count-down') }}">race Top</a>
                         </li>
-                        <li><a class="{{ setActive(['about-us']) }}" href="{{ route('about-us') }}">about us</a>
+                        <li><a class="{{ setActive(['who-we-are']) }}" href="{{ route('who-we-are') }}">who we are</a>
                         </li>
                         <li><a class="{{ setActive(['contact']) }}" href="{{ route('contact') }}">contact</a></li>
                         <li><a href="{{route('product-tracking.index')}}">track my orders</a></li>

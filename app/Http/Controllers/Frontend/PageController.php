@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Mail\Contact;
-use App\Models\AboutUs;
+use App\Models\WhoWeAre;
 use App\Models\EmailConfiguration;
 use App\Models\TermsAndCondition;
 use Illuminate\Http\Request;
@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Mail;
 
 class PageController extends Controller
 {
-    public function aboutUs()
+    public function whoWeAre()
     {
-        $aboutUs = AboutUs::first();
-        return view('frontend.pages.about-us', compact('aboutUs'));
+        $whoWeAre = WhoWeAre::first();
+        return view('frontend.pages.who-we-are', compact('whoWeAre'));
     }
 
     public function termsAndCondition()
