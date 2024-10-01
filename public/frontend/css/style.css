@@ -1441,7 +1441,7 @@ PRODUCT MODAL VIEW END
 /*======================
 	BRAND SLIDER START
 ========================*/
-#trf__brand_sleder {
+#trf__brand_slider {
 	margin-top: 70px;
 	border: 1px solid #e5e4e4;
 	border-left: 0;
@@ -1454,8 +1454,8 @@ PRODUCT MODAL VIEW END
 	margin: 2px 15px;
 }
 
-#trf__brand_sleder .nxt_arr,
-#trf__brand_sleder .prv_arr {
+#trf__brand_slider .nxt_arr,
+#trf__brand_slider .prv_arr {
 	position: absolute;
 	top: 50%;
 	left: -15px;
@@ -1479,13 +1479,13 @@ PRODUCT MODAL VIEW END
 	transform: translateY(-50%);
 }
 
-#trf__brand_sleder .nxt_arr {
+#trf__brand_slider .nxt_arr {
 	left: auto;
 	right: 0;
 }
 
-#trf__brand_sleder .nxt_arr:hover,
-#trf__brand_sleder .prv_arr:hover {
+#trf__brand_slider .nxt_arr:hover,
+#trf__brand_slider .prv_arr:hover {
 	background: #08C;
 	opacity: 1;
 }

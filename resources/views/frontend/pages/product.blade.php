@@ -84,16 +84,16 @@
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseThree3" aria-expanded="false"
                                         aria-controls="collapseThree">
-                                        brand
+                                        trademark
                                     </button>
                                 </h2>
                                 <div id="collapseThree3" class="accordion-collapse collapse show"
                                     aria-labelledby="headingThree3" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         <ul>
-                                            @foreach ($brands as $brand)
+                                            @foreach ($trademarks as $trademark)
                                                 <li><a
-                                                        href="{{ route('products.index', ['brand' => $brand->slug]) }}">{{ $brand->name }}</a>
+                                                        href="{{ route('products.index', ['trademark' => $trademark->slug]) }}">{{ $trademark->name }}</a>
                                                 </li>
                                             @endforeach
                                         </ul>

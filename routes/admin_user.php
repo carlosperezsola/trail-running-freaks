@@ -7,7 +7,7 @@ use App\Http\Controllers\Backend\ProfileUserController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\ChildCategoryController;
-use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\Backend\TrademarkController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ProductImageGalleryController;
 use App\Http\Controllers\Backend\ProductVariantController;
@@ -53,9 +53,9 @@ Route::put('child-category/change-status', [ChildCategoryController::class, 'cha
 Route::get('get-subcategories', [ChildCategoryController::class, 'getSubCategories'])->name('get-subcategories');
 Route::resource('child-category', ChildCategoryController::class);
 
-/** Brand routes */
-Route::put('brand/change-status', [BrandController::class, 'changeStatus'])->name('brand.change-status');
-Route::resource('brand', BrandController::class);
+/** Trademark routes */
+Route::put('trademark/change-status', [TrademarkController::class, 'changeStatus'])->name('trademark.change-status');
+Route::resource('trademark', TrademarkController::class);
 
 /** Third party profile routes */
 Route::resource('third-party-profile', AdminThirdPartyUserProfileController::class);

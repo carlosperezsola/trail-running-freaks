@@ -76,7 +76,7 @@
                         <li><button type="submit" class="add_cart" href="#">add to cart</button></li>
                     </ul>
                 </form>
-                <p class="brand_model"><span>brand :</span> {{ $product->brand->name }}</p>
+                <p class="brand_model"><span>trademark :</span> {{ $product->trademark->name }}</p>
             </div>
         </div>
     </div>

@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\Brand;
+use App\Models\Trademark;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -12,7 +12,7 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class BrandDataTable extends DataTable
+class TrademarkDataTable extends DataTable
 {
     /**
      * Build the DataTable class.
@@ -23,8 +23,8 @@ class BrandDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function($query){
-                $editBtn = "<a href='".route('admin_user.brand.edit', $query->id)."' class='btn btn-primary'><i class='far fa-edit'></i></a>";
-                $deleteBtn = "<a href='".route('admin_user.brand.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
+                $editBtn = "<a href='".route('admin_user.trademark.edit', $query->id)."' class='btn btn-primary'><i class='far fa-edit'></i></a>";
+                $deleteBtn = "<a href='".route('admin_user.trademark.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
 
                 return $editBtn.$deleteBtn;
             })
@@ -61,7 +61,7 @@ class BrandDataTable extends DataTable
     /**
      * Get the query source of dataTable.
      */
-    public function query(Brand $model): QueryBuilder
+    public function query(Trademark $model): QueryBuilder
     {
         return $model->newQuery();
     }
@@ -72,7 +72,7 @@ class BrandDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('brand-table')
+                    ->setTableId('trademark-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     //->dom('Bfrtip')
@@ -113,6 +113,6 @@ class BrandDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Brand_' . date('YmdHis');
+        return 'Trademark_' . date('YmdHis');
     }
 }

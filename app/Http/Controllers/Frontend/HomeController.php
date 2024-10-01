@@ -7,7 +7,7 @@ use App\Models\CountDown;
 use App\Models\CountDownItem;
 use App\Models\Slider;
 use App\Models\HomePageSetting;
-use App\Models\Brand;
+use App\Models\Trademark;
 use App\Models\Banner;
 use App\Models\Product;
 use App\Models\ThirdParty;
@@ -29,14 +29,14 @@ class HomeController extends Controller
         $countDownDate = CountDown::first();
         $countDownItems = CountDownItem::where('show_at_home', 1)->where('status', 1)->pluck('product_id')->toArray();
         $popularCategory = HomePageSetting::where('key', 'popular_category_section')->first();
-        $brands = Brand::where('status', 1)->where('is_featured', 1)->get();
+        $trademarks = Trademark::where('status', 1)->where('is_featured', 1)->get();
         return view('frontend.home.home',
             compact(
                 'sliders',
                 'countDownDate',
                 'countDownItems',
                 'popularCategory',
-                'brands',
+                'trademarks',
                 'homepage_section_banner',
             ));
     }
@@ -51,9 +51,9 @@ class HomeController extends Controller
     {
         $products = Product::where(['status' => 1, 'is_approved' => 1, 'thirdParty_id' => $id])->orderBy('id', 'DESC')->paginate(12);
         $categories = Category::where(['status' => 1])->get();
-        $brands = Brand::where(['status' => 1])->get();
+        $trademarks = Trademark::where(['status' => 1])->get();
         $thirdParty = thirdParty::findOrFail($id);
-        return view('frontend.pages.thirdParty-product', compact('products', 'categories', 'brands', 'thirdParty'));
+        return view('frontend.pages.thirdParty-product', compact('products', 'categories', 'trademarks', 'thirdParty'));
     }
 
     function ShowProductModal(string $id) {

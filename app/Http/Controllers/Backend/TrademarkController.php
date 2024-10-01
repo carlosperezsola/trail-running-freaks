@@ -2,23 +2,23 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\DataTables\BrandDataTable;
+use App\DataTables\TrademarkDataTable;
 use App\Http\Controllers\Controller;
-use App\Models\Brand;
+use App\Models\Trademark;
 use App\Models\Product;
 use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class BrandController extends Controller
+class TrademarkController extends Controller
 {
     use ImageUploadTrait;
     /**
      * Display a listing of the resource.
      */
-    public function index(BrandDataTable $dataTable)
+    public function index(TrademarkDataTable $dataTable)
     {
-        return $dataTable->render('admin_user.brand.index');
+        return $dataTable->render('admin_user.trademark.index');
     }
 
     /**
@@ -26,7 +26,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('admin_user.brand.create');
+        return view('admin_user.trademark.create');
     }
 
     /**
@@ -42,17 +42,17 @@ class BrandController extends Controller
         ]);
 
         $logoPath = $this->uploadImage($request, 'logo', 'uploads');
-        $brand = new Brand();
+        $trademark = new Trademark();
 
-        $brand->logo = $logoPath;
-        $brand->name = $request->name;
-        $brand->slug = Str::slug($request->name);
-        $brand->is_featured = $request->is_featured;
-        $brand->status = $request->status;
-        $brand->save();
+        $trademark->logo = $logoPath;
+        $trademark->name = $request->name;
+        $trademark->slug = Str::slug($request->name);
+        $trademark->is_featured = $request->is_featured;
+        $trademark->status = $request->status;
+        $trademark->save();
 
         toastr('Created Successfully!', 'success');
-        return redirect()->route('admin_user.brand.index');
+        return redirect()->route('admin_user.trademark.index');
     }
 
     /**
@@ -68,8 +68,8 @@ class BrandController extends Controller
      */
     public function edit(string $id)
     {
-        $brand = Brand::findOrFail($id);
-        return view('admin_user.brand.edit', compact('brand'));
+        $trademark = Trademark::findOrFail($id);
+        return view('admin_user.trademark.edit', compact('trademark'));
     }
 
     /**
@@ -84,19 +84,19 @@ class BrandController extends Controller
             'status' => ['required']
         ]);
 
-        $brand = Brand::findOrFail($id);
+        $trademark = Trademark::findOrFail($id);
 
-        $logoPath = $this->updateImage($request, 'logo', 'uploads', $brand->logo);
+        $logoPath = $this->updateImage($request, 'logo', 'uploads', $trademark->logo);
 
-        $brand->logo = empty(!$logoPath) ? $logoPath : $brand->logo;
-        $brand->name = $request->name;
-        $brand->slug = Str::slug($request->name);
-        $brand->is_featured = $request->is_featured;
-        $brand->status = $request->status;
-        $brand->save();
+        $trademark->logo = empty(!$logoPath) ? $logoPath : $trademark->logo;
+        $trademark->name = $request->name;
+        $trademark->slug = Str::slug($request->name);
+        $trademark->is_featured = $request->is_featured;
+        $trademark->status = $request->status;
+        $trademark->save();
 
         toastr('Updated Successfully!', 'success');
-        return redirect()->route('admin_user.brand.index');
+        return redirect()->route('admin_user.trademark.index');
     }
 
     /**
@@ -104,19 +104,19 @@ class BrandController extends Controller
      */
     public function destroy(string $id)
     {
-        $brand = Brand::findOrFail($id);
-        if (Product::where('brand_id', $brand->id)->count() > 0) {
-            return response(['status' => 'error', 'message' => 'This brand have products you can\'t delete it.']);
+        $trademark = Trademark::findOrFail($id);
+        if (Product::where('trademark_id', $trademark->id)->count() > 0) {
+            return response(['status' => 'error', 'message' => 'This trademark have products you can\'t delete it.']);
         }
-        $this->deleteImage($brand->logo);
-        $brand->delete();
+        $this->deleteImage($trademark->logo);
+        $trademark->delete();
 
         return response(['status' => 'success', 'message' => 'Deleted Successfully!']);
     }
 
     public function changeStatus(Request $request)
     {
-        $category = Brand::findOrFail($request->id);
+        $category = Trademark::findOrFail($request->id);
         $category->status = $request->status == 'true' ? 1 : 0;
         $category->save();
 

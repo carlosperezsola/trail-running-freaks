@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Brand;
+use App\Models\Trademark;
 use App\Models\Category;
 use App\Models\ChildCategory;
 use App\Models\Product;
@@ -63,11 +63,11 @@ class FrontendProductController extends Controller
                     return $query->where('price', '>=', $from)->where('price', '<=', $to);
                 })
                 ->paginate(12);
-        } elseif ($request->has('brand')) {
-            $brand = Brand::where('slug', $request->brand)->firstOrFail();
+        } elseif ($request->has('trademark')) {
+            $trademark = Trademark::where('slug', $request->trademark)->firstOrFail();
             $products = Product::with(['variants', 'category', 'productImageGalleries'])
                 ->where([
-                    'brand_id' => $brand->id,
+                    'trademark_id' => $trademark->id,
                     'status' => 1,
                     'is_approved' => 1
                 ])
@@ -99,15 +99,15 @@ class FrontendProductController extends Controller
         }
 
         $categories = Category::where(['status' => 1])->get();
-        $brands = Brand::where(['status' => 1])->get();
+        $trademarks = Trademark::where(['status' => 1])->get();
 
-        return view('frontend.pages.product', compact('products', 'categories', 'brands'));
+        return view('frontend.pages.product', compact('products', 'categories', 'trademarks'));
     }
 
     /** Show product detail page */
     public function showProduct(string $slug)
     {
-        $product = Product::with(['thirdParty', 'category', 'productImageGalleries', 'variants', 'brand'])->where('slug', $slug)->where('status', 1)->first();
+        $product = Product::with(['thirdParty', 'category', 'productImageGalleries', 'variants', 'trademark'])->where('slug', $slug)->where('status', 1)->first();
         return view('frontend.pages.product-detail', compact('product'));
     }
 

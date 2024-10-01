@@ -77,12 +77,12 @@
                                         </div>
                                     </div>
                                     <div class="form-group trf__input">
-                                        <label for="inputState">Brand</label>
-                                        <select id="inputState" class="form-control" name="brand">
+                                        <label for="inputState">Trademark</label>
+                                        <select id="inputState" class="form-control" name="trademark">
                                             <option value="">Select</option>
-                                            @foreach ($brands as $brand)
-                                                <option {{ $brand->id == $product->brand_id ? 'selected' : '' }}
-                                                    value="{{ $brand->id }}">{{ $brand->name }}</option>
+                                            @foreach ($trademarks as $trademark)
+                                                <option {{ $trademark->id == $product->trademark_id ? 'selected' : '' }}
+                                                    value="{{ $trademark->id }}">{{ $trademark->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>

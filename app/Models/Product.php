@@ -30,8 +30,8 @@ class Product extends Model
 
     }
 
-    public function brand()
+    public function trademark()
     {
-        return $this->belongsTo(Brand::class);
+        return $this->belongsTo(Trademark::class);
     }
 }

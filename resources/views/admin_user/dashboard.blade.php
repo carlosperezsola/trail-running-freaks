@@ -160,17 +160,17 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <a href="{{ route('admin_user.brand.index') }}">
+                <a href="{{ route('admin_user.trademark.index') }}">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-info">
                             <i class="fas fa-copyright"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Total Brands</h4>
+                                <h4>Total Trademarks</h4>
                             </div>
                             <div class="card-body">
-                                {{ $totalBrands }}
+                                {{ $totalTrademarks }}
                             </div>
                         </div>
                     </div>

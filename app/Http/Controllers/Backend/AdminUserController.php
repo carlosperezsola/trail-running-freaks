@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
-use App\Models\Brand;
+use App\Models\Trademark;
 use App\Models\Category;
 use App\Models\NewsletterSubscriber;
 use App\Models\Order;
@@ -35,7 +35,7 @@ class AdminUserController extends Controller
             ->where('payment_status', 1)
             ->whereYear('created_at', Carbon::now()->year)
             ->sum('sub_total');
-        $totalBrands = Brand::count();
+        $totalTrademarks = Trademark::count();
         $totalCategories = Category::count();
         $totalSubscriber = NewsletterSubscriber::count();
 
@@ -49,7 +49,7 @@ class AdminUserController extends Controller
             'todaysEarnings',
             'monthEarnings',
             'yearEarnings',
-            'totalBrands',
+            'totalTrademarks',
             'totalCategories',
             'totalSubscriber'
         ));
