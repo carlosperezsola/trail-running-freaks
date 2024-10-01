@@ -29,6 +29,9 @@
                         <div id="sticky_pro_zoom">
                             <div class="exzoom hidden" id="exzoom">
                                 <div class="exzoom_img_box">
+                                    {{-- @php
+                                        dd($product); // Esto mostrará el contenido de $product y detendrá la ejecución.
+                                    @endphp --}}
                                     @if ($product->video_link)
                                         <a class="venobox trf__pro_det_video" data-autoplay="true" data-vbtype="video"
                                             href="{{ $product->video_link }}">
@@ -150,18 +153,23 @@
                                         <div class="row">
                                             <div class="col-xl-6 col-xxl-5 col-md-6">
                                                 <div class="trf__third_party_img">
-                                                    <img src="" alt="vensor"
+                                                    <img src="{{ asset($product->thirdParty->banner) }}" alt="Third Party"
                                                         class="img-fluid w-100">
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-xxl-7 col-md-6 mt-4 mt-md-0">
                                                 <div class="trf__pro_det_third_party_text">
-                                                    
+                                                    <h4>{{ $product->thirdParty->user->name }}</h4>
+                                                    <p><span>Store Name:</span> {{ $product->thirdParty->shop_name }}</p>
+                                                    <p><span>Address:</span> {{ $product->thirdParty->address }}</p>
+                                                    <p><span>Phone:</span> {{ $product->thirdParty->phone }}</p>
+                                                    <p><span>E-mail:</span> {{ $product->thirdParty->email }}</p>
                                                     <a href="third_party_details.html" class="see_btn">visit store</a>
                                                 </div>
                                             </div>
                                             <div class="col-xl-12">
                                                 <div class="trf__third_party_details">
+                                                    {!! $product->thirdParty->description !!}
                                                 </div>
                                             </div>
                                         </div>
