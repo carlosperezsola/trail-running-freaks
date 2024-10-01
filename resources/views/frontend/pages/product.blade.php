@@ -172,15 +172,15 @@
                                                     <form class="shopping-cart-form">
                                                         <input type="hidden" name="product_id"
                                                             value="{{ $product->id }}">
-                                                        @foreach ($product->variants as $variant)
-                                                            @if ($variant->status != 0)
-                                                                <select class="d-none" name="variants_items[]">
-                                                                    @foreach ($variant->productVariantItems as $variantItem)
-                                                                        @if ($variantItem->status != 0)
-                                                                            <option value="{{ $variantItem->id }}"
-                                                                                {{ $variantItem->is_default == 1 ? 'selected' : '' }}>
-                                                                                {{ $variantItem->name }}
-                                                                                (${{ $variantItem->price }})
+                                                        @foreach ($product->options as $option)
+                                                            @if ($option->status != 0)
+                                                                <select class="d-none" name="options_items[]">
+                                                                    @foreach ($option->productOptionItems as $optionItem)
+                                                                        @if ($optionItem->status != 0)
+                                                                            <option value="{{ $optionItem->id }}"
+                                                                                {{ $optionItem->is_default == 1 ? 'selected' : '' }}>
+                                                                                {{ $optionItem->name }}
+                                                                                (${{ $optionItem->price }})
                                                                             </option>
                                                                         @endif
                                                                     @endforeach
@@ -238,15 +238,15 @@
                                                         <form class="shopping-cart-form">
                                                             <input type="hidden" name="product_id"
                                                                 value="{{ $product->id }}">
-                                                            @foreach ($product->variants as $variant)
-                                                                @if ($variant->status != 0)
-                                                                    <select class="d-none" name="variants_items[]">
-                                                                        @foreach ($variant->productVariantItems as $variantItem)
-                                                                            @if ($variantItem->status != 0)
-                                                                                <option value="{{ $variantItem->id }}"
-                                                                                    {{ $variantItem->is_default == 1 ? 'selected' : '' }}>
-                                                                                    {{ $variantItem->name }}
-                                                                                    (${{ $variantItem->price }})
+                                                            @foreach ($product->options as $option)
+                                                                @if ($option->status != 0)
+                                                                    <select class="d-none" name="options_items[]">
+                                                                        @foreach ($option->productOptionItems as $optionItem)
+                                                                            @if ($optionItem->status != 0)
+                                                                                <option value="{{ $optionItem->id }}"
+                                                                                    {{ $optionItem->is_default == 1 ? 'selected' : '' }}>
+                                                                                    {{ $optionItem->name }}
+                                                                                    (${{ $optionItem->price }})
                                                                                 </option>
                                                                             @endif
                                                                         @endforeach

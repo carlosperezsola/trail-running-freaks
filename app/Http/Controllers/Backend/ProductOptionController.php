@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\DataTables\ProductVariantDataTable;
+use App\DataTables\ProductOptionDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
-use App\Models\ProductVariant;
-use App\Models\ProductVariantItem;
+use App\Models\ProductOption;
+use App\Models\ProductOptionItem;
 use Illuminate\Http\Request;
 
-class ProductVariantController extends Controller
+class ProductOptionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request, ProductVariantDataTable $dataTable)
+    public function index(Request $request, ProductOptionDataTable $dataTable)
     {
         $product = Product::findOrFail($request->product);
-        return $dataTable->render('admin_user.product.product-variant.index', compact('product'));
+        return $dataTable->render('admin_user.product.product-option.index', compact('product'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ProductVariantController extends Controller
      */
     public function create()
     {
-        return view('admin_user.product.product-variant.create');
+        return view('admin_user.product.product-option.create');
     }
 
     /**
@@ -39,15 +39,15 @@ class ProductVariantController extends Controller
             'status' => ['required']
         ]);
 
-        $variant = new ProductVariant();
-        $variant->product_id = $request->product;
-        $variant->name = $request->name;
-        $variant->status = $request->status;
-        $variant->save();
+        $option = new ProductOption();
+        $option->product_id = $request->product;
+        $option->name = $request->name;
+        $option->status = $request->status;
+        $option->save();
 
         toastr('Created Successfully!', 'success', 'success');
 
-        return redirect()->route('admin_user.products-variant.index', ['product' => $request->product]);
+        return redirect()->route('admin_user.products-option.index', ['product' => $request->product]);
     }
 
     /**
@@ -63,8 +63,8 @@ class ProductVariantController extends Controller
      */
     public function edit(string $id)
     {
-        $variant = ProductVariant::findOrFail($id);
-        return view('admin_user.product.product-variant.edit', compact('variant'));
+        $option = ProductOption::findOrFail($id);
+        return view('admin_user.product.product-option.edit', compact('option'));
     }
 
     /**
@@ -77,14 +77,14 @@ class ProductVariantController extends Controller
             'status' => ['required']
         ]);
 
-        $variant = ProductVariant::findOrFail($id);
-        $variant->name = $request->name;
-        $variant->status = $request->status;
-        $variant->save();
+        $option = ProductOption::findOrFail($id);
+        $option->name = $request->name;
+        $option->status = $request->status;
+        $option->save();
 
         toastr('Updated Successfully!', 'success', 'success');
 
-        return redirect()->route('admin_user.products-variant.index', ['product' => $variant->product_id]);
+        return redirect()->route('admin_user.products-option.index', ['product' => $option->product_id]);
     }
 
     /**
@@ -92,12 +92,12 @@ class ProductVariantController extends Controller
      */
     public function destroy(string $id)
     {
-        $variant = ProductVariant::findOrFail($id);
-        $variantItemCheck = ProductVariantItem::where('product_variant_id', $variant->id)->count();
-        if($variantItemCheck > 0){
-            return response(['status' => 'error', 'message' => 'This variant contain variant items in it. Delete the variant items before deleting the variant!']);
+        $option = ProductOption::findOrFail($id);
+        $optionItemCheck = ProductOptionItem::where('product_option_id', $option->id)->count();
+        if($optionItemCheck > 0){
+            return response(['status' => 'error', 'message' => 'This option contain option items in it. Delete the option items before deleting the option!']);
         }
-        $variant->delete();
+        $option->delete();
 
         return response(['status' => 'success', 'message' => 'Deleted Successfully!']);
 
@@ -105,9 +105,9 @@ class ProductVariantController extends Controller
 
     public function changeStatus(Request $request)
     {
-        $variant = ProductVariant::findOrFail($request->id);
-        $variant->status = $request->status == 'true' ? 1 : 0;
-        $variant->save();
+        $option = ProductOption::findOrFail($request->id);
+        $option->status = $request->status == 'true' ? 1 : 0;
+        $option->save();
 
         return response(['message' => 'Status has been updated!']);
     }

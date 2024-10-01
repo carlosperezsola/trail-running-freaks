@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductVariant extends Model
+class ProductOption extends Model
 {
     use HasFactory;
 
-    public function productVariantItems()
+    public function productOptionItems()
     {
-        return $this->hasMany(ProductVariantItem::class);
+        return $this->hasMany(ProductOptionItem::class);
     }
 
     public function product()

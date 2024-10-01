@@ -4,7 +4,7 @@
       <!-- Main Content -->
         <section class="section">
           <div class="section-header">
-            <h1>Product Variant Items</h1>
+            <h1>Product Option Items</h1>
           </div>
 
           <div class="section-body">
@@ -13,42 +13,42 @@
               <div class="col-12">
                 <div class="card">
                   <div class="card-header">
-                    <h4>Update Variant Item</h4>
+                    <h4>Update Option Item</h4>
 
                   </div>
                   <div class="card-body">
-                    <form action="{{route('admin_user.products-variant-item.update', $variantItem->id)}}" method="POST">
+                    <form action="{{route('admin_user.products-option-item.update', $optionItem->id)}}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <label>Variant Name</label>
-                            <input type="text" class="form-control" name="variant_name" value="{{$variantItem->productVariant->name}}" readonly>
+                            <label>Option Name</label>
+                            <input type="text" class="form-control" name="option_name" value="{{$optionItem->productOption->name}}" readonly>
                         </div>
 
                         <div class="form-group">
                             <label>Item Name</label>
-                            <input type="text" class="form-control" name="name" value="{{$variantItem->name}}">
+                            <input type="text" class="form-control" name="name" value="{{$optionItem->name}}">
                         </div>
 
                         <div class="form-group">
                             <label>Price <code>(Set 0 for make it free)</code></label>
-                            <input type="text" class="form-control" name="price" value="{{$variantItem->price}}">
+                            <input type="text" class="form-control" name="price" value="{{$optionItem->price}}">
                         </div>
 
                         <div class="form-group">
                             <label for="inputState">Is Default</label>
                             <select id="inputState" class="form-control" name="is_default">
                                 <option value="">Select</option>
-                              <option {{$variantItem->is_default == 1 ? 'selected' : ''}} value="1">Yes</option>
-                              <option {{$variantItem->is_default == 0 ? 'selected' : ''}} value="0">No</option>
+                              <option {{$optionItem->is_default == 1 ? 'selected' : ''}} value="1">Yes</option>
+                              <option {{$optionItem->is_default == 0 ? 'selected' : ''}} value="0">No</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="inputState">Status</label>
                             <select id="inputState" class="form-control" name="status">
-                              <option {{$variantItem->status == 1 ? 'selected' : ''}} value="1">Active</option>
-                              <option {{$variantItem->status == 0 ? 'selected' : ''}} value="0">Inactive</option>
+                              <option {{$optionItem->status == 1 ? 'selected' : ''}} value="1">Active</option>
+                              <option {{$optionItem->status == 0 ? 'selected' : ''}} value="0">Inactive</option>
                             </select>
                         </div>
                         <button type="submmit" class="btn btn-primary">Update</button>

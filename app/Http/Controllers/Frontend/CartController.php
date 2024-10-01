@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Models\ProductVariantItem;
+use App\Models\ProductOptionItem;
 use Cart;
 
 class CartController extends Controller
@@ -35,15 +35,15 @@ class CartController extends Controller
             return response(['status' => 'error', 'message' => 'Quantity not available in our stock']);
         }
 
-        $variants = [];
-        $variantTotalAmount = 0;
+        $options = [];
+        $optionTotalAmount = 0;
 
-        if ($request->has('variants_items')) {
-            foreach ($request->variants_items as $item_id) {
-                $variantItem = ProductVariantItem::find($item_id);
-                $variants[$variantItem->productVariant->name]['name'] = $variantItem->name;
-                $variants[$variantItem->productVariant->name]['price'] = $variantItem->price;
-                $variantTotalAmount += $variantItem->price;
+        if ($request->has('options_items')) {
+            foreach ($request->options_items as $item_id) {
+                $optionItem = ProductOptionItem::find($item_id);
+                $options[$optionItem->productOption->name]['name'] = $optionItem->name;
+                $options[$optionItem->productOption->name]['price'] = $optionItem->price;
+                $optionTotalAmount += $optionItem->price;
             }
         }
 
@@ -62,8 +62,8 @@ class CartController extends Controller
         $cartData['qty'] = $request->qty;
         $cartData['price'] = $productPrice;
         $cartData['weight'] = 10;
-        $cartData['options']['variants'] = $variants;
-        $cartData['options']['variants_total'] = $variantTotalAmount;
+        $cartData['options']['options'] = $options;
+        $cartData['options']['options_total'] = $optionTotalAmount;
         $cartData['options']['image'] = $product->thumb_image;
         $cartData['options']['slug'] = $product->slug;
 
@@ -94,7 +94,7 @@ class CartController extends Controller
     public function getProductTotal($rowId)
     {
         $product = Cart::get($rowId);
-        $total = ($product->price + $product->options->variants_total) * $product->qty;
+        $total = ($product->price + $product->options->options_total) * $product->qty;
         return $total;
     }
 

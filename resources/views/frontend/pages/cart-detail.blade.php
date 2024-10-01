@@ -60,9 +60,9 @@
                                             </td>
                                             <td class="trf__pro_name">
                                                 <p>{!! $item->name !!}</p>
-                                                @foreach ($item->options->variants as $key => $variant)
-                                                    <span>{{ $key }}: {{ $variant['name'] }}
-                                                        ({{ $settings->currency_icon . $variant['price'] }})
+                                                @foreach ($item->options->options as $key => $option)
+                                                    <span>{{ $key }}: {{ $option['name'] }}
+                                                        ({{ $settings->currency_icon . $option['price'] }})
                                                     </span>
                                                 @endforeach
                                             </td>
@@ -71,7 +71,7 @@
                                             </td>
                                             <td class="trf__pro_tk">
                                                 <h6 id="{{ $item->rowId }}">
-                                                    {{ $settings->currency_icon . ($item->price + $item->options->variants_total) * $item->qty }}
+                                                    {{ $settings->currency_icon . ($item->price + $item->options->options_total) * $item->qty }}
                                                 </h6>
                                             </td>
                                             <td class="trf__pro_select">

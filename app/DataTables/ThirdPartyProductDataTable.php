@@ -31,7 +31,7 @@ class ThirdPartyProductDataTable extends DataTable
                 </button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item has-icon" href="'.route('third_party_user.products-image-gallery.index', ['product' => $query->id]).'"> Image Gallery</a></li>
-                    <li><a class="dropdown-item has-icon" href="'.route('third_party_user.products-variant.index', ['product' => $query->id]).'"> Variants</a></li>
+                    <li><a class="dropdown-item has-icon" href="'.route('third_party_user.products-option.index', ['product' => $query->id]).'"> Options</a></li>
                 </ul>
             </div>';
 

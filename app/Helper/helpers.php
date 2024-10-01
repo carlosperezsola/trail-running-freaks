@@ -68,7 +68,7 @@ function getCartTotal()
 {
     $total = 0;
     foreach (\Cart::content() as $product) {
-        $total += ($product->price + $product->options->variants_total) * $product->qty;
+        $total += ($product->price + $product->options->options_total) * $product->qty;
     }
     return $total;
 }

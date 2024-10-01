@@ -59,8 +59,8 @@ class PaymentController extends Controller
             $orderProduct->product_id = $product->id;
             $orderProduct->thirdParty_id = $product->thirdParty_id;
             $orderProduct->product_name = $product->name;
-            $orderProduct->variants = json_encode($item->options->variants);
-            $orderProduct->variant_total = $item->options->variants_total;
+            $orderProduct->options = json_encode($item->options->options);
+            $orderProduct->option_total = $item->options->options_total;
             $orderProduct->unit_price = $item->price;
             $orderProduct->qty = $item->qty;
             $orderProduct->save();

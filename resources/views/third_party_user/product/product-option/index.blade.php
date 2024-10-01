@@ -1,7 +1,7 @@
 @extends('third_party_user.layouts.main')
 
 @section('title')
-    {{ $settings->site_name }} || Product Variant Item Section
+    {{ $settings->site_name }} || Product Option Section
 @endsection
 
 @section('container')
@@ -10,14 +10,14 @@
             @include('third_party_user.layouts.sidebar')
             <div class="row">
                 <div class="col-xl-9 col-xxl-10 col-lg-9 ms-auto">
-                    <a href="{{ route('third_party_user.products-variant.index', ['product' => $product->id]) }}"
-                        class="btn btn-warning mb-4"><i class="fas fa-long-arrow-left"></i> Back</a>
+                    <a href="{{ route('third_party_user.products.index') }}" class="btn btn-warning mb-4"><i
+                            class="fas fa-long-arrow-left"></i> Back</a>
                     <div class="dashboard_content mt-2 mt-md-0">
-                        <h3><i class="far fa-user"></i> Product Variant Item</h3>
-                        <h6>Variant: {{ $variant->name }}</h6>
+                        <h3><i class="far fa-user"></i> Product Option</h3>
+                        <h6>Product: {{ $product->name }}</h6>
                         <div class="create_button">
-                            <a href="{{ route('third_party_user.products-variant-item.create', ['productId' => $product->id, 'variantId' => $variant->id]) }}"
-                                class="btn btn-primary"><i class="fas fa-plus"></i> Create Variant Item</a>
+                            <a href="{{ route('third_party_user.products-option.create', ['product' => $product->id]) }}"
+                                class="btn btn-primary"><i class="fas fa-plus"></i> Create Option</a>
                         </div>
                         <div class="trf__dashboard_profile">
                             <div class="trf__dash_pro_area">
@@ -40,7 +40,7 @@
                 let id = $(this).data('id');
 
                 $.ajax({
-                    url: "{{ route('third_party_user.products-variant-item.changes-status') }}",
+                    url: "{{ route('third_party_user.products-option.change-status') }}",
                     method: 'PUT',
                     data: {
                         status: isChecked,

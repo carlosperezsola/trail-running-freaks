@@ -2,7 +2,8 @@
 
 namespace App\DataTables;
 
-use App\Models\ProductVariantItem;
+use App\Models\ProductOption;
+use App\Models\ThirdPartyProductOption;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -10,7 +11,7 @@ use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 
-class ThirdPartyProductVariantItemDataTable extends DataTable
+class ThirdPartyProductOptionDataTable extends DataTable
 {
     /**
      * Build the DataTable class.
@@ -21,11 +22,12 @@ class ThirdPartyProductVariantItemDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function($query){
+                $optionItems = "<a href='".route('third_party_user.products-option-item.index', ['productId' => request()->product, 'optionId' => $query->id])."' class='btn btn-info me-1 text-white'><i class='far fa-edit'></i> Option Items</a>";
 
-                $editBtn = "<a href='".route('third_party_user.products-variant-item.edit', $query->id)."' class='btn btn-primary'><i class='far fa-edit'></i></a>";
-                $deleteBtn = "<a href='".route('third_party_user.products-variant-item.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
+                $editBtn = "<a href='".route('third_party_user.products-option.edit', $query->id)."' class='btn btn-primary'><i class='far fa-edit'></i></a>";
+                $deleteBtn = "<a href='".route('third_party_user.products-option.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
 
-                return $editBtn.$deleteBtn;
+                return $optionItems.$editBtn.$deleteBtn;
             })
             ->addColumn('status', function($query){
                 if($query->status == 1){
@@ -41,26 +43,16 @@ class ThirdPartyProductVariantItemDataTable extends DataTable
                 }
                 return $button;
             })
-            ->addColumn('is_default', function($query){
-                if($query->is_default == 1){
-                    return '<i class="badge bg-success">default</i>';
-                }else {
-                    return '<i class="badge bg-danger">no</i>';
-                }
-            })
-            ->addColumn('variant_name', function($query){
-                return $query->productVariant->name;
-            })
-            ->rawColumns(['status', 'action', 'is_default'])
+            ->rawColumns(['status', 'action'])
             ->setRowId('id');
     }
 
     /**
      * Get the query source of dataTable.
      */
-    public function query(ProductVariantItem $model): QueryBuilder
+    public function query(ProductOption $model): QueryBuilder
     {
-        return $model->where('product_variant_id', request()->variantId)->newQuery();
+        return $model->where('product_id', request()->product)->newQuery();
     }
 
     /**
@@ -69,7 +61,7 @@ class ThirdPartyProductVariantItemDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('thirdpartyproductvariantitem-table')
+                    ->setTableId('thirdpartyproductoption-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     //->dom('Bfrtip')
@@ -91,16 +83,13 @@ class ThirdPartyProductVariantItemDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('id'),
+            Column::make('id')->width(80),
             Column::make('name'),
-            Column::make('variant_name'),
-            Column::make('price'),
-            Column::make('is_default'),
             Column::make('status'),
             Column::computed('action')
             ->exportable(false)
             ->printable(false)
-            ->width(200)
+            ->width(400)
             ->addClass('text-center'),
         ];
     }
@@ -110,6 +99,6 @@ class ThirdPartyProductVariantItemDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'ThirdPartyProductVariantItem_' . date('YmdHis');
+        return 'ThirdPartyProductOption_' . date('YmdHis');
     }
 }

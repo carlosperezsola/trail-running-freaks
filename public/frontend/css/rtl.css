@@ -836,16 +836,16 @@
 	margin-right: 35px;
 }
 
-.trf__vendor_text_center {
+.trf__third_party_text_center {
 	left: auto;
 	right: 20px;
 }
 
-.trf__vendor_det_banner_text {
+.trf__third_party_det_banner_text {
 	background: linear-gradient(47deg, rgba(11,44,61,0.3) 0%, rgba(11,44,61,0.5) 48%, rgba(11,44,61,8) 100%);
 }
 
-.trf__vendor_det_banner_text ul li a {
+.trf__third_party_det_banner_text ul li a {
 	margin-right: 0;
 	margin-left: 10px;
 }
@@ -879,12 +879,12 @@
 
 
 
-/* VENDORE START */
-.trf__vendor_sidebar form button {
+/* third_partyE START */
+.trf__third_party_sidebar form button {
 	right: auto;
 	left: 0;
 }
-/* VENDORE END */
+/* third_partyE END */
 
 
 

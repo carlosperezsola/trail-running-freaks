@@ -60,8 +60,8 @@
                         <p>
                             {{ $settings->currency_icon }}{{ $sidebarProduct->price }}
                         </p>
-                        <small>Variants total:
-                            {{ $settings->currency_icon }}{{ $sidebarProduct->options->variants_total }}</small>
+                        <small>Options total:
+                            {{ $settings->currency_icon }}{{ $sidebarProduct->options->options_total }}</small>
                         <br>
                         <small>Qty: {{ $sidebarProduct->qty }}</small>
                     </div>

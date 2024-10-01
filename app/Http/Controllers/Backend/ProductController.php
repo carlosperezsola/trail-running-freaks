@@ -9,7 +9,7 @@ use App\Models\Category;
 use App\Models\ChildCategory;
 use App\Models\Product;
 use App\Models\ProductImageGallery;
-use App\Models\ProductVariant;
+use App\Models\ProductOption;
 use App\Models\SubCategory;
 use App\Models\OrderProduct;
 use App\Traits\ImageUploadTrait;
@@ -183,12 +183,12 @@ class ProductController extends Controller
             $image->delete();
         }
 
-        /** Delete product variants if exist */
-        $variants = ProductVariant::where('product_id', $product->id)->get();
+        /** Delete product options if exist */
+        $options = ProductOption::where('product_id', $product->id)->get();
 
-        foreach ($variants as $variant) {
-            $variant->productVariantItems()->delete();
-            $variant->delete();
+        foreach ($options as $option) {
+            $option->productOptionItems()->delete();
+            $option->delete();
         }
 
         $product->delete();

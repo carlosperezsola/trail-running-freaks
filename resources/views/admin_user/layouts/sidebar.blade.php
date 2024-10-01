@@ -31,8 +31,8 @@
                     'admin_user.trademark.*',
                     'admin_user.products.*',
                     'admin_user.products-image-gallery.*',
-                    'admin_user.products-variant.*',
-                    'admin_user.products-variant-item.*',
+                    'admin_user.products-option.*',
+                    'admin_user.products-option-item.*',
                     'admin_user.seller-products.*',
                     'admin_user.seller-pending-products.*',
                 ]) }}">
@@ -45,8 +45,8 @@
                         class="{{ setActive([
                             'admin_user.products.*',
                             'admin_user.products-image-gallery.*',
-                            'admin_user.products-variant.*',
-                            'admin_user.products-variant-item.*',
+                            'admin_user.products-option.*',
+                            'admin_user.products-option-item.*',
                             'admin_user.payment-settings.*',
                         ]) }}">
                         <a class="nav-link" href="{{ route('admin_user.products.index') }}">Products</a>

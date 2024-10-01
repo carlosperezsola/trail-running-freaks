@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Traits\ImageUploadTrait;
 use App\Models\ProductImageGallery;
-use App\Models\ProductVariant;
+use App\Models\ProductOption;
 
 class ThirdPartyProductController extends Controller
 {
@@ -204,12 +204,12 @@ class ThirdPartyProductController extends Controller
             $image->delete();
         }
 
-        /** Delete product variants if exist */
-        $variants = ProductVariant::where('product_id', $product->id)->get();
+        /** Delete product options if exist */
+        $options = ProductOption::where('product_id', $product->id)->get();
 
-        foreach($variants as $variant){
-            $variant->productVariantItems()->delete();
-            $variant->delete();
+        foreach($options as $option){
+            $option->productOptionItems()->delete();
+            $option->delete();
         }
 
         $product->delete();

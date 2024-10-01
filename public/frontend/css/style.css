@@ -4028,7 +4028,7 @@ PRODUCT DETAILS START
 	margin-top: 15px !important;
 }
 
-.trf__vebdor_img {
+.trf__third_party_img {
 	height: 100%;
 }
 
@@ -4197,7 +4197,7 @@ PRODUCT DETAILS START
 }
 
 .trf__post_comment .rating,
-.vendor_review_modal .rating {
+.third_party_review_modal .rating {
 	font-size: 16px;
 	color: #ff9f00;
 	margin-bottom: 25px;
@@ -4205,7 +4205,7 @@ PRODUCT DETAILS START
 }
 
 .trf__post_comment .rating i,
-.vendor_review_modal .rating i {
+.third_party_review_modal .rating i {
 	cursor: pointer;
 }
 
@@ -4226,33 +4226,33 @@ PRODUCT DETAILS START
 	resize: none;
 }
 
-.trf__vendor_text h4 {
+.trf__third_party_text h4 {
 	text-transform: capitalize;
 	font-size: 25px;
 	font-weight: 600;
 }
 
-.trf__pro_det_vendor_text .rating {
+.trf__pro_det_third_party_text .rating {
 	color: #ff9f00;
 	margin: 5px 0px 25px 0px;
 }
 
-.trf__pro_det_vendor_text .see_btn {
+.trf__pro_det_third_party_text .see_btn {
 	padding: 5px 10px 5px 10px;
 }
 
-.trf__pro_det_vendor_text .rating span {
+.trf__pro_det_third_party_text .rating span {
 	font-size: 15px;
 	margin-left: 5px;
 	color: #797979;
 	text-transform: capitalize;
 }
 
-.trf__pro_det_vendor_text p {
+.trf__pro_det_third_party_text p {
 	margin-bottom: 15px;
 }
 
-.trf__pro_det_vendor_text p span {
+.trf__pro_det_third_party_text p span {
 	width: 25%;
 	display: inline-block;
 	color: #333;
@@ -4261,15 +4261,15 @@ PRODUCT DETAILS START
 	font-size: 15px;
 }
 
-.trf__vendor_details {
+.trf__third_party_details {
 	margin-top: 30px;
 }
 
-.trf__vendor_details p {
+.trf__third_party_details p {
 	font-size: 15px;
 }
 
-.trf__vendor_details p span {
+.trf__third_party_details p span {
 	display: block;
 	margin-top: 25px;
 }
@@ -4277,26 +4277,6 @@ PRODUCT DETAILS START
 .trf__pro_det_comment .trf__post_comment h4 {
 	margin-top: 0 !important;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*======================
 PRODUCT DETAILS  END
 ========================*/
@@ -6219,7 +6199,7 @@ WISHLIST PAGE START
 #trf__faq h4,
 .trf__forget_area h4,
 .trf__change_password h4,
-.trf__pro_det_vendor_text h4 {
+.trf__pro_det_third_party_text h4 {
 	font-size: 22px;
 	font-weight: 600;
 	text-transform: capitalize;
@@ -7989,20 +7969,20 @@ TRACKING ORDER END
 ========================*/
 
 /*======================
-VENDORS PAGE START
+third_partyS PAGE START
 ========================*/
-.trf__vendor_sidebar {
+.trf__third_party_sidebar {
 	padding: 20px;
 }
 
-.trf__vendor_sidebar form {
+.trf__third_party_sidebar form {
 	position: relative;
 	border-radius: 5px;
 	overflow: hidden;
 	margin-bottom: 30px;
 }
 
-.trf__vendor_sidebar form input {
+.trf__third_party_sidebar form input {
 	width: 100%;
 	padding: 10px;
 	font-size: 16px;
@@ -8012,7 +7992,7 @@ VENDORS PAGE START
 	border-radius: 5px;
 }
 
-.trf__vendor_sidebar form button {
+.trf__third_party_sidebar form button {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -8024,26 +8004,26 @@ VENDORS PAGE START
 	-o-border-radius: 0;
 }
 
-.trf__vendor_sidebar_select {
+.trf__third_party_sidebar_select {
 	margin-top: 15px;
 }
 
-.trf__vendor_sidebar_select h4 {
+.trf__third_party_sidebar_select h4 {
 	font-size: 16px;
 	font-weight: 600;
 	text-transform: capitalize;
 	margin-bottom: 10px;
 }
 
-.trf__vendor_sidebar .select2-container--default .select2-selection--single {
+.trf__third_party_sidebar .select2-container--default .select2-selection--single {
 	border-radius: 5px;
 }
 
-.trf__vendor_sidebar_select form {
+.trf__third_party_sidebar_select form {
 	margin-bottom: 15px;
 }
 
-.trf__vendor_single {
+.trf__third_party_single {
 	position: relative;
 	border-radius: 5px;
 	overflow: hidden;
@@ -8052,13 +8032,13 @@ VENDORS PAGE START
 	height: 302px;
 }
 
-.trf__vendor_single img {
+.trf__third_party_single img {
 	width: 100% !important;
 	height: 100% !important;
 	object-fit: cover;
 }
 
-.trf__vendor_text {
+.trf__third_party_text {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -8067,7 +8047,7 @@ VENDORS PAGE START
 	background: #0000004a;
 }
 
-.trf__vendor_text_center {
+.trf__third_party_text_center {
 	position: absolute;
 	top: 50%;
 	left: 20px;
@@ -8078,66 +8058,66 @@ VENDORS PAGE START
 	-o-transform: translateY(-50%);
 }
 
-.trf__vendor_text_center h4 {
+.trf__third_party_text_center h4 {
 	color: #fff;
 	text-transform: capitalize;
 }
 
-.trf__vendor_text_center .trf__vendor_rating {
+.trf__third_party_text_center .trf__third_party_rating {
 	color: #ff9f00;
 	margin: 15px 0px 0px 0px;
 }
 
-.trf__vendor_text_center a {
+.trf__third_party_text_center a {
 	color: #fff;
 	display: block;
 	margin: 5px 0px;
 }
 
-.trf__vendor_text_center a i {
+.trf__third_party_text_center a i {
 	width: 25px;
 }
 
-.trf__vendor_text_center .common_btn {
+.trf__third_party_text_center .common_btn {
 	display: inline-block;
 	margin: 14px 0px 0px 0px;
 }
 
 /*======================
-VENDORS PAGE END
+third_partyS PAGE END
 ========================*/
 
 /*======================
-VENDORS DETAILA START
+third_partyS DETAILA START
 ========================*/
-.trf__vendor_det_banner_text {
+.trf__third_party_det_banner_text {
 	background: linear-gradient(90deg,
 			rgba(11, 44, 61, 1) 0%,
 			rgba(6, 120, 148, 0) 50%,
 			rgba(11, 44, 61, 0) 100%);
 }
 
-.trf__vendor_det_banner_text .trf__vendor_location,
-.trf__vendor_det_banner_text .trf__open_store {
+.trf__third_party_det_banner_text .trf__third_party_location,
+.trf__third_party_det_banner_text .trf__open_store {
 	color: #fff;
 	text-transform: capitalize;
 }
 
-.trf__vendor_det_banner_text .trf__vendor_location i,
-.trf__vendor_det_banner_text .trf__open_store i {
+.trf__third_party_det_banner_text .trf__third_party_location i,
+.trf__third_party_det_banner_text .trf__open_store i {
 	width: 25px;
 }
 
-.trf__vendor_det_banner_text .trf__vendor_text_center {
+.trf__third_party_det_banner_text .trf__third_party_text_center {
 	width: 40%;
 }
 
-.trf__vendor_det_banner_text ul {
+.trf__third_party_det_banner_text ul {
 	display: flex;
 	margin-top: 10px;
 }
 
-.trf__vendor_det_banner_text ul li a {
+.trf__third_party_det_banner_text ul li a {
 	width: 35px;
 	height: 35px;
 	line-height: 37px;
@@ -8157,12 +8137,12 @@ VENDORS DETAILA START
 	text-transform: capitalize;
 }
 
-.vendor_review_modal .rating {
+.third_party_review_modal .rating {
 	margin-bottom: 15px;
 }
 
 /*======================
-VENDORS DETAILA END
+third_partyS DETAILA END
 ========================*/
 
 /*======================

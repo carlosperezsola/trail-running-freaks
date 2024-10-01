@@ -17,7 +17,7 @@ class FrontendProductController extends Controller
     {
         if ($request->has('category')) {
             $category = Category::where('slug', $request->category)->firstOrFail();
-            $products = Product::with(['variants', 'category', 'productImageGalleries'])
+            $products = Product::with(['options', 'category', 'productImageGalleries'])
                 ->where([
                     'category_id' => $category->id,
                     'status' => 1,
@@ -33,7 +33,7 @@ class FrontendProductController extends Controller
                 ->paginate(12);
         } elseif ($request->has('subcategory')) {
             $category = SubCategory::where('slug', $request->subcategory)->firstOrFail();
-            $products = Product::with(['variants', 'category', 'productImageGalleries'])
+            $products = Product::with(['options', 'category', 'productImageGalleries'])
                 ->where([
                     'sub_category_id' => $category->id,
                     'status' => 1,
@@ -49,7 +49,7 @@ class FrontendProductController extends Controller
                 ->paginate(12);
         } elseif ($request->has('childcategory')) {
             $category = ChildCategory::where('slug', $request->childcategory)->firstOrFail();
-            $products = Product::with(['variants', 'category', 'productImageGalleries'])
+            $products = Product::with(['options', 'category', 'productImageGalleries'])
                 ->where([
                     'child_category_id' => $category->id,
                     'status' => 1,
@@ -65,7 +65,7 @@ class FrontendProductController extends Controller
                 ->paginate(12);
         } elseif ($request->has('trademark')) {
             $trademark = Trademark::where('slug', $request->trademark)->firstOrFail();
-            $products = Product::with(['variants', 'category', 'productImageGalleries'])
+            $products = Product::with(['options', 'category', 'productImageGalleries'])
                 ->where([
                     'trademark_id' => $trademark->id,
                     'status' => 1,
@@ -80,7 +80,7 @@ class FrontendProductController extends Controller
                 })
                 ->paginate(12);
         } elseif ($request->has('search')) {
-            $products = Product::with(['variants', 'category', 'productImageGalleries'])
+            $products = Product::with(['options', 'category', 'productImageGalleries'])
                 ->where(['status' => 1, 'is_approved' => 1])
                 ->where(function ($query) use ($request) {
                     $query->where('name', 'like', '%' . $request->search . '%')
@@ -92,7 +92,7 @@ class FrontendProductController extends Controller
                 })
                 ->paginate(12);
         } else {
-            $products = Product::with(['variants', 'category', 'productImageGalleries'])
+            $products = Product::with(['options', 'category', 'productImageGalleries'])
                 ->where(['status' => 1, 'is_approved' => 1])
                 ->orderBy('id', 'DESC')
                 ->paginate(12);
@@ -107,7 +107,7 @@ class FrontendProductController extends Controller
     /** Show product detail page */
     public function showProduct(string $slug)
     {
-        $product = Product::with(['thirdParty', 'category', 'productImageGalleries', 'variants', 'trademark'])->where('slug', $slug)->where('status', 1)->first();
+        $product = Product::with(['thirdParty', 'category', 'productImageGalleries', 'options', 'trademark'])->where('slug', $slug)->where('status', 1)->first();
         return view('frontend.pages.product-detail', compact('product'));
     }
 

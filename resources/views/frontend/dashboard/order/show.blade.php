@@ -82,12 +82,12 @@
                                                         </tr>
                                                         @foreach ($order->orderProducts as $product)
                                                             @php
-                                                                $variants = json_decode($product->variants);
+                                                                $options = json_decode($product->options);
                                                             @endphp
                                                             <tr>
                                                                 <td class="name">
                                                                     <p>{{ $product->product_name }}</p>
-                                                                    @foreach ($variants as $key => $item)
+                                                                    @foreach ($options as $key => $item)
                                                                         <span>{{ $key }} :
                                                                             {{ $item->name }}(
                                                                             {{ $settings->currency_icon }}{{ $item->price }}

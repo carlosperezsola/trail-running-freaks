@@ -71,7 +71,7 @@
                                     <tr>
                                         <th data-width="40">#</th>
                                         <th>Item</th>
-                                        <th>Variant</th>
+                                        <th>Option</th>
                                         <th>Third Party Name</th>
                                         <th class="text-center">Price</th>
                                         <th class="text-center">Quantity</th>
@@ -79,7 +79,7 @@
                                     </tr>
                                     @foreach ($order->orderProducts as $product)
                                         @php
-                                            $variants = json_decode($product->variants);
+                                            $options = json_decode($product->options);
                                         @endphp
                                         <tr>
                                             <td>{{ ++$loop->index }}</td>
@@ -92,9 +92,9 @@
                                                 <td>{{ $product->product_name }}</td>
                                             @endif
                                             <td>
-                                                @foreach ($variants as $key => $variant)
-                                                    <b>{{ $key }}:</b> {{ $variant->name }}
-                                                    ({{ $settings->currency_icon }}{{ $variant->price }})
+                                                @foreach ($options as $key => $option)
+                                                    <b>{{ $key }}:</b> {{ $option->name }}
+                                                    ({{ $settings->currency_icon }}{{ $option->price }})
                                                 @endforeach
                                             </td>
                                             <td>
@@ -109,7 +109,7 @@
                                                 {{ $settings->currency_icon }}{{ $product->unit_price }} </td>
                                             <td class="text-center">{{ $product->qty }}</td>
                                             <td class="text-right">
-                                                {{ $settings->currency_icon }}{{ $product->unit_price * $product->qty + $product->variant_total }}
+                                                {{ $settings->currency_icon }}{{ $product->unit_price * $product->qty + $product->option_total }}
                                             </td>
                                         </tr>
                                     @endforeach

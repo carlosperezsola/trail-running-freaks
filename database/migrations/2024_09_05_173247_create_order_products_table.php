@@ -17,8 +17,8 @@ return new class extends Migration
             $table->integer('product_id');
             $table->integer('thirdParty_id');
             $table->string('product_name');
-            $table->text('variants');
-            $table->integer('variant_total')->nullable();
+            $table->text('options');
+            $table->integer('option_total')->nullable();
             $table->string('unit_price');
             $table->integer('qty');
 

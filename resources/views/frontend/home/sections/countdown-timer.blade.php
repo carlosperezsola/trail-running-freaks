@@ -14,7 +14,7 @@
         </div>
         <div class="row flash_sell_slider">            
                 @php
-                    $products = \App\Models\Product::with(['variants', 'category', 'productImageGalleries'])->whereIn('id', $countDownItems)->get();
+                    $products = \App\Models\Product::with(['options', 'category', 'productImageGalleries'])->whereIn('id', $countDownItems)->get();
                 @endphp
                 @foreach ($products as $product)
                     <x-product-card :product="$product" />

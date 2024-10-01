@@ -4,26 +4,26 @@
     <!-- Main Content -->
     <section class="section">
         <div class="section-header">
-            <h1>Product Variant Items</h1>
+            <h1>Product Option Items</h1>
         </div>
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Create Variant Item</h4>
+                            <h4>Create Option Item</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin_user.products-variant-item.store') }}" method="POST">
+                            <form action="{{ route('admin_user.products-option-item.store') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
-                                    <label>Variant Name</label>
-                                    <input type="text" class="form-control" name="variant_name"
-                                        value="{{ $variant->name }}" readonly>
+                                    <label>Option Name</label>
+                                    <input type="text" class="form-control" name="option_name"
+                                        value="{{ $option->name }}" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <input type="hidden" class="form-control" name="variant_id"
-                                        value="{{ $variant->id }}">
+                                    <input type="hidden" class="form-control" name="option_id"
+                                        value="{{ $option->id }}">
                                 </div>
                                 <div class="form-group">
                                     <input type="hidden" class="form-control" name="product_id"

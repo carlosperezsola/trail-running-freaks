@@ -81,14 +81,14 @@
                                                         @foreach ($order->orderProducts as $product)
                                                             @if ($product->thirdParty_id === Auth::user()->thirdParty->id)
                                                                 @php
-                                                                    $variants = json_decode($product->variants);
+                                                                    $options = json_decode($product->options);
                                                                     $total = 0;
                                                                     $total += $product->unit_price * $product->qty;
                                                                 @endphp
                                                                 <tr>
                                                                     <td class="name">
                                                                         <p>{{ $product->product_name }}</p>
-                                                                        @foreach ($variants as $key => $item)
+                                                                        @foreach ($options as $key => $item)
                                                                             <span>{{ $key }} :
                                                                                 {{ $item->name }}(
                                                                                 {{ $settings->currency_icon }}{{ $item->price }}
