@@ -8,7 +8,7 @@ use App\Models\CountDownItem;
 use App\Models\Slider;
 use App\Models\HomePageSetting;
 use App\Models\Trademark;
-use App\Models\Banner;
+use App\Models\Promo;
 use App\Models\Product;
 use App\Models\ThirdParty;
 use App\Models\Category;
@@ -19,8 +19,8 @@ class HomeController extends Controller
 {
     public function index() 
     {
-        $homepage_section_banner = Banner::where('key', 'homepage_section_banner')->first();
-        $homepage_section_banner = json_decode($homepage_section_banner->value);
+        $homepage_section_promo = Promo::where('key', 'homepage_section_promo')->first();
+        $homepage_section_promo = json_decode($homepage_section_promo->value);
 
         $sliders = Cache::rememberForever('sliders', function(){
             return Slider::where('status', 1)->orderBy('serial', 'asc')->get();
@@ -37,7 +37,7 @@ class HomeController extends Controller
                 'countDownItems',
                 'popularCategory',
                 'trademarks',
-                'homepage_section_banner',
+                'homepage_section_promo',
             ));
     }
 

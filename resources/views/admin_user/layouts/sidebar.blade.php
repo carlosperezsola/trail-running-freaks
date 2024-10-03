@@ -103,9 +103,9 @@
                 </ul>
             </li>
             <li>
-                <a class="nav-link {{ setActive(['admin_user.banner.*']) }}"
-                    href="{{ route('admin_user.banner.index') }}">
-                    <i class="fas fa-ad"></i> <span>Banners</span>
+                <a class="nav-link {{ setActive(['admin_user.promo.*']) }}"
+                    href="{{ route('admin_user.promo.index') }}">
+                    <i class="fas fa-ad"></i> <span>Promos</span>
                 </a>
             </li>
             <li class="menu-header">More features</li>

@@ -4,11 +4,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-6 col-lg-6">
-                        @if ($homepage_section_banner->banner_one->status == 1)
+                        @if ($homepage_section_promo->promo_one->status == 1)
                             <div class="trf__single_banner_content banner_1">
-                                <a href="{{ $homepage_section_banner->banner_one->banner_url }}">
+                                <a href="{{ $homepage_section_promo->promo_one->promo_url }}">
                                     <img class="img-gluid"
-                                        src="{{ asset($homepage_section_banner->banner_one->banner_image) }}"
+                                        src="{{ asset($homepage_section_promo->promo_one->promo_image) }}"
                                         alt="">
                                 </a>
                             </div>
@@ -17,11 +17,11 @@
                     <div class="col-xl-6 col-lg-6">
                         <div class="row">
                             <div class="col-12">
-                                @if ($homepage_section_banner->banner_two->status == 1)
+                                @if ($homepage_section_promo->promo_two->status == 1)
                                     <div class="trf__single_banner_content single_banner_2">
-                                        <a href="{{ $homepage_section_banner->banner_two->banner_url }}">
+                                        <a href="{{ $homepage_section_promo->promo_two->promo_url }}">
                                             <img class="img-gluid"
-                                                src="{{ asset($homepage_section_banner->banner_two->banner_image) }}"
+                                                src="{{ asset($homepage_section_promo->promo_two->promo_image) }}"
                                                 alt="">
                                         </a>
                                     </div>
@@ -29,10 +29,10 @@
                             </div>
                             <div class="col-12 mt-lg-4">
                                 <div class="trf__single_banner_content">
-                                    @if ($homepage_section_banner->banner_three->status == 1)
-                                        <a href="{{ $homepage_section_banner->banner_three->banner_url }}">
+                                    @if ($homepage_section_promo->promo_three->status == 1)
+                                        <a href="{{ $homepage_section_promo->promo_three->promo_url }}">
                                             <img class="img-gluid"
-                                                src="{{ asset($homepage_section_banner->banner_three->banner_image) }}"
+                                                src="{{ asset($homepage_section_promo->promo_three->promo_image) }}"
                                                 alt="">
                                         </a>
                                     @endif

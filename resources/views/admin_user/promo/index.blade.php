@@ -13,12 +13,12 @@
                             <div class="row">
                                 <div class="col-2">
                                     <div class="list-group" id="list-tab" role="tablist">
-                                        <a class="list-group-item list-group-item-action active show" id="list-messages-list" data-toggle="list" href="#list-messages" aria-selected="true" role="tab">Homepage banner section</a>
+                                        <a class="list-group-item list-group-item-action active show" id="list-messages-list" data-toggle="list" href="#list-messages" aria-selected="true" role="tab">Homepage promo section</a>
                                     </div>
                                 </div>
                                 <div class="col-10">
                                     <div class="tab-content" id="nav-tabContent">
-                                        @include('admin_user.banner.homepage-banner')
+                                        @include('admin_user.promo.homepage-promo')
                                     </div>
                                 </div>
                             </div>
