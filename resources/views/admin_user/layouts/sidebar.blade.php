@@ -77,8 +77,8 @@
                 </ul>
             </li>
             <li>
-                <a class="nav-link" href="{{ route('admin_user.order.index') }}">
-                    <i class="fas fa-cart-plus"></i><span>Orders</span>
+                <a class="nav-link" href="{{ route('admin_user.purchase.index') }}">
+                    <i class="fas fa-cart-plus"></i><span>Purchases</span>
                 </a>
             </li>
             <li

@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\DataTables\OrderDataTable;
+use App\DataTables\PurchaseDataTable;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Order;
+use App\Models\Purchase;
 
-class OrderController extends Controller
+class PurchaseController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(OrderDataTable $dataTable)
+    public function index(PurchaseDataTable $dataTable)
     {
-        return $dataTable->render('admin_user.order.index');
+        return $dataTable->render('admin_user.purchase.index');
     }
 
     /**
@@ -39,8 +39,8 @@ class OrderController extends Controller
      */
     public function show(string $id)
     {
-        $order = Order::findOrFail($id);
-        return view('admin_user.order.show', compact('order'));
+        $purchase = Purchase::findOrFail($id);
+        return view('admin_user.purchase.show', compact('purchase'));
     }
 
     /**
@@ -64,26 +64,26 @@ class OrderController extends Controller
      */
     public function destroy(string $id)
     {
-        $order = Order::findOrFail($id);
-        $order->orderProducts()->delete();
-        $order->transaction()->delete();
-        $order->delete();
+        $purchase = Purchase::findOrFail($id);
+        $purchase->purchaseProducts()->delete();
+        $purchase->transaction()->delete();
+        $purchase->delete();
         
         return response(['status' => 'success', 'message' => 'Deleted successfully!']);
     }
 
-    public function changeOrderStatus(Request $request)
+    public function changePurchaseStatus(Request $request)
     {
-        $order = Order::findOrFail($request->id);
-        $order->order_status = $request->status;
-        $order->save();
+        $purchase = Purchase::findOrFail($request->id);
+        $purchase->purchase_status = $request->status;
+        $purchase->save();
 
-        return response(['status' => 'success', 'message' => 'Updated Order Status']);
+        return response(['status' => 'success', 'message' => 'Updated Purchase Status']);
     }
 
     public function changePaymentStatus(Request $request)
     {
-        $paymentStatus = Order::findOrFail($request->id);
+        $paymentStatus = Purchase::findOrFail($request->id);
         $paymentStatus->payment_status = $request->status;
         $paymentStatus->save();
 

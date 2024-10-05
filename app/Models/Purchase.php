@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class Purchase extends Model
 {
     use HasFactory;
 
@@ -19,8 +19,8 @@ class Order extends Model
         return $this->hasOne(Transaction::class);
     }
 
-    public function orderProducts()
+    public function purchaseProducts()
     {
-        return $this->hasMany(OrderProduct::class, 'order_id', 'id');
+        return $this->hasMany(PurchaseProduct::class, 'purchase_id', 'id');
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\Order;
+use App\Models\Purchase;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\EloquentDataTable;
@@ -11,7 +11,7 @@ use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 
-class UserOrderDataTable extends DataTable
+class UserPurchaseDataTable extends DataTable
 {
     /**
      * Build the DataTable class.
@@ -22,7 +22,7 @@ class UserOrderDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function($query){
-                $showBtn = "<a href='".route('user.orders.show', $query->id)."' class='btn btn-primary'><i class='far fa-eye'></i></a>";
+                $showBtn = "<a href='".route('user.purchases.show', $query->id)."' class='btn btn-primary'><i class='far fa-eye'></i></a>";
 
                 return $showBtn;
             })
@@ -42,8 +42,8 @@ class UserOrderDataTable extends DataTable
                     return "<span class='badge bg-warning'>pending</span>";
                 }
             })
-            ->addColumn('order_status', function($query){
-                switch ($query->order_status) {
+            ->addColumn('purchase_status', function($query){
+                switch ($query->purchase_status) {
                     case 'pending':
                         return "<span class='badge bg-warning'>pending</span>";
                         break;
@@ -71,14 +71,14 @@ class UserOrderDataTable extends DataTable
                 }
 
             })
-            ->rawColumns(['order_status', 'action', 'payment_status'])
+            ->rawColumns(['purchase_status', 'action', 'payment_status'])
             ->setRowId('id');
     }
 
     /**
      * Get the query source of dataTable.
      */
-    public function query(Order $model): QueryBuilder
+    public function query(Purchase $model): QueryBuilder
     {
         return $model::where('user_id', Auth::user()->id)->newQuery();
     }
@@ -89,7 +89,7 @@ class UserOrderDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('thirdpartyorder-table')
+                    ->setTableId('thirdpartypurchase-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     //->dom('Bfrtip')
@@ -117,7 +117,7 @@ class UserOrderDataTable extends DataTable
             Column::make('date'),
             Column::make('product_qty'),
             Column::make('amount'),
-            Column::make('order_status'),
+            Column::make('purchase_status'),
             Column::make('payment_status'),
 
             Column::make('payment_method'),
@@ -136,6 +136,6 @@ class UserOrderDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'ThirdPartyOrder_' . date('YmdHis');
+        return 'ThirdPartyPurchase_' . date('YmdHis');
     }
 }

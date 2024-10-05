@@ -3,23 +3,23 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Order;
+use App\Models\Purchase;
 use Illuminate\Support\Facades\Auth;
 
 class UserDashboardController extends Controller
 {
     public function index()
     {
-        $totalOrder = Order::where('user_id', Auth::user()->id)->count();
-        $pendingOrder = Order::where('user_id', Auth::user()->id)
-            ->where('order_status', 'pending')->count();
-        $completeOrder = Order::where('user_id', Auth::user()->id)
-            ->where('order_status', 'delivered')->count();
+        $totalPurchase = Purchase::where('user_id', Auth::user()->id)->count();
+        $pendingPurchase = Purchase::where('user_id', Auth::user()->id)
+            ->where('purchase_status', 'pending')->count();
+        $completePurchase = Purchase::where('user_id', Auth::user()->id)
+            ->where('purchase_status', 'delivered')->count();
 
         return view('frontend.dashboard.dashboard', compact(
-            'totalOrder',
-            'pendingOrder',
-            'completeOrder'
+            'totalPurchase',
+            'pendingPurchase',
+            'completePurchase'
         ));
     }
 }
