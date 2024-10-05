@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\Order;
+use App\Models\Purchase;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -10,7 +10,7 @@ use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 
-class OrderDataTable extends DataTable
+class PurchaseDataTable extends DataTable
 {
     /**
      * Build the DataTable class.
@@ -21,8 +21,8 @@ class OrderDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($query) {
-                $showBtn = "<a href='" . route('admin_user.order.show', $query->id) . "' class='btn btn-primary'><i class='far fa-eye'></i></a>";
-                $deleteBtn = "<a href='" . route('admin_user.order.destroy', $query->id) . "' class='btn btn-danger ml-2 mr-2 delete-item'><i class='far fa-trash-alt'></i></a>";
+                $showBtn = "<a href='" . route('admin_user.purchase.show', $query->id) . "' class='btn btn-primary'><i class='far fa-eye'></i></a>";
+                $deleteBtn = "<a href='" . route('admin_user.purchase.destroy', $query->id) . "' class='btn btn-danger ml-2 mr-2 delete-item'><i class='far fa-trash-alt'></i></a>";
 
                 return $showBtn . $deleteBtn;
             })
@@ -42,8 +42,8 @@ class OrderDataTable extends DataTable
                     return "<span class='badge bg-warning text-white'>Pending</span>";
                 }
             })
-            ->addColumn('order_status', function ($query) {
-                switch ($query->order_status) {
+            ->addColumn('purchase_status', function ($query) {
+                switch ($query->purchase_status) {
                     case 'pending':
                         return "<span class='badge bg-warning text-white'>Pending</span>";
                         break;
@@ -69,14 +69,14 @@ class OrderDataTable extends DataTable
                         break;
                 }
             })
-            ->rawColumns(['order_status', 'action', 'payment_status'])
+            ->rawColumns(['purchase_status', 'action', 'payment_status'])
             ->setRowId('id');
     }
 
     /**
      * Get the query source of dataTable.
      */
-    public function query(Order $model): QueryBuilder
+    public function query(Purchase $model): QueryBuilder
     {
         return $model->newQuery();
     }
@@ -87,7 +87,7 @@ class OrderDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('order-table')
+            ->setTableId('purchase-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             //->dom('Bfrtip')
@@ -115,7 +115,7 @@ class OrderDataTable extends DataTable
             Column::make('date'),
             Column::make('product_qty'),
             Column::make('amount'),
-            Column::make('order_status'),
+            Column::make('purchase_status'),
             Column::make('payment_status'),
             Column::make('payment_method'),
             Column::computed('action')
@@ -131,6 +131,6 @@ class OrderDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Order_' . date('YmdHis');
+        return 'Purchase_' . date('YmdHis');
     }
 }

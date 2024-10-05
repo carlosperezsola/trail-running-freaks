@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'order_status_admin_user' => [
+    'purchase_status_admin_user' => [
         'pending' => [
             'status' => 'Pending',
-            'details' => 'Your order is currently pending'
+            'details' => 'Your purchase is currently pending'
         ],
         'processed_and_ready_to_ship' => [
             'status' => 'Processed and ready to ship',
@@ -33,10 +33,10 @@ return [
 
     ],
 
-    'order_status_thirdParty' => [
+    'purchase_status_thirdParty' => [
         'pending' => [
             'status' => 'Pending',
-            'details' => 'Your order is currently pending'
+            'details' => 'Your purchase is currently pending'
         ],
         'processed_and_ready_to_ship' => [
             'status' => 'Processed and ready to ship',
