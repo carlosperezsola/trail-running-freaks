@@ -14,38 +14,38 @@
                         <div class="trf__dashboard">
                             <div class="row">
                                 <div class="col-lg-3 col-6 col-md-4">
-                                    <a class="trf__dashboard_item red" href="{{ route('third_party_user.purchases.index') }}">
+                                    <a class="trf__dashboard_item red" href="{{ route('third_party_user.orders.index') }}">
                                         <i class="fas fa-cart-plus"></i>
-                                        <p class="lh-1">Today's Purchases</p>
-                                        <h4 style="color:#ffff">{{ $todaysPurchase }}</h4>
+                                        <p class="lh-1">Today's Orders</p>
+                                        <h4 style="color:#ffff">{{ $todaysOrder }}</h4>
                                     </a>
                                 </div>
                                 <div class="col-lg-3 col-6 col-md-4">
-                                    <a class="trf__dashboard_item red" href="{{ route('third_party_user.purchases.index') }}">
+                                    <a class="trf__dashboard_item red" href="{{ route('third_party_user.orders.index') }}">
                                         <i class="fas fa-cart-plus"></i>
-                                        <p class="lh-1">Td's Pending Purchases</p>
-                                        <h4 style="color:#ffff">{{ $todaysPendingPurchase }}</h4>
+                                        <p class="lh-1">Td's Pending Orders</p>
+                                        <h4 style="color:#ffff">{{ $todaysPendingOrder }}</h4>
                                     </a>
                                 </div>
                                 <div class="col-lg-3 col-6 col-md-4">
-                                    <a class="trf__dashboard_item red" href="{{ route('third_party_user.purchases.index') }}">
+                                    <a class="trf__dashboard_item red" href="{{ route('third_party_user.orders.index') }}">
                                         <i class="fas fa-cart-plus"></i>
-                                        <p class="lh-1">Total Purchases</p>
-                                        <h4 style="color:#ffff">{{ $totalPurchase }}</h4>
+                                        <p class="lh-1">Total Orders</p>
+                                        <h4 style="color:#ffff">{{ $totalOrder }}</h4>
                                     </a>
                                 </div>
                                 <div class="col-lg-3 col-6 col-md-4">
-                                    <a class="trf__dashboard_item red" href="{{ route('third_party_user.purchases.index') }}">
+                                    <a class="trf__dashboard_item red" href="{{ route('third_party_user.orders.index') }}">
                                         <i class="fas fa-cart-plus"></i>
-                                        <p class="lh-1">Total Pending Purchases</p>
-                                        <h4 style="color:#ffff">{{ $totalPendingPurchase }}</h4>
+                                        <p class="lh-1">Total Pending Orders</p>
+                                        <h4 style="color:#ffff">{{ $totalPendingOrder }}</h4>
                                     </a>
                                 </div>
                                 <div class="col-lg-3 col-6 col-md-4">
-                                    <a class="trf__dashboard_item red" href="{{ route('third_party_user.purchases.index') }}">
+                                    <a class="trf__dashboard_item red" href="{{ route('third_party_user.orders.index') }}">
                                         <i class="fas fa-cart-plus"></i>
-                                        <p class="lh-1">Completed Purchases</p>
-                                        <h4 style="color:#ffff">{{ $totalCompletePurchase }}</h4>
+                                        <p class="lh-1">Completed Orders</p>
+                                        <h4 style="color:#ffff">{{ $totalCompleteOrder }}</h4>
                                     </a>
                                 </div>
                                 <div class="col-lg-3 col-6 col-md-4">

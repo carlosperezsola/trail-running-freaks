@@ -99,7 +99,7 @@
                             <input type="hidden" name="shipping_method_id" value="" id="shipping_method_id">
                             <input type="hidden" name="shipping_address_id" value="" id="shipping_address_id">
                         </form>
-                        <a href="" id="submitCheckoutForm" class="common_btn">Place Purchase</a>
+                        <a href="" id="submitCheckoutForm" class="common_btn">Place Order</a>
                     </div>
                 </div>
             </div>
@@ -233,7 +233,7 @@
                         },
                         success: function(data) {
                             if (data.status === 'success') {
-                                $('#submitCheckoutForm').text('Place Purchase')
+                                $('#submitCheckoutForm').text('Place Order')
                                 window.location.href = data.redirect_url;
                             }
                         },

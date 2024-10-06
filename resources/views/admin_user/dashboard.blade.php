@@ -7,102 +7,102 @@
         </div>
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <a href="{{ route('admin_user.purchase.index') }}">
+                <a href="{{ route('admin_user.order.index') }}">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-primary">
                             <i class="fas fa-cart-plus"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Todays Purchases</h4>
+                                <h4>Todays Orders</h4>
                             </div>
                             <div class="card-body">
-                                {{ $todaysPurchase }}
+                                {{ $todaysOrder }}
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <a href="{{ route('admin_user.purchase.index') }}">
+                <a href="{{ route('admin_user.order.index') }}">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-primary">
                             <i class="fas fa-cart-plus"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Todays Peding Purchases</h4>
+                                <h4>Todays Peding Orders</h4>
                             </div>
                             <div class="card-body">
-                                {{ $todaysPendingPurchase }}
+                                {{ $todaysPendingOrder }}
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <a href="{{ route('admin_user.purchase.index') }}">
+                <a href="{{ route('admin_user.order.index') }}">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-primary">
                             <i class="fas fa-cart-plus"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Total Purchases</h4>
+                                <h4>Total Orders</h4>
                             </div>
                             <div class="card-body">
-                                {{ $totalPurchases }}
+                                {{ $totalOrders }}
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <a href="{{ route('admin_user.purchase.index') }}">
+                <a href="{{ route('admin_user.order.index') }}">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-primary">
                             <i class="fas fa-cart-plus"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Total Pending Purchases</h4>
+                                <h4>Total Pending Orders</h4>
                             </div>
                             <div class="card-body">
-                                {{ $totalPendingPurchases }}
+                                {{ $totalPendingOrders }}
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <a href="{{ route('admin_user.purchase.index') }}">
+                <a href="{{ route('admin_user.order.index') }}">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-danger">
                             <i class="fas fa-cart-plus"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Total Canceled Purchases</h4>
+                                <h4>Total Canceled Orders</h4>
                             </div>
                             <div class="card-body">
-                                {{ $totalCanceledPurchases }}
+                                {{ $totalCanceledOrders }}
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <a href="{{ route('admin_user.purchase.index') }}">
+                <a href="{{ route('admin_user.order.index') }}">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-danger">
                             <i class="fas fa-cart-plus"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Total Complelte Purchases</h4>
+                                <h4>Total Complelte Orders</h4>
                             </div>
                             <div class="card-body">
-                                {{ $totalCompletePurchases }}
+                                {{ $totalCompleteOrders }}
                             </div>
                         </div>
                     </div>

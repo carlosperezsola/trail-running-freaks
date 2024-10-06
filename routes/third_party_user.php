@@ -8,7 +8,7 @@ use App\Http\Controllers\Backend\ThirdPartyUserProfileController;
 use App\Http\Controllers\Backend\ThirdPartyUserShopProfileController;
 use App\Http\Controllers\Backend\ThirdPartyProductOptionController;
 use App\Http\Controllers\Backend\ThirdPartyProductOptionItemController;
-use App\Http\Controllers\Backend\ThirdPartyPurchaseController;
+use App\Http\Controllers\Backend\ThirdPartyOrderController;
 
 
 /** Third party routes  */
@@ -51,7 +51,7 @@ Route::delete('products-option-item/{optionItemId}', [ThirdPartyProductOptionIte
 
 Route::put('products-option-item-status', [ThirdPartyProductOptionItemController::class, 'changeStatus'])->name('products-option-item.changes-status');
 
-/** Purchases route */
-Route::get('purchases', [ThirdPartyPurchaseController::class, 'index'])->name('purchases.index');
-Route::get('purchases/show/{id}', [ThirdPartyPurchaseController::class, 'show'])->name('purchases.show');
-Route::get('purchases/status/{id}', [ThirdPartyPurchaseController::class, 'purchaseStatus'])->name('purchases.status');
+/** Orders route */
+Route::get('orders', [ThirdPartyOrderController::class, 'index'])->name('orders.index');
+Route::get('orders/show/{id}', [ThirdPartyOrderController::class, 'show'])->name('orders.show');
+Route::get('orders/status/{id}', [ThirdPartyOrderController::class, 'orderStatus'])->name('orders.status');

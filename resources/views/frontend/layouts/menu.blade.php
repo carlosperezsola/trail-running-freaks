@@ -55,7 +55,7 @@
                         <li><a class="{{ setActive(['contact']) }}" href="{{ route('contact') }}">contact</a></li>
                     </ul>
                     <ul class="trf__menu_item trf__menu_item_right">                        
-                        <li><a href="{{route('product-tracking.index')}}">track my purchases</a></li>
+                        <li><a href="{{route('product-tracking.index')}}">track my orders</a></li>
                         @if (auth()->check())
                             @if (auth()->user()->type_user === 'regular')
                                 <li><a href="{{ route('user.dashboard') }}">my account</a></li>
@@ -145,7 +145,7 @@
                         <li><a class="{{ setActive(['who-we-are']) }}" href="{{ route('who-we-are') }}">who we are</a>
                         </li>
                         <li><a class="{{ setActive(['contact']) }}" href="{{ route('contact') }}">contact</a></li>
-                        <li><a href="{{route('product-tracking.index')}}">track my purchases</a></li>
+                        <li><a href="{{route('product-tracking.index')}}">track my orders</a></li>
                     </ul>
                 </div>
             </div>

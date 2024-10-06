@@ -58,7 +58,7 @@
                     </div>
                     <div class="col-xl-4 col-lg-4">
                         <div class="trf__pay_booking_summary" id="sticky_sidebar2">
-                            <h5>Purchase Summary</h5>
+                            <h5>Order Summary</h5>
                             <p>subtotal: <span>{{ $settings->currency_icon }}{{ getCartTotal() }}</span></p>
                             <p>shipping fee(+) : <span>{{ $settings->currency_icon }}{{ getShippingFee() }}</span></p>
                             <h6>total <span>{{ $settings->currency_icon }}{{ getFinalPayableAmount() }}</span></h6>

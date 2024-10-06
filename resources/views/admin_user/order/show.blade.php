@@ -1,6 +1,6 @@
 @php
-    $address = json_decode($purchase->purchase_address);
-    $shipping = json_decode($purchase->shipping_method);
+    $address = json_decode($order->order_address);
+    $shipping = json_decode($order->shipping_method);
 @endphp
 
 @extends('admin_user.layouts.main')
@@ -8,7 +8,7 @@
 @section('container')
     <section class="section">
         <div class="section-header">
-            <h1>Purchases</h1>
+            <h1>Orders</h1>
         </div>
         <div class="section-body">
             <div class="invoice">
@@ -17,7 +17,7 @@
                         <div class="col-lg-12">
                             <div class="invoice-title">
                                 <h2></h2>
-                                <div class="invoice-number">Purchase #{{ $purchase->invoice_id }}</div>
+                                <div class="invoice-number">Order #{{ $order->invoice_id }}</div>
                             </div>
                             <hr>
                             <div class="row">
@@ -48,15 +48,15 @@
                                 <div class="col-md-6 ">
                                     <address>
                                         <strong>Payment Information:</strong><br>
-                                        <b>Method:</b> {{ $purchase->payment_method }}<br>
-                                        <b>Transaction Id: </b>{{ @$purchase->transaction->transaction_id }} <br>
-                                        <b>Status: </b> {{ $purchase->payment_status === 1 ? 'Complete' : 'Pending' }}
+                                        <b>Method:</b> {{ $order->payment_method }}<br>
+                                        <b>Transaction Id: </b>{{ @$order->transaction->transaction_id }} <br>
+                                        <b>Status: </b> {{ $order->payment_status === 1 ? 'Complete' : 'Pending' }}
                                     </address>
                                 </div>
                                 <div class="col-md-6 text-md-start">
                                     <address>
-                                        <strong>Purchase Date:</strong><br>
-                                        {{ date('d F, Y', strtotime($purchase->created_at)) }}<br><br>
+                                        <strong>Order Date:</strong><br>
+                                        {{ date('d F, Y', strtotime($order->created_at)) }}<br><br>
                                     </address>
                                 </div>
                             </div>
@@ -64,7 +64,7 @@
                     </div>
                     <div class="row mt-4">
                         <div class="col-md-12">
-                            <div class="section-title">Purchase Summary</div>
+                            <div class="section-title">Order Summary</div>
                             <p class="section-lead">All items here cannot be deleted.</p>
                             <div class="table-responsive">
                                 <table class="table table-striped table-hover table-md">
@@ -77,7 +77,7 @@
                                         <th class="text-center">Quantity</th>
                                         <th class="text-right">Totals</th>
                                     </tr>
-                                    @foreach ($purchase->purchaseProducts as $product)
+                                    @foreach ($order->orderProducts as $product)
                                         @php
                                             $options = json_decode($product->options);
                                         @endphp
@@ -121,18 +121,18 @@
                                         <div class="form-group">
                                             <label for="">Payment status</label>
                                             <select name="" id="payment_status" class="form-control"
-                                                data-id="{{ $purchase->id }}">
-                                                <option {{ $purchase->payment_status === 0 ? 'selected' : '' }} value="0">Pending</option>
-                                                <option {{ $purchase->payment_status === 1 ? 'selected' : '' }} value="1">Completed</option>
+                                                data-id="{{ $order->id }}">
+                                                <option {{ $order->payment_status === 0 ? 'selected' : '' }} value="0">Pending</option>
+                                                <option {{ $order->payment_status === 1 ? 'selected' : '' }} value="1">Completed</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="">Purchase Status</label>
-                                            <select name="purchase_status" id="purchase_status" data-id="{{ $purchase->id }}"
+                                            <label for="">Order Status</label>
+                                            <select name="order_status" id="order_status" data-id="{{ $order->id }}"
                                                 class="form-control">
-                                                @foreach (config('purchase_status.purchase_status_admin_user') as $key => $purchaseStatus)
-                                                    <option {{ $purchase->purchase_status === $key ? 'selected' : '' }}
-                                                        value="{{ $key }}">{{ $purchaseStatus['status'] }}</option>
+                                                @foreach (config('order_status.order_status_admin_user') as $key => $orderStatus)
+                                                    <option {{ $order->order_status === $key ? 'selected' : '' }}
+                                                        value="{{ $key }}">{{ $orderStatus['status'] }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -142,7 +142,7 @@
                                     <div class="invoice-detail-item">
                                         <div class="invoice-detail-name">Subtotal</div>
                                         <div class="invoice-detail-value">{{ $settings->currency_icon }}
-                                            {{ $purchase->sub_total }}</div>
+                                            {{ $order->sub_total }}</div>
                                     </div>
                                     <div class="invoice-detail-item">
                                         <div class="invoice-detail-name">Shipping (+)</div>
@@ -153,7 +153,7 @@
                                     <div class="invoice-detail-item">
                                         <div class="invoice-detail-name">Total</div>
                                         <div class="invoice-detail-value invoice-detail-value-lg">
-                                            {{ $settings->currency_icon }} {{ $purchase->amount }}</div>
+                                            {{ $settings->currency_icon }} {{ $order->amount }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -172,13 +172,13 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
-            $('#purchase_status').on('change', function() {
+            $('#order_status').on('change', function() {
                 let status = $(this).val();
                 let id = $(this).data('id');
 
                 $.ajax({
                     method: 'GET',
-                    url: "{{ route('admin_user.purchase.status') }}",
+                    url: "{{ route('admin_user.order.status') }}",
                     data: {
                         status: status,
                         id: id
@@ -192,7 +192,7 @@
                     },
                     error: function(xhr) {
                         console.error(xhr);
-                        toastr.error('An error occurred while updating the purchase status.');
+                        toastr.error('An error occurred while updating the order status.');
                     }
                 });
             });

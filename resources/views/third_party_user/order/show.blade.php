@@ -1,6 +1,5 @@
 @php
-    $address = json_decode($purchase->purchase_address);
-    $shipping = json_decode($purchase->shipping_method);
+    $address = json_decode($order->order_address);
 @endphp
 
 @extends('third_party_user.layouts.main')
@@ -16,7 +15,7 @@
             <div class="row">
                 <div class="col-xl-9 col-xxl-10 col-lg-9 ms-auto">
                     <div class="dashboard_content mt-2 mt-md-0">
-                        <h3><i class="far fa-user"></i> Purchase Details</h3>
+                        <h3><i class="far fa-user"></i> Order Details</h3>
                         <div class="trf__dashboard_profile">
                             <section id="" class="invoice-print">
                                 <div class="">
@@ -48,13 +47,12 @@
                                                     </div>
                                                     <div class="col-xl-4 col-md-4">
                                                         <div class="trf__invoice_single text-md-start">
-                                                            <h5>Purchase id: #{{ $purchase->invoice_id }}</h5>
-                                                            <h6>Purchase status:
-                                                                {{ config('purchase_status.purchase_status_admin_user')[$purchase->purchase_status]['status'] }}
+                                                            <h5>Order id: #{{ $order->invoice_id }}</h5>
+                                                            <h6>Order status: {{ config('order_status.order_status_admin_user')[$order->order_status]['status'] }}
                                                             </h6>
-                                                            <p>Payment Method: {{ $purchase->payment_method }}</p>
-                                                            <p>Payment Status: {{ $purchase->payment_status }}</p>
-                                                            <p>Transaction id: {{ $purchase->transaction->transaction_id }}
+                                                            <p>Payment Method: {{ $order->payment_method }}</p>
+                                                            <p>Payment Status: {{ $order->payment_status }}</p>
+                                                            <p>Transaction id: {{ $order->transaction->transaction_id }}
                                                             </p>
                                                         </div>
                                                     </div>
@@ -80,62 +78,60 @@
                                                                 total
                                                             </th>
                                                         </tr>
-                                                        @foreach ($purchase->purchaseProducts as $product)
-                                                            @php
-                                                                $options = json_decode($product->options);
-                                                            @endphp
-                                                            <tr>
-                                                                <td class="name">
-                                                                    <p>{{ $product->product_name }}</p>
-                                                                    @foreach ($options as $key => $item)
-                                                                        <span>{{ $key }} :
-                                                                            {{ $item->name }}(
-                                                                            {{ $settings->currency_icon }}{{ $item->price }}
-                                                                            )</span>
-                                                                    @endforeach
-                                                                </td>
-                                                                <td class="amount">
-                                                                    @if (isset($product->thirdParty->shop_name) && !empty($product->thirdParty->shop_name))
+                                                        @foreach ($order->orderProducts as $product)
+                                                            @if ($product->thirdParty_id === Auth::user()->thirdParty->id)
+                                                                @php
+                                                                    $options = json_decode($product->options);
+                                                                    $total = 0;
+                                                                    $total += $product->unit_price * $product->qty;
+                                                                @endphp
+                                                                <tr>
+                                                                    <td class="name">
+                                                                        <p>{{ $product->product_name }}</p>
+                                                                        @foreach ($options as $key => $item)
+                                                                            <span>{{ $key }} :
+                                                                                {{ $item->name }}(
+                                                                                {{ $settings->currency_icon }}{{ $item->price }}
+                                                                                )</span>
+                                                                        @endforeach
+                                                                    </td>
+                                                                    <td class="amount">
                                                                         {{ $product->thirdParty->shop_name }}
-                                                                    @else
-                                                                        Not available
-                                                                    @endif
-                                                                </td>
+                                                                    </td>
+                                                                    <td class="amount">
+                                                                        {{ $settings->currency_icon }}
+                                                                        {{ $product->unit_price }}
+                                                                    </td>
 
-                                                                <td class="amount">
-                                                                    {{ $settings->currency_icon }}
-                                                                    {{ $product->unit_price }}
-                                                                </td>
-
-                                                                <td class="quentity">
-                                                                    {{ $product->qty }}
-                                                                </td>
-                                                                <td class="total">
-                                                                    {{ $settings->currency_icon }}
-                                                                    {{ $product->unit_price * $product->qty }}
-                                                                </td>
-                                                            </tr>
+                                                                    <td class="quentity">
+                                                                        {{ $product->qty }}
+                                                                    </td>
+                                                                    <td class="total">
+                                                                        {{ $settings->currency_icon }}
+                                                                        {{ $product->unit_price * $product->qty }}
+                                                                    </td>
+                                                                </tr>
+                                                            @endif
                                                         @endforeach
                                                     </table>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="trf__invoice_footer">
-                                            <p><span>Sub Total:</span>{{ @$settings->currency_icon }}{{ @$purchase->sub_total }}</p>
-                                            <p><span>Shipping Fee(+):</span>{{ @$settings->currency_icon }}{{ @$shipping->cost }} </p>
-                                            <p><span>Total Amount :</span>{{ @$settings->currency_icon }}{{ @$purchase->amount }}</p>
+                                            <p><span>Total Amount:</span> {{ $settings->currency_icon }}
+                                                {{ $total }} </p>
                                         </div>
                                     </div>
                                 </div>
                             </section>
                             <div class="row">
                                 <div class="col-md-4">
-                                    <form action="{{ route('third_party_user.purchases.status', $purchase->id) }}">
+                                    <form action="{{ route('third_party_user.orders.status', $order->id) }}">
                                         <div class="form-group mt-5">
-                                            <label for="" class="mb-2">Purchase Status</label>
+                                            <label for="" class="mb-2">Order Status</label>
                                             <select name="status" id="" class="form-control">
-                                                @foreach (config('purchase_status.purchase_status_thirdParty') as $key => $status)
-                                                    <option {{ $key === $purchase->purchase_status ? 'selected' : '' }}
+                                                @foreach (config('order_status.order_status_thirdParty') as $key => $status)
+                                                    <option {{ $key === $order->order_status ? 'selected' : '' }}
                                                         value="{{ $key }}">{{ $status['status'] }}</option>
                                                 @endforeach
                                             </select>

@@ -1,8 +1,8 @@
 @extends('third_party_user.layouts.main')
 
-@section('title')
-    {{$settings->site_name}} || Product
-@endsection
+<?php /*@section('title')
+{{$settings->site_name}} || Product
+@endsection*/ ?>
 
 @section('container')
     <section id="trf__dashboard">

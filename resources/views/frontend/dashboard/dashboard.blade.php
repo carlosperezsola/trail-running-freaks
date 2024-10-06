@@ -16,24 +16,24 @@
                         <div class="trf__dashboard">
                             <div class="row">
                                 <div class="col-xl-3 col-6 col-md-4">
-                                    <a class="trf__dashboard_item red" href="{{ route('user.purchases.index') }}">
+                                    <a class="trf__dashboard_item red" href="{{ route('user.orders.index') }}">
                                         <i class="fas fa-cart-plus"></i>
-                                        <p class="lh-1">Total Purchase</p>
-                                        <h4 style="color:#ffff">{{ $totalPurchase }}</h4>
+                                        <p class="lh-1">Total Order</p>
+                                        <h4 style="color:#ffff">{{ $totalOrder }}</h4>
                                     </a>
                                 </div>
                                 <div class="col-xl-3 col-6 col-md-4">
                                     <a class="trf__dashboard_item green" href="dsahboard_download.html">
                                         <i class="fas fa-cart-plus"></i>
-                                        <p class="lh-1">Pending Purchases</p>
-                                        <h4 style="color:#ffff">{{ $pendingPurchase }}</h4>
+                                        <p class="lh-1">Pending Orders</p>
+                                        <h4 style="color:#ffff">{{ $pendingOrder }}</h4>
                                     </a>
                                 </div>
                                 <div class="col-xl-3 col-6 col-md-4">
                                     <a class="trf__dashboard_item sky" href="dsahboard_review.html">
                                         <i class="fas fa-cart-plus"></i>
-                                        <p class="lh-1">Complete Purchases</p>
-                                        <h4 style="color:#ffff">{{ $completePurchase }}</h4>
+                                        <p class="lh-1">Complete Orders</p>
+                                        <h4 style="color:#ffff">{{ $completeOrder }}</h4>
                                     </a>
                                 </div>
                                 <div class="col-xl-3 col-6 col-md-4">

@@ -19,7 +19,7 @@ use App\Http\Controllers\Backend\ShippingRuleController;
 use App\Http\Controllers\Backend\PaypalSettingController;
 use App\Http\Controllers\Backend\PaymentSettingController;
 use App\Http\Controllers\Backend\StripeSettingController;
-use App\Http\Controllers\Backend\PurchaseController;
+use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\HomePageSettingController;
 use App\Http\Controllers\Backend\FooterInfoController;
 use App\Http\Controllers\Backend\FooterSocialController;
@@ -109,10 +109,10 @@ Route::put('popular-category-section', [HomePageSettingController::class, 'updat
 Route::put('shipping-rule/change-status', [ShippingRuleController::class, 'changeStatus'])->name('shipping-rule.change-status');
 Route::resource('shipping-rule', ShippingRuleController::class);
 
-/** Purchase routes */
-Route::get('payment-status', [PurchaseController::class, 'changePaymentStatus'])->name('payment.status');
-Route::get('purchase-status', [PurchaseController::class, 'changePurchaseStatus'])->name('purchase.status');
-Route::resource('purchase', PurchaseController::class);
+/** Order routes */
+Route::get('payment-status', [OrderController::class, 'changePaymentStatus'])->name('payment.status');
+Route::get('order-status', [OrderController::class, 'changeOrderStatus'])->name('order.status');
+Route::resource('order', OrderController::class);
 
 /** Subscribers routes */
 Route::get('subscribers', [SubscribersController::class, 'index'])->name('subscribers.index');
