@@ -16,7 +16,7 @@
             <li
                 class="dropdown {{ setActive(['admin_user.category.*', 'admin_user.sub-category.*', 'admin_user.child-category.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-list"></i>
-                    <span>Manage Categories</span></a>
+                    <span>{{ __('Manage Categories') }}</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ setActive(['admin_user.category.*']) }}"><a class="nav-link"
                             href="{{ route('admin_user.category.index') }}">Category</a></li>
