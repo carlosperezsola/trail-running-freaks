@@ -13,7 +13,7 @@
                         <h4>cart View</h4>
                         <ul>
                             <li><a href="#">home</a></li>
-                            <li><a href="#">peoduct</a></li>
+                            <li><a href="#">product</a></li>
                             <li><a href="#">cart view</a></li>
                         </ul>
                     </div>
