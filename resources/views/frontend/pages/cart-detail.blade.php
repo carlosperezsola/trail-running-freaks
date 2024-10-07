@@ -106,46 +106,13 @@
                         <h6>total cart</h6>
                         <p>subtotal: <span id="sub_total">{{ $settings->currency_icon }}{{ getCartTotal() }}</span></p>
                         </p>
-                        <p class="total"><span>total:</span> <span
-                                id="cart_total"></span></p>
-                        <form id="coupon_form">
-                            <input type="text" placeholder="Coupon Code" name="coupon_code"
-                                value="{{ session()->has('coupon') ? session()->get('coupon')['coupon_code'] : '' }}">
-                            <button type="submit" class="common_btn">apply</button>
-                        </form>
+                        <p class="total">
+                            <span>total:</span> 
+                            <span id="cart_total"></span>
+                        </p>
                         <a class="common_btn mt-4 w-100 text-center" href="{{route('user.checkout')}}">checkout</a>
                         <a class="common_btn mt-1 w-100 text-center" href="{{route('home')}}"><i
                                 class="fab fa-shopify"></i> Keep Shopping</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="trf__single_promo">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="trf__single_promo_content">
-                        <div class="trf__single_promo_img">
-                            <img src="images/single_banner_2.jpg" alt="banner" class="img-fluid w-100">
-                        </div>
-                        <div class="trf__single_promo_text">
-                            <h6>sell on <span>35% off</span></h6>
-                            <h3>smart watch</h3>
-                            <a class="shop_btn" href="#">shop now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6">
-                    <div class="trf__single_promo_content single_banner_2">
-                        <div class="trf__single_promo_img">
-                            <img src="images/single_banner_3.jpg" alt="banner" class="img-fluid w-100">
-                        </div>
-                        <div class="trf__single_promo_text">
-                            <h6>New Collection</h6>
-                            <h3>Cosmetics</h3>
-                            <a class="shop_btn" href="#">shop now</a>
-                        </div>
                     </div>
                 </div>
             </div>
