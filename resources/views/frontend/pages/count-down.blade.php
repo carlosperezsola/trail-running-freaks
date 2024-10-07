@@ -35,7 +35,7 @@
             </div>
             <div class="row">
                 @php
-                    $products = \App\Models\Product::with(['variants', 'category', 'productImageGalleries'])
+                    $products = \App\Models\Product::with(['options', 'category', 'productImageGalleries'])
                         ->whereIn('id', $countDownItems)
                         ->get();
                 @endphp

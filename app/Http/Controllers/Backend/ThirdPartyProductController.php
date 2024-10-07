@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\DataTables\ThirdPartyProductDataTable;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Brand;
+use App\Models\Trademark;
 use App\Models\Category;
 use App\Models\ChildCategory;
 use App\Models\SubCategory;
@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Traits\ImageUploadTrait;
 use App\Models\ProductImageGallery;
-use App\Models\ProductVariant;
+use App\Models\ProductOption;
 
 class ThirdPartyProductController extends Controller
 {
@@ -33,8 +33,8 @@ class ThirdPartyProductController extends Controller
     public function create()
     {
         $categories = Category::all();
-        $brands = Brand::all();
-        return view('third_party_user.product.create', compact('categories', 'brands'));
+        $trademarks = Trademark::all();
+        return view('third_party_user.product.create', compact('categories', 'trademarks'));
     }
 
     /**
@@ -46,7 +46,7 @@ class ThirdPartyProductController extends Controller
             'image' => ['required', 'image', 'max:3000'],
             'name' => ['required', 'max:200'],
             'category' => ['required'],
-            'brand' => ['required'],
+            'trademark' => ['required'],
             'price' => ['required'],
             'qty' => ['required'],
             'short_description' => ['required', 'max: 600'],
@@ -67,7 +67,7 @@ class ThirdPartyProductController extends Controller
         $product->category_id = $request->category;
         $product->sub_category_id = $request->sub_category;
         $product->child_category_id = $request->child_category;
-        $product->brand_id = $request->brand;
+        $product->trademark_id = $request->trademark;
         $product->qty = $request->qty;
         $product->short_description = $request->short_description;
         $product->long_description = $request->long_description;
@@ -112,7 +112,7 @@ class ThirdPartyProductController extends Controller
         $subCategories = SubCategory::where('category_id', $product->category_id)->get();
         $childCategories = ChildCategory::where('sub_category_id', $product->sub_category_id)->get();
         $categories = Category::all();
-        $brands = Brand::all();
+        $trademarks = Trademark::all();
 
         return view('third_party_user.product.edit',
         compact(
@@ -120,7 +120,7 @@ class ThirdPartyProductController extends Controller
             'subCategories',
             'childCategories',
             'categories',
-            'brands'
+            'trademarks'
         ));
     }
 
@@ -134,7 +134,7 @@ class ThirdPartyProductController extends Controller
             'image' => ['nullable', 'image', 'max:3000'],
             'name' => ['required', 'max:200'],
             'category' => ['required'],
-            'brand' => ['required'],
+            'trademark' => ['required'],
             'price' => ['required'],
             'qty' => ['required'],
             'short_description' => ['required', 'max: 600'],
@@ -160,7 +160,7 @@ class ThirdPartyProductController extends Controller
         $product->category_id = $request->category;
         $product->sub_category_id = $request->sub_category;
         $product->child_category_id = $request->child_category;
-        $product->brand_id = $request->brand;
+        $product->trademark_id = $request->trademark;
         $product->qty = $request->qty;
         $product->short_description = $request->short_description;
         $product->long_description = $request->long_description;
@@ -204,12 +204,12 @@ class ThirdPartyProductController extends Controller
             $image->delete();
         }
 
-        /** Delete product variants if exist */
-        $variants = ProductVariant::where('product_id', $product->id)->get();
+        /** Delete product options if exist */
+        $options = ProductOption::where('product_id', $product->id)->get();
 
-        foreach($variants as $variant){
-            $variant->productVariantItems()->delete();
-            $variant->delete();
+        foreach($options as $option){
+            $option->productOptionItems()->delete();
+            $option->delete();
         }
 
         $product->delete();

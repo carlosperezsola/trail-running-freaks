@@ -11,7 +11,7 @@ use App\Http\Controllers\Frontend\UserAddressController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckOutController;
 use App\Http\Controllers\Frontend\PaymentController;
-use App\Http\Controllers\Frontend\UserOrderController;
+use App\Http\Controllers\Frontend\UserPurchaseController;
 use App\Http\Controllers\Frontend\NewsletterController;
 use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\Frontend\ProductTrackController;
@@ -59,8 +59,8 @@ Route::get('cart/sidebar-product-total', [CartController::class, 'cartTotal'])->
 Route::post('newsletter-request', [NewsletterController::class, 'newsLetterRequset'])->name('newsletter-request');
 Route::get('newsletter-verify/{token}', [NewsletterController::class, 'newsLetterEmailVerify'])->name('newsletter-verify');
 
-/** About us page route */
-Route::get('about-us', [PageController::class, 'aboutUs'])->name('about-us');
+/** Who we are page route */
+Route::get('who-we-are', [PageController::class, 'whoWeAre'])->name('who-we-are');
 
 /** Terms & conditions page route */
 Route::get('terms-and-conditions', [PageController::class, 'termsAndCondition'])->name('terms-and-conditions');
@@ -91,9 +91,9 @@ Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'user', 'as' => 
     /** User address route */
     Route::resource('address', UserAddressController::class);
 
-    /** Order routes */
-    Route::get('orders', [UserOrderController::class, 'index'])->name('orders.index');
-    Route::get('orders/show/{id}', [UserOrderController::class, 'show'])->name('orders.show');
+    /** Purchase routes */
+    Route::get('purchases', [UserPurchaseController::class, 'index'])->name('purchases.index');
+    Route::get('purchases/show/{id}', [UserPurchaseController::class, 'show'])->name('purchases.show');
 
     /** Checkout routes */
     Route::get('checkout', [CheckOutController::class, 'index'])->name('checkout');

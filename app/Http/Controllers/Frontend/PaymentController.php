@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\PaypalSetting;
 use App\Models\StripeSetting;
 use App\Models\GeneralSetting;
-use App\Models\OrderProduct;
+use App\Models\PurchaseProduct;
 use App\Models\Product;
-use App\Models\Order;
+use App\Models\Purchase;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -32,38 +32,38 @@ class PaymentController extends Controller
         return view('frontend.pages.payment-success');
     }
 
-    public function storeOrder($paymentMethod, $paymentStatus, $transactionId, $paidAmount, $paidCurrencyName)
+    public function storePurchase($paymentMethod, $paymentStatus, $transactionId, $paidAmount, $paidCurrencyName)
     {
         $setting = GeneralSetting::first();
 
-        $order = new Order();
-        $order->invoice_id = rand(1, 999999);
-        $order->user_id = Auth::user()->id;
-        $order->sub_total = getCartTotal();
-        $order->amount =  getFinalPayableAmount();
-        $order->currency_name = $setting->currency_name;
-        $order->currency_icon = $setting->currency_icon;
-        $order->product_qty = \Cart::content()->count();
-        $order->payment_method = $paymentMethod;
-        $order->payment_status = $paymentStatus;
-        $order->order_address = json_encode(Session::get('address'));
-        $order->shipping_method = json_encode(Session::get('shipping_method'));
-        $order->order_status = 'pending';
-        $order->save();
+        $purchase = new Purchase();
+        $purchase->invoice_id = rand(1, 999999);
+        $purchase->user_id = Auth::user()->id;
+        $purchase->sub_total = getCartTotal();
+        $purchase->amount =  getFinalPayableAmount();
+        $purchase->currency_name = $setting->currency_name;
+        $purchase->currency_icon = $setting->currency_icon;
+        $purchase->product_qty = \Cart::content()->count();
+        $purchase->payment_method = $paymentMethod;
+        $purchase->payment_status = $paymentStatus;
+        $purchase->purchase_address = json_encode(Session::get('address'));
+        $purchase->shipping_method = json_encode(Session::get('shipping_method'));
+        $purchase->purchase_status = 'pending';
+        $purchase->save();
 
-        // store order products
+        // store purchase products
         foreach (\Cart::content() as $item) {
             $product = Product::find($item->id);
-            $orderProduct = new OrderProduct();
-            $orderProduct->order_id = $order->id;
-            $orderProduct->product_id = $product->id;
-            $orderProduct->thirdParty_id = $product->thirdParty_id;
-            $orderProduct->product_name = $product->name;
-            $orderProduct->variants = json_encode($item->options->variants);
-            $orderProduct->variant_total = $item->options->variants_total;
-            $orderProduct->unit_price = $item->price;
-            $orderProduct->qty = $item->qty;
-            $orderProduct->save();
+            $purchaseProduct = new PurchaseProduct();
+            $purchaseProduct->purchase_id = $purchase->id;
+            $purchaseProduct->product_id = $product->id;
+            $purchaseProduct->thirdParty_id = $product->thirdParty_id;
+            $purchaseProduct->product_name = $product->name;
+            $purchaseProduct->options = json_encode($item->options->options);
+            $purchaseProduct->option_total = $item->options->options_total;
+            $purchaseProduct->unit_price = $item->price;
+            $purchaseProduct->qty = $item->qty;
+            $purchaseProduct->save();
 
             // update product quantity
             $updatedQty = ($product->qty - $item->qty);
@@ -73,7 +73,7 @@ class PaymentController extends Controller
 
         // store transaction details
         $transaction = new Transaction();
-        $transaction->order_id = $order->id;
+        $transaction->purchase_id = $purchase->id;
         $transaction->transaction_id = $transactionId;
         $transaction->payment_method = $paymentMethod;
         $transaction->amount = getFinalPayableAmount();
@@ -171,7 +171,7 @@ class PaymentController extends Controller
             $total = getFinalPayableAmount();
             $paidAmount = round($total * $paypalSetting->currency_rate, 2);
 
-            $this->storeOrder('paypal', 1, $response['id'], $paidAmount, $paypalSetting->currency_name);
+            $this->storePurchase('paypal', 1, $response['id'], $paidAmount, $paypalSetting->currency_name);
 
             // clear session
             $this->clearSession();
@@ -204,8 +204,10 @@ class PaymentController extends Controller
         ]);
 
         if ($response->status === 'succeeded') {
-            $this->storeOrder('stripe', 1, $response->id, $payableAmount, $stripeSetting->currency_name);
+            $this->storePurchase('stripe', 1, $response->id, $payableAmount, $stripeSetting->currency_name);
+            // clear session
             $this->clearSession();
+
             return redirect()->route('user.payment.success');
         } else {
             toastr('Someting went wrong try agin later!', 'error', 'Error');

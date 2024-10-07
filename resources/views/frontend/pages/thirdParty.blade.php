@@ -20,17 +20,17 @@
             </div>
         </div>
     </section>
-    <section id="trf__product_page" class="trf__vendors">
+    <section id="trf__product_page" class="trf__third_partys">
         <div class="container">
             <div class="row">
                 <div class="">
                     <div class="row">
                         @foreach ($thirdParties as $thirdParty)
                             <div class="col-xl-6 col-md-6">
-                                <div class="trf__vendor_single">
+                                <div class="trf__third_party_single">
                                     <img src="{{ asset($thirdParty->banner) }}" alt="third party" class="img-fluid w-100">
-                                    <div class="trf__vendor_text">
-                                        <div class="trf__vendor_text_center">
+                                    <div class="trf__third_party_text">
+                                        <div class="trf__third_party_text_center">
                                             <h4>{{ $thirdParty->shop_name }}</h4>
                                             <a href="javascript:;"><i class="far fa-phone-alt"></i>
                                                 {{ $thirdParty->phone }}</a>

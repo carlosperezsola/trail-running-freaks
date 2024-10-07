@@ -62,7 +62,7 @@
                         <div class="trf__cart_text">
                             <a class="trf__cart_title" href="{{ url('product-detail') }}/${product.options.slug}">${product.name}</a>
                             <p>{{ $settings->currency_icon }}${product.price}</p>
-                            <small>Variants total: {{ $settings->currency_icon }}${product.options.variants_total}</small>
+                            <small>Options total: {{ $settings->currency_icon }}${product.options.options_total}</small>
                             <br>
                             <small>Qty: ${product.qty}</small>
                         </div>

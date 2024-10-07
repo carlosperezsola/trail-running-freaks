@@ -27,7 +27,7 @@
                                         <option {{ $shipping->type === 'flat_cost' ? 'selected' : '' }} value="flat_cost">
                                             Flat Cost</option>
                                         <option {{ $shipping->type === 'min_cost' ? 'selected' : '' }} value="min_cost">
-                                            Minimum Order Amount</option>
+                                            Minimum Purchase Amount</option>
                                     </select>
                                 </div>
                                 <div class="form-group min_cost {{ $shipping->type === 'min_cost' ? '' : 'd-none' }}">

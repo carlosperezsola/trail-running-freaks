@@ -28,25 +28,25 @@
             </li>
             <li
                 class="dropdown {{ setActive([
-                    'admin_user.brand.*',
+                    'admin_user.trademark.*',
                     'admin_user.products.*',
                     'admin_user.products-image-gallery.*',
-                    'admin_user.products-variant.*',
-                    'admin_user.products-variant-item.*',
+                    'admin_user.products-option.*',
+                    'admin_user.products-option-item.*',
                     'admin_user.seller-products.*',
                     'admin_user.seller-pending-products.*',
                 ]) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-box"></i>
                     <span>Manage Products</span></a>
                 <ul class="dropdown-menu">
-                    <li class="{{ setActive(['admin_user.brand.*']) }}"><a class="nav-link"
-                            href="{{ route('admin_user.brand.index') }}">Brands</a></li>
+                    <li class="{{ setActive(['admin_user.trademark.*']) }}"><a class="nav-link"
+                            href="{{ route('admin_user.trademark.index') }}">Trademarks</a></li>
                     <li
                         class="{{ setActive([
                             'admin_user.products.*',
                             'admin_user.products-image-gallery.*',
-                            'admin_user.products-variant.*',
-                            'admin_user.products-variant-item.*',
+                            'admin_user.products-option.*',
+                            'admin_user.products-option-item.*',
                             'admin_user.payment-settings.*',
                         ]) }}">
                         <a class="nav-link" href="{{ route('admin_user.products.index') }}">Products</a>
@@ -77,12 +77,12 @@
                 </ul>
             </li>
             <li>
-                <a class="nav-link" href="{{ route('admin_user.order.index') }}">
-                    <i class="fas fa-cart-plus"></i><span>Orders</span>
+                <a class="nav-link" href="{{ route('admin_user.purchase.index') }}">
+                    <i class="fas fa-cart-plus"></i><span>Purchases</span>
                 </a>
             </li>
             <li
-                class="dropdown {{ setActive(['admin_user.slider.*', 'admin_user.about-us.*', 'admin_user.terms-and-conditions.*']) }}">
+                class="dropdown {{ setActive(['admin_user.slider.*', 'admin_user.who-we-are.*', 'admin_user.terms-and-conditions.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cog"></i>
                     <span>Manage Website</span></a>
                 <ul class="dropdown-menu">
@@ -93,8 +93,8 @@
                         <a class="nav-link" href="{{ route('admin_user.home-page-setting.index') }}">Home Page
                             Settings</a>
                     </li>
-                    <li class="{{ setActive(['admin_user.about-us.index']) }}">
-                        <a class="nav-link" href="{{ route('admin_user.about-us.index') }}">About Us Page</a>
+                    <li class="{{ setActive(['admin_user.who-we-are.index']) }}">
+                        <a class="nav-link" href="{{ route('admin_user.who-we-are.index') }}">Who We Are Page</a>
                     </li>
                     <li class="{{ setActive(['admin_user.terms-and-conditions.index']) }}">
                         <a class="nav-link" href="{{ route('admin_user.terms-and-conditions.index') }}">Terms &
@@ -103,9 +103,9 @@
                 </ul>
             </li>
             <li>
-                <a class="nav-link {{ setActive(['admin_user.banner.*']) }}"
-                    href="{{ route('admin_user.banner.index') }}">
-                    <i class="fas fa-ad"></i> <span>Banners</span>
+                <a class="nav-link {{ setActive(['admin_user.promo.*']) }}"
+                    href="{{ route('admin_user.promo.index') }}">
+                    <i class="fas fa-ad"></i> <span>Promos</span>
                 </a>
             </li>
             <li class="menu-header">More features</li>

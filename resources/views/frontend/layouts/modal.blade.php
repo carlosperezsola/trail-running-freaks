@@ -45,17 +45,17 @@
                     <div class="trf__selectbox">
                         <div class="row">
                             <input type="hidden" name="product_id" value="{{ $product->id }}">
-                            @foreach ($product->variants as $variant)
-                                @if ($variant->status != 0)
+                            @foreach ($product->options as $option)
+                                @if ($option->status != 0)
                                     <div class="col-xl-6 col-sm-6">
-                                        <h5 class="mb-2">{{ $variant->name }}: </h5>
-                                        <select class="select_2" name="variants_items[]">
-                                            @foreach ($variant->productVariantItems as $variantItem)
-                                                @if ($variantItem->status != 0)
-                                                    <option value="{{ $variantItem->id }}"
-                                                        {{ $variantItem->is_default == 1 ? 'selected' : '' }}>
-                                                        {{ $variantItem->name }}
-                                                        ({{ $variantItem->price }}€)
+                                        <h5 class="mb-2">{{ $option->name }}: </h5>
+                                        <select class="select_2" name="options_items[]">
+                                            @foreach ($option->productOptionItems as $optionItem)
+                                                @if ($optionItem->status != 0)
+                                                    <option value="{{ $optionItem->id }}"
+                                                        {{ $optionItem->is_default == 1 ? 'selected' : '' }}>
+                                                        {{ $optionItem->name }}
+                                                        ({{ $optionItem->price }}€)
                                                     </option>
                                                 @endif
                                             @endforeach
@@ -65,7 +65,7 @@
                             @endforeach
                         </div>
                     </div>
-                    <div class="trf__quentity">
+                    <div class="trf__quantity">
                         <h5>Quantity:</h5>
                         <div class="select_number">
                             <input class="number_area" name="qty" type="text"
@@ -76,7 +76,7 @@
                         <li><button type="submit" class="add_cart" href="#">add to cart</button></li>
                     </ul>
                 </form>
-                <p class="brand_model"><span>brand :</span> {{ $product->brand->name }}</p>
+                <p class="brand_model"><span>trademark :</span> {{ $product->trademark->name }}</p>
             </div>
         </div>
     </div>

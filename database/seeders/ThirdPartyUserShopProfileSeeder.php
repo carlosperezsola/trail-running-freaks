@@ -18,7 +18,7 @@ class ThirdPartyUserShopProfileSeeder extends Seeder
         if ($user) { // Verifica si el usuario existe
             $thirdParty = new ThirdParty();
             $thirdParty->banner = 'uploads/1343.jpg';
-            $thirdParty->shop_name = 'Vendor Shop';
+            $thirdParty->shop_name = 'Third Party Shop';
             $thirdParty->phone = '12321312';
             $thirdParty->email = 'third_party_user@gmail.com';
             $thirdParty->address = 'Usa';

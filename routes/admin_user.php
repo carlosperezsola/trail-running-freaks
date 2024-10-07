@@ -7,11 +7,11 @@ use App\Http\Controllers\Backend\ProfileUserController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\ChildCategoryController;
-use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\Backend\TrademarkController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ProductImageGalleryController;
-use App\Http\Controllers\Backend\ProductVariantController;
-use App\Http\Controllers\Backend\ProductVariantItemController;
+use App\Http\Controllers\Backend\ProductOptionController;
+use App\Http\Controllers\Backend\ProductOptionItemController;
 use App\Http\Controllers\Backend\CountDownController;
 use App\Http\Controllers\Backend\SellerProductController;
 use App\Http\Controllers\Backend\SettingController;
@@ -19,14 +19,14 @@ use App\Http\Controllers\Backend\ShippingRuleController;
 use App\Http\Controllers\Backend\PaypalSettingController;
 use App\Http\Controllers\Backend\PaymentSettingController;
 use App\Http\Controllers\Backend\StripeSettingController;
-use App\Http\Controllers\Backend\OrderController;
+use App\Http\Controllers\Backend\PurchaseController;
 use App\Http\Controllers\Backend\HomePageSettingController;
 use App\Http\Controllers\Backend\FooterInfoController;
 use App\Http\Controllers\Backend\FooterSocialController;
 use App\Http\Controllers\Backend\FooterGridController;
 use App\Http\Controllers\Backend\SubscribersController;
-use App\Http\Controllers\Backend\BannerController;
-use App\Http\Controllers\Backend\AboutUsController;
+use App\Http\Controllers\Backend\PromoController;
+use App\Http\Controllers\Backend\WhoWeAreController;
 use App\Http\Controllers\Backend\TermsAndConditionController;
 use Illuminate\Support\Facades\Route;
 
@@ -53,9 +53,9 @@ Route::put('child-category/change-status', [ChildCategoryController::class, 'cha
 Route::get('get-subcategories', [ChildCategoryController::class, 'getSubCategories'])->name('get-subcategories');
 Route::resource('child-category', ChildCategoryController::class);
 
-/** Brand routes */
-Route::put('brand/change-status', [BrandController::class, 'changeStatus'])->name('brand.change-status');
-Route::resource('brand', BrandController::class);
+/** Trademark routes */
+Route::put('trademark/change-status', [TrademarkController::class, 'changeStatus'])->name('trademark.change-status');
+Route::resource('trademark', TrademarkController::class);
 
 /** Third party profile routes */
 Route::resource('third-party-profile', AdminThirdPartyUserProfileController::class);
@@ -69,18 +69,18 @@ Route::resource('products', ProductController::class);
 /** Products image gallery route */
 Route::resource('products-image-gallery', ProductImageGalleryController::class);
 
-/** Products variant route */
-Route::put('products-variant/change-status', [ProductVariantController::class, 'changeStatus'])->name('products-variant.change-status');
-Route::resource('products-variant', ProductVariantController::class);
+/** Products option route */
+Route::put('products-option/change-status', [ProductOptionController::class, 'changeStatus'])->name('products-option.change-status');
+Route::resource('products-option', ProductOptionController::class);
 
-/** Products variant item route */
-Route::get('products-variant-item/{productId}/{variantId}', [ProductVariantItemController::class, 'index'])->name('products-variant-item.index');
-Route::get('products-variant-item/create/{productId}/{variantId}', [ProductVariantItemController::class, 'create'])->name('products-variant-item.create');
-Route::post('products-variant-item', [ProductVariantItemController::class, 'store'])->name('products-variant-item.store');
-Route::get('products-variant-item-edit/{variantItemId}', [ProductVariantItemController::class, 'edit'])->name('products-variant-item.edit');
-Route::put('products-variant-item-update/{variantItemId}', [ProductVariantItemController::class, 'update'])->name('products-variant-item.update');
-Route::delete('products-variant-item/{variantItemId}', [ProductVariantItemController::class, 'destroy'])->name('products-variant-item.destroy');
-Route::put('products-variant-item-status', [ProductVariantItemController::class, 'changeStatus'])->name('products-variant-item.changes-status');
+/** Products option item route */
+Route::get('products-option-item/{productId}/{optionId}', [ProductOptionItemController::class, 'index'])->name('products-option-item.index');
+Route::get('products-option-item/create/{productId}/{optionId}', [ProductOptionItemController::class, 'create'])->name('products-option-item.create');
+Route::post('products-option-item', [ProductOptionItemController::class, 'store'])->name('products-option-item.store');
+Route::get('products-option-item-edit/{optionItemId}', [ProductOptionItemController::class, 'edit'])->name('products-option-item.edit');
+Route::put('products-option-item-update/{optionItemId}', [ProductOptionItemController::class, 'update'])->name('products-option-item.update');
+Route::delete('products-option-item/{optionItemId}', [ProductOptionItemController::class, 'destroy'])->name('products-option-item.destroy');
+Route::put('products-option-item-status', [ProductOptionItemController::class, 'changeStatus'])->name('products-option-item.changes-status');
 
 /** Seller product routes */
 Route::get('seller-products', [SellerProductController::class, 'index'])->name('seller-products.index');
@@ -109,26 +109,26 @@ Route::put('popular-category-section', [HomePageSettingController::class, 'updat
 Route::put('shipping-rule/change-status', [ShippingRuleController::class, 'changeStatus'])->name('shipping-rule.change-status');
 Route::resource('shipping-rule', ShippingRuleController::class);
 
-/** Order routes */
-Route::get('payment-status', [OrderController::class, 'changePaymentStatus'])->name('payment.status');
-Route::get('order-status', [OrderController::class, 'changeOrderStatus'])->name('order.status');
-Route::resource('order', OrderController::class);
+/** Purchase routes */
+Route::get('payment-status', [PurchaseController::class, 'changePaymentStatus'])->name('payment.status');
+Route::get('purchase-status', [PurchaseController::class, 'changePurchaseStatus'])->name('purchase.status');
+Route::resource('purchase', PurchaseController::class);
 
 /** Subscribers routes */
 Route::get('subscribers', [SubscribersController::class, 'index'])->name('subscribers.index');
 Route::delete('subscribers/{id}', [SubscribersController::class, 'destroy'])->name('subscribers.destroy');
 Route::post('subscribers-send-mail', [SubscribersController::class, 'sendMail'])->name('subscribers-send-mail');
 
-/** Banner routes */
-Route::get('banner', [BannerController::class, 'index'])->name('banner.index');
-Route::put('banner/homepage-banner-section', [BannerController::class, 'homepageBannersection'])->name('homepage-banner-section');
-Route::put('banner/homepage-banner-section-four', [BannerController::class, 'homepageBannersectionFour'])->name('homepage-banner-section-four');
-Route::put('banner/productpage-banner', [BannerController::class, 'productPageBanner'])->name('productpage-banner');
-Route::put('banner/cartpage-banner', [BannerController::class, 'cartPageBanner'])->name('cartpage-banner');
+/** Promo routes */
+Route::get('promo', [PromoController::class, 'index'])->name('promo.index');
+Route::put('promo/homepage-promo-section', [PromoController::class, 'homepagePromosection'])->name('homepage-promo-section');
+Route::put('promo/homepage-promo-section-four', [PromoController::class, 'homepagePromosectionFour'])->name('homepage-promo-section-four');
+Route::put('promo/productpage-promo', [PromoController::class, 'productPagePromo'])->name('productpage-promo');
+Route::put('promo/cartpage-promo', [PromoController::class, 'cartPagePromo'])->name('cartpage-promo');
 
-/** About us routes */
-Route::get('about-us', [AboutUsController::class, 'index'])->name('about-us.index');
-Route::put('about-us/update', [AboutUsController::class, 'update'])->name('about-us.update');
+/** Who we are routes */
+Route::get('who-we-are', [WhoWeAreController::class, 'index'])->name('who-we-are.index');
+Route::put('who-we-are/update', [WhoWeAreController::class, 'update'])->name('who-we-are.update');
 
 /** Terms & conditons routes */
 Route::get('terms-and-conditions', [TermsAndConditionController::class, 'index'])->name('terms-and-conditions.index');

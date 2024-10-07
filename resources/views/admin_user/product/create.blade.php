@@ -61,11 +61,11 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="inputState">Brand</label>
-                                    <select id="inputState" class="form-control" name="brand">
+                                    <label for="inputState">Trademark</label>
+                                    <select id="inputState" class="form-control" name="trademark">
                                         <option value="">Select</option>
-                                        @foreach ($brands as $brand)
-                                            <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                                        @foreach ($trademarks as $trademark)
+                                            <option value="{{ $trademark->id }}">{{ $trademark->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

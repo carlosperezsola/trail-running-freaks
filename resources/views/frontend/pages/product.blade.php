@@ -13,7 +13,7 @@
                         <h4>products</h4>
                         <ul>
                             <li><a href="#">home</a></li>
-                            <li><a href="#">peoduct</a></li>
+                            <li><a href="#">product</a></li>
                         </ul>
                     </div>
                 </div>
@@ -84,16 +84,16 @@
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseThree3" aria-expanded="false"
                                         aria-controls="collapseThree">
-                                        brand
+                                        trademark
                                     </button>
                                 </h2>
                                 <div id="collapseThree3" class="accordion-collapse collapse show"
                                     aria-labelledby="headingThree3" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         <ul>
-                                            @foreach ($brands as $brand)
+                                            @foreach ($trademarks as $trademark)
                                                 <li><a
-                                                        href="{{ route('products.index', ['brand' => $brand->slug]) }}">{{ $brand->name }}</a>
+                                                        href="{{ route('products.index', ['trademark' => $trademark->slug]) }}">{{ $trademark->name }}</a>
                                                 </li>
                                             @endforeach
                                         </ul>
@@ -172,15 +172,15 @@
                                                     <form class="shopping-cart-form">
                                                         <input type="hidden" name="product_id"
                                                             value="{{ $product->id }}">
-                                                        @foreach ($product->variants as $variant)
-                                                            @if ($variant->status != 0)
-                                                                <select class="d-none" name="variants_items[]">
-                                                                    @foreach ($variant->productVariantItems as $variantItem)
-                                                                        @if ($variantItem->status != 0)
-                                                                            <option value="{{ $variantItem->id }}"
-                                                                                {{ $variantItem->is_default == 1 ? 'selected' : '' }}>
-                                                                                {{ $variantItem->name }}
-                                                                                (${{ $variantItem->price }})
+                                                        @foreach ($product->options as $option)
+                                                            @if ($option->status != 0)
+                                                                <select class="d-none" name="options_items[]">
+                                                                    @foreach ($option->productOptionItems as $optionItem)
+                                                                        @if ($optionItem->status != 0)
+                                                                            <option value="{{ $optionItem->id }}"
+                                                                                {{ $optionItem->is_default == 1 ? 'selected' : '' }}>
+                                                                                {{ $optionItem->name }}
+                                                                                (${{ $optionItem->price }})
                                                                             </option>
                                                                         @endif
                                                                     @endforeach
@@ -238,15 +238,15 @@
                                                         <form class="shopping-cart-form">
                                                             <input type="hidden" name="product_id"
                                                                 value="{{ $product->id }}">
-                                                            @foreach ($product->variants as $variant)
-                                                                @if ($variant->status != 0)
-                                                                    <select class="d-none" name="variants_items[]">
-                                                                        @foreach ($variant->productVariantItems as $variantItem)
-                                                                            @if ($variantItem->status != 0)
-                                                                                <option value="{{ $variantItem->id }}"
-                                                                                    {{ $variantItem->is_default == 1 ? 'selected' : '' }}>
-                                                                                    {{ $variantItem->name }}
-                                                                                    (${{ $variantItem->price }})
+                                                            @foreach ($product->options as $option)
+                                                                @if ($option->status != 0)
+                                                                    <select class="d-none" name="options_items[]">
+                                                                        @foreach ($option->productOptionItems as $optionItem)
+                                                                            @if ($optionItem->status != 0)
+                                                                                <option value="{{ $optionItem->id }}"
+                                                                                    {{ $optionItem->is_default == 1 ? 'selected' : '' }}>
+                                                                                    {{ $optionItem->name }}
+                                                                                    (${{ $optionItem->price }})
                                                                                 </option>
                                                                             @endif
                                                                         @endforeach

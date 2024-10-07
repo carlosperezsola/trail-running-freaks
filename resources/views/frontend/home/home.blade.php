@@ -27,11 +27,11 @@
                     MONTHLY TOP PRODUCT END
                 ==============================-->
     <!--============================
-                    BRAND SLIDER START
+                    TRADEMARK SLIDER START
                 ==============================-->
-    @include('frontend.home.sections.brand-slider')
+    @include('frontend.home.sections.trademark-slider')
     <!--============================
-                    BRAND SLIDER END
+                    TRADEMARK SLIDER END
                 ==============================-->
     <!--============================
                     TRIPLE GRID SECTION START

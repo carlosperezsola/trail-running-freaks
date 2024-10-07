@@ -7,8 +7,8 @@ use App\Models\CountDown;
 use App\Models\CountDownItem;
 use App\Models\Slider;
 use App\Models\HomePageSetting;
-use App\Models\Brand;
-use App\Models\Banner;
+use App\Models\Trademark;
+use App\Models\Promo;
 use App\Models\Product;
 use App\Models\ThirdParty;
 use App\Models\Category;
@@ -19,8 +19,8 @@ class HomeController extends Controller
 {
     public function index() 
     {
-        $homepage_section_banner = Banner::where('key', 'homepage_section_banner')->first();
-        $homepage_section_banner = json_decode($homepage_section_banner->value);
+        $homepage_section_promo = Promo::where('key', 'homepage_section_promo')->first();
+        $homepage_section_promo = json_decode($homepage_section_promo->value);
 
         $sliders = Cache::rememberForever('sliders', function(){
             return Slider::where('status', 1)->orderBy('serial', 'asc')->get();
@@ -29,15 +29,15 @@ class HomeController extends Controller
         $countDownDate = CountDown::first();
         $countDownItems = CountDownItem::where('show_at_home', 1)->where('status', 1)->pluck('product_id')->toArray();
         $popularCategory = HomePageSetting::where('key', 'popular_category_section')->first();
-        $brands = Brand::where('status', 1)->where('is_featured', 1)->get();
+        $trademarks = Trademark::where('status', 1)->where('is_featured', 1)->get();
         return view('frontend.home.home',
             compact(
                 'sliders',
                 'countDownDate',
                 'countDownItems',
                 'popularCategory',
-                'brands',
-                'homepage_section_banner',
+                'trademarks',
+                'homepage_section_promo',
             ));
     }
 
@@ -51,9 +51,9 @@ class HomeController extends Controller
     {
         $products = Product::where(['status' => 1, 'is_approved' => 1, 'thirdParty_id' => $id])->orderBy('id', 'DESC')->paginate(12);
         $categories = Category::where(['status' => 1])->get();
-        $brands = Brand::where(['status' => 1])->get();
+        $trademarks = Trademark::where(['status' => 1])->get();
         $thirdParty = thirdParty::findOrFail($id);
-        return view('frontend.pages.thirdParty-product', compact('products', 'categories', 'brands', 'thirdParty'));
+        return view('frontend.pages.thirdParty-product', compact('products', 'categories', 'trademarks', 'thirdParty'));
     }
 
     function ShowProductModal(string $id) {

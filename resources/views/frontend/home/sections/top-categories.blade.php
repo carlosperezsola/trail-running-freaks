@@ -24,7 +24,7 @@
                                 if (array_keys($lastKey)[0] === 'category') {
                                     $category = \App\Models\Category::find($lastKey['category']);
                                     $products[] = \App\Models\Product::with([
-                                        'variants',
+                                        'options',
                                         'category',
                                         'productImageGalleries',
                                     ])
@@ -35,7 +35,7 @@
                                 } elseif (array_keys($lastKey)[0] === 'sub_category') {
                                     $category = \App\Models\SubCategory::find($lastKey['sub_category']);
                                     $products[] = \App\Models\Product::with([
-                                        'variants',
+                                        'options',
                                         'category',
                                         'productImageGalleries',
                                     ])
@@ -46,7 +46,7 @@
                                 } else {
                                     $category = \App\Models\ChildCategory::find($lastKey['child_category']);
                                     $products[] = \App\Models\Product::with([
-                                        'variants',
+                                        'options',
                                         'category',
                                         'productImageGalleries',
                                     ])

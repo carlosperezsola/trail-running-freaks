@@ -24,14 +24,14 @@ class Product extends Model
         return $this->hasMany(ProductImageGallery::class);
     }
 
-    public function variants()
+    public function options()
     {
-        return $this->hasMany(ProductVariant::class, 'product_id');
+        return $this->hasMany(ProductOption::class, 'product_id');
 
     }
 
-    public function brand()
+    public function trademark()
     {
-        return $this->belongsTo(Brand::class);
+        return $this->belongsTo(Trademark::class);
     }
 }

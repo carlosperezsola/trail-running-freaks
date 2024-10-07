@@ -6,9 +6,9 @@ use App\Http\Controllers\Backend\ThirdPartyProductImageGalleryController;
 use App\Http\Controllers\Backend\ThirdPartyUserController;
 use App\Http\Controllers\Backend\ThirdPartyUserProfileController;
 use App\Http\Controllers\Backend\ThirdPartyUserShopProfileController;
-use App\Http\Controllers\Backend\ThirdPartyProductVariantController;
-use App\Http\Controllers\Backend\ThirdPartyProductVariantItemController;
-use App\Http\Controllers\Backend\ThirdPartyOrderController;
+use App\Http\Controllers\Backend\ThirdPartyProductOptionController;
+use App\Http\Controllers\Backend\ThirdPartyProductOptionItemController;
+use App\Http\Controllers\Backend\ThirdPartyPurchaseController;
 
 
 /** Third party routes  */
@@ -32,26 +32,26 @@ Route::resource('products', ThirdPartyProductController::class);
 /** Products image gallery route */
 Route::resource('products-image-gallery', ThirdPartyProductImageGalleryController::class);
 
-/** Products variant route */
-Route::put('products-variant/change-status', [ThirdPartyProductVariantController::class, 'changeStatus'])->name('products-variant.change-status');
-Route::resource('products-variant', ThirdPartyProductVariantController::class);
+/** Products option route */
+Route::put('products-option/change-status', [ThirdPartyProductOptionController::class, 'changeStatus'])->name('products-option.change-status');
+Route::resource('products-option', ThirdPartyProductOptionController::class);
 
-/** Products variant item route */
-Route::get('products-variant-item/{productId}/{variantId}', [ThirdPartyProductVariantItemController::class, 'index'])->name('products-variant-item.index');
+/** Products option item route */
+Route::get('products-option-item/{productId}/{optionId}', [ThirdPartyProductOptionItemController::class, 'index'])->name('products-option-item.index');
 
-Route::get('products-variant-item/create/{productId}/{variantId}', [ThirdPartyProductVariantItemController::class, 'create'])->name('products-variant-item.create');
+Route::get('products-option-item/create/{productId}/{optionId}', [ThirdPartyProductOptionItemController::class, 'create'])->name('products-option-item.create');
 
-Route::post('products-variant-item', [ThirdPartyProductVariantItemController::class, 'store'])->name('products-variant-item.store');
+Route::post('products-option-item', [ThirdPartyProductOptionItemController::class, 'store'])->name('products-option-item.store');
 
-Route::get('products-variant-item-edit/{variantItemId}', [ThirdPartyProductVariantItemController::class, 'edit'])->name('products-variant-item.edit');
+Route::get('products-option-item-edit/{optionItemId}', [ThirdPartyProductOptionItemController::class, 'edit'])->name('products-option-item.edit');
 
-Route::put('products-variant-item-update/{variantItemId}', [ThirdPartyProductVariantItemController::class, 'update'])->name('products-variant-item.update');
+Route::put('products-option-item-update/{optionItemId}', [ThirdPartyProductOptionItemController::class, 'update'])->name('products-option-item.update');
 
-Route::delete('products-variant-item/{variantItemId}', [ThirdPartyProductVariantItemController::class, 'destroy'])->name('products-variant-item.destroy');
+Route::delete('products-option-item/{optionItemId}', [ThirdPartyProductOptionItemController::class, 'destroy'])->name('products-option-item.destroy');
 
-Route::put('products-variant-item-status', [ThirdPartyProductVariantItemController::class, 'changeStatus'])->name('products-variant-item.changes-status');
+Route::put('products-option-item-status', [ThirdPartyProductOptionItemController::class, 'changeStatus'])->name('products-option-item.changes-status');
 
-/** Orders route */
-Route::get('orders', [ThirdPartyOrderController::class, 'index'])->name('orders.index');
-Route::get('orders/show/{id}', [ThirdPartyOrderController::class, 'show'])->name('orders.show');
-Route::get('orders/status/{id}', [ThirdPartyOrderController::class, 'orderStatus'])->name('orders.status');
+/** Purchases route */
+Route::get('purchases', [ThirdPartyPurchaseController::class, 'index'])->name('purchases.index');
+Route::get('purchases/show/{id}', [ThirdPartyPurchaseController::class, 'show'])->name('purchases.show');
+Route::get('purchases/status/{id}', [ThirdPartyPurchaseController::class, 'purchaseStatus'])->name('purchases.status');
