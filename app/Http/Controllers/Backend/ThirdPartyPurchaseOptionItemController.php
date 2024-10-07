@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductOption;
 use App\Models\ProductOptionItem;
-use App\Models\ThirdParty;
 use Illuminate\Http\Request;
 
 class ThirdPartyProductOptionItemController extends Controller
