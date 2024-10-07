@@ -3,7 +3,7 @@
     $shipping = json_decode($purchase->shipping_method);
 @endphp
 
-@extends('third_party_user.layouts.main')
+@extends('frontend.dashboard.layouts.main')
 
 @section('title')
     {{ $settings->site_name }} || Product
@@ -12,7 +12,7 @@
 @section('container')
     <section id="trf__dashboard">
         <div class="container-fluid">
-            @include('third_party_user.layouts.sidebar')
+            @include('frontend.dashboard.layouts.sidebar')
             <div class="row">
                 <div class="col-xl-9 col-xxl-10 col-lg-9 ms-auto">
                     <div class="dashboard_content mt-2 mt-md-0">
@@ -73,8 +73,8 @@
                                                             <th class="amount">
                                                                 amount
                                                             </th>
-                                                            <th class="quentity">
-                                                                quentity
+                                                            <th class="quantity">
+                                                                quantity
                                                             </th>
                                                             <th class="total">
                                                                 total
@@ -107,7 +107,7 @@
                                                                     {{ $product->unit_price }}
                                                                 </td>
 
-                                                                <td class="quentity">
+                                                                <td class="quantity">
                                                                     {{ $product->qty }}
                                                                 </td>
                                                                 <td class="total">

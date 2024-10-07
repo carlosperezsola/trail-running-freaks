@@ -753,7 +753,7 @@
 	margin-right: 0px;
 }
 
-.trf__quentity h3 {
+.trf__quantity h3 {
 	margin-left: 0;
 	margin-right: 20px;
 }
@@ -1429,7 +1429,7 @@
 		padding-right: 5px;
 	}
 
-	.trf_pro_det_color h5, .trf_pro__det_size h5, .share_link h5, .trf__quentity h5, .trf__button_area h5, .trf__pro_det_share h5, .trf__quentity h5, .trf__selectbox h5 {
+	.trf_pro_det_color h5, .trf_pro__det_size h5, .share_link h5, .trf__quantity h5, .trf__button_area h5, .trf__pro_det_share h5, .trf__quantity h5, .trf__selectbox h5 {
 		margin-right: 0;
 		margin-left: 10px;
 	}

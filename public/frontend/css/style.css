@@ -3584,7 +3584,7 @@ PRODUCT DETAILS START
 .trf_pro_det_color,
 .trf_pro__det_size,
 .share_link,
-.trf__quentity,
+.trf__quantity,
 .trf__button_area,
 .trf__pro_det_share,
 .trf__selectbox {
@@ -3597,10 +3597,10 @@ PRODUCT DETAILS START
 .trf_pro_det_color h5,
 .trf_pro__det_size h5,
 .share_link h5,
-.trf__quentity h5,
+.trf__quantity h5,
 .trf__button_area h5,
 .trf__pro_det_share h5,
-.trf__quentity h5,
+.trf__quantity h5,
 .trf__selectbox h5 {
 	text-transform: capitalize;
 	font-weight: 400;
@@ -3706,7 +3706,7 @@ PRODUCT DETAILS START
 	color: #08C;
 }
 
-.trf__quentity h3 {
+.trf__quantity h3 {
 	font-size: 22px;
 	font-weight: 600;
 	margin-left: 20px;
@@ -4886,7 +4886,7 @@ INVOICE PAGE SATAR
 	width: 229px;
 }
 
-.trf__invoice_description .quentity {
+.trf__invoice_description .quantity {
 	width: 225px;
 }
 
@@ -9378,7 +9378,7 @@ DASHBOARD CHAT END
 	border-color: #dc3545;
 }
 
-.trf__quentity h3 span {
+.trf__quantity h3 span {
 	margin-left: 5px;
 	display: inline-block;
 	font-size: 23px;

@@ -310,7 +310,7 @@
 
   /* INVOICE PAGE START */
   .trf__invoice_description .amount,
-  .trf__invoice_description .quentity,
+  .trf__invoice_description .quantity,
   .trf__invoice_description .total {
     width: 15% !important;
   }
@@ -363,7 +363,7 @@
   }
 
   .dashboard_content .trf__invoice_description .amount,
-  .dashboard_content .trf__invoice_description .quentity,
+  .dashboard_content .trf__invoice_description .quantity,
   .dashboard_content .trf__invoice_description .total {
     width: 117px;
   }
@@ -956,7 +956,7 @@
 
   /* INVOICE PAGE START */
   .trf__invoice_description .amount,
-  .trf__invoice_description .quentity,
+  .trf__invoice_description .quantity,
   .trf__invoice_description .total {
     width: 120px;
   }
@@ -1847,7 +1847,7 @@
     width: 130px;
   }
 
-  .trf__invoice_description .quentity {
+  .trf__invoice_description .quantity {
     width: 130px;
   }
 
@@ -2048,7 +2048,7 @@
     width: 160px;
   }
 
-  .dashboard_content .trf__invoice_description .quentity {
+  .dashboard_content .trf__invoice_description .quantity {
     width: 160px;
   }
 
@@ -2751,7 +2751,7 @@
     margin-top: 5px;
   }
 
-  .trf__quentity {
+  .trf__quantity {
     flex-wrap: wrap;
   }
 
@@ -3207,7 +3207,7 @@
     width: 100px;
   }
 
-  .trf__invoice_description .quentity {
+  .trf__invoice_description .quantity {
     width: 100px;
   }
 
@@ -4189,10 +4189,10 @@
   .trf_pro_det_color h5,
   .trf_pro__det_size h5,
   .share_link h5,
-  .trf__quentity h5,
+  .trf__quantity h5,
   .trf__button_area h5,
   .trf__pro_det_share h5,
-  .trf__quentity h5,
+  .trf__quantity h5,
   .trf__selectbox h5 {
     width: auto;
     margin-right: 10px;
@@ -4202,7 +4202,7 @@
     margin-top: 5px;
   }
 
-  .trf__quentity {
+  .trf__quantity {
     flex-wrap: wrap;
   }
 
@@ -4210,16 +4210,16 @@
     margin-top: 5px;
   }
 
-  .trf__quentity h3 {
+  .trf__quantity h3 {
     font-size: 18px;
     margin-left: 5px;
   }
 
-  .trf__quentity button {
+  .trf__quantity button {
     font-size: 16px;
   }
 
-  .trf__quentity .nice-number input {
+  .trf__quantity .nice-number input {
     font-size: 16px;
   }
 
@@ -4816,7 +4816,7 @@
     width: 100px;
   }
 
-  .trf__invoice_description .quentity {
+  .trf__invoice_description .quantity {
     width: 100px;
   }
 

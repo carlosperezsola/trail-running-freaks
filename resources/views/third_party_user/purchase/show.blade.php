@@ -71,8 +71,8 @@
                                                             <th class="amount">
                                                                 amount
                                                             </th>
-                                                            <th class="quentity">
-                                                                quentity
+                                                            <th class="quantity">
+                                                                quantity
                                                             </th>
                                                             <th class="total">
                                                                 total
@@ -103,7 +103,7 @@
                                                                         {{ $product->unit_price }}
                                                                     </td>
 
-                                                                    <td class="quentity">
+                                                                    <td class="quantity">
                                                                         {{ $product->qty }}
                                                                     </td>
                                                                     <td class="total">

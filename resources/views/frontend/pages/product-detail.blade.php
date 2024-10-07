@@ -102,7 +102,7 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                <div class="trf__quentity">
+                                <div class="trf__quantity">
                                     <h5>Quantity:</h5>
                                     <div class="select_number">
                                         <input class="number_area" name="qty" type="text" min="1"
