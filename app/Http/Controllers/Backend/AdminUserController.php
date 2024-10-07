@@ -3,13 +3,10 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Blog;
 use App\Models\Trademark;
 use App\Models\Category;
 use App\Models\NewsletterSubscriber;
 use App\Models\Purchase;
-use App\Models\User;
-use App\Models\thirdParty;
 use Illuminate\Support\Carbon;
 
 class AdminUserController extends Controller
