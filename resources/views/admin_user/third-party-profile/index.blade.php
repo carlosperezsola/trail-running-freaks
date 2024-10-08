@@ -1,12 +1,10 @@
 @extends('admin_user.layouts.main')
 
 @section('container')
-    <!-- Main Content -->
     <section class="section">
         <div class="section-header">
             <h1>Third Party Profile</h1>
         </div>
-
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
