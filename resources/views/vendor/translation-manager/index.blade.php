@@ -5,18 +5,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>General Dashboard &mdash; Trail Running Freaks</title>
-    <link rel="icon" type="image/png" href="{{ $logoSetting->favicon }}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <!-- Template CSS -->
+
+    <link rel="icon" type="image/png" href={{ asset($logoSetting->favicon) }}>
+    
+    <link rel="stylesheet" href={{ asset('frontend/css/bootstrap.min.css') }}>
     <link rel="stylesheet" href={{ asset('backend/assets/css/style.css') }}>
     <link rel="stylesheet" href={{ asset('backend/assets/css/components.css') }}>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet" />
+
+    <script src={{ asset('frontend/js/Font-Awesome.js') }}></script>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
-    </script>
-    <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css"
-        rel="stylesheet" />
+    <script src={{ asset('frontend/js/bootstrap.bundle.min.js') }}></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js">
     </script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
@@ -339,11 +338,6 @@
             }
         })(jQuery)
     </script>
-    <style>
-        a.status-1 {
-            font-weight: bold;
-        }
-    </style>
     <script>
         jQuery(document).ready(function($) {
 
@@ -429,10 +423,10 @@
 <body>
     <section class="section container">
         <div class="section-header">
-            <h1>Manage translations</h1>
+            <h1>{{ __('Manage translations') }}</h1>
         </div>
-        <a href="{{ route('admin_user.dashboard') }}"
-            class="btn btn-warning btn-lg mb-4"><i class="fas fa-long-arrow-left"></i> Back to dashboard</a>
+        <a href="{{ route('admin_user.dashboard') }}" class="btn btn-warning btn-lg mb-4"><i
+                class="fas fa-long-arrow-left"></i> {{ __('Back to dashboard') }}</a>
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
@@ -459,39 +453,41 @@
                             <?php endif; ?>
                             <p>
                                 <?php if(!isset($group)) : ?>
-                            <form class="form-import" method="POST" action="<?php echo action('\Barryvdh\TranslationManager\Controller@postImport'); ?>" data-remote="true"
-                                role="form">
+                            <form class="form-import" method="POST" action="<?php echo action('\Barryvdh\TranslationManager\Controller@postImport'); ?>" data-remote="true" role="form">
+                                @csrf
+                                @method('POST')
                                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <select name="replace" class="form-control" style="height: 42px;">
+                                            <select name="replace" class="form-control">
                                                 <option value="0">Append new translations</option>
                                                 <option value="1">Replace existing translations</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-2">
-                                            <button type="submit" class="btn btn-success btn-lg" style="height: 42px;"
+                                            <button type="submit" class="btn btn-primary btn-lg"
                                                 data-disable-with="Loading..">Import groups
                                             </button>
                                         </div>
                                     </div>
                                 </div>
                             </form>
-                            <form class="form-find" method="POST" action="<?php echo action('\Barryvdh\TranslationManager\Controller@postFind'); ?>" data-remote="true"
-                                role="form"
-                                data-confirm="Are you sure you want to scan you app folder? All found translation keys will be added to the database.">
+                            <form class="form-find" method="POST" action="<?php echo action('\Barryvdh\TranslationManager\Controller@postFind'); ?>" data-remote="true" role="form" data-confirm="Are you sure you want to scan you app folder? All found translation keys will be added to the database.">
+                                @csrf
+                                @method('POST')
                                 <div class="form-group">
                                     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                                    <button type="submit" class="btn btn-info btn-lg" style="height: 42px;" data-disable-with="Searching..">Find
+                                    <button type="submit" class="btn btn-primary btn-lg"
+                                        data-disable-with="Searching..">Find
                                         translations in files</button>
                                 </div>
                             </form>
                             <?php endif; ?>
                             <?php if(isset($group)) : ?>
-                            <form class="form-inline form-publish" method="POST" action="<?php echo action('\Barryvdh\TranslationManager\Controller@postPublish', $group); ?>"
-                                data-remote="true" role="form"
-                                data-confirm="Are you sure you want to publish the translations group '<?php echo $group; ?>? This will overwrite existing language files.">
+                            <form class="form-inline form-publish" method="POST" action="<?php echo action('\Barryvdh\TranslationManager\Controller@postPublish', $group); ?>" data-remote="true" role="form" data-confirm="Are you sure you want to publish the translations group '<?php echo $group; ?>? This will overwrite existing language files.">
+                                @csrf
+                                @method('POST')
                                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                                 <button type="submit" class="btn btn-info" data-disable-with="Publishing..">Publish
                                     translations</button>
@@ -501,12 +497,15 @@
                             <?php endif; ?>
                             </p>
                             <form role="form" method="POST" action="<?php echo action('\Barryvdh\TranslationManager\Controller@postAddGroup'); ?>">
+                                @csrf
+                                @method('POST')
                                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                                 <div class="form-group">
                                     <p>Choose a group to display the group translations. If no groups are visisble, make
                                         sure you have run
                                         the migrations and imported the translations.</p>
-                                    <select name="group" id="group" class="form-control group-select" style="height: 42px;">
+                                    <select name="group" id="group"
+                                        class="form-control group-select">
                                         <?php foreach($groups as $key => $value): ?>
                                         <option value="<?php echo $key; ?>"<?php echo $key == $group ? ' selected' : ''; ?>><?php echo $value; ?>
                                         </option>
@@ -518,12 +517,14 @@
                                     <input type="text" class="form-control" name="new-group" />
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" class="btn btn-default" style="height: 42px;" name="add-group"
+                                    <input type="submit" class="btn btn-default" name="add-group"
                                         value="Add and edit keys" />
                                 </div>
                             </form>
                             <?php if($group): ?>
                             <form action="<?php echo action('\Barryvdh\TranslationManager\Controller@postAdd', [$group]); ?>" method="POST" role="form">
+                                @csrf
+                                @method('POST')
                                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                                 <div class="form-group">
                                     <label>Add new keys to this group</label>
@@ -539,8 +540,9 @@
                                     <span class="btn btn-default enable-auto-translate-group">Use Auto Translate</span>
                                 </div>
                             </div>
-                            <form class="form-add-locale autotranslate-block-group hidden" method="POST"
-                                role="form" action="<?php echo action('\Barryvdh\TranslationManager\Controller@postTranslateMissing'); ?>">
+                            <form class="form-add-locale autotranslate-block-group hidden" method="POST" role="form" action="<?php echo action('\Barryvdh\TranslationManager\Controller@postTranslateMissing'); ?>">
+                                @csrf
+                                @method('POST')
                                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -623,9 +625,10 @@
                                 <p>
                                     Current supported locales:
                                 </p>
-                                <form class="form-remove-locale" method="POST" role="form"
-                                    action="<?php echo action('\Barryvdh\TranslationManager\Controller@postRemoveLocale'); ?>"
+                                <form class="form-remove-locale" method="POST" role="form" action="<?php echo action('\Barryvdh\TranslationManager\Controller@postRemoveLocale'); ?>"
                                     data-confirm="Are you sure to remove this locale and all of data?">
+                                    @csrf
+                                    @method('POST')
                                     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                                     <ul class="list-locales">
                                         <?php foreach($locales as $locale): ?>
@@ -644,6 +647,8 @@
                                 </form>
                                 <form class="form-add-locale" method="POST" role="form"
                                     action="<?php echo action('\Barryvdh\TranslationManager\Controller@postAddLocale'); ?>">
+                                    @csrf
+                                    @method('POST')
                                     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                                     <div class="form-group">
                                         <p>
@@ -654,7 +659,8 @@
                                                 <input type="text" name="new-locale" class="form-control" />
                                             </div>
                                             <div class="col-sm-2">
-                                                <button type="submit" class="btn btn-default btn-block" style="height: 42px;"
+                                                <button type="submit"
+                                                    class="btn btn-default btn-block"
                                                     data-disable-with="Adding..">Add new locale</button>
                                             </div>
                                         </div>
@@ -667,7 +673,7 @@
                                     action="<?php echo action('\Barryvdh\TranslationManager\Controller@postPublish', '*'); ?>" data-remote="true" role="form"
                                     data-confirm="Are you sure you want to publish all translations group? This will overwrite existing language files.">
                                     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                                    <button type="submit" class="btn btn-primary" style="height: 42px;"
+                                    <button type="submit" class="btn btn-primary"
                                         data-disable-with="Publishing..">Publish all</button>
                                 </form>
                             </fieldset>
@@ -679,7 +685,6 @@
             </div>
         </div>
     </section>
-
 </body>
 
 </html>
