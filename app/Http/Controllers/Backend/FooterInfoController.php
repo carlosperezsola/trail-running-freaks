@@ -35,7 +35,7 @@ class FooterInfoController extends Controller
         ]);
 
         $footerInfo = FooterInfo::find($id);
-        $imagePath = $this->updateImage($request, 'logo', 'uploads', $footerInfo?->logo);
+        $imagePath = $this->updateImage($request, 'logo', 'uploads/selected', $footerInfo?->logo);
 
         FooterInfo::updateOrCreate(
             ['id' => $id],

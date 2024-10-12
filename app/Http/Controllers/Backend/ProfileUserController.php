@@ -30,7 +30,7 @@ class ProfileUserController extends Controller
             }
             $image = $request->file('user_img');
             $imageName = rand().'_'.$image->getClientOriginalName();
-            $image->move(public_path('uploads'), $imageName);
+            $image->move(public_path('uploads/selected'), $imageName);
 
             $path = "uploads/".$imageName;
 
