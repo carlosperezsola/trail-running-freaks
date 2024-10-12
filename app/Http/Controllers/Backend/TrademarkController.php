@@ -41,7 +41,7 @@ class TrademarkController extends Controller
             'status' => ['required']
         ]);
 
-        $logoPath = $this->uploadImage($request, 'logo', 'uploads/selected');
+        $logoPath = $this->uploadImage($request, 'logo', 'uploads');
         $trademark = new Trademark();
 
         $trademark->logo = $logoPath;
@@ -86,7 +86,7 @@ class TrademarkController extends Controller
 
         $trademark = Trademark::findOrFail($id);
 
-        $logoPath = $this->updateImage($request, 'logo', 'uploads/selected', $trademark->logo);
+        $logoPath = $this->updateImage($request, 'logo', 'uploads', $trademark->logo);
 
         $trademark->logo = empty(!$logoPath) ? $logoPath : $trademark->logo;
         $trademark->name = $request->name;

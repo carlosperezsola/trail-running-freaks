@@ -32,9 +32,9 @@ class PromoController extends Controller
         ]);
 
         /** Handle the image upload */
-        $imagePath = $this->updateImage($request, 'promo_one_image', 'uploads/selected');
-        $imagePathTwo = $this->updateImage($request, 'promo_two_image', 'uploads/selected');
-        $imagePathThree = $this->updateImage($request, 'promo_three_image', 'uploads/selected');
+        $imagePath = $this->updateImage($request, 'promo_one_image', 'uploads');
+        $imagePathTwo = $this->updateImage($request, 'promo_two_image', 'uploads');
+        $imagePathThree = $this->updateImage($request, 'promo_three_image', 'uploads');
 
         $value = [
             'promo_one' => [

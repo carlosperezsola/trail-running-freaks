@@ -39,7 +39,7 @@ class ProductImageGalleryController extends Controller
         ]);
 
         /** Handle image upload */
-        $imagePaths = $this->uploadMultiImage($request, 'image', 'uploads/selected');
+        $imagePaths = $this->uploadMultiImage($request, 'image', 'uploads');
 
         foreach($imagePaths as $path){
             $productImageGallery = new ProductImageGallery();

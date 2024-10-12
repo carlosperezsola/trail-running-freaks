@@ -85,8 +85,8 @@ class SettingController extends Controller
             'favicon' => ['image', 'max:3000'],
         ]);
 
-        $logoPath = $this->updateImage($request, 'logo', 'uploads/selected', $request->old_logo);
-        $favicon = $this->updateImage($request, 'favicon', 'uploads/selected', $request->old_favicon);
+        $logoPath = $this->updateImage($request, 'logo', 'uploads', $request->old_logo);
+        $favicon = $this->updateImage($request, 'favicon', 'uploads', $request->old_favicon);
 
         LogoSetting::updateOrCreate(
             ['id' => 1],

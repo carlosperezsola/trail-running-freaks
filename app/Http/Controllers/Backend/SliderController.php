@@ -46,7 +46,7 @@ class SliderController extends Controller
         $slider = new Slider();
 
         /** Handle file upload */
-        $imagePath = $this->uploadImage($request, 'banner', 'uploads/selected');
+        $imagePath = $this->uploadImage($request, 'banner', 'uploads');
         
         $slider->banner = $imagePath;
         $slider->type = $request->type;
@@ -99,7 +99,7 @@ class SliderController extends Controller
         $slider = Slider::findOrFail($id);
 
         /** Handle file upload */
-        $imagePath = $this->updateImage($request, 'banner', 'uploads/selected', $slider->banner);
+        $imagePath = $this->updateImage($request, 'banner', 'uploads', $slider->banner);
 
         $slider->banner = empty(!$imagePath) ? $imagePath : $slider->banner;
         $slider->type = $request->type;

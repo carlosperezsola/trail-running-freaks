@@ -46,7 +46,7 @@ class ThirdPartyUserShopProfileController extends Controller
         ]);
 
         $thirdParty = thirdParty::where('user_id', Auth::user()->id)->first();
-        $bannerPath = $this->updateImage($request, 'banner', 'uploads/selected', $thirdParty->banner);
+        $bannerPath = $this->updateImage($request, 'banner', 'uploads', $thirdParty->banner);
         $thirdParty->banner = empty(!$bannerPath) ? $bannerPath : $thirdParty->banner;
         $thirdParty->shop_name = $request->shop_name;
         $thirdParty->phone = $request->phone;
