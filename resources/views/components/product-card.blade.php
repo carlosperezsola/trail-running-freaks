@@ -1,18 +1,18 @@
 <div class="col-xl-3 col-sm-6 col-lg-4">
     <div class="trf__product_item">
-        @if (productType($product->product_type))
-            <span class="trf__new">{{ productType($product->product_type) }}</span>
+        <span class="trf__new">{{productType($product->product_type)}}</span>
+        @if(checkDiscount($product))
+            <span class="trf__minus">-{{calculateDiscountPercent($product->price, $product->offer_price)}}%</span>
         @endif
-        @if (checkDiscount($product))
-            <span class="trf__minus">-{{ calculateDiscountPercent($product->price, $product->offer_price) }}%</span>
-        @endif
-        <a class="trf__pro_link" href="{{ route('product-detail', $product->slug) }}">
+        <a class="trf__pro_link" href="{{route('product-detail', $product->slug)}}">
+            <img src="{{asset($product->thumb_image)}}" alt="product" class="img-fluid w-100 img_1"/>
             <img src="
-                @if (isset($product->productImageGalleries[0]->image)) {{ asset($product->productImageGalleries[0]->image) }}
-                @else
-                    {{ asset($product->thumb_image) }} @endif
-            "
-                alt="product" class="img-fluid w-100 img_2" />
+            @if(isset($product->productImageGalleries[0]->image))
+                {{asset($product->productImageGalleries[0]->image)}}
+            @else
+                {{asset($product->thumb_image)}}
+            @endif
+            " alt="product" class="img-fluid w-100 img_2" />
         </a>
         <ul class="trf__single_pro_icon">
             <li><a href="#" data-bs-toggle="modal" data-bs-target="#product" class="show_product_modal"

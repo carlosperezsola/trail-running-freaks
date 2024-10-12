@@ -23,17 +23,17 @@
                     <ul class="trf_menu_cat_item show_home toggle_menu">
                         @foreach ($categories as $category)
                             <li><a class="{{ count($category->subCategories) > 0 ? 'trf__droap_arrow' : '' }}"
-                                    href="{{ route('products.index', ['category' => $category->slug]) }}"><i
+                                    href="{{route('products.index', ['category' => $category->slug])}}"><i
                                         class="{{ $category->icon }}"></i> {{ $category->name }} </a>
                                 @if (count($category->subCategories) > 0)
                                     <ul class="trf_menu_cat_droapdown">
                                         @foreach ($category->subCategories as $subCategory)
-                                            <li><a href="#">{{ $subCategory->name }} <i
+                                            <li><a href="{{route('products.index', ['subcategory' => $subCategory->slug])}}">{{ $subCategory->name }} <i
                                                         class="{{ count($subCategory->childCategories) > 0 ? 'fas fa-angle-right' : '' }}"></i></a>
                                                 @if (count($subCategory->childCategories) > 0)
                                                     <ul class="trf__sub_category">
                                                         @foreach ($subCategory->childCategories as $childCategory)
-                                                            <li><a href="#">{{ $childCategory->name }}</a> </li>
+                                                            <li><a href="{{route('products.index', ['childcategory' => $childCategory->slug])}}">{{ $childCategory->name }}</a> </li>
                                                         @endforeach
                                                     </ul>
                                                 @endif
@@ -43,7 +43,6 @@
                                 @endif
                             </li>
                         @endforeach
-                        <li><a href="#"><i class="fal fa-gem"></i> View All Categories</a></li>
                     </ul>
                     <ul class="trf__menu_item">
                         <li><a class="{{ setActive(['home']) }}" href="{{ url('/') }}">home</a></li>

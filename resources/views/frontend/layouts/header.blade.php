@@ -28,7 +28,7 @@
                             <i class="fas fa-user-headset"></i>
                         </div>
                         <div class="trf__call_text">
-                            <p>{{ $settings->contact_email }}</p>
+                            <p class="text-lowercase">{{ $settings->contact_email }}</p>
                             <p>{{ $settings->contact_phone }}</p>
                         </div>
                     </div>
