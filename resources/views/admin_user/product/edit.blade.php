@@ -1,7 +1,6 @@
 @extends('admin_user.layouts.main')
 
 @section('container')
-    <!-- Main Content -->
     <section class="section">
         <div class="section-header">
             <h1>Product</h1>
@@ -85,7 +84,8 @@
                                     <select id="inputState" class="form-control" name="trademark">
                                         <option value="">Select</option>
                                         @foreach ($trademarks as $trademark)
-                                            <option {{ $trademark->id == $product->trademark_id ? 'selected' : '' }} value="{{ $trademark->id }}">{{ $trademark->name }}</option>
+                                            <option {{ $trademark->id == $product->trademark_id ? 'selected' : '' }}
+                                                value="{{ $trademark->id }}">{{ $trademark->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

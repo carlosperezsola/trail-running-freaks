@@ -1,7 +1,6 @@
 @extends('admin_user.layouts.main')
 
 @section('container')
-    <!-- Main Content -->
     <section class="section">
         <div class="section-header">
             <h1>Third Party Profile</h1>
