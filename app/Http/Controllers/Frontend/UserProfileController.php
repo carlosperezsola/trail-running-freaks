@@ -1,4 +1,4 @@
-ds<?php
+<?php
 
 namespace App\Http\Controllers\Frontend;
 
