@@ -17,10 +17,10 @@ class AdminUserProfileSeeder extends Seeder
 
         $thirdParty = new ThirdParty;
         $thirdParty->banner = 'uploads/1343.jpg';
-        $thirdParty->shop_name = 'Admin Shop';
-        $thirdParty->phone = '12321312';
+        $thirdParty->shop_name = 'Trail Running Freaks';
+        $thirdParty->phone = '+34689657824';
         $thirdParty->email = 'admin_user@gmail.com';
-        $thirdParty->address = 'Usa';
+        $thirdParty->address = 'C. Alcalde Francisco Caballero, 23, 50015 Zaragoza';
         $thirdParty->description = 'shop description';
         $thirdParty->user_id = $user->id;
         $thirdParty->save();

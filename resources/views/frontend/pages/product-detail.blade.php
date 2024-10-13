@@ -164,7 +164,7 @@
                                                     <p><span>Address:</span> {{ $product->thirdParty->address }}</p>
                                                     <p><span>Phone:</span> {{ $product->thirdParty->phone }}</p>
                                                     <p><span>E-mail:</span> {{ $product->thirdParty->email }}</p>
-                                                    <a href="third_party_details.html" class="see_btn">visit store</a>
+                                                    <a href="{{ route('thirdParty.products', $product->thirdParty->id) }}" class="common_btn">Visit store</a>
                                                 </div>
                                             </div>
                                             <div class="col-xl-12">
