@@ -101,7 +101,7 @@ $(function () {
 
 
     //*==========FLASH SELL SLIDER========= 
-    $('.flash_sell_slider').slick({
+    $('.count_down_slider').slick({
         slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: true,

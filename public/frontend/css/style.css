@@ -1498,7 +1498,7 @@ PRODUCT MODAL VIEW END
 /*======================
 	FLASH SELL START
 ========================*/
-#trf__flash_sell {
+#trf__count_down {
 	padding-top: 70px;
 }
 
@@ -1824,12 +1824,12 @@ PRODUCT MODAL VIEW END
   visibility: hidden;
 } */
 
-#trf__flash_sell .trf__product_item {
+#trf__count_down .trf__product_item {
 	margin: 25px 12px 0px 12px;
 }
 
-#trf__flash_sell .nxt_arr,
-#trf__flash_sell .prv_arr,
+#trf__count_down .nxt_arr,
+#trf__count_down .prv_arr,
 #trf__electronic2 .prv_arr,
 #trf__electronic2 .nxt_arr,
 #trf__electronic .prv_arr,
@@ -1857,15 +1857,15 @@ PRODUCT MODAL VIEW END
 	transform: translateY(-50%);
 }
 
-#trf__flash_sell .nxt_arr,
+#trf__count_down .nxt_arr,
 #trf__electronic2 .nxt_arr,
 #trf__electronic .nxt_arr {
 	left: auto;
 	right: 15px;
 }
 
-#trf__flash_sell .nxt_arr:hover,
-#trf__flash_sell .prv_arr:hover,
+#trf__count_down .nxt_arr:hover,
+#trf__count_down .prv_arr:hover,
 #trf__electronic2 .nxt_arr:hover,
 #trf__electronic2 .prv_arr:hover,
 #trf__electronic .nxt_arr:hover,
@@ -8944,10 +8944,10 @@ header .trf__call_text a:hover {
 	-o-border-radius: 5px;
 }
 
-.trf__flash_sell_2 .simply-section.simply-days-section,
-.trf__flash_sell_2 .simply-section.simply-hours-section,
-.trf__flash_sell_2 .simply-section.simply-minutes-section,
-.trf__flash_sell_2 .simply-section.simply-seconds-section {
+.trf__count_down_2 .simply-section.simply-days-section,
+.trf__count_down_2 .simply-section.simply-hours-section,
+.trf__count_down_2 .simply-section.simply-minutes-section,
+.trf__count_down_2 .simply-section.simply-seconds-section {
 	width: 90px;
 	height: 90px;
 	line-height: 40px;
@@ -8957,7 +8957,7 @@ header .trf__call_text a:hover {
 	background: #00000066;
 }
 
-.trf__flash_sell_2 .simply-amount {
+.trf__count_down_2 .simply-amount {
 	display: block;
 	font-size: 40px;
 	font-weight: 900;
@@ -8967,7 +8967,7 @@ header .trf__call_text a:hover {
 	line-height: 55px;
 }
 
-.trf__flash_sell_2 .simply-word {
+.trf__count_down_2 .simply-word {
 	color: #fff;
 	text-transform: capitalize;
 	height: 35px;

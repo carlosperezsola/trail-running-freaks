@@ -1,8 +1,8 @@
-<section id="trf__flash_sell" class="trf__flash_sell_2">
+<section id="trf__count_down" class="trf__count_down_2">
     <div class=" container">
         <div class="row">
             <div class="col-xl-12">
-                <div class="offer_time" style="background: url({{ asset('frontend/images/flash_sell_bg.jpg') }})">
+                <div class="offer_time" style="background: url({{ asset('frontend/images/count_down_bg.jpg') }})">
                     <div class="trf__flash_coundown">
                         <span class="end_text">Flash Sale</span>
                         <div class="simply-countdown simply-countdown-one"></div>
@@ -12,7 +12,7 @@
                 </div>
             </div>
         </div>
-        <div class="row flash_sell_slider">            
+        <div class="row count_down_slider">            
                 @php
                     $products = \App\Models\Product::with(['options', 'category', 'productImageGalleries'])->whereIn('id', $countDownItems)->get();
                 @endphp
