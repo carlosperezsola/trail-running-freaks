@@ -8,7 +8,7 @@
         <li><a class="{{ setActive(['third_party_user.dashboard']) }}" href="{{ route('third_party_user.dashboard') }}"><i class="fas fa-tachometer"></i>Dashboard</a></li>
         <li><a class="" href="{{ route('home') }}"><i class="fas fa-home"></i>Go To Home</a></li>
         <li><a class="{{ setActive(['third_party_user.purchases.*']) }}" href="{{ route('third_party_user.purchases.index') }}"><i class="fas fa-box"></i> Purchases</a></li>
-        <li><a class="{{ setActive(['third_party_user.products.*']) }}" href="{{ route('third_party_user.products.index') }}"><i class="fas fa-cart-plus"></i> Products</a></li>
+        <li><a class="{{ setActive(['third_party_user.products.*']) }}" href="{{ route('third_party_user.products.index') }}"><i class="fas fa-cart-plus"></i> My Products</a></li>
         <li><a class="{{ setActive(['third_party_user.shop-profile.index']) }}" href="{{ route('third_party_user.shop-profile.index') }}"><i class="far fa-user"></i> Shop Profile</a></li>
         <li><a class="{{ setActive(['third_party_user.profile']) }}" href="{{ route('third_party_user.profile') }}"><i class="far fa-user"></i> My Profile</a></li>
         <li>

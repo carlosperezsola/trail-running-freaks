@@ -27,7 +27,8 @@
                     <div class="row">
                         @foreach ($thirdParties as $thirdParty)
                             <div class="col-xl-6 col-md-6">
-                                <div class="trf__third_party_single">
+                                <div class="trf__third_party_single position-relative">
+                                    <div class="w-100 h-100 position-absolute bg-dark " style="opacity: .60"></div>
                                     <img src="{{ asset($thirdParty->banner) }}" alt="third party" class="img-fluid w-100">
                                     <div class="trf__third_party_text">
                                         <div class="trf__third_party_text_center">

@@ -49,7 +49,7 @@
                             'admin_user.products-option-item.*',
                             'admin_user.payment-settings.*',
                         ]) }}">
-                        <a class="nav-link" href="{{ route('admin_user.products.index') }}">Products</a>
+                        <a class="nav-link" href="{{ route('admin_user.products.index') }}">My Products</a>
                     </li>
                     <li class="{{ setActive(['admin_user.seller-products.*']) }}"><a class="nav-link"
                             href="{{ route('admin_user.seller-products.index') }}">Seller Products</a></li>

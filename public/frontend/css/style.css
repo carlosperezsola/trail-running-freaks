@@ -2914,19 +2914,19 @@ PPRODUCT PAGE START
 	padding-top: 70px;
 }
 
-.trf__pro_page_bammer {
+.trf__pro_page_banner {
 	position: relative;
 	border-radius: 5px;
 	overflow: hidden;
 	margin-bottom: 70px;
 }
 
-.trf__pro_page_bammer img {
+.trf__pro_page_banner img {
 	object-fit: cover;
 	height: 100%;
 }
 
-.trf__pro_page_bammer_text {
+.trf__pro_page_banner_text {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -2934,7 +2934,7 @@ PPRODUCT PAGE START
 	left: 0;
 }
 
-.trf__pro_page_bammer_text_center {
+.trf__pro_page_banner_text_center {
 	position: absolute;
 	top: 50%;
 	left: 40px;
@@ -2942,7 +2942,7 @@ PPRODUCT PAGE START
 	border-radius: 5px;
 }
 
-.trf__pro_page_bammer_text_center p {
+.trf__pro_page_banner_text_center p {
 	color: #fff;
 	font-size: 40px;
 	font-weight: 700;
@@ -2954,20 +2954,20 @@ PPRODUCT PAGE START
 	margin-bottom: 15px;
 }
 
-.trf__pro_page_bammer_text_center p span {
+.trf__pro_page_banner_text_center p span {
 	font-size: 40px;
 	color: #ff0018;
 	font-weight: 700;
 }
 
-.trf__pro_page_bammer_text_center h5 {
+.trf__pro_page_banner_text_center h5 {
 	color: #fff;
 	text-transform: capitalize;
 	font-size: 25px;
 	font-weight: 600;
 }
 
-.trf__pro_page_bammer_text_center h3 {
+.trf__pro_page_banner_text_center h3 {
 	color: #fff;
 	text-transform: capitalize;
 	font-weight: 700;
@@ -2976,7 +2976,7 @@ PPRODUCT PAGE START
 	margin: 10px 0px 15px 0px;
 }
 
-.trf__pro_page_bammer_text_center .add_cart {
+.trf__pro_page_banner_text_center .add_cart {
 	padding: 15px 20px;
 	font-size: 15px;
 }
@@ -6661,12 +6661,12 @@ WISHLIST PAGE START
 	background: #0b2c3d;
 }
 
-.trfd__dashboard_user {
+.trf__dashboard_user {
 	display: flex;
 	align-items: center;
 }
 
-.trfd__dashboard_user img {
+.trf__dashboard_user img {
 	width: 45px;
 	height: 45px;
 	margin-right: 10px;
@@ -6677,7 +6677,7 @@ WISHLIST PAGE START
 	-o-border-radius: 50%;
 }
 
-.trfd__dashboard_user p {
+.trf__dashboard_user p {
 	text-transform: capitalize;
 	font-size: 18px;
 	font-weight: 600;

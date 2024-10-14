@@ -24,10 +24,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
-                    <div class="trf__pro_page_bammer third_party_det_banner">
+                    <div class="trf__pro_page_banner third_party_det_banner">
                         <img src="{{ asset('frontend/images/third_party_details_banner.jpg') }}" alt="banner"
                             class="img-fluid w-100">
-                        <div class="trf__pro_page_bammer_text trf__third_party_det_banner_text">
+                        <div class="trf__pro_page_banner_text trf__third_party_det_banner_text">
                             <div class="trf__third_party_text_center">
                                 <h4>{{ $thirdParty->shop_name }}</h4>
                                 <a href="callto:{{ $thirdParty->phone }}"><i class="far fa-phone-alt"></i>
@@ -37,10 +37,16 @@
                                 <p class="trf__third_party_location"><i class="fal fa-map-marker-alt"></i>
                                     {{ $thirdParty->address }}</p>
                                 <ul class="d-flex">
-                                    <li><a class="facebook" href="{{ $thirdParty->fb_link }}"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a class="twitter" href="{{ $thirdParty->tw_link }}"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a class="instagram" href="{{ $thirdParty->insta_link }}"><i class="fab fa-instagram"></i></a></li>
-                                </ul>
+                                    @if (!empty($thirdParty->fb_link))
+                                        <li><a class="facebook" href="{{ $thirdParty->fb_link }}"><i class="fab fa-facebook-f"></i></a></li>
+                                    @endif                                
+                                    @if (!empty($thirdParty->tw_link))
+                                        <li><a class="twitter" href="{{ $thirdParty->tw_link }}"><i class="fab fa-twitter"></i></a></li>
+                                    @endif                                
+                                    @if (!empty($thirdParty->insta_link))
+                                        <li><a class="instagram" href="{{ $thirdParty->insta_link }}"><i class="fab fa-instagram"></i></a></li>
+                                    @endif
+                                </ul>                                    
                             </div>
                         </div>
                     </div>
@@ -323,7 +329,6 @@
                                                 <li><a href="#" class="add_to_wishlist"
                                                         data-id="{{ $product->id }}"><i class="fal fa-heart"></i></a>
                                                 </li>
-                                                {{-- <li><a href="#"><i class="far fa-random"></i></a></li> --}}
                                             </ul>
                                         </form>
                                         <p class="brand_model"><span>trademark :</span> {{ $product->trademark->name }}</p>
