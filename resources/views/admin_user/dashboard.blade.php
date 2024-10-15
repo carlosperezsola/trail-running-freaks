@@ -99,7 +99,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Total Complelte Purchases</h4>
+                                <h4>Total Complete Purchases</h4>
                             </div>
                             <div class="card-body">
                                 {{ $totalCompletePurchases }}
