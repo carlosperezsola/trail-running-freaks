@@ -36,8 +36,15 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="trf__dash_pro_single">
+                                                <i class="fas fa-phone"></i>
+                                                <input type="text" placeholder="Phone" name="phone_number"
+                                                    value="{{ Auth::user()->phone_number }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="trf__dash_pro_single">
                                                 <i class="fal fa-envelope-open"></i>
-                                                <input type="email" placeholder="Correo electrónico" name="email"
+                                                <input type="email" placeholder="Email" name="email"
                                                     value="{{ Auth::user()->email }}">
                                             </div>
                                         </div>

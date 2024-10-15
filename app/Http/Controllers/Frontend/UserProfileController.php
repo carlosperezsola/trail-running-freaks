@@ -18,6 +18,7 @@ class UserProfileController extends Controller
     {
         $request->validate([
             'name' => ['required', 'max:100'],
+            'phone_number' => ['required', 'max:50'],
             'email' => ['required', 'email', 'unique:users,email,' . Auth::user()->id],
             'user_img' => ['image', 'max:2048']
         ]);
@@ -32,13 +33,14 @@ class UserProfileController extends Controller
 
             $image = $request->file('user_img');
             $imageName = rand() . '_' . $image->getClientOriginalName();
-            $image->move(public_path('uploads'), $imageName);
+            $image->move(public_path('uploads/selected'), $imageName);
 
-            $path = "uploads/" . $imageName;
+            $path = "uploads/selected/" . $imageName;
             $user->user_img = $path;
         }
 
         $user->name = $request->name;
+        $user->phone_number = $request->phone_number;
         $user->email = $request->email;
         $user->save();
 
