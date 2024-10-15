@@ -168,7 +168,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-xl-12">
-                                                <div class="trf__third_party_details">
+                                                <div class="trf__third_party_details pt-3">
                                                     {!! $product->thirdParty->description !!}
                                                 </div>
                                             </div>

@@ -11,7 +11,7 @@
     <title>
         @yield('title')
     </title>
-    <link rel="icon" type="image/png" href="{{ $logoSetting->favicon }}">
+    <link rel="icon" type="image/png" href="{{ $logoSetting->favicon }}?v={{ time() }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/select2.min.css') }}">
