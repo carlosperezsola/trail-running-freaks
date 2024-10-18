@@ -1,3 +1,7 @@
+@php
+    $user = Auth::user();
+@endphp
+
 <div class="dashboard_sidebar">
     <span class="close_icon">
         <i class="far fa-bars dash_bar"></i>
@@ -6,6 +10,11 @@
     <a href="javascript:;" class="dash_logo"><img src="{{ asset($logoSetting->logo) }}" alt="logo" class="img-fluid"></a>
     <ul class="dashboard_link">
         <li><a class="{{setActive(['user.dashboard'])}}" href="{{route('user.dashboard')}}"><i class="fas fa-tachometer"></i>Dashboard</a></li>
+        @if($user->type_user == 'admin')
+            <li><a class="" href="{{ url('/admin_user/dashboard') }}" target="_blank"><i class="fas fa-user-shield"></i>Admin Dashboard</a></li>
+        @elseif ($user->type_user == 'third-party')
+            <li><a class="" href="{{ url('/third_party_user/dashboard') }}" target="_blank"><i class="fas fa-user-shield"></i>Third Party Dashboard</a></li>
+        @endif
         <li><a class="" href="{{ url('/') }}"><i class="fas fa-home"></i>Go To Home</a></li>
         <li><a class="{{setActive(['user.purchases.*'])}}" href="{{route('user.purchases.index')}}"><i class="fas fa-list-ul"></i> Purchases</a></li>
         <li><a class="{{setActive(['user.profile'])}}" href="{{route('user.profile')}}"><i class="far fa-user"></i> My Profile</a></li>
