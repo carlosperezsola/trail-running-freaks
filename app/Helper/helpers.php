@@ -90,7 +90,7 @@ function getFinalPayableAmount()
 }
 
 /** lemit text */
-function limitText($text, $limit = 20)
+function limitText($text, $limit = 18)
 {
     return \Str::limit($text, $limit);
 }

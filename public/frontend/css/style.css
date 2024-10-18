@@ -1399,9 +1399,9 @@ PRODUCT MODAL VIEW END
 .trf__single_slider_text h1 {
 	text-transform: capitalize;
 	font-weight: 800;
-	color: #333;
+	color: #fff;
 	margin: 10px 0px;
-	font-size: 50px;
+	font-size: 30px;
 }
 
 .trf__single_slider_text h6 {
