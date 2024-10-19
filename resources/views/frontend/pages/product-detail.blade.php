@@ -25,7 +25,7 @@
         <div class="container">
             <div class="trf__details_bg">
                 <div class="row">
-                    <div class="col-xl-4 col-md-5 col-lg-5" style="z-index:999">
+                    <div class="col-xl-4 col-md-5 col-lg-5 mb-3 mb-md-0" style="z-index:999">
                         <div id="sticky_pro_zoom">
                             <div class="exzoom hidden" id="exzoom">
                                 <div class="exzoom_img_box">
@@ -126,7 +126,7 @@
                 <div class="col-xl-12">
                     <div class="trf__pro_det_description">
                         <div class="trf__details_bg">
-                            <ul class="nav nav-pills mb-3" id="pills-tab3" role="tablist">
+                            <ul class="nav nav-pills nav-fill mb-3" id="pills-tab3" role="tablist">
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="pills-home-tab7" data-bs-toggle="pill"
                                         data-bs-target="#pills-home22" type="button" role="tab"
@@ -153,7 +153,7 @@
                                     aria-labelledby="pills-contact-tab">
                                     <div class="trf__pro_det_third_party">
                                         <div class="row">
-                                            <div class="col-xl-6 col-xxl-5 col-md-6">
+                                            <div class="col-xl-6 col-xxl-5 col-md-6 mb-3 mb-md-0">
                                                 <div class="trf__third_party_img">
                                                     <img src="{{ asset($product->thirdParty->banner) }}" alt="Third Party"
                                                         class="img-fluid w-100">
@@ -162,10 +162,10 @@
                                             <div class="col-xl-6 col-xxl-7 col-md-6 mt-4 mt-md-0">
                                                 <div class="trf__pro_det_third_party_text">
                                                     <h4>{{ $product->thirdParty->user->name }}</h4>
-                                                    <p><span>@lang('Store Name'):</span> {{ $product->thirdParty->shop_name }}</p>
-                                                    <p><span>@lang('Address'):</span> {{ $product->thirdParty->address }}</p>
-                                                    <p><span>@lang('Phone'):</span> {{ $product->thirdParty->phone }}</p>
-                                                    <p><span>E-mail:</span> {{ $product->thirdParty->email }}</p>
+                                                    <p><span>@lang('Store Name'):</span><br/>{{ $product->thirdParty->shop_name }}</p>
+                                                    <p><span>@lang('Address'):</span><br/>{{ $product->thirdParty->address }}</p>
+                                                    <p><span>@lang('Phone'):</span><br/>{{ $product->thirdParty->phone }}</p>
+                                                    <p><span>E-mail:</span><br/>{{ $product->thirdParty->email }}</p>
                                                     <a href="{{ route('thirdParty.products', $product->thirdParty->id) }}" class="common_btn">@lang('Visit store')</a>
                                                 </div>
                                             </div>

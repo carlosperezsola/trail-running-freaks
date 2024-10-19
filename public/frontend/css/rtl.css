@@ -164,7 +164,7 @@
 	right: 20px;
 }
 
-.trf__flash_coundown .common_btn i {
+.trf__countdown_section .common_btn i {
 	margin-left: 0;
 	margin-right: 5px;
 	transform: rotateY(180deg);

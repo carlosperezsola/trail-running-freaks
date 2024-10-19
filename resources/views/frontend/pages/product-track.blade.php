@@ -44,19 +44,19 @@
                                 <div class="trf__track_header_text">
                                     <div class="row">
                                         <div class="col-xl-3 col-sm-6 col-lg-3">
-                                            <div class="trf__track_header_single">
+                                            <div class="trf__track_header_single mb-3 mb-lg-0">
                                                 <h5>@lang('purchase date')</h5>
                                                 <p>{{ date('d M Y', strtotime(@$purchase->created_at)) }}</p>
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-sm-6 col-lg-3">
-                                            <div class="trf__track_header_single">
+                                            <div class="trf__track_header_single mb-3 mb-lg-0">
                                                 <h5>@lang('shopping by'):</h5>
                                                 <p>{{ @$purchase->user->name }}</p>
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-sm-6 col-lg-3">
-                                            <div class="trf__track_header_single">
+                                            <div class="trf__track_header_single mb-3 mb-lg-0">
                                                 <h5>@lang('status'):</h5>
                                                 <p>{{ @$purchase->purchase_status }}</p>
                                             </div>

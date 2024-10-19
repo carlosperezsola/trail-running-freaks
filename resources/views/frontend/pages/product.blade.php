@@ -31,7 +31,10 @@
                             <i class="far fa-plus" id="plus"></i>
                         </span>
                     </div>
-                    <div class="trf__product_sidebar" id="sticky_sidebar">
+                    <button class="accordion-button d-block d-lg-none btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseZero" aria-expanded="false" aria-controls="collapseZero">
+                        @lang('Ver filtros')
+                    </button>
+                    <div id="collapseZero" class="trf__product_sidebar accordion-collapse collapse d-lg-block">
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
@@ -132,7 +135,7 @@
                                 id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                 <div class="row">
                                     @foreach ($products as $product)
-                                        <div class="col-xl-4 col-sm-6">
+                                        <div class="col-sm-6 col-md-4">
                                             <div class="trf__product_item">
                                                 <span class="trf__new">{{ productType($product->product_type) }}</span>
                                                 @if (checkDiscount($product))

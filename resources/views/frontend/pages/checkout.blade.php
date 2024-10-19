@@ -91,7 +91,7 @@
                                 <input class="form-check-input agree_term" type="checkbox" value=""
                                     id="flexCheckChecked3" checked>
                                 <label class="form-check-label" for="flexCheckChecked3">
-                                    @lang('I have read and agree to the website <a href="{{ route('terms-and-conditions') }}">terms and conditions.*')</a>
+                                    @lang('I have read and agree to the website <a href="#">terms and conditions.*')</a>
                                 </label>
                             </div>
                         </div>

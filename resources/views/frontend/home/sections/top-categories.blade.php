@@ -5,9 +5,11 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
-                <div class="trf__section_header for_md">
-                    <h3>@lang('Popular Categories')</h3>
-                    <div class="monthly_top_filter">
+                <div class="trf__section_header for_md row">
+                    <div class="col-12 col-md-6 text-center text-md-start pb-3 pb-md-0">
+                        <h3>@lang('Popular Categories')</h3>
+                    </div>
+                    <div class="monthly_top_filter col-12 col-md-6 text-center text-md-end pb-1 pb-md-0">
                         @php
                             $products = [];
                         @endphp

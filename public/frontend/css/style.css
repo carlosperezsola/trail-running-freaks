@@ -1571,7 +1571,7 @@ PRODUCT MODAL VIEW END
 	padding-top: 2px;
 }
 
-.trf__flash_coundown {
+.trf__countdown_section {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -1580,7 +1580,7 @@ PRODUCT MODAL VIEW END
 	padding: 30px;
 }
 
-.trf__flash_coundown .end_text {
+.trf__countdown_section .end_text {
 	color: #fff;
 	text-transform: capitalize;
 	font-weight: 600;
@@ -1588,7 +1588,7 @@ PRODUCT MODAL VIEW END
 	margin-right: 30px;
 }
 
-.trf__flash_coundown .common_btn i {
+.trf__countdown_section .common_btn i {
 	margin-left: 5px;
 }
 

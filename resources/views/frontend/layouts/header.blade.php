@@ -1,19 +1,19 @@
 <header>
     <div class="container">
-        <div class="row">
-            <div class="col-2 col-md-1 d-lg-none">
+        <div class="row d-flex justify-content-between align-items-center">
+            <div class="col-4 col-sm-1 -md-lg-2 d-lg-none">
                 <div class="trf__mobile_menu_area">
-                    <span class="trf__mobile_menu_icon"><i class="fal fa-bars"></i></span>
+                    <span class="trf__mobile_menu_icon mt-0"><i class="fal fa-bars"></i></span>
                 </div>
             </div>
-            <div class="col-xl-2 col-7 col-md-8 col-lg-2">
+            <div class="col-4 col-sm-3 col-lg-2 col-xl-2 d-flex align-items-center p-2 p-md-0">
                 <div class="trf_logo_area">
-                    <a class="trf__header_logo" href="{{ url('/') }}">
-                        <img src="{{ asset($logoSetting->logo) }}" alt="logo" class="img-fluid w-100">
+                    <a class="trf__header_logo img-fluid" href="{{ url('/') }}">
+                        <img src="{{ asset($logoSetting->logo) }}" alt="logo" class="img-fluid">
                     </a>
                 </div>
             </div>
-            <div class="col-xl-5 col-md-6 col-lg-4 d-none d-lg-block">
+            <div class="col-6 col-lg-4 col-xl-5 d-none d-sm-block">
                 <div class="trf__search">
                     <form>
                         <input type="text" placeholder="Search...">
@@ -21,9 +21,9 @@
                     </form>
                 </div>
             </div>
-            <div class="col-xl-5 col-3 col-md-3 col-lg-6">
-                <div class="trf__call_icon_area">
-                    <div class="trf__call_area">
+            <div class="col-4 col-sm-2 col-lg-6 col-xl-5">
+                <div class="trf__call_icon_area ps-0 ps-md-5 d-block d-md-flex">
+                    <div class="trf__call_area d-none d-lg-flex">
                         <div class="trf__call">
                             <i class="fas fa-user-headset"></i>
                         </div>
