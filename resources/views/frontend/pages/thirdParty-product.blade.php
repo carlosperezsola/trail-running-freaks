@@ -102,9 +102,6 @@
                                                     <li><a href="#" data-bs-toggle="modal"
                                                             data-bs-target="#product-{{ $product->id }}"><i
                                                                 class="far fa-eye"></i></a></li>
-                                                    <li><a href="#" class="add_to_wishlist"
-                                                            data-id="{{ $product->id }}"><i class="far fa-heart"></i></a>
-                                                    </li>
                                                 </ul>
                                                 <div class="trf__product_details">
                                                     <a class="trf__category" href="#">{{ $product->category->name }}
@@ -324,9 +321,6 @@
                                             </div>
                                             <ul class="trf__button_area">
                                                 <li><button type="submit" class="add_cart" href="#">@lang('add to cart')</button></li>
-                                                <li><a href="#" class="add_to_wishlist"
-                                                        data-id="{{ $product->id }}"><i class="fal fa-heart"></i></a>
-                                                </li>
                                             </ul>
                                         </form>
                                         <p class="brand_model"><span>@lang('trademark'):</span> {{ $product->trademark->name }}</p>

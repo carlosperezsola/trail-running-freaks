@@ -13,8 +13,8 @@
                         <h4>@lang('Cart Details')</h4>
                         <ul>
                             <li><a href="{{ route('home') }}">home</a></li>
-                            <li><a href="#">@lang('product')</a></li>
-                            <li><a href="#">@lang('cart view')</a></li>
+                            <li><a href="{{ route('products.index') }}">@lang('product')</a></li>
+                            <li><a href="javascript:;">@lang('cart view')</a></li>
                         </ul>
                     </div>
                 </div>

@@ -13,7 +13,7 @@
                         <h4>@lang('Contact Us')</h4>
                         <ul>
                             <li><a href="{{ route('home') }}">home</a></li>
-                            <li><a href="#">@lang('Contact Us')</a></li>
+                            <li><a href="javascript:;">@lang('Contact Us')</a></li>
                         </ul>
                     </div>
                 </div>

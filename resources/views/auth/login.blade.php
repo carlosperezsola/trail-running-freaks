@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('title')
-    {{ $settings->site_name }} || Login
+    {{ $settings->site_name }} || @lang('Login')
 @endsection
 
 @section('container')
@@ -10,10 +10,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h4>login / register</h4>
+                        <h4>@lang('login/register')</h4>
                         <ul>
                             <li><a href="{{ route('home') }}">home</a></li>
-                            <li><a href="#">login / register</a></li>
+                            <li><a href="javascript:;">@lang('login/register')</a></li>
                         </ul>
                     </div>
                 </div>
@@ -29,12 +29,12 @@
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="pills-home-tab2" data-bs-toggle="pill"
                                     data-bs-target="#pills-homes" type="button" role="tab" aria-controls="pills-homes"
-                                    aria-selected="true">login</button>
+                                    aria-selected="true">@lang('login')</button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="pills-profile-tab2" data-bs-toggle="pill"
                                     data-bs-target="#pills-profiles" type="button" role="tab"
-                                    aria-controls="pills-profiles" aria-selected="true">signup</button>
+                                    aria-controls="pills-profiles" aria-selected="true">@lang('signup')</button>
                             </li>
                         </ul>
                         <div class="tab-content" id="pills-tabContent2">
@@ -56,12 +56,11 @@
                                             <div class="form-check form-switch">
                                                 <input id="remember_me" name="remember" class="form-check-input"
                                                     type="checkbox" id="flexSwitchCheckDefault">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault">Remember
-                                                    me</label>
+                                                <label class="form-check-label" for="flexSwitchCheckDefault">@lang('Remember me')</label>
                                             </div>
-                                            <a class="forget_p" href="{{ route('password.request') }}">forgot password ?</a>
+                                            <a class="forget_p" href="{{ route('password.request') }}">@lang('forgot password ?')</a>
                                         </div>
-                                        <button class="common_btn" type="submit">login</button>
+                                        <button class="common_btn" type="submit">@lang('login')</button>
                                     </form>
                                 </div>
                             </div>
@@ -89,7 +88,7 @@
                                             <input id="password_confirmation" type="password" name="password_confirmation"
                                                 placeholder="Confirm Password">
                                         </div>
-                                        <button class="common_btn mt-4" type="submit">signup</button>
+                                        <button class="common_btn mt-4" type="submit">@lang('signup')</button>
                                     </form>
                                 </div>
                             </div>

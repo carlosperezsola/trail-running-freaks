@@ -13,7 +13,7 @@
                         <h4>@lang('purchase tracking')purchase tracking</h4>
                         <ul>
                             <li><a href="{{ route('home') }}">home</a></li>
-                            <li><a href="#">@lang('purchase tracking')</a></li>
+                            <li><a href="javascript:;">@lang('purchase tracking')</a></li>
                         </ul>
                     </div>
                 </div>

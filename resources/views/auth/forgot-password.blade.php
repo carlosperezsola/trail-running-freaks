@@ -1,7 +1,7 @@
     @extends('frontend.layouts.main')
 
     @section('title')
-        {{ $settings->site_name }} || Password Forgotten
+        {{ $settings->site_name }} || @lang('Password Forgotten')
     @endsection
 
     @section('container')
@@ -10,10 +10,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <h4>forgot password</h4>
+                            <h4>@lang('forgot password')</h4>
                             <ul>
-                                <li><a href="#">login</a></li>
-                                <li><a href="#">forgot password</a></li>
+                                <li><a href="{{ route('login') }}">@lang('login')</a></li>
+                                <li><a href="javascript:;">@lang('forgot password')</a></li>
                             </ul>
                         </div>
                     </div>
@@ -26,8 +26,8 @@
                     <div class="col-xl-5 m-auto">
                         <div class="trf__forget_area">
                             <span class="qiestion_icon"><i class="fal fa-question-circle"></i></span>
-                            <h4>forgot password ?</h4>
-                            <p>enter the email address to register with <span>e-shop</span></p>
+                            <h4>@lang('forgot password?')</h4>
+                            <p>@lang('enter the email address to register with <span>e-shop</span>')</p>
                             <div class="trf__login">
                                 <form method="POST" action="{{ route('password.email') }}">
                                     @csrf
@@ -36,10 +36,10 @@
                                         <input id="email" type="email" name="email" value="{{ old('email') }}"
                                             placeholder="Your Email">
                                     </div>
-                                    <button class="common_btn" type="submit">send</button>
+                                    <button class="common_btn" type="submit">@lang('send')</button>
                                 </form>
                             </div>
-                            <a class="see_btn mt-4" href="{{ route('login') }}">go to login</a>
+                            <a class="see_btn mt-4" href="{{ route('login') }}">@lang('go to login')</a>
                         </div>
                     </div>
                 </div>

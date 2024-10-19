@@ -13,7 +13,7 @@
                         <h4>@lang('products')</h4>
                         <ul>
                             <li><a href="{{ route('home') }}">home</a></li>
-                            <li><a href="#">@lang('product')</a></li>
+                            <li><a href="javascript:;">@lang('product')</a></li>
                         </ul>
                     </div>
                 </div>
