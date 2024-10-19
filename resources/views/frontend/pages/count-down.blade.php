@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('title')
-    {{ $settings->site_name }} || Count Down Section
+    {{ $settings->site_name }} || @lang('Count Down Section')
 @endsection
 
 @section('container')
@@ -10,10 +10,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h4>Count Down</h4>
+                        <h4>@lang('Count Down')Count Down</h4>
                         <ul>
                             <li><a href="{{ url('/') }}">Home</a></li>
-                            <li><a href="javascript:;">Count Down</a></li>
+                            <li><a href="javascript:;">@lang('Count Down')Count Down</a></li>
                         </ul>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="trf__section_header rounded-0">
-                        <h3>Count Down</h3>
+                        <h3>Merchandising {{ $countDownDate ? $countDownDate->name : 'Default Text' }}</h3>
                         <div class="trf__offer_countdown">
                             <span class="end_text">ends time :</span>
                             <div class="simply-countdown simply-countdown-one"></div>

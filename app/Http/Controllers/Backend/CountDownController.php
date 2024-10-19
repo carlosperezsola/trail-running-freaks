@@ -14,26 +14,32 @@ class CountDownController extends Controller
     public function index(CountDownItemDataTable $dataTable)
     {
         $countDownDate = CountDown::first();
+        $countDownName = $countDownDate ? $countDownDate->name : '';
         $products = Product::where('is_approved', 1)->where('status', 1)->orderBy('id', 'DESC')->get();
-        return $dataTable->render('admin_user.count-down.index', compact('countDownDate', 'products'));
+        return $dataTable->render('admin_user.count-down.index', compact('countDownName', 'countDownDate', 'products'));
     }
 
     public function update(Request $request)
     {
-       $request->validate([
-        'end_date' => ['required']
-       ]);
+        // Valida los campos recibidos
+        $request->validate([
+            'end_date' => ['required'],
+            'name' => ['required', 'string', 'max:255'],
+        ]);
 
-       CountDown::updateOrCreate(
+        CountDown::updateOrCreate(
             ['id' => 1],
-            ['end_date' => $request->end_date]
-       );
+            [
+                'end_date' => $request->end_date,
+                'name' => $request->name
+            ]
+        );
 
-       toastr('Updated Successfully!', 'success', 'Success');
+        toastr('Updated Successfully!', 'success', 'Success');
 
-       return redirect()->back();
-
+        return redirect()->back();
     }
+
 
     public function addProduct(Request $request)
     {
@@ -41,25 +47,34 @@ class CountDownController extends Controller
             'product' => ['required', 'unique:count_down_items,product_id'],
             'show_at_home' => ['required'],
             'status' => ['required'],
-        ],[
+        ], [
             'product.unique' => 'The product was already added!'
         ]);
 
-
+        // Obtener el primer countdown (o el que necesites)
         $countDownDate = CountDown::first();
 
-        $countDownItem = new CountDownItem();
-        $countDownItem->product_id = $request->product;
-        $countDownItem->count_down_id = $countDownDate->id;
-        $countDownItem->show_at_home = $request->show_at_home;
-        $countDownItem->status = $request->status;
-        $countDownItem->save();
+        if ($countDownDate) {
+            // Crear nuevo CountDownItem
+            $countDownItem = new CountDownItem();
+            $countDownItem->product_id = $request->product;
+            $countDownItem->count_down_id = $countDownDate->id; // Asegúrate de que $countDownDate no sea null
+            $countDownItem->show_at_home = $request->show_at_home;
+            $countDownItem->status = $request->status;
 
-        toastr('Product Added Successfully!', 'success', 'Success');
+            // Aquí podrías guardar el nombre si tu modelo CountDownItem tiene un campo para eso
+            // $countDownItem->count_down_name = $countDownDate->name; // Solo si existe este campo
+
+            $countDownItem->save();
+
+            toastr('Product Added Successfully!', 'success', 'Success');
+        } else {
+            toastr('No countdown found!', 'error', 'Error');
+        }
 
         return redirect()->back();
-
     }
+
 
     public function changeShowAtHomeStatus(Request $request)
     {

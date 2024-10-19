@@ -9,5 +9,5 @@ class CountDown extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['end_date', 'id'];
+    protected $fillable = ['name', 'end_date', 'id'];
 }

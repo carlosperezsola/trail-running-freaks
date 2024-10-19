@@ -24,11 +24,11 @@
             <div class="trf__pro_details_text">
                 <a class="title" href="#">{{ limitText($product->name, 150) }}</a>
                 @if ($product->qty > 0)
-                    <p class="trf__stock_area"><span class="in_stock">in stock</span>
+                    <p class="trf__stock_area"><span class="in_stock">@lang('in stock')</span>
                         ({{ $product->qty }}
                         item)</p>
                 @elseif ($product->qty === 0)
-                    <p class="trf__stock_area"><span class="in_stock">stock out</span>
+                    <p class="trf__stock_area"><span class="in_stock">@lang('stock out')</span>
                         ({{ $product->qty }}
                         item)</p>
                 @endif
@@ -66,17 +66,17 @@
                         </div>
                     </div>
                     <div class="trf__quantity">
-                        <h5>Quantity:</h5>
+                        <h5>@lang('Quantity'):</h5>
                         <div class="select_number">
                             <input class="number_area" name="qty" type="text"
                                 min="1" max="100" value="1" />
                         </div>
                     </div>
                     <ul class="trf__button_area">
-                        <li><button type="submit" class="add_cart" href="#">add to cart</button></li>
+                        <li><button type="submit" class="add_cart" href="#">@lang('add to cart')</button></li>
                     </ul>
                 </form>
-                <p class="brand_model"><span>trademark :</span> {{ $product->trademark->name }}</p>
+                <p class="brand_model"><span>@lang('trademark'):</span> {{ $product->trademark->name }}</p>
             </div>
         </div>
     </div>

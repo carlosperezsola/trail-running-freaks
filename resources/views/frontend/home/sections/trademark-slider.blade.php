@@ -1,5 +1,8 @@
 <section id="trf__brand_slider" class="brand_slider_2">
     <div class="container">
+        <div class="trf__section_header for_md mt-3">
+            <h3>@lang('Trademarks')</h3>
+        </div> 
         <div class="brand_border">
             <div class="row brand_slider py-5 d-flex aling-items-center">
                 @foreach ($trademarks as $trademark)

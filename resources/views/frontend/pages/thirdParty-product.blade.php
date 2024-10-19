@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('title')
-    {{ $settings->site_name }} || Third Party Products
+    {{ $settings->site_name }} || @lang('Third Party Products')
 @endsection
 
 @section('container')
@@ -10,10 +10,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h4>Third Party Products</h4>
+                        <h4>@lang('Third Party Products')</h4>
                         <ul>
                             <li><a href="{{ url('/') }}">Home</a></li>
-                            <li><a href="javascript:;">Third Party Products</a></li>
+                            <li><a href="javascript:;">@lang('Third Party Products')</a></li>
                         </ul>
                     </div>
                 </div>
@@ -105,7 +105,6 @@
                                                     <li><a href="#" class="add_to_wishlist"
                                                             data-id="{{ $product->id }}"><i class="far fa-heart"></i></a>
                                                     </li>
-                                                    {{-- <li><a href="#"><i class="far fa-random"></i></a> --}}
                                                 </ul>
                                                 <div class="trf__product_details">
                                                     <a class="trf__category" href="#">{{ $product->category->name }}
@@ -140,7 +139,7 @@
                                                         @endforeach
                                                         <input class="" name="qty" type="hidden"
                                                             min="1" max="100" value="1" />
-                                                        <button class="add_cart" type="submit">add to cart</button>
+                                                        <button class="add_cart" type="submit">@lang('add to cart')</button>
                                                     </form>
                                                 </div>
                                             </div>
@@ -205,8 +204,7 @@
                                                             @endforeach
                                                             <input class="" name="qty" type="hidden"
                                                                 min="1" max="100" value="1" />
-                                                            <button class="add_cart_two mr-2" type="submit">add to
-                                                                cart</button>
+                                                            <button class="add_cart_two mr-2" type="submit">@lang('add to cart')</button>
                                                         </form>
                                                         <li><a href="#"><i class="far fa-heart"></i></a></li>
                                                         <li><a href="#"><i class="far fa-random"></i></a>
@@ -223,7 +221,7 @@
                         <div class="text-center mt-5">
                             <div class="card">
                                 <div class="card-body">
-                                    <h2>Product not found!</h2>
+                                    <h2>@lang('Product not found!')</h2>
                                 </div>
                             </div>
                         </div>
@@ -285,7 +283,8 @@
                                 <div class="col-xl-6 col-12 col-sm-12 col-md-12 col-lg-6">
                                     <div class="trf__pro_details_text">
                                         <a class="title" href="#">{{ $product->name }}</a>
-                                        <p class="trf__stock_area"><span class="in_stock">in stock</span> (167 item)</p>
+                                        <p class="trf__stock_area"><span class="in_stock">@lang('tracking')in stock</span> ({{ $product->qty }}
+                                    item)</p>
                                         @if (checkDiscount($product))
                                             <h4>{{ $settings->currency_icon }}{{ $product->offer_price }}
                                                 <del>{{ $settings->currency_icon }}{{ $product->price }}</del></h4>
@@ -317,21 +316,20 @@
                                                 </div>
                                             </div>
                                             <div class="trf__quantity">
-                                                <h5>quantity :</h5>
+                                                <h5>@lang('quantity'):</h5>
                                                 <div class="select_number">
                                                     <input class="number_area" name="qty" type="text"
                                                         min="1" max="100" value="1" />
                                                 </div>
                                             </div>
                                             <ul class="trf__button_area">
-                                                <li><button type="submit" class="add_cart" href="#">add to
-                                                        cart</button></li>
+                                                <li><button type="submit" class="add_cart" href="#">@lang('add to cart')</button></li>
                                                 <li><a href="#" class="add_to_wishlist"
                                                         data-id="{{ $product->id }}"><i class="fal fa-heart"></i></a>
                                                 </li>
                                             </ul>
                                         </form>
-                                        <p class="brand_model"><span>trademark :</span> {{ $product->trademark->name }}</p>
+                                        <p class="brand_model"><span>@lang('trademark'):</span> {{ $product->trademark->name }}</p>
                                     </div>
                                 </div>
                             </div>

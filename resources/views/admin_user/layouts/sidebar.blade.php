@@ -97,8 +97,7 @@
                         <a class="nav-link" href="{{ route('admin_user.slider.index') }}">Slider</a>
                     </li>
                     <li class="{{ setActive(['admin_user.slider.*']) }}">
-                        <a class="nav-link" href="{{ route('admin_user.home-page-setting.index') }}">Home Page
-                            Settings</a>
+                        <a class="nav-link" href="{{ route('admin_user.home-page-setting.index') }}">Popular Categories</a>
                     </li>
                     <li class="{{ setActive(['admin_user.who-we-are.index']) }}">
                         <a class="nav-link" href="{{ route('admin_user.who-we-are.index') }}">Who We Are Page</a>

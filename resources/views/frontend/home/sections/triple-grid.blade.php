@@ -1,5 +1,8 @@
 <section id="trf__hot_deals" class="trf__hot_deals_2">
-    <div class="container">        
+    <div class="container">
+        <div class="trf__section_header for_md mb-4">
+            <h3>@lang('Destacados')</h3>
+        </div>        
         <section id="trf__single_banner" class="home_2_single_banner pt-0">
             <div class="container">
                 <div class="row">

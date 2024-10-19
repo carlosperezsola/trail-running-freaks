@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('title')
-    {{ $settings->site_name }} || Product Details Section
+    {{ $settings->site_name }} || @lang('Product Details Section')
 @endsection
 
 @section('container')
@@ -10,11 +10,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h4>products details</h4>
+                        <h4>@lang('products details')</h4>
                         <ul>
                             <li><a href="#">home</a></li>
-                            <li><a href="#">product</a></li>
-                            <li><a href="#">product details</a></li>
+                            <li><a href="#">@lang('product')</a></li>
+                            <li><a href="#">@lang('product details')</a></li>
                         </ul>
                     </div>
                 </div>
@@ -29,9 +29,6 @@
                         <div id="sticky_pro_zoom">
                             <div class="exzoom hidden" id="exzoom">
                                 <div class="exzoom_img_box">
-                                    {{-- @php
-                                        dd($product); // Esto mostrará el contenido de $product y detendrá la ejecución.
-                                    @endphp --}}
                                     @if ($product->video_link)
                                         <a class="venobox trf__pro_det_video" data-autoplay="true" data-vbtype="video"
                                             href="{{ $product->video_link }}">
@@ -51,13 +48,18 @@
                                         @endforeach
                                     </ul>
                                 </div>
-                                <div class="exzoom_nav"></div>
-                                <p class="exzoom_btn">
-                                    <a href="javascript:void(0);" class="exzoom_prev_btn"> <i
-                                            class="far fa-chevron-left"></i> </a>
-                                    <a href="javascript:void(0);" class="exzoom_next_btn"> <i
-                                            class="far fa-chevron-right"></i> </a>
-                                </p>
+                                @php                                    
+                                    $totalImages = 1 + $product->productImageGalleries->count();
+                                @endphp
+                                @if ($totalImages >= 2)
+                                    <div class="exzoom_nav"></div>
+                                    {{-- <p class="exzoom_btn">
+                                        <a href="javascript:void(0);" class="exzoom_prev_btn"> <i
+                                                class="far fa-chevron-left"></i> </a>
+                                        <a href="javascript:void(0);" class="exzoom_next_btn"> <i
+                                                class="far fa-chevron-right"></i> </a>
+                                    </p> --}}
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -65,10 +67,10 @@
                         <div class="trf__pro_details_text">
                             <a class="title" href="javascript:;">{{ $product->name }}</a>
                             @if ($product->qty > 0)
-                                <p class="trf__stock_area"><span class="in_stock">in stock</span> ({{ $product->qty }}
+                                <p class="trf__stock_area"><span class="in_stock">@lang('in stock')</span> ({{ $product->qty }}
                                     item)</p>
                             @elseif ($product->qty === 0)
-                                <p class="trf__stock_area"><span class="in_stock">stock out</span> ({{ $product->qty }}
+                                <p class="trf__stock_area"><span class="in_stock">@lang('stock out')</span> ({{ $product->qty }}
                                     item)</p>
                             @endif
                             @if (checkDiscount($product))
@@ -103,7 +105,7 @@
                                     </div>
                                 </div>
                                 <div class="trf__quantity">
-                                    <h5>Quantity:</h5>
+                                    <h5>@lang('Quantity'):</h5>
                                     <div class="select_number">
                                         <input class="number_area" name="qty" type="text" min="1"
                                             max="100" value="1" />
@@ -111,11 +113,11 @@
                                 </div>
                                 <ul class="trf__button_area">
                                     <li>
-                                        <button type="submit" class="add_cart" href="#">add to cart</button>
+                                        <button type="submit" class="add_cart" href="#">@lang('add to cart')</button>
                                     </li>
                                 </ul>
                             </form>
-                            <p class="brand_model"><span>trademark :</span> {{ $product->trademark->name }}</p>
+                            <p class="brand_model"><span>@lang('trademark'):</span> {{ $product->trademark->name }}</p>
                         </div>
                     </div>
                 </div>
@@ -128,12 +130,12 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="pills-home-tab7" data-bs-toggle="pill"
                                         data-bs-target="#pills-home22" type="button" role="tab"
-                                        aria-controls="pills-home" aria-selected="true">Description</button>
+                                        aria-controls="pills-home" aria-selected="true">@lang('Description')</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
                                         data-bs-target="#pills-contact" type="button" role="tab"
-                                        aria-controls="pills-contact" aria-selected="false">Third Party Info</button>
+                                        aria-controls="pills-contact" aria-selected="false">@lang('Third Party Info')</button>
                                 </li>
                             </ul>
                             <div class="tab-content" id="pills-tabContent4">
@@ -160,11 +162,11 @@
                                             <div class="col-xl-6 col-xxl-7 col-md-6 mt-4 mt-md-0">
                                                 <div class="trf__pro_det_third_party_text">
                                                     <h4>{{ $product->thirdParty->user->name }}</h4>
-                                                    <p><span>Store Name:</span> {{ $product->thirdParty->shop_name }}</p>
-                                                    <p><span>Address:</span> {{ $product->thirdParty->address }}</p>
-                                                    <p><span>Phone:</span> {{ $product->thirdParty->phone }}</p>
+                                                    <p><span>@lang('Store Name'):</span> {{ $product->thirdParty->shop_name }}</p>
+                                                    <p><span>@lang('Address'):</span> {{ $product->thirdParty->address }}</p>
+                                                    <p><span>@lang('Phone'):</span> {{ $product->thirdParty->phone }}</p>
                                                     <p><span>E-mail:</span> {{ $product->thirdParty->email }}</p>
-                                                    <a href="{{ route('thirdParty.products', $product->thirdParty->id) }}" class="common_btn">Visit store</a>
+                                                    <a href="{{ route('thirdParty.products', $product->thirdParty->id) }}" class="common_btn">@lang('Visit store')</a>
                                                 </div>
                                             </div>
                                             <div class="col-xl-12">

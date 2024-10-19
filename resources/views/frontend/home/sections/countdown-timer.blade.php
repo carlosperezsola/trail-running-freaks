@@ -4,21 +4,24 @@
             <div class="col-xl-12">
                 <div class="offer_time" style="background: url({{ asset('frontend/images/count_down_bg.jpg') }})">
                     <div class="trf__flash_coundown">
-                        <span class="end_text">Flash Sale</span>
+                        <span class="end_text">{{ $countDownDate ? $countDownDate->name : 'Default Text' }}</span>
                         <div class="simply-countdown simply-countdown-one"></div>
-                        <a class="common_btn" href="{{ route('count-down') }}">See more <i
+                        <a class="common_btn" href="{{ route('count-down') }}">@lang('See more') <i
                                 class="fas fa-caret-right"></i></a>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row count_down_slider">            
-                @php
-                    $products = \App\Models\Product::with(['options', 'category', 'productImageGalleries'])->whereIn('id', $countDownItems)->get();
-                @endphp
-                @foreach ($products as $product)
-                    <x-product-card :product="$product" />
-                @endforeach
+        </div>        
+        <div class="trf__section_header for_md mt-5">
+            <h3>Merchandising {{ $countDownDate ? $countDownDate->name : 'Default Text' }}</h3>
+        </div> 
+        <div class="row count_down_slider">       
+            @php
+                $products = \App\Models\Product::with(['options', 'category', 'productImageGalleries'])->whereIn('id', $countDownItems)->get();
+            @endphp
+            @foreach ($products as $product)
+                <x-product-card :product="$product" />
+            @endforeach
         </div>
     </div>
 </section>

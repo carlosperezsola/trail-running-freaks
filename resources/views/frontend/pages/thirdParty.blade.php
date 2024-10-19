@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('title')
-    {{ $settings->site_name }} || Payment
+    {{ $settings->site_name }} || @lang('Payment')
 @endsection
 
 @section('container')
@@ -10,10 +10,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h4>Third Parties</h4>
+                        <h4>@lang('Third Parties')</h4>
                         <ul>
                             <li><a href="{{ url('/') }}">home</a></li>
-                            <li><a href="javascript:;">Third Parties</a></li>
+                            <li><a href="javascript:;">@lang('Third Parties')</a></li>
                         </ul>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                                                 {{ $thirdParty->phone }}</a>
                                             <a href="javascript:;"><i class="fal fa-envelope"></i>
                                                 {{ $thirdParty->email }}</a>
-                                            <a href="{{ route('thirdParty.products', $thirdParty->id) }}" class="common_btn">Visit store</a>
+                                            <a href="{{ route('thirdParty.products', $thirdParty->id) }}" class="common_btn">@lang('Visit store')</a>
                                         </div>
                                     </div>
                                 </div>

@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('title')
-    {{ $settings->site_name }} || Contact Us
+    {{ $settings->site_name }} || @lang('Contact Us')
 @endsection
 
 @section('container')
@@ -10,10 +10,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h4>Contact Us</h4>
+                        <h4>@lang('Contact Us')</h4>
                         <ul>
                             <li><a href="#">home</a></li>
-                            <li><a href="#">contact us</a></li>
+                            <li><a href="#">@lang('Contact Us')</a></li>
                         </ul>
                     </div>
                 </div>
@@ -30,9 +30,9 @@
                                 <div class="col-xl-12">
                                     <div class="trf__contact_single">
                                         <i class="fal fa-envelope"></i>
-                                        <h5>Email address</h5>
+                                        <h5>@lang('Email address')</h5>
                                         <a href="mailto:example@gmail.com">{{ @$settings->contact_email }}</a>
-                                        <span><i class="fal fa-envelope"></i></span>
+                                        <span class="mt-2 me-2"><i class="fal fa-envelope"></i></span>
                                     </div>
                                 </div>
                             @endif
@@ -40,10 +40,10 @@
                                 <div class="col-xl-12">
                                     <div class="trf__contact_single">
                                         <i class="far fa-phone-alt"></i>
-                                        <h5>phone number</h5>
+                                        <h5>@lang('phone number')</h5>
                                         <a
                                             href="macallto:{{ @$settings->contact_phone }}">{{ @$settings->contact_phone }}</a>
-                                        <span><i class="far fa-phone-alt"></i></span>
+                                        <span class="mt-2 me-2"><i class="far fa-phone-alt"></i></span>
                                     </div>
                                 </div>
                             @endif
@@ -51,9 +51,9 @@
                                 <div class="col-xl-12">
                                     <div class="trf__contact_single">
                                         <i class="fal fa-map-marker-alt"></i>
-                                        <h5>contact address</h5>
+                                        <h5>@lang('contact address')</h5>
                                         <a href="javascript:;">{{ @$settings->contact_address }}</a>
-                                        <span><i class="fal fa-map-marker-alt"></i></span>
+                                        <span class="mt-2 me-2"><i class="fal fa-map-marker-alt"></i></span>
                                     </div>
                                 </div>
                             @endif
@@ -61,7 +61,7 @@
                     </div>
                     <div class="col-xl-8">
                         <div class="trf__contact_question">
-                            <h5>Send Us a Message</h5>
+                            <h5>@lang('Send Us a Message')</h5>
                             <form id="contact-form">
                                 <div class="row">
                                     <div class="col-xl-12">
@@ -83,7 +83,7 @@
                                         <div class="trf__con_form_single">
                                             <textarea cols="3" rows="5" placeholder="Message" name="message"></textarea>
                                         </div>
-                                        <button type="submit" class="common_btn" id="form-submit">send now</button>
+                                        <button type="submit" class="common_btn" id="form-submit">@lang('send now')</button>
                                     </div>
                                 </div>
                             </form>

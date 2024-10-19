@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('title')
-    {{ $settings->site_name }} || Cart Details
+    {{ $settings->site_name }} || @lang('Cart Details')
 @endsection
 
 @section('container')
@@ -10,11 +10,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h4>cart View</h4>
+                        <h4>@lang('Cart Details')</h4>
                         <ul>
                             <li><a href="#">home</a></li>
-                            <li><a href="#">product</a></li>
-                            <li><a href="#">cart view</a></li>
+                            <li><a href="#">@lang('product')</a></li>
+                            <li><a href="#">@lang('cart view')</a></li>
                         </ul>
                     </div>
                 </div>
@@ -31,26 +31,26 @@
                                 <tbody>
                                     <tr class="d-flex">
                                         <th class="trf__pro_img">
-                                            product item
+                                            @lang('product item')
                                         </th>
 
                                         <th class="trf__pro_name">
-                                            product details
+                                            @lang('product details')
                                         </th>
 
                                         <th class="trf__pro_tk">
-                                            unit price
+                                            @lang('unit price')
                                         </th>
 
                                         <th class="trf__pro_tk">
-                                            total
+                                            @lang('total')
                                         </th>
 
                                         <th class="trf__pro_select">
-                                            quantity
+                                            @lang('quantity')
                                         </th>
                                         <th class="trf__pro_icon">
-                                            <a href="#" class="common_btn clear_cart">clear cart</a>
+                                            <a href="#" class="common_btn clear_cart">@lang('clear cart')</a>
                                         </th>
                                     </tr>
                                     @foreach ($cartItems as $item)
@@ -77,7 +77,7 @@
                                             <td class="trf__pro_select">
                                                 <div class="product_qty_wrapper">
                                                     <button class="btn btn-danger product-decrement">-</button>
-                                                    <input class="product-qty" data-rowid="{{ $item->rowId }}"
+                                                    <input class="product-qty text-center pe-1" data-rowid="{{ $item->rowId }}"
                                                         type="text" min="1" max="100"
                                                         value="{{ $item->qty }}" readonly />
                                                     <button class="btn btn-success product-increment">+</button>
@@ -92,7 +92,7 @@
                                     @if (count($cartItems) === 0)
                                         <tr class="d-flex">
                                             <td class="trf__pro_icon" rowspan="2" style="width:100%">
-                                                Cart is empty!
+                                                @lang('Cart is empty!')
                                             </td>
                                         </tr>
                                     @endif
@@ -103,16 +103,16 @@
                 </div>
                 <div class="col-xl-3">
                     <div class="trf__cart_list_footer_button" id="sticky_sidebar">
-                        <h6>total cart</h6>
-                        <p>subtotal: <span id="sub_total">{{ $settings->currency_icon }}{{ getCartTotal() }}</span></p>
+                        <h6>@lang('total cart')</h6>
+                        <p>@lang('subtotal'): <span id="sub_total">{{ $settings->currency_icon }}{{ getCartTotal() }}</span></p>
                         </p>
                         <p class="total">
-                            <span>total:</span> 
+                            <span>@lang('total'):</span> 
                             <span id="cart_total"></span>
                         </p>
-                        <a class="common_btn mt-4 w-100 text-center" href="{{route('user.checkout')}}">checkout</a>
+                        <a class="common_btn mt-4 w-100 text-center" href="{{route('user.checkout')}}">@lang('checkout')</a>
                         <a class="common_btn mt-1 w-100 text-center" href="{{route('home')}}"><i
-                                class="fab fa-shopify"></i> Keep Shopping</a>
+                                class="fab fa-shopify"></i> @lang('Keep Shopping')</a>
                     </div>
                 </div>
             </div>

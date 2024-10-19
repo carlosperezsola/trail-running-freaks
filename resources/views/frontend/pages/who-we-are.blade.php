@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('title')
-    {{ $settings->site_name }} || Who We Are
+    {{ $settings->site_name }} || @lang('Who We Are')
 @endsection
 
 @section('container')
@@ -10,10 +10,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h4>Who We Are</h4>
+                        <h4>@lang('Who We Are')</h4>
                         <ul>
                             <li><a href="{{ route('home') }}">home</a></li>
-                            <li><a href="javascript:;">Who We Are</a></li>
+                            <li><a href="javascript:;">@lang('Who We Are')</a></li>
                         </ul>
                     </div>
                 </div>

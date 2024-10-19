@@ -18,6 +18,10 @@
                                 @method('PUT')
                                 <div class="">
                                     <div class="form-group">
+                                        <label>Count Down Name</label>
+                                        <input type="text" class="form-control" name="name" value="{{ old('name', $countDownName) }}">
+                                    </div>                                                                        
+                                    <div class="form-group">
                                         <label>Sale End Date</label>
                                         <input type="text" class="form-control datepicker" name="end_date"
                                             value="{{ @$countDownDate->end_date }}">
