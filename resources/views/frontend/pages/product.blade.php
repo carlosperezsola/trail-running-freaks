@@ -12,7 +12,7 @@
                     <div class="col-12">
                         <h4>@lang('products')</h4>
                         <ul>
-                            <li><a href="#">home</a></li>
+                            <li><a href="{{ route('home') }}">home</a></li>
                             <li><a href="#">@lang('product')</a></li>
                         </ul>
                     </div>
