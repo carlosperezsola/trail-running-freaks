@@ -245,21 +245,30 @@
             <div class="modal fade" id="product-{{ $product->id }}" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl modal-fullscreen-lg-down">
                     <div class="modal-content">
-                        <div class="modal-body">
+                        <div class="modal-body @if (count($product->productImageGalleries) === 0)d-flex justify-content-center align-items-center @endif">
                             <button type="button" class="btn-close position-absolute top-0 end-0 mt-2 me-3" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times"></i></button>
-                            <div class="row">
-                                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 w-50 d-flex justify-content-center align-items-center mb-3 mb-lg-0">
-                                    <div class="trf__quick_view_img">
-                                        @if ($product->video_link)
-                                            <a class="venobox trf__pro_det_video" data-autoplay="true" data-vbtype="video" href="{{ $product->video_link }}">
-                                                <i class="fas fa-play"></i>
-                                            </a>
-                                        @endif
-                                        @if (count($product->productImageGalleries) === 0)
+                            <div class="row justify-content-center align-items-center">
+                                @if (count($product->productImageGalleries) === 0)
+                                    <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 w-50 d-flex justify-content-center align-items-center mb-3 mb-lg-0">
+                                        <div class="trf__quick_view_img">
+                                            @if ($product->video_link)
+                                                <a class="venobox trf__pro_det_video" data-autoplay="true" data-vbtype="video" href="{{ $product->video_link }}">
+                                                    <i class="fas fa-play"></i>
+                                                </a>
+                                            @endif
                                             <div class="modal_slider_img">
                                                 <img src="{{ asset($product->thumb_image) }}" alt="{{ $product->name }}" class="img-fluid">
                                             </div>
-                                        @else
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="col-xl-6 col-12 col-sm-10 col-md-8 col-lg-6 display mb-3 mb-lg-0">
+                                        <div class="trf__quick_view_img">
+                                            @if ($product->video_link)
+                                                <a class="venobox trf__pro_det_video" data-autoplay="true" data-vbtype="video" href="{{ $product->video_link }}">
+                                                    <i class="fas fa-play"></i>
+                                                </a>
+                                            @endif                                            
                                             <div class="row modal_slider">
                                                 <div class="col-xl-12">
                                                     <div class="modal_slider_img">
@@ -274,10 +283,9 @@
                                                     </div>
                                                 @endforeach
                                             </div>
-                                        @endif
+                                        </div>
                                     </div>
-                                </div>
-                                
+                                @endif                                
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                                     <div class="trf__pro_details_text col-md-8 col-lg-12 mx-auto text-center text-lg-start">
                                         <a class="title" href="#">{{ limitText($product->name, 150) }}</a>

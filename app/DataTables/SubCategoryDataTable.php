@@ -24,7 +24,7 @@ class SubCategoryDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', function($query){
                 $editBtn = "<a href='".route('admin_user.sub-category.edit', $query->id)."' class='btn btn-primary'><i class='far fa-edit'></i></a>";
-                $deleteBtn = "<a href='".route('admin_user.sub-category.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
+                $deleteBtn = "<a href='".route('admin_user.sub-category.destroy', $query->id)."' class='btn btn-danger ml-0 ml-sm-2 mt-2 mt-sm-0 delete-item delete-item'><i class='far fa-trash-alt'></i></a>";
 
                 return $editBtn.$deleteBtn;
             })
@@ -85,9 +85,8 @@ class SubCategoryDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('id'),
+            Column::make('id')->addClass('d-none d-md-table-cell'),
             Column::make('name'),
-            Column::make('slug'),
             Column::make('category'),
             Column::make('status'),
             Column::computed('action')

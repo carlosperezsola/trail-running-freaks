@@ -83,3 +83,6 @@
         </div>
     </div>
 </div>
+
+<!--nice-number js-->
+<script src={{ asset('frontend/js/jquery.nice-number.min.js') }}></script>

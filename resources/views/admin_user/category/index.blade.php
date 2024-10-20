@@ -8,15 +8,18 @@
 
         <div class="section-body">            
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 p-0 p-lg-4">
                     <div class="card">
-                        <div class="card-header">
-                            <h4>All Categories</h4>
-                            <div class="card-header-action">
+                        <div class="card-header row d-flex justify-content-around">
+                            <div class="col">
+                                <div class="col">
+                                <h4>All Categories</h4>
+                            </div>
+                            <div class="card-header-action text-end">
                                 <a href="{{route('admin_user.category.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Create New</a>
                             </div>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body p-0 p-lg-4">
                             {{ $dataTable->table() }}
                         </div>
                     </div>
