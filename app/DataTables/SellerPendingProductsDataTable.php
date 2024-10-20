@@ -74,7 +74,7 @@ class SellerPendingProductsDataTable extends DataTable
             return $button;
         })
         ->addColumn('thirdParty', function($query){
-            return $query->thirdParty ? $query->thirdParty->shop_name : 'N/A';
+            return $query->thirdParty->shop_name;
         })
         ->addColumn('approve', function($query){
             return "<select class='form-control is_approve' data-id='$query->id'>

@@ -7148,6 +7148,20 @@ WISHLIST PAGE START
 	font-size: 14px;
 }
 
+.trf__dash_pro_area table th {
+	vertical-align: middle;
+}
+
+.trf__dash_pro_area table th .dt-column-title {
+	line-height: 25px !important;
+	text-align: center !important;
+}
+
+div.dt-container.dt-empty-footer tbody>tr:last-child>* {
+	text-align: center;
+	vertical-align: middle;
+}
+
 .trf__dash_pro_area,
 .trf__dashboard_add {
 	background: #fff;

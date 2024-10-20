@@ -17,7 +17,7 @@
                                 class="fas fa-plus"></i> Create Product</a>
                         </div>
                         <div class="trf__dashboard_profile">
-                            <div class="trf__dash_pro_area">
+                            <div class="trf__dash_pro_area  overflow-auto">
                                 {{ $dataTable->table() }}
                             </div>
                         </div>

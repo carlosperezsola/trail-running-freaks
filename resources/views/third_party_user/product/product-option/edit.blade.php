@@ -15,7 +15,7 @@
                     <div class="dashboard_content mt-2 mt-md-0">
                         <h3><i class="far fa-user"></i> Update Option</h3>
                         <div class="trf__dashboard_profile">
-                            <div class="trf__dash_pro_area">
+                            <div class="trf__dash_pro_area  overflow-auto">
                                 <form action="{{ route('third_party_user.products-option.update', $option->id) }}"
                                     method="POST">
                                     @csrf

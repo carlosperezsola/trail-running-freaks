@@ -5449,3 +5449,16 @@
   /* extra css start here */
 
 }
+
+@media (max-width: 768px) {
+  
+  div.dt-container.dt-empty-footer tbody>tr:last-child>* {
+    font-size: 15px !important;
+  }
+
+  .trf__dash_pro_area table th .dt-column-title {
+    font-size: 15px !important;
+    line-height: 15px !important;
+  }
+
+}

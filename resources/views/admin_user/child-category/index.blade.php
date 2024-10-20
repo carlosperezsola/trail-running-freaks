@@ -12,7 +12,6 @@
                     <div class="card">
                         <div class="card-header row d-flex justify-content-around">
                             <div class="col">
-                                <div class="col">
                                 <h4>All Child Categories</h4>
                             </div>
                             <div class="card-header-action text-end">
