@@ -73,24 +73,17 @@
     </div>
 </nav>
 <section id="trf__mobile_menu">
-    <span class="trf__mobile_menu_close"><i class="fal fa-times"></i></span>
-    <ul class="trf__mobile_menu_header_icon d-inline-flex">
-        @if (auth()->check())
-            @if (auth()->user()->type_user === 'regular')
-                <li><a href="{{ route('user.profile') }}"><i class="far fa-user"></i></a></li>
-            @elseif (auth()->user()->type_user === 'third-party')
-                <li><a href="{{ route('third_party_user.dashboard') }}"><i class="far fa-user"></i></a></li>
-            @elseif (auth()->user()->type_user === 'admin')
-                <li><a href="{{ route('admin_user.dashboard') }}"><i class="far fa-user"></i></a></li>
-            @endif
-        @else
-            <li><a href="{{ route('login') }}"><i class="fal fa-user"></i></a></li>
-        @endif
-    </ul>
-    <form action="{{ route('products.index') }}">
-        <input type="text" placeholder="Search..." name="search" value="{{ request()->search }}">
-        <button type="submit"><i class="far fa-search"></i></button>
-    </form>
+    <div class="row">
+        <div class="col-10">   
+            <form class="mt-2" action="{{ route('products.index') }}">
+                <input type="text" placeholder="Search..." name="search" value="{{ request()->search }}">
+                <button type="submit"><i class="far fa-search"></i></button>
+            </form>
+        </div>
+        <div class="col-2">
+            <span class="trf__mobile_menu_close"><i class="fal fa-times"></i></span>
+        </div>
+    </div>
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"

@@ -3,7 +3,7 @@
         <div class="row d-flex justify-content-between align-items-center">
             <div class="col-4 col-sm-1 -md-lg-2 d-lg-none">
                 <div class="trf__mobile_menu_area">
-                    <span class="trf__mobile_menu_icon mt-0"><i class="fal fa-bars"></i></span>
+                    <span class="trf__mobile_menu_icon mt-0 bg-transparent"><i class="fal fa-bars text-white fa-2x"></i></span>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-lg-2 col-xl-2 d-flex align-items-center p-2 p-md-0">
@@ -13,7 +13,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-6 col-lg-4 col-xl-5 d-none d-sm-block">
+            <div class="col-4 col-lg-4 col-xl-5 d-none d-sm-block">
                 <div class="trf__search">
                     <form>
                         <input type="text" placeholder="Search...">
@@ -32,13 +32,28 @@
                             <p>{{ $settings->contact_phone }}</p>
                         </div>
                     </div>
-                    <ul class="trf__icon_area">
-                        <li><a class="trf__cart_icon" href="#">
-                                <i class="fal fa-shopping-bag"></i><span
-                                    id="cart-count">{{ Cart::content()->count() }}</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="d-flex">
+                        <ul class="trf__icon_area d-block d-lg-none col-6">
+                            @if (auth()->check())
+                                @if (auth()->user()->type_user === 'regular')
+                                    <li><a href="{{ route('user.profile') }}"><i class="fal fa-user"></i></a></li>
+                                @elseif (auth()->user()->type_user === 'third-party')
+                                    <li><a href="{{ route('third_party_user.dashboard') }}"><i class="fal fa-user"></i></a></li>
+                                @elseif (auth()->user()->type_user === 'admin')
+                                    <li><a href="{{ route('admin_user.dashboard') }}"><i class="fal fa-user"></i></a></li>
+                                @endif
+                            @else
+                                <li><a href="{{ route('login') }}"><i class="fal fa-user"></i></a></li>
+                            @endif
+                        </ul>
+                        <ul class="trf__icon_area col-6">
+                            <li><a class="trf__cart_icon" href="#">
+                                    <i class="fal fa-shopping-bag"></i><span
+                                        id="cart-count">{{ Cart::content()->count() }}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
