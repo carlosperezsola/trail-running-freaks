@@ -38,15 +38,18 @@
                                     {{ $thirdParty->address }}</p>
                                 <ul class="d-flex">
                                     @if (!empty($thirdParty->fb_link))
-                                        <li><a class="facebook" href="{{ $thirdParty->fb_link }}"><i class="fab fa-facebook-f"></i></a></li>
-                                    @endif                                
-                                    @if (!empty($thirdParty->tw_link))
-                                        <li><a class="twitter" href="{{ $thirdParty->tw_link }}"><i class="fab fa-twitter"></i></a></li>
-                                    @endif                                
-                                    @if (!empty($thirdParty->insta_link))
-                                        <li><a class="instagram" href="{{ $thirdParty->insta_link }}"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a class="facebook" href="{{ $thirdParty->fb_link }}"><i
+                                                    class="fab fa-facebook-f"></i></a></li>
                                     @endif
-                                </ul>                                    
+                                    @if (!empty($thirdParty->tw_link))
+                                        <li><a class="twitter" href="{{ $thirdParty->tw_link }}"><i
+                                                    class="fab fa-twitter"></i></a></li>
+                                    @endif
+                                    @if (!empty($thirdParty->insta_link))
+                                        <li><a class="instagram" href="{{ $thirdParty->insta_link }}"><i
+                                                    class="fab fa-instagram"></i></a></li>
+                                    @endif
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -128,7 +131,8 @@
                                                                             <option value="{{ $optionItem->id }}"
                                                                                 {{ $optionItem->is_default == 1 ? 'selected' : '' }}>
                                                                                 {{ $optionItem->name }}
-                                                                                (${{ $optionItem->price }})</option>
+                                                                                (${{ $optionItem->price }})
+                                                                            </option>
                                                                         @endif
                                                                     @endforeach
                                                                 </select>
@@ -193,7 +197,8 @@
                                                                                 <option value="{{ $optionItem->id }}"
                                                                                     {{ $optionItem->is_default == 1 ? 'selected' : '' }}>
                                                                                     {{ $optionItem->name }}
-                                                                                    (${{ $optionItem->price }})</option>
+                                                                                    (${{ $optionItem->price }})
+                                                                                </option>
                                                                             @endif
                                                                         @endforeach
                                                                     </select>
@@ -201,7 +206,8 @@
                                                             @endforeach
                                                             <input class="" name="qty" type="hidden"
                                                                 min="1" max="100" value="1" />
-                                                            <button class="add_cart_two mr-2" type="submit">@lang('add to cart')</button>
+                                                            <button class="add_cart_two mr-2"
+                                                                type="submit">@lang('add to cart')</button>
                                                         </form>
                                                         <li><a href="#"><i class="far fa-heart"></i></a></li>
                                                         <li><a href="#"><i class="far fa-random"></i></a>
@@ -225,7 +231,7 @@
                     @endif
                 </div>
                 <div class="col-xl-12 text-center">
-                    <div class="mt-5" style="display:flex; justify-content:center">
+                    <div class="mt-5 d-flex justify-content-center">
                         @if ($products->hasPages())
                             {{ $products->withQueryString()->links() }}
                         @endif
@@ -235,91 +241,100 @@
         </div>
     </section>
     @foreach ($products as $product)
-        <section class="product_popup_modal">
+        <section class="product_popup_modal"data-bs-toggle="modal" data-bs-target="product_popup_modal">
             <div class="modal fade" id="product-{{ $product->id }}" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl modal-fullscreen-lg-down">
                     <div class="modal-content">
                         <div class="modal-body">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                                    class="far fa-times"></i></button>
+                            <button type="button" class="btn-close position-absolute top-0 end-0 mt-2 me-3" data-bs-dismiss="modal" aria-label="Close"><i class="far fa-times"></i></button>
                             <div class="row">
-                                <div class="col-xl-6 col-12 col-sm-10 col-md-8 col-lg-6 m-auto display">
+                                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 w-50 d-flex justify-content-center align-items-center mb-3 mb-lg-0">
                                     <div class="trf__quick_view_img">
                                         @if ($product->video_link)
-                                            <a class="venobox trf__pro_det_video" data-autoplay="true"
-                                                data-vbtype="video" href="{{ $product->video_link }}">
+                                            <a class="venobox trf__pro_det_video" data-autoplay="true" data-vbtype="video" href="{{ $product->video_link }}">
                                                 <i class="fas fa-play"></i>
                                             </a>
                                         @endif
-                                        <div class="row modal_slider">
-                                            <div class="col-xl-12">
-                                                <div class="modal_slider_img">
-                                                    <img src="{{ asset($product->thumb_image) }}" alt="product"
-                                                        class="img-fluid w-100">
-                                                </div>
+                                        @if (count($product->productImageGalleries) === 0)
+                                            <div class="modal_slider_img">
+                                                <img src="{{ asset($product->thumb_image) }}" alt="{{ $product->name }}" class="img-fluid">
                                             </div>
-                                            @if (count($product->productImageGalleries) === 0)
+                                        @else
+                                            <div class="row modal_slider">
                                                 <div class="col-xl-12">
                                                     <div class="modal_slider_img">
-                                                        <img src="{{ asset($product->thumb_image) }}" alt="product"
-                                                            class="img-fluid w-100">
+                                                        <img src="{{ asset($product->thumb_image) }}" alt="{{ $product->name }}" class="img-fluid">
                                                     </div>
-                                                </div>
-                                            @endif
-                                            @foreach ($product->productImageGalleries as $productImage)
-                                                <div class="col-xl-12">
-                                                    <div class="modal_slider_img">
-                                                        <img src="{{ asset($productImage->image) }}"
-                                                            alt="{{ $product->name }}" class="img-fluid w-100">
+                                                </div>                                
+                                                @foreach ($product->productImageGalleries as $productImage)
+                                                    <div class="col-xl-12">
+                                                        <div class="modal_slider_img">
+                                                            <img src="{{ asset($productImage->image) }}" alt="{{ $product->name }}" class="img-fluid">
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            @endforeach
-                                        </div>
+                                                @endforeach
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
-                                <div class="col-xl-6 col-12 col-sm-12 col-md-12 col-lg-6">
-                                    <div class="trf__pro_details_text">
-                                        <a class="title" href="#">{{ $product->name }}</a>
-                                        <p class="trf__stock_area"><span class="in_stock">@lang('tracking')in stock</span> ({{ $product->qty }}
-                                    item)</p>
-                                        @if (checkDiscount($product))
-                                            <h4>{{ $settings->currency_icon }}{{ $product->offer_price }}
-                                                <del>{{ $settings->currency_icon }}{{ $product->price }}</del></h4>
-                                        @else
-                                            <h4>{{ $settings->currency_icon }}{{ $product->price }}</h4>
+                                
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                    <div class="trf__pro_details_text col-md-8 col-lg-12 mx-auto text-center text-lg-start">
+                                        <a class="title" href="#">{{ limitText($product->name, 150) }}</a>
+                                        @if ($product->qty > 0)
+                                            <p class="trf__stock_area"><span class="in_stock">@lang('in stock')</span>
+                                                ({{ $product->qty }}
+                                                item)</p>
+                                        @elseif ($product->qty === 0)
+                                            <p class="trf__stock_area"><span class="in_stock">@lang('stock out')</span>
+                                                ({{ $product->qty }}
+                                                item)</p>
                                         @endif
-                                        <p class="description">{!! $product->short_description !!}</p>
+                                        @if (checkDiscount($product))
+                                            <h4 class="text-center text-lg-start mx-auto d-block">{{ $settings->currency_icon }}{{ $product->currency_icon }}{{ $product->offer_price }}
+                                                <del>{{ $settings->currency_icon }}{{ $product->currency_icon }}{{ $product->price }}</del>
+                                            </h4>
+                                        @else
+                                            <h4 class="text-center text-lg-start mx-auto d-block">{{ $settings->currency_icon }}{{ $product->currency_icon }}{{ $product->price }}
+                                            </h4>
+                                        @endif
+                                        <p class="description">{!! limitText($product->short_description, 200) !!}</p>
                                         <form class="shopping-cart-form">
                                             <div class="trf__selectbox">
-                                                <div class="row">
+                                                <div class="row d-flex justify-content-center justify-content-lg-start">
                                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                                                     @foreach ($product->options as $option)
                                                         @if ($option->status != 0)
                                                             <div class="col-xl-6 col-sm-6">
-                                                                <h5 class="mb-2">{{ $option->name }}: </h5>
-                                                                <select class="select_2" name="options_items[]">
-                                                                    @foreach ($option->productOptionItems as $optionItem)
-                                                                        @if ($optionItem->status != 0)
-                                                                            <option value="{{ $optionItem->id }}"
-                                                                                {{ $optionItem->is_default == 1 ? 'selected' : '' }}>
-                                                                                {{ $optionItem->name }}
-                                                                                (${{ $optionItem->price }})</option>
-                                                                        @endif
-                                                                    @endforeach
-                                                                </select>
+                                                                <div>
+                                                                    <div class="text-center text-lg-start">
+                                                                        <h5 class="mb-2 w-100">{{ $option->name }}: </h5>
+                                                                    </div>
+                                                                    <select class="select_2" name="options_items[]">
+                                                                        @foreach ($option->productOptionItems as $optionItem)
+                                                                            @if ($optionItem->status != 0)
+                                                                                <option value="{{ $optionItem->id }}"
+                                                                                    {{ $optionItem->is_default == 1 ? 'selected' : '' }}>
+                                                                                    {{ $optionItem->name }}
+                                                                                    ({{ $optionItem->price }}€)
+                                                                                </option>
+                                                                            @endif
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
                                                             </div>
                                                         @endif
                                                     @endforeach
                                                 </div>
                                             </div>
-                                            <div class="trf__quantity">
-                                                <h5>@lang('quantity'):</h5>
+                                            <div class="trf__quantity d-flex justify-content-center justify-content-lg-start">
+                                                <h5>@lang('Quantity'):</h5>
                                                 <div class="select_number">
                                                     <input class="number_area" name="qty" type="text"
                                                         min="1" max="100" value="1" />
                                                 </div>
                                             </div>
-                                            <ul class="trf__button_area">
+                                            <ul class="trf__button_area d-flex justify-content-center justify-content-lg-start">
                                                 <li><button type="submit" class="add_cart" href="#">@lang('add to cart')</button></li>
                                             </ul>
                                         </form>

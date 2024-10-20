@@ -196,7 +196,7 @@ $(function () {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 1000,
+        autoplaySpeed: 4000,
         dots: false,
         arrows: true,
         nextArrow: '<i class="fas fa-chevron-right nxt_arr"></i>',

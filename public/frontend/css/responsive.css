@@ -661,10 +661,6 @@
     height: 210px;
   }
 
-  .product_popup_modal .modal-dialog {
-    min-width: 900px;
-  }
-
   .product_popup_modal .modal-body {
     height: 460px;
   }
@@ -1417,10 +1413,6 @@
 
   .trf__subs_form {
     margin-bottom: 33px;
-  }
-
-  .product_popup_modal .modal-dialog {
-    min-width: 600px;
   }
 
   .product_popup_modal .modal-body {
@@ -2724,10 +2716,6 @@
 
   .trf__topbar_left li a {
     font-size: 12px;
-  }
-
-  .product_popup_modal .modal-dialog {
-    min-width: 500px;
   }
 
   .product_popup_modal .modal-body {
@@ -4174,10 +4162,6 @@
   .trf__copyright p img {
     margin-left: 0;
     margin-top: 10px;
-  }
-
-  .product_popup_modal .modal-dialog {
-    min-width: 95%;
   }
 
   .trf_pro_det_color,
