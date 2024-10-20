@@ -20,7 +20,7 @@
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
             <div class="trf__pro_details_text col-md-8 col-lg-12 mx-auto text-center text-lg-start">
-                <a class="title" href="#">{{ limitText($product->name, 150) }}</a>
+                <p class="fs-5 fw-bold">{{ limitText($product->name, 150) }}</p>
                 @if ($product->qty > 0)
                     <p class="trf__stock_area"><span class="in_stock">@lang('in stock')</span>
                         ({{ $product->qty }}

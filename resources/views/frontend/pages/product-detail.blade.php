@@ -65,7 +65,7 @@
                     </div>
                     <div class="col-xl-8 col-md-7 col-lg-7">
                         <div class="trf__pro_details_text">
-                            <a class="title" href="javascript:;">{{ $product->name }}</a>
+                            <p class="fs-5 fw-bold">{{ $product->name }}</p>
                             @if ($product->qty > 0)
                                 <p class="trf__stock_area"><span class="in_stock">@lang('in stock')</span> ({{ $product->qty }}
                                     item)</p>
