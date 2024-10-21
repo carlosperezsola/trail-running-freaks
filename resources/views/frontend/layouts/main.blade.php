@@ -61,6 +61,7 @@
         <div class="modal fade" id="product" tabindex="-1" aria-labelledby="product_popup_modal" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl modal-fullscreen-lg-down">
                 <div class="modal-content product-modal-content">
+                    
                 </div>
             </div>
         </div>

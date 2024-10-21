@@ -15,8 +15,8 @@
             " alt="product" class="img-fluid w-100 img_2" />
         </a>
         <ul class="trf__single_pro_icon">
-            <li><a href="#" data-bs-toggle="modal" data-bs-target="#product" class="show_product_modal"
-                    data-id="{{ $product->id }}"><i class="far fa-eye"></i></a>
+            <li>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#product" class="show_product_modal" data-id="{{ $product->id }}"><i class="far fa-eye"></i></a>
             </li>
         </ul>
         <div class="trf__product_details">

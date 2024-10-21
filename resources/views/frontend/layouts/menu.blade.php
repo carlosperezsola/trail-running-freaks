@@ -23,17 +23,21 @@
                     <ul class="trf_menu_cat_item show_home toggle_menu">
                         @foreach ($categories as $category)
                             <li><a class="{{ count($category->subCategories) > 0 ? 'trf__droap_arrow' : '' }}"
-                                    href="{{route('products.index', ['category' => $category->slug])}}"><i
+                                    href="{{ route('products.index', ['category' => $category->slug]) }}"><i
                                         class="{{ $category->icon }}"></i> {{ $category->name }} </a>
                                 @if (count($category->subCategories) > 0)
                                     <ul class="trf_menu_cat_droapdown">
                                         @foreach ($category->subCategories as $subCategory)
-                                            <li><a href="{{route('products.index', ['subcategory' => $subCategory->slug])}}">{{ $subCategory->name }} <i
+                                            <li><a
+                                                    href="{{ route('products.index', ['subcategory' => $subCategory->slug]) }}">{{ $subCategory->name }}
+                                                    <i
                                                         class="{{ count($subCategory->childCategories) > 0 ? 'fas fa-angle-right' : '' }}"></i></a>
                                                 @if (count($subCategory->childCategories) > 0)
                                                     <ul class="trf__sub_category">
                                                         @foreach ($subCategory->childCategories as $childCategory)
-                                                            <li><a href="{{route('products.index', ['childcategory' => $childCategory->slug])}}">{{ $childCategory->name }}</a> </li>
+                                                            <li><a
+                                                                    href="{{ route('products.index', ['childcategory' => $childCategory->slug]) }}">{{ $childCategory->name }}</a>
+                                                            </li>
                                                         @endforeach
                                                     </ul>
                                                 @endif
@@ -48,13 +52,16 @@
                         <li><a class="{{ setActive(['home']) }}" href="{{ url('/') }}">home</a></li>
                         <li><a class="{{ setActive(['thirdParty.index']) }}"
                                 href="{{ route('thirdParty.index') }}">@lang('third party')</a></li>
-                        <li><a class="{{ setActive(['count-down']) }}" href="{{ route('count-down') }}">@lang('trending race')</a>
+                        <li><a class="{{ setActive(['count-down']) }}"
+                                href="{{ route('count-down') }}">@lang('trending race')</a>
                         </li>
-                        <li><a class="{{ setActive(['who-we-are']) }}" href="{{ route('who-we-are') }}">@lang('who we are')</a></li>
-                        <li><a class="{{ setActive(['contact']) }}" href="{{ route('contact') }}">@lang('contact')</a></li>
+                        <li><a class="{{ setActive(['who-we-are']) }}"
+                                href="{{ route('who-we-are') }}">@lang('who we are')</a></li>
+                        <li><a class="{{ setActive(['contact']) }}"
+                                href="{{ route('contact') }}">@lang('contact')</a></li>
                     </ul>
-                    <ul class="trf__menu_item trf__menu_item_right">                        
-                        <li><a href="{{route('product-tracking.index')}}">@lang('track my purchases')</a></li>
+                    <ul class="trf__menu_item trf__menu_item_right">
+                        <li><a href="{{ route('product-tracking.index') }}">@lang('track my purchases')</a></li>
                         @if (auth()->check())
                             @if (auth()->user()->type_user === 'regular')
                                 <li><a href="{{ route('user.dashboard') }}">@lang('my account')</a></li>
@@ -74,14 +81,14 @@
 </nav>
 <section id="trf__mobile_menu">
     <div class="row">
-        <div class="col-10">   
+        <div class="col-10">
             <form class="mt-2" action="{{ route('products.index') }}">
                 <input type="text" placeholder="Search..." name="search" value="{{ request()->search }}">
                 <button type="submit"><i class="far fa-search"></i></button>
             </form>
         </div>
         <div class="col-2">
-            <span class="trf__mobile_menu_close"><i class="fal fa-times"></i></span>
+            <span class="trf__mobile_menu_close mt-2"><i class="fal fa-times"></i></span>
         </div>
     </div>
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -99,21 +106,63 @@
             <div class="trf__mobile_menu_main_menu">
                 <div class="accordion accordion-flush" id="accordionFlushExample">
                     <ul class="trf_mobile_menu_category">
-                        @foreach ($categories as $categoryItem)
+                        @foreach ($categories as $category)
                             <li>
-                                <a href="#"
-                                    class="{{ count($categoryItem->subCategories) > 0 ? 'accordion-button' : '' }} collapsed"
-                                    data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseThreew-{{ $loop->index }}" aria-expanded="false"
-                                    aria-controls="flush-collapseThreew-{{ $loop->index }}"><i
-                                        class="{{ $categoryItem->icon }}"></i> {{ $categoryItem->name }}</a>
-                                @if (count($categoryItem->subCategories) > 0)
+                                <div class="row border-bottom border-1">
+                                    <div class="col-6 p-0">
+                                        <a class="{{ count($category->subCategories) > 0 ? 'trf__droap_arrow' : '' }}"
+                                            href="{{ route('products.index', ['category' => $category->slug]) }}">
+                                            <i class="{{ $category->icon }}"></i> {{ $category->name }}
+                                        </a>
+                                    </div>
+                                    <div class="col-6 p-0">
+                                        <a href="#"
+                                            class="{{ count($category->subCategories) > 0 ? 'accordion-button' : '' }} collapsed"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapseThreew-{{ $loop->index }}"
+                                            aria-expanded="false"
+                                            aria-controls="flush-collapseThreew-{{ $loop->index }}">
+                                        </a>
+                                    </div>
+                                </div>
+                                @if (count($category->subCategories) > 0)
                                     <div id="flush-collapseThreew-{{ $loop->index }}"
                                         class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                                         <div class="accordion-body">
                                             <ul>
-                                                @foreach ($categoryItem->subCategories as $subCategoryItem)
-                                                    <li><a href="#">{{ $subCategoryItem->name }}</a></li>
+                                                @foreach ($category->subCategories as $subCategory)
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-10 p-0">
+                                                                <a class="{{ count($subCategory->childCategories) > 0 ? 'trf__droap_arrow' : '' }}"
+                                                                    href="{{ route('products.index', ['subcategory' => $subCategory->slug]) }}">{{ $subCategory->name }}
+                                                                </a>
+                                                            </div>
+                                                            <div class="col-2 p-0">
+                                                                <a href="#"
+                                                                    class="{{ count($subCategory->childCategories) > 0 ? 'accordion-button' : '' }} collapsed"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#flush-collapseThreew-{{ $loop->index }}"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="flush-collapseThreew-{{ $loop->index }}">
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    @if (count($subCategory->childCategories) > 0)
+                                                        <div id="flush-collapseThreew-{{ $loop->index }}"
+                                                            class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                                            <div class="accordion-body">
+                                                                <ul>
+                                                                    @foreach ($subCategory->childCategories as $childCategory)
+                                                                        <li><a
+                                                                            href="{{ route('products.index', ['childcategory' => $childCategory->slug]) }}">{{ $childCategory->name }}</a>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    @endif
                                                 @endforeach
                                             </ul>
                                         </div>
@@ -132,12 +181,15 @@
                         <li><a class="{{ setActive(['home']) }}" href="{{ url('/') }}">home</a></li>
                         <li><a class="{{ setActive(['thirdParty.index']) }}"
                                 href="{{ route('thirdParty.index') }}">@lang('third party')</a></li>
-                        <li><a class="{{ setActive(['count-down']) }}" href="{{ route('count-down') }}">@lang('trending race')</a>
+                        <li><a class="{{ setActive(['count-down']) }}"
+                                href="{{ route('count-down') }}">@lang('trending race')</a>
                         </li>
-                        <li><a class="{{ setActive(['who-we-are']) }}" href="{{ route('who-we-are') }}">@lang('who we are')</a>
+                        <li><a class="{{ setActive(['who-we-are']) }}"
+                                href="{{ route('who-we-are') }}">@lang('who we are')</a>
                         </li>
-                        <li><a class="{{ setActive(['contact']) }}" href="{{ route('contact') }}">@lang('contact')</a></li>
-                        <li><a href="{{route('product-tracking.index')}}">@lang('track my purchases')</a></li>
+                        <li><a class="{{ setActive(['contact']) }}"
+                                href="{{ route('contact') }}">@lang('contact')</a></li>
+                        <li><a href="{{ route('product-tracking.index') }}">@lang('track my purchases')</a></li>
                     </ul>
                 </div>
             </div>
