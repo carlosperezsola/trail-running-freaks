@@ -22,11 +22,11 @@
                     </div>
                     <ul class="trf_menu_cat_item show_home toggle_menu">
                         @foreach ($categories as $category)
-                            <li><a class="{{ count($category->subCategories) > 0 ? 'trf__droap_arrow' : '' }}"
+                            <li><a class="{{ count($category->subCategories) > 0 ? 'trf__drop_arrow' : '' }}"
                                     href="{{ route('products.index', ['category' => $category->slug]) }}"><i
                                         class="{{ $category->icon }}"></i> {{ $category->name }} </a>
                                 @if (count($category->subCategories) > 0)
-                                    <ul class="trf_menu_cat_droapdown">
+                                    <ul class="trf_menu_cat_dropdown">
                                         @foreach ($category->subCategories as $subCategory)
                                             <li><a
                                                     href="{{ route('products.index', ['subcategory' => $subCategory->slug]) }}">{{ $subCategory->name }}
@@ -35,7 +35,7 @@
                                                 @if (count($subCategory->childCategories) > 0)
                                                     <ul class="trf__sub_category">
                                                         @foreach ($subCategory->childCategories as $childCategory)
-                                                            <li><a
+                                                            <li><a class="py-2 lh-sm"
                                                                     href="{{ route('products.index', ['childcategory' => $childCategory->slug]) }}">{{ $childCategory->name }}</a>
                                                             </li>
                                                         @endforeach
@@ -82,9 +82,9 @@
 <section id="trf__mobile_menu">
     <div class="row">
         <div class="col-10">
-            <form class="mt-2" action="{{ route('products.index') }}">
-                <input type="text" placeholder="Search..." name="search" value="{{ request()->search }}">
-                <button type="submit"><i class="far fa-search"></i></button>
+            <form class="mt-2 border border-white" action="{{ route('products.index') }}">
+                <input class="text-white" type="text" placeholder="Search..." name="search" value="{{ request()->search }}">
+                <button class="border-start border-white" type="submit"><i class="far fa-search"></i></button>
             </form>
         </div>
         <div class="col-2">
@@ -105,58 +105,68 @@
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
             <div class="trf__mobile_menu_main_menu">
                 <div class="accordion accordion-flush" id="accordionFlushExample">
-                    <ul class="trf_mobile_menu_category">
+                    <ul class="trf_mobile_menu_category" id="accordion-category">
                         @foreach ($categories as $category)
                             <li>
-                                <div class="row border-bottom border-1">
-                                    <div class="col-6 p-0">
-                                        <a class="{{ count($category->subCategories) > 0 ? 'trf__droap_arrow' : '' }}"
+                                <div class="row border-bottom border-1 w-100">
+                                    <div class="col-9 p-0">
+                                        <a class="{{ count($category->subCategories) > 0 ? 'trf__drop_arrow' : '' }}"
                                             href="{{ route('products.index', ['category' => $category->slug]) }}">
-                                            <i class="{{ $category->icon }}"></i> {{ $category->name }}
+                                            <p class="text-white">
+                                                <i class="{{ $category->icon }} me-3 fa-fw"></i>
+                                                {{ $category->name }}
+                                            </p>
                                         </a>
                                     </div>
-                                    <div class="col-6 p-0">
+                                    <div class="col-3 p-0">
                                         <a href="#"
                                             class="{{ count($category->subCategories) > 0 ? 'accordion-button' : '' }} collapsed"
                                             data-bs-toggle="collapse"
-                                            data-bs-target="#flush-collapseThreew-{{ $loop->index }}"
+                                            data-bs-target="#flush-collapse-category-{{ $loop->index }}"
                                             aria-expanded="false"
-                                            aria-controls="flush-collapseThreew-{{ $loop->index }}">
+                                            aria-controls="flush-collapse-category-{{ $loop->index }}">
                                         </a>
                                     </div>
                                 </div>
+                    
                                 @if (count($category->subCategories) > 0)
-                                    <div id="flush-collapseThreew-{{ $loop->index }}"
-                                        class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                    <div id="flush-collapse-category-{{ $loop->index }}"
+                                        class="accordion-collapse collapse"
+                                        data-bs-parent="#accordion-category">
                                         <div class="accordion-body">
-                                            <ul>
+                                            <ul id="accordion-subcategory-{{ $loop->index }}">
                                                 @foreach ($category->subCategories as $subCategory)
                                                     <li>
-                                                        <div class="row">
-                                                            <div class="col-10 p-0">
-                                                                <a class="{{ count($subCategory->childCategories) > 0 ? 'trf__droap_arrow' : '' }}"
-                                                                    href="{{ route('products.index', ['subcategory' => $subCategory->slug]) }}">{{ $subCategory->name }}
+                                                        <div class="row w-100">
+                                                            <div class="col-9 p-0">
+                                                                <a class="{{ count($subCategory->childCategories) > 0 ? 'trf__drop_arrow' : '' }}"
+                                                                    href="{{ route('products.index', ['subcategory' => $subCategory->slug]) }}">
+                                                                    {{ $subCategory->name }}
                                                                 </a>
                                                             </div>
-                                                            <div class="col-2 p-0">
+                                                            <div class="col-3 p-0">
                                                                 <a href="#"
                                                                     class="{{ count($subCategory->childCategories) > 0 ? 'accordion-button' : '' }} collapsed"
                                                                     data-bs-toggle="collapse"
-                                                                    data-bs-target="#flush-collapseThreew-{{ $loop->index }}"
+                                                                    data-bs-target="#flush-collapse-subcategory-{{ $loop->parent->index }}-{{ $loop->index }}"
                                                                     aria-expanded="false"
-                                                                    aria-controls="flush-collapseThreew-{{ $loop->index }}">
+                                                                    aria-controls="flush-collapse-subcategory-{{ $loop->parent->index }}-{{ $loop->index }}">
                                                                 </a>
                                                             </div>
                                                         </div>
                                                     </li>
+                    
                                                     @if (count($subCategory->childCategories) > 0)
-                                                        <div id="flush-collapseThreew-{{ $loop->index }}"
-                                                            class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                                        <div id="flush-collapse-subcategory-{{ $loop->parent->index }}-{{ $loop->index }}"
+                                                            class="accordion-collapse collapse"
+                                                            data-bs-parent="#accordion-subcategory-{{ $loop->parent->index }}">
                                                             <div class="accordion-body">
-                                                                <ul>
+                                                                <ul id="accordion-childcategory-{{ $loop->parent->index }}-{{ $loop->index }}">
                                                                     @foreach ($subCategory->childCategories as $childCategory)
-                                                                        <li><a
-                                                                            href="{{ route('products.index', ['childcategory' => $childCategory->slug]) }}">{{ $childCategory->name }}</a>
+                                                                        <li>
+                                                                            <a href="{{ route('products.index', ['childcategory' => $childCategory->slug]) }}">
+                                                                                {{ $childCategory->name }}
+                                                                            </a>
                                                                         </li>
                                                                     @endforeach
                                                                 </ul>
@@ -171,6 +181,7 @@
                             </li>
                         @endforeach
                     </ul>
+                    
                 </div>
             </div>
         </div>
