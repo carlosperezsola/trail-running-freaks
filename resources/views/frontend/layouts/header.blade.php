@@ -3,7 +3,8 @@
         <div class="row d-flex justify-content-between align-items-center">
             <div class="col-4 col-sm-1 -md-lg-2 d-lg-none">
                 <div class="trf__mobile_menu_area">
-                    <span class="trf__mobile_menu_icon mt-0 bg-transparent"><i class="fal fa-bars text-white fa-2x"></i></span>
+                    <span class="trf__mobile_menu_icon mt-0 bg-transparent"><i
+                            class="fal fa-bars text-white fa-2x"></i></span>
                 </div>
             </div>
             <div class="col-4 col-sm-3 col-lg-2 col-xl-2 d-flex align-items-center p-2 p-md-0">
@@ -15,8 +16,8 @@
             </div>
             <div class="col-4 col-lg-4 col-xl-5 d-none d-sm-block">
                 <div class="trf__search">
-                    <form>
-                        <input type="text" placeholder="Search...">
+                    <form action="{{ route('products.index') }}">
+                        <input type="text" placeholder="Search..." name="search" value="{{ request()->search }}">
                         <button type="submit"><i class="far fa-search"></i></button>
                     </form>
                 </div>
@@ -28,8 +29,8 @@
                             <i class="fas fa-user-headset"></i>
                         </div>
                         <div class="trf__call_text">
-                            <p class="text-lowercase">{{ $settings->contact_email }}</p>
-                            <p>{{ $settings->contact_phone }}</p>
+                            <a href="mailto:{{ $settings->contact_email }}"><p class="text-lowercase">{{ $settings->contact_email }}</p></a>                            
+                            <a href="tel:{{ $settings->contact_phone }}"><p>{{ $settings->contact_phone }}</p></a>
                         </div>
                     </div>
                     <div class="d-flex">
@@ -38,9 +39,11 @@
                                 @if (auth()->user()->type_user === 'regular')
                                     <li><a href="{{ route('user.profile') }}"><i class="fal fa-user"></i></a></li>
                                 @elseif (auth()->user()->type_user === 'third-party')
-                                    <li><a href="{{ route('third_party_user.dashboard') }}"><i class="fal fa-user"></i></a></li>
+                                    <li><a href="{{ route('third_party_user.dashboard') }}"><i
+                                                class="fal fa-user"></i></a></li>
                                 @elseif (auth()->user()->type_user === 'admin')
-                                    <li><a href="{{ route('admin_user.dashboard') }}"><i class="fal fa-user"></i></a></li>
+                                    <li><a href="{{ route('admin_user.dashboard') }}"><i class="fal fa-user"></i></a>
+                                    </li>
                                 @endif
                             @else
                                 <li><a href="{{ route('login') }}"><i class="fal fa-user"></i></a></li>
@@ -90,7 +93,7 @@
             <h5>sub total <span id="mini_cart_subtotal">{{ $settings->currency_icon }}{{ getCartTotal() }}</span></h5>
             <div class="trf__minicart_btn_area">
                 <a class="common_btn" href="{{ route('cart-details') }}">@lang('view cart')</a>
-                <a class="common_btn" href="{{route('user.checkout')}}">@lang('checkout')</a>
+                <a class="common_btn" href="{{ route('user.checkout') }}">@lang('checkout')</a>
             </div>
         </div>
     </div>
