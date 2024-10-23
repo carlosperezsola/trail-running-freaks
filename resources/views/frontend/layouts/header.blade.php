@@ -29,7 +29,7 @@
                             <i class="fas fa-user-headset"></i>
                         </div>
                         <div class="trf__call_text">
-                            <a href="mailto:{{ $settings->contact_email }}"><p class="text-lowercase">{{ $settings->contact_email }}</p></a>                            
+                            <a href="mailto:{{ $settings->contact_email }}"><p class="text-lowercase pb-0">{{ $settings->contact_email }}</p></a><br/>                            
                             <a href="tel:{{ $settings->contact_phone }}"><p>{{ $settings->contact_phone }}</p></a>
                         </div>
                     </div>
