@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="offer_time" style="background: url({{ asset('frontend/images/count_down_bg.jpg') }})">
-                    <div class="trf__countdown_section row">
+                    <div class="trf__countdown_section row g-0">
                         <div class="col-12 col-md-3 text-center text-md-start mb-3 mb-md-0">
                             <span class="end_text">{{ $countDownDate ? $countDownDate->name : 'Default Text' }}</span>
                         </div>

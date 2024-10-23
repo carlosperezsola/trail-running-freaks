@@ -31,7 +31,7 @@
                                     <div class="w-100 h-100 position-absolute bg-dark " style="opacity: .60"></div>
                                     <img src="{{ asset($thirdParty->banner) }}" alt="third party" class="img-fluid w-100">
                                     <div class="trf__third_party_text">
-                                        <div class="trf__third_party_text_center">
+                                        <div class="trf__third_party_text_center w-100">
                                             <h4>{{ $thirdParty->shop_name }}</h4>
                                             <a href="javascript:;"><i class="far fa-phone-alt"></i>
                                                 {{ $thirdParty->phone }}</a>

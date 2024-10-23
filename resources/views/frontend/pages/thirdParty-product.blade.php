@@ -25,30 +25,38 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="trf__pro_page_banner third_party_det_banner">
-                        <img src="{{ asset('frontend/images/third_party_details_banner.jpg') }}" alt="banner"
-                            class="img-fluid w-100">
-                        <div class="trf__pro_page_banner_text trf__third_party_det_banner_text">
+                        <img src="{{ asset('frontend/images/third_party_details_banner.jpg') }}" alt="banner">
+                        <div class="trf__pro_page_banner_text">
+                            <div class="bg-dark w-100 h-100 trf__third_party_det_banner_text"></div>
                             <div class="trf__third_party_text_center">
                                 <h4>{{ $thirdParty->shop_name }}</h4>
-                                <a href="callto:{{ $thirdParty->phone }}"><i class="far fa-phone-alt"></i>
-                                    {{ $thirdParty->phone }}</a>
-                                <a href="mailto:{{ $thirdParty->email }}"><i class="far fa-envelope"></i>
-                                    {{ $thirdParty->email }}</a>
-                                <p class="trf__third_party_location"><i class="fal fa-map-marker-alt"></i>
+                                <a href="callto:{{ $thirdParty->phone }}">
+                                    <p class="text-white">
+                                        <i class="far fa-phone-alt me-2 fa-fw"></i>{{ $thirdParty->phone }}
+                                    </p>
+                                </a>
+                                <a href="callto:mailto:{{ $thirdParty->email }}">
+                                    <p class="text-white">
+                                        <i class="far fa-envelope me-2 fa-fw"></i>{{ $thirdParty->email }}
+                                    </p>
+                                </a>
+                                <p class="trf__third_party_location text-white"><i class="fal fa-map-marker-alt me-2 fa-fw"></i>
                                     {{ $thirdParty->address }}</p>
-                                <ul class="d-flex">
-                                    @if (!empty($thirdParty->fb_link))
-                                        <li><a class="facebook" href="{{ $thirdParty->fb_link }}"><i
-                                                    class="fab fa-facebook-f"></i></a></li>
-                                    @endif
-                                    @if (!empty($thirdParty->tw_link))
-                                        <li><a class="twitter" href="{{ $thirdParty->tw_link }}"><i
-                                                    class="fab fa-twitter"></i></a></li>
-                                    @endif
-                                    @if (!empty($thirdParty->insta_link))
-                                        <li><a class="instagram" href="{{ $thirdParty->insta_link }}"><i
-                                                    class="fab fa-instagram"></i></a></li>
-                                    @endif
+                                <ul class="row mt-3">
+                                    <div class="col-8 col-md-4 d-flex justify-content-start">
+                                        @if (!empty($thirdParty->fb_link))
+                                            <li class="col-4 text-center"><a class="facebook" href="{{ $thirdParty->fb_link }}"><i
+                                                        class="fab fa-facebook-f"></i></a></li>
+                                        @endif
+                                        @if (!empty($thirdParty->tw_link))
+                                            <li class="col-4 text-center"><a class="twitter" href="{{ $thirdParty->tw_link }}"><i
+                                                        class="fab fa-twitter"></i></a></li>
+                                        @endif
+                                        @if (!empty($thirdParty->insta_link))
+                                            <li class="col-4 text-center"><a class="instagram" href="{{ $thirdParty->insta_link }}"><i
+                                                        class="fab fa-instagram"></i></a></li>
+                                        @endif
+                                    </div>
                                 </ul>
                             </div>
                         </div>

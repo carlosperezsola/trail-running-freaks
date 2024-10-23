@@ -8085,10 +8085,7 @@ third_partyS PAGE END
 third_partyS DETAILA START
 ========================*/
 .trf__third_party_det_banner_text {
-	background: linear-gradient(90deg,
-			rgba(11, 44, 61, 1) 0%,
-			rgba(6, 120, 148, 0) 50%,
-			rgba(11, 44, 61, 0) 100%);
+	opacity: .5;
 }
 
 .trf__third_party_det_banner_text .trf__third_party_location,

@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="col-4 col-sm-2 col-lg-6 col-xl-5">
-                <div class="trf__call_icon_area ps-0 ps-md-5 d-block d-md-flex">
+                <div class="trf__call_icon_area ps-0 ps-lg-5 d-block d-md-flex">
                     <div class="trf__call_area d-none d-lg-flex">
                         <div class="trf__call">
                             <i class="fas fa-user-headset"></i>
@@ -33,24 +33,25 @@
                             <a href="tel:{{ $settings->contact_phone }}"><p>{{ $settings->contact_phone }}</p></a>
                         </div>
                     </div>
-                    <div class="d-flex">
+                    <div class="d-flex justify-content-around">
                         <ul class="trf__icon_area d-block d-lg-none col-6">
                             @if (auth()->check())
                                 @if (auth()->user()->type_user === 'regular')
-                                    <li><a href="{{ route('user.profile') }}"><i class="fal fa-user"></i></a></li>
+                                    <li class="mx-0 mx-lg-3"><a href="{{ route('user.profile') }}"><i class="fal fa-user"></i></a></li>
                                 @elseif (auth()->user()->type_user === 'third-party')
-                                    <li><a href="{{ route('third_party_user.dashboard') }}"><i
+                                    <li class="mx-0 mx-lg-3"><a href="{{ route('third_party_user.dashboard') }}"><i
                                                 class="fal fa-user"></i></a></li>
                                 @elseif (auth()->user()->type_user === 'admin')
-                                    <li><a href="{{ route('admin_user.dashboard') }}"><i class="fal fa-user"></i></a>
+                                    <li class="mx-0 mx-lg-3"><a href="{{ route('admin_user.dashboard') }}"><i class="fal fa-user"></i></a>
                                     </li>
                                 @endif
                             @else
-                                <li><a href="{{ route('login') }}"><i class="fal fa-user"></i></a></li>
+                                <li class="mx-0 mx-lg-3"><a href="{{ route('login') }}"><i class="fal fa-user"></i></a></li>
                             @endif
                         </ul>
                         <ul class="trf__icon_area col-6">
-                            <li><a class="trf__cart_icon" href="#">
+                            <li class="mx-0 mx-lg-3">
+                                <a class="trf__cart_icon" href="#">
                                     <i class="fal fa-shopping-bag"></i><span
                                         id="cart-count">{{ Cart::content()->count() }}</span>
                                 </a>
