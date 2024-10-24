@@ -88,6 +88,11 @@ class CountDownItemDataTable extends DataTable
                 Button::make('print'),
                 Button::make('reset'),
                 Button::make('reload')
+            ])
+
+            ->parameters([
+                'responsive' => true,
+                'autoWidth' => false,
             ]);
     }
 
@@ -95,20 +100,20 @@ class CountDownItemDataTable extends DataTable
      * Get the dataTable columns definition.
      */
     public function getColumns(): array
-{
-    return [
-        Column::make('id'),
-        Column::make('product_name'),
-        Column::make('count_down_name')->title('Count Down Name')->data('count_down.name'),
-        Column::make('show_at_home'),
-        Column::make('status'),
-        Column::computed('action')
-            ->exportable(false)
-            ->printable(false)
-            ->width(60)
-            ->addClass('text-center'),
-    ];
-}
+    {
+        return [
+            Column::make('id'),
+            Column::make('product_name'),
+            Column::make('count_down_name')->title('Count Down Name')->data('count_down.name'),
+            Column::make('show_at_home'),
+            Column::make('status'),
+            Column::computed('action')
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center'),
+        ];
+    }
 
     /**
      * Get the filename for export.
