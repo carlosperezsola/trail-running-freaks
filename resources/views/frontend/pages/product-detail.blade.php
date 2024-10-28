@@ -144,7 +144,7 @@
                                     <div class="row">
                                         <div class="col-xl-12">
                                             <div class="trf__description_area">
-                                                {!! $product->long_description !!}
+                                                {!! $product->{'long_description_' . app()->getLocale()} !!}
                                             </div>
                                         </div>
                                     </div>

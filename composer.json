@@ -7,11 +7,13 @@
     "require": {
         "php": "^8.2",
         "anayarojo/shoppingcart": "^4.2",
+        "codezero/laravel-localized-routes": "^4.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^11.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.8",
         "srmklive/paypal": "~3.0",
+        "stijnvanouplines/blade-country-flags": "^1.0",
         "stripe/stripe-php": "^15.8",
         "yajra/laravel-datatables": "^11.0",
         "yoeunes/toastr": "^2.3"
@@ -67,6 +69,7 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
+            "codezero/composer-preload-files": true,
             "pestphp/pest-plugin": true,
             "php-http/discovery": true
         }
