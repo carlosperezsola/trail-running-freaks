@@ -12,6 +12,7 @@
         "laravel/framework": "^11.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.8",
+        "outhebox/laravel-translations": "^1.1",
         "srmklive/paypal": "~3.0",
         "stijnvanouplines/blade-country-flags": "^1.0",
         "stripe/stripe-php": "^15.8",
