@@ -135,6 +135,13 @@
                 </a>
             </li>
             <li>
+                <a class="nav-link {{ setActive(['admin_user/translations*']) }}"
+                   href="{{ route('admin_user.translations.index') }}"
+                   data-remote="false">
+                    <i class="fas fa-language"></i><span>Translations</span>
+                </a>
+            </li> 
+            <li>
                 <a class="nav-link" href="{{ route('admin_user.settings.index') }}">
                     <i class="fas fa-wrench"></i><span>Settings</span>
                 </a>

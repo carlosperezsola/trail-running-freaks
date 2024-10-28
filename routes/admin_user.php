@@ -28,6 +28,7 @@ use App\Http\Controllers\Backend\SubscribersController;
 use App\Http\Controllers\Backend\PromoController;
 use App\Http\Controllers\Backend\WhoWeAreController;
 use App\Http\Controllers\Backend\TermsAndConditionController;
+use App\Http\Controllers\Backend\AdminTranslationController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('dashboard', [AdminUserController::class, 'dashboard'])->name('dashboard');
@@ -145,3 +146,5 @@ Route::resource('footer-grid', FooterGridController::class);
 Route::get('payment-settings', [PaymentSettingController::class, 'index'])->name('payment-settings.index');
 Route::resource('paypal-setting', PaypalSettingController::class);
 Route::put('stripe-setting/{id}', [StripeSettingController::class, 'update'])->name('stripe-setting.update');
+
+Route::get('translations', [AdminTranslationController::class, 'index'])->name('translations.index');
