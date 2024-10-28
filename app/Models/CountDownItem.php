@@ -13,4 +13,9 @@ class CountDownItem extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    public function countDown()
+    {
+        return $this->belongsTo(CountDown::class, 'count_down_id');
+    }
 }

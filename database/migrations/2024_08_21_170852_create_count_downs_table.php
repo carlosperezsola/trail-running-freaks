@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('count_downs', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->date('end_date');
             $table->timestamps();
         });

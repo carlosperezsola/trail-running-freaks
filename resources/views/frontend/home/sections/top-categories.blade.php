@@ -5,9 +5,11 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
-                <div class="trf__section_header for_md">
-                    <h3>Popular Categories</h3>
-                    <div class="monthly_top_filter">
+                <div class="trf__section_header for_md row">
+                    <div class="col-12 col-md-6 text-center text-md-start pb-3 pb-md-0">
+                        <h3>@lang('Popular Categories')</h3>
+                    </div>
+                    <div class="monthly_top_filter col-12 col-md-6 text-center text-md-end pb-1 pb-md-0">
                         @php
                             $products = [];
                         @endphp
@@ -71,7 +73,7 @@
                             <div class="col-xl-2 col-6 col-sm-6 col-md-4 col-lg-3  category-{{ $key }}">
                                 <a class="trf__hot_deals__single" href="{{ route('product-detail', $item->slug) }}">
                                     <div class="trf__hot_deals__single_img">
-                                        <img src="{{ asset($item->thumb_image) }}" alt="bag"
+                                        <img src="{{ asset($item->thumb_image) }}" alt="{{ $item->name }}"
                                             class="img-fluid w-100">
                                     </div>
                                     <div class="trf__hot_deals__single_text">

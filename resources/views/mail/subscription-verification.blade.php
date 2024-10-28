@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
-    <p>Click the link for verify your email.</p>
-    <a href="{{ route('newsletter-verify', $subscriber->verified_token) }}">Click here</a>
+    <p>@lang('Click the link for verify your email.')</p>
+    <a href="{{ route('newsletter-verify', $subscriber->verified_token) }}">@lang('Click here')</a>
 </body>
 </html>

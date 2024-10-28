@@ -15,7 +15,7 @@
                     <div class="dashboard_content mt-2 mt-md-0">
                         <h3><i class="fas fa-images"></i> Product: {{ $product->name }}</h3>
                         <div class="trf__dashboard_profile">
-                            <div class="trf__dash_pro_area">
+                            <div class="trf__dash_pro_area  overflow-auto">
                                 <form action="{{ route('third_party_user.products-image-gallery.store') }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
@@ -36,7 +36,7 @@
                     <div class="dashboard_content mt-2 mt-md-0">
                         <h3><i class="fas fa-images"></i></i> Product Images</h3>
                         <div class="trf__dashboard_profile">
-                            <div class="trf__dash_pro_area">
+                            <div class="trf__dash_pro_area  overflow-auto">
                                 {{ $dataTable->table() }}
                             </div>
                         </div>

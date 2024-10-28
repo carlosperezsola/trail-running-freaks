@@ -101,7 +101,7 @@ $(function () {
 
 
     //*==========FLASH SELL SLIDER========= 
-    $('.flash_sell_slider').slick({
+    $('.count_down_slider').slick({
         slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: true,
@@ -196,7 +196,7 @@ $(function () {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 1000,
+        autoplaySpeed: 4000,
         dots: false,
         arrows: true,
         nextArrow: '<i class="fas fa-chevron-right nxt_arr"></i>',

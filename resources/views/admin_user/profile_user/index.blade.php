@@ -32,6 +32,10 @@
                                         <input type="text" name="name" class="form-control" value="{{ Auth::user()->name }}">
                                     </div>
                                     <div class="form-group col-md-6 col-12">
+                                        <label>Phone</label>
+                                        <input type="text" name="phone_number" class="form-control" value="{{ Auth::user()->phone_number }}">
+                                    </div>
+                                    <div class="form-group col-md-6 col-12">
                                         <label>Email</label>
                                         <input type="text" name="email" class="form-control" value="{{ Auth::user()->email }}">
                                     </div>

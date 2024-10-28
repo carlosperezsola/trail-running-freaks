@@ -162,7 +162,7 @@
   }
 
   /* third_party DETAILS START */
-  .trf__pro_page_bammer.third_party_det_banner {
+  .trf__pro_page_banner.third_party_det_banner {
     height: 350px;
   }
 
@@ -661,10 +661,6 @@
     height: 210px;
   }
 
-  .product_popup_modal .modal-dialog {
-    min-width: 900px;
-  }
-
   .product_popup_modal .modal-body {
     height: 460px;
   }
@@ -737,15 +733,15 @@
   }
 
   /* PRODUCT GRID VIEW START */
-  .trf__pro_page_bammer_text_center p span {
+  .trf__pro_page_banner_text_center p span {
     font-size: 25px;
   }
 
-  .trf__pro_page_bammer_text_center h5 {
+  .trf__pro_page_banner_text_center h5 {
     font-size: 16px;
   }
 
-  .trf__pro_page_bammer_text_center h3 {
+  .trf__pro_page_banner_text_center h3 {
     font-size: 25px;
     margin: 5px 0px 10px 0px;
   }
@@ -767,7 +763,7 @@
   }
 
   /* third_party DETAILS START */
-  .trf__pro_page_bammer.third_party_det_banner {
+  .trf__pro_page_banner.third_party_det_banner {
     height: 370px;
   }
 
@@ -949,7 +945,7 @@
     font-size: 25px;
   }
 
-  /* FORGET PASSWORD START */
+  /* FORGOT PASSWORD START */
   .trf__forget_area p {
     text-align: center;
   }
@@ -1333,13 +1329,13 @@
     padding: 30px;
   }
 
-  .trf__flash_coundown {
+  .trf__countdown_section {
     justify-content: center;
     padding: 20px 10px;
     flex-direction: column;
   }
 
-  .trf__flash_coundown .end_text {
+  .trf__countdown_section .end_text {
     margin-right: 0;
     margin-bottom: 15px;
   }
@@ -1417,10 +1413,6 @@
 
   .trf__subs_form {
     margin-bottom: 33px;
-  }
-
-  .product_popup_modal .modal-dialog {
-    min-width: 600px;
   }
 
   .product_popup_modal .modal-body {
@@ -1548,29 +1540,29 @@
     opacity: 0;
   }
 
-  .trf__pro_page_bammer {
+  .trf__pro_page_banner {
     height: 200px;
   }
 
-  .trf__pro_page_bammer_text_center p {
+  .trf__pro_page_banner_text_center p {
     font-size: 20px;
     padding: 7px 15px;
   }
 
-  .trf__pro_page_bammer_text_center p span {
+  .trf__pro_page_banner_text_center p span {
     font-size: 25px;
   }
 
-  .trf__pro_page_bammer_text_center h5 {
+  .trf__pro_page_banner_text_center h5 {
     font-size: 16px;
   }
 
-  .trf__pro_page_bammer_text_center h3 {
+  .trf__pro_page_banner_text_center h3 {
     font-size: 20px;
     margin: 5px 0px 10px 0px;
   }
 
-  .trf__pro_page_bammer_text_center .add_cart {
+  .trf__pro_page_banner_text_center .add_cart {
     padding: 10px 15px;
     font-size: 12px;
   }
@@ -1816,7 +1808,7 @@
     font-size: 25px;
   }
 
-  /* FORGET PASSWORD START */
+  /* FORGOT PASSWORD START */
   .trf__forget_area {
     padding: 15px;
   }
@@ -1984,12 +1976,12 @@
     margin-left: 0;
   }
 
-  .trfd__dashboard_user img {
+  .trf__dashboard_user img {
     width: 35px;
     height: 35px;
   }
 
-  .trfd__dashboard_user p {
+  .trf__dashboard_user p {
     font-size: 16px;
   }
 
@@ -2165,10 +2157,10 @@
     justify-content: center;
   }
 
-  .trf__flash_sell_2 .simply-section.simply-days-section,
-  .trf__flash_sell_2 .simply-section.simply-hours-section,
-  .trf__flash_sell_2 .simply-section.simply-minutes-section,
-  .trf__flash_sell_2 .simply-section.simply-seconds-section {
+  .trf__count_down_2 .simply-section.simply-days-section,
+  .trf__count_down_2 .simply-section.simply-hours-section,
+  .trf__count_down_2 .simply-section.simply-minutes-section,
+  .trf__count_down_2 .simply-section.simply-seconds-section {
     margin-bottom: 15px;
   }
 
@@ -2433,7 +2425,7 @@
     margin-bottom: 15px;
   }
 
-  .trf__flash_coundown {
+  .trf__countdown_section {
     justify-content: center;
     padding: 20px 10px;
     flex-direction: column;
@@ -2451,7 +2443,7 @@
     font-size: 25px !important;
   }
 
-  .trf__flash_coundown .end_text {
+  .trf__countdown_section .end_text {
     margin-right: 0;
     margin-bottom: 15px;
   }
@@ -2726,10 +2718,6 @@
     font-size: 12px;
   }
 
-  .product_popup_modal .modal-dialog {
-    min-width: 500px;
-  }
-
   .product_popup_modal .modal-body {
     height: 550px;
     padding-left: 20px;
@@ -2828,29 +2816,29 @@
     opacity: 0;
   }
 
-  .trf__pro_page_bammer {
+  .trf__pro_page_banner {
     height: 200px;
   }
 
-  .trf__pro_page_bammer_text_center p {
+  .trf__pro_page_banner_text_center p {
     font-size: 20px;
     padding: 7px 15px;
   }
 
-  .trf__pro_page_bammer_text_center p span {
+  .trf__pro_page_banner_text_center p span {
     font-size: 25px;
   }
 
-  .trf__pro_page_bammer_text_center h5 {
+  .trf__pro_page_banner_text_center h5 {
     font-size: 16px;
   }
 
-  .trf__pro_page_bammer_text_center h3 {
+  .trf__pro_page_banner_text_center h3 {
     font-size: 20px;
     margin: 5px 0px 10px 0px;
   }
 
-  .trf__pro_page_bammer_text_center .add_cart {
+  .trf__pro_page_banner_text_center .add_cart {
     padding: 10px 15px;
     font-size: 12px;
   }
@@ -3180,7 +3168,7 @@
     font-size: 20px;
   }
 
-  /* FORGET PASSWORD START */
+  /* FORGOT PASSWORD START */
   .trf__forget_area {
     margin-bottom: 30px;
   }
@@ -3401,12 +3389,12 @@
     margin-left: 0;
   }
 
-  .trfd__dashboard_user img {
+  .trf__dashboard_user img {
     width: 35px;
     height: 35px;
   }
 
-  .trfd__dashboard_user p {
+  .trf__dashboard_user p {
     font-size: 16px;
   }
 
@@ -3590,10 +3578,10 @@
     justify-content: center;
   }
 
-  .trf__flash_sell_2 .simply-section.simply-days-section,
-  .trf__flash_sell_2 .simply-section.simply-hours-section,
-  .trf__flash_sell_2 .simply-section.simply-minutes-section,
-  .trf__flash_sell_2 .simply-section.simply-seconds-section {
+  .trf__count_down_2 .simply-section.simply-days-section,
+  .trf__count_down_2 .simply-section.simply-hours-section,
+  .trf__count_down_2 .simply-section.simply-minutes-section,
+  .trf__count_down_2 .simply-section.simply-seconds-section {
     margin-bottom: 15px;
   }
 
@@ -3901,7 +3889,7 @@
     margin-bottom: 15px;
   }
 
-  .trf__flash_coundown {
+  .trf__countdown_section {
     justify-content: center;
     padding: 20px;
     flex-direction: column;
@@ -3911,7 +3899,7 @@
     font-size: 23px !important;
   }
 
-  .trf__flash_coundown .end_text {
+  .trf__countdown_section .end_text {
     margin-right: 0;
     margin-bottom: 15px;
     font-size: 25px;
@@ -4176,10 +4164,6 @@
     margin-top: 10px;
   }
 
-  .product_popup_modal .modal-dialog {
-    min-width: 95%;
-  }
-
   .trf_pro_det_color,
   .share_link {
     flex-direction: column;
@@ -4314,35 +4298,35 @@
     font-size: 14px;
   }
 
-  .trf__pro_page_bammer {
+  .trf__pro_page_banner {
     height: 200px;
   }
 
-  .trf__pro_page_bammer_text_center {
+  .trf__pro_page_banner_text_center {
     left: 20px;
   }
 
-  .trf__pro_page_bammer_text_center h5 {
+  .trf__pro_page_banner_text_center h5 {
     font-size: 16px;
   }
 
-  .trf__pro_page_bammer_text_center h3 {
+  .trf__pro_page_banner_text_center h3 {
     font-size: 20px;
     margin: 5px 0px 10px 0px;
   }
 
-  .trf__pro_page_bammer_text_center p {
+  .trf__pro_page_banner_text_center p {
     font-size: 20px;
     background: none;
     padding: 0;
   }
 
-  .trf__pro_page_bammer_text_center .add_cart {
+  .trf__pro_page_banner_text_center .add_cart {
     padding: 10px 15px;
     font-size: 12px;
   }
 
-  .trf__pro_page_bammer_text_center p span {
+  .trf__pro_page_banner_text_center p span {
     font-size: 25px;
   }
 
@@ -4784,7 +4768,7 @@
     font-size: 20px;
   }
 
-  /* FORGET PASSWORD START */
+  /* FORGOT PASSWORD START */
   .trf__forget_area {
     margin-bottom: 30px;
     padding: 15px;
@@ -5049,12 +5033,12 @@
     margin-left: 0;
   }
 
-  .trfd__dashboard_user img {
+  .trf__dashboard_user img {
     width: 35px;
     height: 35px;
   }
 
-  .trfd__dashboard_user p {
+  .trf__dashboard_user p {
     font-size: 16px;
   }
 
@@ -5286,10 +5270,10 @@
     justify-content: center;
   }
 
-  .trf__flash_sell_2 .simply-section.simply-days-section,
-  .trf__flash_sell_2 .simply-section.simply-hours-section,
-  .trf__flash_sell_2 .simply-section.simply-minutes-section,
-  .trf__flash_sell_2 .simply-section.simply-seconds-section {
+  .trf__count_down_2 .simply-section.simply-days-section,
+  .trf__count_down_2 .simply-section.simply-hours-section,
+  .trf__count_down_2 .simply-section.simply-minutes-section,
+  .trf__count_down_2 .simply-section.simply-seconds-section {
     margin-bottom: 15px;
   }
 
@@ -5463,5 +5447,18 @@
   }
 
   /* extra css start here */
+
+}
+
+@media (max-width: 768px) {
+  
+  div.dt-container.dt-empty-footer tbody>tr:last-child>* {
+    font-size: 15px !important;
+  }
+
+  .trf__dash_pro_area table th .dt-column-title {
+    font-size: 15px !important;
+    line-height: 15px !important;
+  }
 
 }

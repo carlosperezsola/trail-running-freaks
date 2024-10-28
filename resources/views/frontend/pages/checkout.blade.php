@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('title')
-    {{ $settings->site_name }} || Checkout
+    {{ $settings->site_name }} || @lang('checkout')
 @endsection
 
 @section('container')
@@ -10,10 +10,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h4>check out</h4>
+                        <h4>@lang('checkout')</h4>
                         <ul>
                             <li><a href="{{ route('home') }}">home</a></li>
-                            <li><a href="javascript:;">check out</a></li>
+                            <li><a href="javascript:;">@lang('checkout')</a></li>
                         </ul>
                     </div>
                 </div>
@@ -26,8 +26,8 @@
                 <div class="col-xl-8 col-lg-7">
                     <div class="trf__check_form">
                         <div class="d-flex">
-                            <h5>Shipping Details </h5>
-                            <a href="javascript:;" class="common_btn ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">add new address</a>
+                            <h5>@lang('Shipping Details')</h5>
+                            <a href="javascript:;" class="common_btn ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">@lang('add new address')</a>
                         </div>
                         <div class="row">
                             @foreach ($addresses as $address)
@@ -37,17 +37,17 @@
                                             <input class="form-check-input shipping_address" data-id="{{ $address->id }}"
                                                 type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                                             <label class="form-check-label" for="flexRadioDefault1">
-                                                Select Address
+                                                @lang('Select Address')
                                             </label>
                                         </div>
                                         <ul>
-                                            <li><span>Name :</span> {{ $address->name }}</li>
-                                            <li><span>Phone :</span> {{ $address->phone }}</li>
+                                            <li><span>@lang('Name'):</span> {{ $address->name }}</li>
+                                            <li><span>@lang('Phone'):</span> {{ $address->phone }}</li>
                                             <li><span>Email :</span> {{ $address->email }}</li>
-                                            <li><span>Country :</span> {{ $address->country }}</li>
-                                            <li><span>City :</span> {{ $address->city }}</li>
-                                            <li><span>Zip Code :</span> {{ $address->zip }}</li>
-                                            <li><span>Address :</span> {{ $address->address }}</li>
+                                            <li><span>@lang('Country'):</span> {{ $address->country }}</li>
+                                            <li><span>@lang('City'):</span> {{ $address->city }}</li>
+                                            <li><span>@lang('Zip Code'):</span> {{ $address->zip }}</li>
+                                            <li><span>@lang('Address'):</span> {{ $address->address }}</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-xl-4 col-lg-5">
                     <div class="trf__order_details" id="sticky_sidebar">
-                        <p class="trf__product">shipping Methods</p>
+                        <p class="trf__product">@lang('shipping Methods')</p>
                         @foreach ($shippingMethods as $method)
                             @if ($method->type === 'min_cost' && getCartTotal() >= $method->min_cost)
                                 <div class="form-check">
@@ -65,7 +65,7 @@
                                         id="exampleRadios1" value="{{ $method->id }}" data-id="{{ $method->cost }}">
                                     <label class="form-check-label" for="exampleRadios1">
                                         {{ $method->name }}
-                                        <span>cost: ({{ $settings->currency_icon }}{{ $method->cost }})</span>
+                                        <span>@lang('cost'): ({{ $settings->currency_icon }}{{ $method->cost }})</span>
                                     </label>
                                 </div>
                             @elseif ($method->type === 'flat_cost')
@@ -74,15 +74,15 @@
                                         id="exampleRadios1" value="{{ $method->id }}" data-id="{{ $method->cost }}">
                                     <label class="form-check-label" for="exampleRadios1">
                                         {{ $method->name }}
-                                        <span>cost: ({{ $settings->currency_icon }}{{ $method->cost }})</span>
+                                        <span>@lang('cost'): ({{ $settings->currency_icon }}{{ $method->cost }})</span>
                                     </label>
                                 </div>
                             @endif
                         @endforeach
                         <div class="trf__order_details_summery">
-                            <p>subtotal: <span>{{ $settings->currency_icon }}{{ getCartTotal() }}</span></p>
-                            <p>shipping fee(+): <span id="shipping_fee">{{ $settings->currency_icon }}0</span></p>
-                            <p><b>Total:</b> <span><b id="total_amount"
+                            <p>@lang('subtotal'): <span>{{ $settings->currency_icon }}{{ getCartTotal() }}</span></p>
+                            <p>@lang('shipping fee')(+): <span id="shipping_fee">{{ $settings->currency_icon }}0</span></p>
+                            <p><b>@lang('Total'):</b> <span><b id="total_amount"
                                         data-id="{{ getCartTotal() }}">{{ $settings->currency_icon }}{{ getCartTotal() }}</b></span>
                             </p>
                         </div>
@@ -91,7 +91,7 @@
                                 <input class="form-check-input agree_term" type="checkbox" value=""
                                     id="flexCheckChecked3" checked>
                                 <label class="form-check-label" for="flexCheckChecked3">
-                                    I have read and agree to the website <a href="#">terms and conditions *</a>
+                                    @lang('I have read and agree to the website <a href="#">terms and conditions.*')</a>
                                 </label>
                             </div>
                         </div>
@@ -99,7 +99,7 @@
                             <input type="hidden" name="shipping_method_id" value="" id="shipping_method_id">
                             <input type="hidden" name="shipping_address_id" value="" id="shipping_address_id">
                         </form>
-                        <a href="" id="submitCheckoutForm" class="common_btn">Place Purchase</a>
+                        <a href="" id="submitCheckoutForm" class="common_btn">@lang('Place Purchase')</a>
                     </div>
                 </div>
             </div>
@@ -110,7 +110,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">add new address</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">@lang('add new address')</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body p-0">
@@ -139,7 +139,7 @@
                                     <div class="col-md-6">
                                         <div class="trf__check_single_form">
                                             <select class="select_2" name="country">
-                                                <option value="">Country / Region *</option>
+                                                <option value="">@lang('Country/Region')*</option>
                                                 @foreach (config('settings.country_list') as $key => $country)
                                                     <option {{ $country === old('country') ? 'selected' : '' }}
                                                         value="{{ $country }}">{{ $country }}</option>
@@ -173,7 +173,7 @@
                                     </div>
                                     <div class="col-xl-12">
                                         <div class="trf__check_single_form">
-                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                            <button type="submit" class="btn btn-primary">@lang('Save changes')</button>
                                         </div>
                                     </div>
                                 </div>

@@ -11,7 +11,7 @@
     <title>
         @yield('title')
     </title>
-    <link rel="icon" type="image/png" href="{{ $logoSetting->favicon }}">
+    <link rel="icon" type="image/png" href="{{ $logoSetting->favicon }}?v={{ time() }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/select2.min.css') }}">
@@ -39,9 +39,9 @@
     DASHBOARD MENU START
   ==============================-->
     <div class="trf__dashboard_menu">
-        <div class="trfd__dashboard_user">
+        <div class="trf__dashboard_user">
             <img src="{{ asset(auth()->user()->user_img) }}" alt="img" class="img-fluid">
-            <p>{{ auth()->user()->user_name }}</p>
+            <p>{{ auth()->user()->name }}</p>
         </div>
     </div>
     <!--=============================

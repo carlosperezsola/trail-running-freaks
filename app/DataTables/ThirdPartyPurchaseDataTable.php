@@ -106,6 +106,11 @@ class ThirdPartyPurchaseDataTable extends DataTable
                 Button::make('print'),
                 Button::make('reset'),
                 Button::make('reload')
+            ])
+
+            ->parameters([
+                'responsive' => true,
+                'autoWidth' => false,
             ]);
     }
 
@@ -117,7 +122,7 @@ class ThirdPartyPurchaseDataTable extends DataTable
         return [
             Column::make('id'),
             Column::make('invoice_id'),
-            Column::make('customer'),
+            Column::make('customer')->addClass('d-none d-lg-table-cell'),
             Column::make('date'),
             Column::make('product_qty'),
             Column::make('amount'),

@@ -13,7 +13,7 @@
                     <div class="dashboard_content mt-2 mt-md-0">
                         <h3><i class="far fa-user"></i> profile</h3>
                         <div class="trf__dashboard_profile">
-                            <div class="trf__dash_pro_area">
+                            <div class="trf__dash_pro_area  overflow-auto">
                                 <h4>basic information</h4>
                                 <form action="{{ route('user.profile.update') }}" method="POST"
                                     enctype="multipart/form-data">
@@ -36,8 +36,15 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="trf__dash_pro_single">
+                                                <i class="fas fa-phone"></i>
+                                                <input type="text" placeholder="Phone" name="phone_number"
+                                                    value="{{ Auth::user()->phone_number }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="trf__dash_pro_single">
                                                 <i class="fal fa-envelope-open"></i>
-                                                <input type="email" placeholder="Correo electrónico" name="email"
+                                                <input type="email" placeholder="Email" name="email"
                                                     value="{{ Auth::user()->email }}">
                                             </div>
                                         </div>

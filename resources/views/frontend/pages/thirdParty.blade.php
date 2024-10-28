@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('title')
-    {{ $settings->site_name }} || Payment
+    {{ $settings->site_name }} || @lang('Payment')
 @endsection
 
 @section('container')
@@ -10,10 +10,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h4>Third Parties</h4>
+                        <h4>@lang('Third Parties')</h4>
                         <ul>
                             <li><a href="{{ url('/') }}">home</a></li>
-                            <li><a href="javascript:;">Third Parties</a></li>
+                            <li><a href="javascript:;">@lang('Third Parties')</a></li>
                         </ul>
                     </div>
                 </div>
@@ -27,16 +27,17 @@
                     <div class="row">
                         @foreach ($thirdParties as $thirdParty)
                             <div class="col-xl-6 col-md-6">
-                                <div class="trf__third_party_single">
+                                <div class="trf__third_party_single position-relative">
+                                    <div class="w-100 h-100 position-absolute bg-dark " style="opacity: .60"></div>
                                     <img src="{{ asset($thirdParty->banner) }}" alt="third party" class="img-fluid w-100">
                                     <div class="trf__third_party_text">
-                                        <div class="trf__third_party_text_center">
+                                        <div class="trf__third_party_text_center w-100">
                                             <h4>{{ $thirdParty->shop_name }}</h4>
                                             <a href="javascript:;"><i class="far fa-phone-alt"></i>
                                                 {{ $thirdParty->phone }}</a>
                                             <a href="javascript:;"><i class="fal fa-envelope"></i>
                                                 {{ $thirdParty->email }}</a>
-                                            <a href="{{ route('thirdParty.products', $thirdParty->id) }}" class="common_btn">Visit store</a>
+                                            <a href="{{ route('thirdParty.products', $thirdParty->id) }}" class="common_btn">@lang('Visit store')</a>
                                         </div>
                                     </div>
                                 </div>

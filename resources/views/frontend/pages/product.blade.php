@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('title')
-    {{ $settings->site_name }} || Product Details
+    {{ $settings->site_name }} || @lang('Product Details')
 @endsection
 
 @section('container')
@@ -10,10 +10,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h4>products</h4>
+                        <h4>@lang('products')</h4>
                         <ul>
-                            <li><a href="#">home</a></li>
-                            <li><a href="#">product</a></li>
+                            <li><a href="{{ route('home') }}">home</a></li>
+                            <li><a href="javascript:;">@lang('product')</a></li>
                         </ul>
                     </div>
                 </div>
@@ -25,19 +25,22 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-4">
                     <div class="trf__sidebar_filter ">
-                        <p>filter</p>
+                        <p>@lang('filter')</p>
                         <span class="trf__filter_icon">
                             <i class="far fa-minus" id="minus"></i>
                             <i class="far fa-plus" id="plus"></i>
                         </span>
                     </div>
-                    <div class="trf__product_sidebar" id="sticky_sidebar">
+                    <button class="accordion-button d-block d-lg-none btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseZero" aria-expanded="false" aria-controls="collapseZero">
+                        @lang('Ver filtros')
+                    </button>
+                    <div id="collapseZero" class="trf__product_sidebar accordion-collapse collapse d-lg-block">
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        All Categories
+                                        @lang('All Categories')
                                     </button>
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
@@ -57,7 +60,7 @@
                                 <h2 class="accordion-header" id="headingTwo">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Price
+                                        @lang('Price')
                                     </button>
                                 </h2>
                                 <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
@@ -73,7 +76,7 @@
                                                 @endforeach
                                                 <input type="hidden" id="slider_range" name="range"
                                                     class="flat-slider" />
-                                                <button type="submit" class="common_btn">filter</button>
+                                                <button type="submit" class="common_btn">@lang('tracking')filter</button>
                                             </form>
                                         </div>
                                     </div>
@@ -84,7 +87,7 @@
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseThree3" aria-expanded="false"
                                         aria-controls="collapseThree">
-                                        trademark
+                                        @lang('trademark')
                                     </button>
                                 </h2>
                                 <div id="collapseThree3" class="accordion-collapse collapse show"
@@ -132,7 +135,7 @@
                                 id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                 <div class="row">
                                     @foreach ($products as $product)
-                                        <div class="col-xl-4 col-sm-6">
+                                        <div class="col-sm-6 col-md-4">
                                             <div class="trf__product_item">
                                                 <span class="trf__new">{{ productType($product->product_type) }}</span>
                                                 @if (checkDiscount($product))
@@ -147,7 +150,9 @@
                                                         alt="product" class="img-fluid w-100 img_2" />
                                                 </a>
                                                 <ul class="trf__single_pro_icon">
-                                                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#product" class="show_product_modal" data-id="{{ $product->id }}"><i class="far fa-eye"></i></a>
+                                                    <li><a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#product" class="show_product_modal"
+                                                            data-id="{{ $product->id }}"><i class="far fa-eye"></i></a>
                                                     </li>
                                                 </ul>
                                                 <div class="trf__product_details">
@@ -156,7 +161,7 @@
                                                         <a class="trf__category"
                                                             href="#">{{ $product->category->name }}</a>
                                                     @else
-                                                        <a class="trf__category" href="#">Uncategorized</a>
+                                                        <a class="trf__category" href="#">@lang('Uncategorized')</a>
                                                     @endif
                                                     <a class="trf__pro_name"
                                                         href="{{ route('product-detail', $product->slug) }}">{{ limitText($product->name, 53) }}</a>
@@ -189,7 +194,7 @@
                                                         @endforeach
                                                         <input class="" name="qty" type="hidden"
                                                             min="1" max="100" value="1" />
-                                                        <button class="add_cart" type="submit">add to cart</button>
+                                                        <button class="add_cart" type="submit">@lang('add to cart')</button>
                                                     </form>
                                                 </div>
                                             </div>
@@ -255,8 +260,8 @@
                                                             @endforeach
                                                             <input class="" name="qty" type="hidden"
                                                                 min="1" max="100" value="1" />
-                                                            <button class="add_cart_two mr-2" type="submit">add to
-                                                                cart</button>
+                                                            <button class="add_cart_two mr-2" type="submit">@lang('add to
+                                                                cart')</button>
                                                         </form>
                                                     </ul>
                                                 </div>
@@ -271,7 +276,7 @@
                         <div class="text-center mt-5">
                             <div class="card">
                                 <div class="card-body">
-                                    <h2>Product not found!</h2>
+                                    <h2>@lang('Product not found!')</h2>
                                 </div>
                             </div>
                         </div>
@@ -306,24 +311,27 @@
             })
         })
         @php
-            if (request()->has('range') && request()->range != '') {
+            $maxPrice = \App\Models\Product::max('price') ?? 500;
+            
+            if (request()->has('range') && request()->range != '') {                
                 $price = explode(';', request()->range);
                 $from = $price[0];
                 $to = $price[1];
             } else {
                 $from = 0;
-                $to = 8000;
+                $to = $maxPrice;
             }
         @endphp
-        jQuery(function() {
-            jQuery("#slider_range").flatslider({
-                min: 0,
-                max: 10000,
-                step: 100,
-                values: [{{ $from }}, {{ $to }}],
-                range: true,
-                einheit: '{{ $settings->currency_icon }}'
+            jQuery(function() {
+                jQuery("#slider_range").flatslider({
+                    min: 0,
+                    max: {{ $maxPrice }},
+                    step: 5,
+                    values: [{{ $from }},
+                    {{ $to }}],
+                    range: true,
+                    einheit: '{{ $settings->currency_icon }}'
+                });
             });
-        });
     </script>
 @endpush

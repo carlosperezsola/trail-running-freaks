@@ -8,9 +8,16 @@
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
-            <li class="dropdown active">
+            <li class="dropdown {{ setActive([
+                    'admin_user.*',
+                    'user.dashboard.*',
+                ]) }}">
                 <a href="{{ route('admin_user.dashboard') }}" class="nav-link"><i
                         class="fas fa-fire"></i><span>Dashboard</span></a>
+            </li>
+            <li class="dropdown">
+                <a href="{{ route('user.dashboard') }}" class="nav-link" target="_blank"><i
+                        class="fas fa-user"></i><span>User Dashboard</span></a>
             </li>
             <li class="menu-header">Ecommerce</li>
             <li
@@ -49,7 +56,7 @@
                             'admin_user.products-option-item.*',
                             'admin_user.payment-settings.*',
                         ]) }}">
-                        <a class="nav-link" href="{{ route('admin_user.products.index') }}">Products</a>
+                        <a class="nav-link" href="{{ route('admin_user.products.index') }}">My Products</a>
                     </li>
                     <li class="{{ setActive(['admin_user.seller-products.*']) }}"><a class="nav-link"
                             href="{{ route('admin_user.seller-products.index') }}">Seller Products</a></li>
@@ -90,8 +97,7 @@
                         <a class="nav-link" href="{{ route('admin_user.slider.index') }}">Slider</a>
                     </li>
                     <li class="{{ setActive(['admin_user.slider.*']) }}">
-                        <a class="nav-link" href="{{ route('admin_user.home-page-setting.index') }}">Home Page
-                            Settings</a>
+                        <a class="nav-link" href="{{ route('admin_user.home-page-setting.index') }}">Popular Categories</a>
                     </li>
                     <li class="{{ setActive(['admin_user.who-we-are.index']) }}">
                         <a class="nav-link" href="{{ route('admin_user.who-we-are.index') }}">Who We Are Page</a>
@@ -125,7 +131,7 @@
             <li>
                 <a class="nav-link {{ setActive(['admin_user.subscribers.*']) }}"
                     href="{{ route('admin_user.subscribers.index') }}">
-                    <i class="fas fa-user"></i><span>Subscribers</span>
+                    <i class="fas fa-envelope-open-text"></i><span>Subscribers</span>
                 </a>
             </li>
             <li>

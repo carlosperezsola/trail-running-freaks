@@ -10,7 +10,7 @@
     <title>
         @yield('title')
     </title>
-    <link rel="icon" type="image/png" href={{ asset($logoSetting->favicon) }}>
+    <link rel="icon" type="image/png" href="{{ $logoSetting->favicon }}?v={{ time() }}" type="image/x-icon">
     <link rel="stylesheet" href={{ asset('frontend/css/all.min.css') }}>
     <link rel="stylesheet" href={{ asset('frontend/css/bootstrap.min.css') }}>
     <link rel="stylesheet" href={{ asset('frontend/css/select2.min.css') }}>
@@ -57,11 +57,11 @@
         MAIN CONTENT END
     ===========================-->
 
-    <section class="product_popup_modal">
-        <div class="modal fade" id="product" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog">
+    <section class="product_popup_modal" data-bs-toggle="modal" data-bs-target="product_popup_modal">
+        <div class="modal fade" id="product" tabindex="-1" aria-labelledby="product_popup_modal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl modal-fullscreen-lg-down">
                 <div class="modal-content product-modal-content">
-
+                    
                 </div>
             </div>
         </div>

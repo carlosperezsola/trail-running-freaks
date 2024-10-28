@@ -6,7 +6,7 @@
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                 <img alt="image" style="width: 40px;height: 40px;object-fit: cover;" src="{{ asset(auth()->user()->user_img) }}" class="rounded-circle mr-1">
-                <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->user_name }}</div>
+                <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name }}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <a href="{{ route('admin_user.profile') }}" class="dropdown-item has-icon">

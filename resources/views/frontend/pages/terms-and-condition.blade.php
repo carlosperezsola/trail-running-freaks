@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('title')
-    {{ $settings->site_name }} || Terms & conditions
+    {{ $settings->site_name }} || @lang('Terms & conditions')
 @endsection
 
 @section('container')
@@ -10,10 +10,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h4>Terms & conditions</h4>
+                        <h4>@lang('Terms & conditions')</h4>
                         <ul>
                             <li><a href="{{ route('home') }}">home</a></li>
-                            <li><a href="javascript:;">terms & conditions</a></li>
+                            <li><a href="javascript:;">@lang('terms & conditions')</a></li>
                         </ul>
                     </div>
                 </div>

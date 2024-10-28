@@ -20,7 +20,7 @@
                                 class="btn btn-primary"><i class="fas fa-plus"></i> Create Option</a>
                         </div>
                         <div class="trf__dashboard_profile">
-                            <div class="trf__dash_pro_area">
+                            <div class="trf__dash_pro_area  overflow-auto">
                                 {{ $dataTable->table() }}
                             </div>
                         </div>

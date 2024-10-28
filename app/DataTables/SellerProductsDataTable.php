@@ -21,25 +21,25 @@ class SellerProductsDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', function($query){
-                $editBtn = "<a href='".route('admin_user.products.edit', $query->id)."' class='btn btn-primary'><i class='far fa-edit'></i></a>";
-                $deleteBtn = "<a href='".route('admin_user.products.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
+            ->addColumn('action', function ($query) {
+                $editBtn = "<a href='" . route('admin_user.products.edit', $query->id) . "' class='btn btn-primary'><i class='far fa-edit'></i></a>";
+                $deleteBtn = "<a href='" . route('admin_user.products.destroy', $query->id) . "' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
                 $moreBtn = '<div class="dropdown dropleft d-inline">
                 <button class="btn btn-primary dropdown-toggle ml-1" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-cog"></i>
                 </button>
                 <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                  <a class="dropdown-item has-icon" href="'.route('admin_user.products-image-gallery.index', ['product' => $query->id]).'"><i class="far fa-heart"></i> Image Gallery</a>
-                  <a class="dropdown-item has-icon" href="'.route('admin_user.products-option.index', ['product' => $query->id]).'"><i class="far fa-file"></i> Options</a>
+                  <a class="dropdown-item has-icon" href="' . route('admin_user.products-image-gallery.index', ['product' => $query->id]) . '"><i class="far fa-heart"></i> Image Gallery</a>
+                  <a class="dropdown-item has-icon" href="' . route('admin_user.products-option.index', ['product' => $query->id]) . '"><i class="far fa-file"></i> Options</a>
                 </div>
               </div>';
 
-                return $editBtn.$deleteBtn.$moreBtn;
+                return $editBtn . $deleteBtn . $moreBtn;
             })
-            ->addColumn('image', function($query){
-                return "<img width='70px' src='".asset($query->thumb_image)."' ></img>";
+            ->addColumn('image', function ($query) {
+                return "<img width='70px' src='" . asset($query->thumb_image) . "' ></img>";
             })
-            ->addColumn('type', function($query){
+            ->addColumn('type', function ($query) {
                 switch ($query->product_type) {
                     case 'new_arrival':
                         return '<i class="badge badge-success">New Arrival</i>';
@@ -60,25 +60,26 @@ class SellerProductsDataTable extends DataTable
                         break;
                 }
             })
-            ->addColumn('status', function($query){
-                if($query->status == 1){
+            ->addColumn('status', function ($query) {
+                if ($query->status == 1) {
                     $button = '<label class="custom-switch mt-2">
-                        <input type="checkbox" checked name="custom-switch-checkbox" data-id="'.$query->id.'" class="custom-switch-input change-status" >
+                        <input type="checkbox" checked name="custom-switch-checkbox" data-id="' . $query->id . '" class="custom-switch-input change-status" >
                         <span class="custom-switch-indicator"></span>
                     </label>';
-                }else {
+                } else {
                     $button = '<label class="custom-switch mt-2">
-                        <input type="checkbox" name="custom-switch-checkbox" data-id="'.$query->id.'" class="custom-switch-input change-status">
+                        <input type="checkbox" name="custom-switch-checkbox" data-id="' . $query->id . '" class="custom-switch-input change-status">
                         <span class="custom-switch-indicator"></span>
                     </label>';
                 }
                 return $button;
-                })
-                
-            ->addColumn('thirdParty', function($query){
-                return $query->thirdParty ? $query->thirdParty->shop_name : 'N/A';
-            })                
-            ->addColumn('approve', function($query){
+            })
+
+            ->addColumn('thirdParty', function ($query) {
+                return optional($query->thirdParty)->shop_name ?: 'No disponible';
+            })            
+
+            ->addColumn('approve', function ($query) {
                 return "<select class='form-control is_approve' data-id='$query->id'>
                 <option value='0'>Pending</option>
                 <option selected value='1'>Approved</option>
@@ -93,9 +94,10 @@ class SellerProductsDataTable extends DataTable
      */
     public function query(Product $model): QueryBuilder
     {
-        return $model->where('thirdParty_id', '!=', Auth::user()->thirdParty->id)
-            ->where('is_approved', 1)
-            ->newQuery();
+        return $model->newQuery()
+            ->with('thirdParty') // Cargamos la relación thirdParty
+            ->where('thirdParty_id', '!=', Auth::user()->thirdParty->id)
+            ->where('is_approved', 1);
     }
 
     /**
@@ -104,20 +106,25 @@ class SellerProductsDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('sellerproducts-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    //->dom('Bfrtip')
-                    ->orderBy(0)
-                    ->selectStyleSingle()
-                    ->buttons([
-                        Button::make('excel'),
-                        Button::make('csv'),
-                        Button::make('pdf'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    ]);
+            ->setTableId('sellerproducts-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            //->dom('Bfrtip')
+            ->orderBy(0)
+            ->selectStyleSingle()
+            ->buttons([
+                Button::make('excel'),
+                Button::make('csv'),
+                Button::make('pdf'),
+                Button::make('print'),
+                Button::make('reset'),
+                Button::make('reload')
+            ])
+
+            ->parameters([
+                'responsive' => true,
+                'autoWidth' => false,
+            ]);
     }
 
     /**
@@ -135,10 +142,10 @@ class SellerProductsDataTable extends DataTable
             Column::make('status'),
             Column::make('approve')->width(100),
             Column::computed('action')
-            ->exportable(false)
-            ->printable(false)
-            ->width(200)
-            ->addClass('text-center'),
+                ->exportable(false)
+                ->printable(false)
+                ->width(200)
+                ->addClass('text-center'),
         ];
     }
 

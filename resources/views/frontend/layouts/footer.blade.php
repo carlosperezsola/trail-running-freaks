@@ -11,8 +11,8 @@
 @endphp
 <footer class="footer_2">
     <div class="container">
-        <div class="row justify-content-between">
-            <div class="col-xl-3 col-sm-7 col-md-6 col-lg-3">
+        <div class="row justify-content-md-between">
+            <div class="col-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
                 <div class="trf__footer_content">
                     <a class="trf__footer_2_logo" href="{{ url('/') }}">
                         <img src="{{ asset(@$footerInfo->logo) }}" alt="logo">
@@ -31,7 +31,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-xl-2 col-sm-5 col-md-4 col-lg-2">
+            <div class="col-12 col-lg-2 col-xl-2 my-4 my-lg-0">
                 <div class="trf__footer_content">
                     <h5>General Info</h5>
                     <ul class="trf__footer_menu">
@@ -42,18 +42,18 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-xl-4 col-sm-7 col-md-8 col-lg-5">
+            <div class="col-12 col-lg-5 col-xl-4 mt-4 mt-lg-0">
                 <div class="trf__footer_content trf__footer_content_2">
-                    <h3>Subscribe To Our Newsletter</h3>
-                    <p>Get all the latest information on Events, Sales and Offers.
-                        Get all the latest information on Events.</p>
+                    <h3>@lang('Subscríbete a nuestra Newsletter')</h3>
+                    <p>@lang('Get all the latest information on Events, Sales and Offers.
+                        Get all the latest information on Events.')</p>
                     <form action="" method="POST" id="newsletter">
                         @csrf
                         <input type="text" placeholder="Email" name="email" class="newsletter_email">
-                        <button type="submit" class="common_btn subscribe_btn">Subscribe</button>
+                        <button type="submit" class="common_btn subscribe_btn">@lang('Subscribe')</button>
                     </form>
                     <div class="footer_payment">
-                        <p>We're using safe payment for :</p>
+                        <p>@lang('We\'re using safe payment for:')</p>
                         <img src="{{ asset('frontend/images/credit2.png') }}" alt="card" class="img-fluid">
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 
 @section('title')
-    {{ $settings->site_name }} || Reset Password
+    {{ $settings->site_name }} || @lang('Reset Password')
 @endsection
 
 @section('container')
@@ -10,10 +10,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h4>Reset password</h4>
+                        <h4>@lang('Reset Password')</h4>
                         <ul>
-                            <li><a href="#">login</a></li>
-                            <li><a href="#">reset password</a></li>
+                            <li><a href="{{ route('login') }}">login</a></li>
+                            <li><a href="javascript:;">@lang('Reset Password')</a></li>
                         </ul>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                     <form method="POST" action="{{ route('password.store') }}">
                         @csrf
                         <div class="trf__change_password">
-                            <h4>Reset password</h4>
+                            <h4>@lang('Reset Password')</h4>
                             <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
                             <div class="trf__single_pass">
@@ -36,15 +36,15 @@
                                     value="{{ old('email', $request->email) }}" placeholder="Email">
                             </div>
                             <div class="trf__single_pass">
-                                <label>New password</label>
+                                <label>@lang('New password')</label>
                                 <input id="password" type="password" name="password" placeholder="New Password">
                             </div>
                             <div class="trf__single_pass">
-                                <label>Confirm password</label>
+                                <label>@lang('Confirm password')</label>
                                 <input id="password_confirmation" type="password" name="password_confirmation"
                                     placeholder="Confirm Password">
                             </div>
-                            <button class="common_btn" type="submit">submit</button>
+                            <button class="common_btn" type="submit">@lang('submit')</button>
                         </div>
                     </form>
                 </div>
