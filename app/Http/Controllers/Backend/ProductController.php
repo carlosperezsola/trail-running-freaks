@@ -54,14 +54,14 @@ class ProductController extends Controller
             'category' => ['required'],
             'trademark' => ['required'],
             'price' => ['required'],
-            'qty' => ['required'],
-            'short_description' => ['required', 'max:600'],
-            'seo_title' => ['nullable', 'max:200'],
-            'seo_description' => ['nullable', 'max:250'],
+            'qty' => ['required'],            
+            'seo_title' => ['nullable','max:200'],
+            'seo_description' => ['nullable','max:250'],
             'status' => ['required']
         ];
 
         foreach ($locales as $locale) {
+            $validationRules["short_description_$locale"] = ['required', 'max:600'];
             $validationRules["long_description_$locale"] = ['required'];
         }
 
@@ -81,10 +81,10 @@ class ProductController extends Controller
         $product->child_category_id = $request->child_category;
         $product->trademark_id = $request->trademark;
         $product->qty = $request->qty;
-        $product->short_description = $request->short_description;
 
         // Asignar las descripciones largas basadas en los sufijos
         foreach ($locales as $locale) {
+            $product->{"short_description_$locale"} = $request->input("short_description_$locale");
             $product->{"long_description_$locale"} = $request->input("long_description_$locale");
         }
 
@@ -143,13 +143,13 @@ class ProductController extends Controller
             'trademark' => ['required'],
             'price' => ['required'],
             'qty' => ['required'],
-            'short_description' => ['required', 'max:600'],
             'seo_title' => ['nullable', 'max:200'],
             'seo_description' => ['nullable', 'max:250'],
             'status' => ['required']
         ];
 
         foreach ($locales as $locale) {
+            $validationRules["short_description_$locale"] = ['required', 'max:600'];
             $validationRules["long_description_$locale"] = ['required'];
         }
 
@@ -169,10 +169,10 @@ class ProductController extends Controller
         $product->child_category_id = $request->child_category;
         $product->trademark_id = $request->trademark;
         $product->qty = $request->qty;
-        $product->short_description = $request->short_description;
 
         // Asignar las descripciones largas basadas en los sufijos
         foreach ($locales as $locale) {
+            $product->{"short_description_$locale"} = $request->input("short_description_$locale");
             $product->{"long_description_$locale"} = $request->input("long_description_$locale");
         }
 

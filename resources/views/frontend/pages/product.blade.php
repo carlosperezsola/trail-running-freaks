@@ -238,7 +238,7 @@
                                                         <p class="trf__price">
                                                             {{ $settings->currency_icon }}{{ $product->price }}</p>
                                                     @endif
-                                                    <p class="list_description">{{ $product->short_description }}</p>
+                                                    <p class="list_description">{{ $product->'short_description_' . app()->getLocale() }}</p>
                                                     <ul class="trf__single_pro_icon">
                                                         <form class="shopping-cart-form">
                                                             <input type="hidden" name="product_id"

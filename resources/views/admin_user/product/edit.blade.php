@@ -122,13 +122,17 @@
                                     <input type="text" class="form-control" name="video_link"
                                         value="{{ $product->video_link }}">
                                 </div>
-                                <div class="form-group">
-                                    <label>Short Description</label>
-                                    <textarea name="short_description" class="form-control">{!! $product->short_description !!}</textarea>
-                                </div>
                                 @foreach (config('app.available_locales') as $locale)
                                     <div class="form-group">
-                                        <label for="title_{{ $locale }}">Long Description
+                                        <label for="short_description_{{ $locale }}">Short Description
+                                            ({{ strtoupper($locale) }})</label>
+                                        <textarea name="short_description_{{ $locale }}" id="short_description_{{ $locale }}"
+                                            class="form-control">{!! $product->{'short_description_' . $locale} ?? '' !!}
+                                        </textarea>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="long_description_{{ $locale }}">Long Description
                                             ({{ strtoupper($locale) }})</label>
                                         <textarea name="long_description_{{ $locale }}" id="long_description_{{ $locale }}"
                                             class="form-control summernote">{!! $product->{'long_description_' . $locale} ?? '' !!}

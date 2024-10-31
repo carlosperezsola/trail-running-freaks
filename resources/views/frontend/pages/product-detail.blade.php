@@ -80,7 +80,7 @@
                             @else
                                 <h4>{{ $settings->currency_icon }}{{ $product->currency_icon }}{{ $product->price }}</h4>
                             @endif
-                            <p class="description">{!! $product->{'short_description_' . app()->getLocale()} !!}</p>                            
+                            <p class="description">{!! $product->{'short_description_' . app()->getLocale()} !!}</p>
                             <form class="shopping-cart-form">
                                 <div class="trf__selectbox">
                                     <div class="row">

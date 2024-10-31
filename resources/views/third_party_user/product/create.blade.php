@@ -108,14 +108,21 @@
                                         <input type="text" class="form-control" name="video_link"
                                             value="{{ old('video_link') }}">
                                     </div>
-                                    <div class="form-group trf__input">
-                                        <label>Short Description</label>
-                                        <textarea name="short_description" class="form-control"></textarea>
-                                    </div>
-                                    <div class="form-group trf__input">
-                                        <label>Long Description</label>
-                                        <textarea name="long_description" class="form-control summernote"></textarea>
-                                    </div>
+                                    @foreach (config('app.available_locales') as $locale)
+                                        <div class="form-group">
+                                            <label for="short_description_{{ $locale }}">Short Description
+                                                ({{ strtoupper($locale) }})</label>
+                                            <textarea name="short_description_{{ $locale }}" id="short_description_{{ $locale }}"
+                                                class="form-control"></textarea>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="long_description_{{ $locale }}">Long Description
+                                                ({{ strtoupper($locale) }})</label>
+                                            <textarea name="long_description_{{ $locale }}" id="long_description_{{ $locale }}"
+                                                class="form-control summernote"></textarea>
+                                        </div>
+                                    @endforeach
                                     <div class="form-group trf__input">
                                         <label>Seo Title</label>
                                         <input type="text" class="form-control" name="seo_title"

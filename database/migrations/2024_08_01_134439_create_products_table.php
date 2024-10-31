@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('child_category_id')->nullable();
             $table->integer('trademark_id');
             $table->integer('qty');
-            $table->text('short_description');
+            $table->text('short_description_es');
             $table->text('long_description_es');
             $table->text('video_link')->nullable();
             $table->string('sku')->nullable();

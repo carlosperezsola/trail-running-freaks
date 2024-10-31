@@ -80,15 +80,17 @@ class FrontendProductController extends Controller
                 })
                 ->paginate(12);
         } elseif ($request->has('search')) {
+            $locale = app()->getLocale(); // Idioma actual
+
             $products = Product::with(['options', 'category', 'productImageGalleries'])
                 ->where(['status' => 1, 'is_approved' => 1])
-                ->where(function ($query) use ($request) {
-                    $query->where('name', 'like', '%' . $request->search . '%')
-                        ->orWhere('long_description', 'like', '%' . $request->search . '%')
-                        ->orWhereHas('category', function ($query) use ($request) {
-                            $query->where('name', 'like', '%' . $request->search . '%')
-                                ->orWhere('long_description', 'like', '%' . $request->search . '%');
-                        });
+                ->where(function ($query) use ($request, $locale) {
+                    $query->where("name", 'like', '%' . $request->search . '%')
+                          ->orWhere("long_description_$locale", 'like', '%' . $request->search . '%')
+                          ->orWhereHas('category', function ($query) use ($request, $locale) {
+                              $query->where("name", 'like', '%' . $request->search . '%')
+                                    ->orWhere("long_description_$locale", 'like', '%' . $request->search . '%');
+                          });
                 })
                 ->paginate(12);
         } else {
