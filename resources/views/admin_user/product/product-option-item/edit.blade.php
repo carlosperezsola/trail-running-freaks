@@ -44,13 +44,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="inputState">Status</label>
+                            <label for="inputState">@lang('Status')</label>
                             <select id="inputState" class="form-control" name="status">
-                              <option {{$optionItem->status == 1 ? 'selected' : ''}} value="1">Active</option>
-                              <option {{$optionItem->status == 0 ? 'selected' : ''}} value="0">Inactive</option>
+                              <option {{$optionItem->status == 1 ? 'selected' : ''}} value="1">@lang('Active')</option>
+                              <option {{$optionItem->status == 0 ? 'selected' : ''}} value="0">@lang('Inactive')</option>
                             </select>
                         </div>
-                        <button type="submmit" class="btn btn-primary">Update</button>
+                        <button type="submmit" class="btn btn-primary">@lang('Update')</button>
                     </form>
                   </div>
 

@@ -69,7 +69,7 @@
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
-                                        <button type="submit" class="common_btn">Create</button>
+                                        <button type="submit" class="common_btn">@lang('Create')</button>
                                     </div>
                                 </div>
                             </form>

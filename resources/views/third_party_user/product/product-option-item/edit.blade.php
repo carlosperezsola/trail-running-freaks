@@ -46,7 +46,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group trf__input">
-                                        <label for="inputState">Status</label>
+                                        <label for="inputState">@lang('Status')</label>
                                         <select id="inputState" class="form-control" name="status">
                                             <option {{ $optionItem->status == 1 ? 'selected' : '' }} value="1">Active
                                             </option>
@@ -54,7 +54,7 @@
                                                 Inactive</option>
                                         </select>
                                     </div>
-                                    <button type="submmit" class="btn btn-primary">Update</button>
+                                    <button type="submmit" class="btn btn-primary">@lang('Update')</button>
                                 </form>
                             </div>
                         </div>

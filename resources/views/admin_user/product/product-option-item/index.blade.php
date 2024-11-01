@@ -15,7 +15,7 @@
                         <div class="card-header">
                             <h4>Option: {{ $option->name }} </h4>
                             <div class="card-header-action">
-                                <a href="{{ route('admin_user.products-option-item.create', ['productId' => $product->id, 'optionId' => $option->id]) }}" class="btn btn-primary"><i class="fas fa-plus"></i> Create New</a>
+                                <a href="{{ route('admin_user.products-option-item.create', ['productId' => $product->id, 'optionId' => $option->id]) }}" class="btn btn-primary"><i class="fas fa-plus"></i> @lang('Create New')</a>
                             </div>
                         </div>
                         <div class="card-body">

@@ -28,7 +28,7 @@
                                         <input type="file" class="form-control" name="image">
                                     </div>
                                     <div class="form-group trf__input">
-                                        <label>Name</label>
+                                        <label>@lang('Name')</label>
                                         <input type="text" class="form-control" name="name"
                                             value="{{ $product->name }}">
                                     </div>
@@ -154,15 +154,15 @@
                                         <textarea name="seo_description" class="form-control">{!! $product->seo_description !!}</textarea>
                                     </div>
                                     <div class="form-group trf__input">
-                                        <label for="inputState">Status</label>
+                                        <label for="inputState">@lang('Status')</label>
                                         <select id="inputState" class="form-control" name="status">
                                             <option {{ $product->status == 1 ? 'selected' : '' }} value="1">Active
                                             </option>
-                                            <option {{ $product->status == 0 ? 'selected' : '' }} value="0">Inactive
+                                            <option {{ $product->status == 0 ? 'selected' : '' }} value="0">@lang('Update')
                                             </option>
                                         </select>
                                     </div>
-                                    <button type="submmit" class="btn btn-primary">Update</button>
+                                    <button type="submmit" class="btn btn-primary">@lang('Update')</button>
                                 </form>
                             </div>
                         </div>

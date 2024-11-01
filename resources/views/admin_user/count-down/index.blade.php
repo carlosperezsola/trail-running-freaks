@@ -3,14 +3,14 @@
 @section('container')
     <section class="section">
         <div class="section-header">
-            <h1>Count Down</h1>
+            <h1>@lang('Count Down')</h1>
         </div>
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Count Down End Date</h4>
+                            <h4>@lang('Count Down End Date')</h4>
                         </div>
                         <div class="card-body">
                             <form action="{{ route('admin_user.count-down.update') }}" method="POST">
@@ -18,15 +18,15 @@
                                 @method('PUT')
                                 <div class="">
                                     <div class="form-group">
-                                        <label>Count Down Name</label>
+                                        <label>@lang('Count Down Name')</label>
                                         <input type="text" class="form-control" name="name" value="{{ old('name', $countDownName) }}">
                                     </div>                                                                        
                                     <div class="form-group">
-                                        <label>Sale End Date</label>
+                                        <label>@lang('Sale End Date')</label>
                                         <input type="text" class="form-control datepicker" name="end_date"
                                             value="{{ @$countDownDate->end_date }}">
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Save</button>
+                                    <button type="submit" class="btn btn-primary">@lang('Save')</button>
                                 </div>
                             </form>
                         </div>
@@ -39,15 +39,15 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Add Count Down Products</h4>
+                            <h4>@lang('Add Count Down Products')</h4>
                         </div>
                         <div class="card-body">
                             <form action="{{route('admin_user.count-down.add-product')}}" method="POST">
                                 @csrf
                                 <div class="form-group">
-                                    <label>Add Product</label>
+                                    <label>@lang('Add Product')</label>
                                     <select name="product" id="" class="form-control select2">
-                                        <option value="">Select</option>
+                                        <option value="">@lang('Select')</option>
                                         @foreach ($products as $product)
                                             <option value="{{ $product->id }}">{{ $product->name }}</option>
                                         @endforeach
@@ -56,26 +56,26 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Show at home?</label>
+                                            <label>@lang('Show at home?')</label>
                                             <select name="show_at_home" id="" class="form-control">
-                                                <option value="">Select</option>
-                                                <option value="1">Yes</option>
-                                                <option value="0">No</option>
+                                                <option value="">@lang('Select')</option>
+                                                <option value="1">@lang('Yes')</option>
+                                                <option value="0">@lang('No')</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Status</label>
+                                            <label>@lang('Status')</label>
                                             <select name="status" id="" class="form-control">
-                                                <option value="">Select</option>
-                                                <option value="1">Active</option>
-                                                <option value="0">Inactive</option>
+                                                <option value="">@lang('Select')</option>
+                                                <option value="1">@lang('Active')</option>
+                                                <option value="0">@lang('Inactive')</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="submit" class="btn btn-primary">@lang('Save')</button>
                             </form>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>All Count Down Products</h4>
+                            <h4>@lang('All Count Down Products')</h4>
                         </div>
                         <div class="card-body">
                             {{ $dataTable->table() }}

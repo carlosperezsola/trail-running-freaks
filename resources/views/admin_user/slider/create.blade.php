@@ -41,13 +41,13 @@
                                     <input type="text" class="form-control" name="serial" value="{{old('serial')}}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputState">Status</label>
+                                    <label for="inputState">@lang('Status')</label>
                                     <select id="inputState" class="form-control" name="status">
-                                        <option value="1">Active</option>
-                                        <option value="0">Inactive</option>
+                                        <option value="1">@lang('Active')</option>
+                                        <option value="0">@lang('Inactive')</option>
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Create</button>
+                                <button type="submit" class="btn btn-primary">@lang('Create')</button>
                             </form>
                         </div>
                     </div>

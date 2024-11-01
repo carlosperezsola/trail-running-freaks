@@ -6,7 +6,7 @@
                 @method('PUT')
                 <h5>Promo one</h5>
                 <div class="form-group">
-                    <label for="">Status</label>
+                    <label for="">@lang('Status')</label>
                     <br>
                     <label class="custom-switch mt-2">
                         <input type="checkbox"
@@ -33,7 +33,7 @@
                 <hr>
                 <h5>Promo two</h5>
                 <div class="form-group">
-                    <label for="">Status</label>
+                    <label for="">@lang('Status')</label>
                     <br>
                     <label class="custom-switch mt-2">
                         <input type="checkbox"
@@ -59,7 +59,7 @@
                 </div>
                 <h5>Promo Three</h5>
                 <div class="form-group">
-                    <label for="">Status</label>
+                    <label for="">@lang('Status')</label>
                     <br>
                     <label class="custom-switch mt-2">
                         <input type="checkbox"
@@ -83,7 +83,7 @@
                     <input type="text" class="form-control" name="promo_three_url"
                         value="{{ @$homepage_section_promo->promo_three->promo_url }}">
                 </div>
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary">@lang('Update')</button>
             </form>
         </div>
     </div>

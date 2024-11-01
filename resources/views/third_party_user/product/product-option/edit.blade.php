@@ -21,20 +21,20 @@
                                     @csrf
                                     @method('PUT')
                                     <div class="form-group trf__input">
-                                        <label>Name</label>
+                                        <label>@lang('Name')</label>
                                         <input type="text" class="form-control" name="name"
                                             value="{{ $option->name }}">
                                     </div>
                                     <div class="form-group trf__input">
-                                        <label for="inputState">Status</label>
+                                        <label for="inputState">@lang('Status')</label>
                                         <select id="inputState" class="form-control" name="status">
                                             <option {{ $option->status == 1 ? 'selected' : '' }} value="1">Active
                                             </option>
-                                            <option {{ $option->status == 0 ? 'selected' : '' }} value="0">Inactive
+                                            <option {{ $option->status == 0 ? 'selected' : '' }} value="0">@lang('Update')
                                             </option>
                                         </select>
                                     </div>
-                                    <button type="submmit" class="btn btn-primary">Update</button>
+                                    <button type="submmit" class="btn btn-primary">@lang('Update')</button>
                                 </form>
                             </div>
                         </div>

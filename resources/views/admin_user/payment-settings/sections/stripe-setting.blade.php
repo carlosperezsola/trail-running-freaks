@@ -53,7 +53,7 @@
                     <input type="text" class="form-control" name="secret_key"
                         value="{{ $stripeSetting->secret_key }}">
                 </div>
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary">@lang('Update')</button>
             </form>
         </div>
     </div>

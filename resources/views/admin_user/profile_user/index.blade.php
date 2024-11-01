@@ -28,7 +28,7 @@
                                         <input type="file" name="user_img" class="form-control"> <!-- Changed to 'user_img' -->
                                     </div>
                                     <div class="form-group col-md-6 col-12">
-                                        <label>Name</label>
+                                        <label>@lang('Name')</label>
                                         <input type="text" name="name" class="form-control" value="{{ Auth::user()->name }}">
                                     </div>
                                     <div class="form-group col-md-6 col-12">

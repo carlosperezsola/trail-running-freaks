@@ -47,13 +47,13 @@
                                     <input type="text" class="form-control" name="serial" value="{{$slider->serial}}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputState">Status</label>
+                                    <label for="inputState">@lang('Status')</label>
                                     <select id="inputState" class="form-control" name="status">
-                                        <option {{$slider->status == 1 ? 'selected': ''}} value="1">Active</option>
-                                        <option {{$slider->status == 0 ? 'selected': ''}}value="0">Inactive</option>
+                                        <option {{$slider->status == 1 ? 'selected': ''}} value="1">@lang('Active')</option>
+                                        <option {{$slider->status == 0 ? 'selected': ''}}value="0">@lang('Inactive')</option>
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="submit" class="btn btn-primary">@lang('Update')</button>
                             </form>
                         </div>
                     </div>

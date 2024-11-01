@@ -78,7 +78,7 @@
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
-                                        <button type="submit" class="common_btn">Update</button>
+                                        <button type="submit" class="common_btn">@lang('Update')</button>
                                     </div>
                                 </div>
                             </form>

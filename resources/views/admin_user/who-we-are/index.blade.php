@@ -19,7 +19,7 @@
                                     <label>Content</label>
                                     <textarea name="content" class="summernote">{!! @$content->content !!}</textarea>
                                 </div>
-                                <button type="submmit" class="btn btn-primary">Update</button>
+                                <button type="submmit" class="btn btn-primary">@lang('Update')</button>
                             </form>
                         </div>
                     </div>

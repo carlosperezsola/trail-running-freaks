@@ -15,7 +15,7 @@
                             </div>
                             <div class="card-header-action text-end">
                                 <a href="{{ route('admin_user.sub-category.create') }}" class="btn btn-primary"><i
-                                        class="fas fa-plus"></i> Create New</a>
+                                        class="fas fa-plus"></i> @lang('Create New')</a>
                             </div>
                         </div>
                         <div class="card-body p-0 p-lg-4">

@@ -65,7 +65,7 @@
                                         <input type="text" class="form-control" name="insta_link"
                                             value="{{ $profile->insta_link }}">
                                     </div>
-                                    <button type="submmit" class="btn btn-primary">Update</button>
+                                    <button type="submmit" class="btn btn-primary">@lang('Update')</button>
                                 </form>
                             </div>
                         </div>

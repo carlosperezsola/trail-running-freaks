@@ -3,15 +3,15 @@
 @section('container')
     <section class="section">
         <div class="section-header">
-            <h1>Footer</h1>
+            <h1>@lang('Footer')</h1>
         </div>
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>General Info</h4>
+                        <h4>@lang('General Info')</h4>
                         <div class="card-header-action">
-                            <a href="{{ route('admin_user.footer-grid.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Create New</a>
+                            <a href="{{ route('admin_user.footer-grid.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> @lang('Create New')</a>
                         </div>
                     </div>
                     <div class="card-body">

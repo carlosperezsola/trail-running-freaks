@@ -24,7 +24,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Name</label>
+                                    <label>@lang('Name')</label>
                                     <input type="text" class="form-control" name="name" value="">
                                 </div>
 
@@ -37,13 +37,13 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputState">Status</label>
+                                    <label for="inputState">@lang('Status')</label>
                                     <select id="inputState" class="form-control" name="status">
-                                        <option value="1">Active</option>
-                                        <option value="0">Inactive</option>
+                                        <option value="1">@lang('Active')</option>
+                                        <option value="0">@lang('Inactive')</option>
                                     </select>
                                 </div>
-                                <button type="submmit" class="btn btn-primary">Create</button>
+                                <button type="submmit" class="btn btn-primary">@lang('Create')</button>
                             </form>
                         </div>
 
