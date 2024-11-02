@@ -3,17 +3,17 @@
 @section('container')
     <section class="section">
         <div class="section-header">
-            <h1>Product Option Items</h1>
+            <h1>@lang('Product Option Items')</h1>
         </div>
         <div class="mb-3">
-            <a href="{{ route('admin_user.products-option.index', ['product' => $product->id]) }}" class="btn btn-primary">Back</a>
+            <a href="{{ route('admin_user.products-option.index', ['product' => $product->id]) }}" class="btn btn-primary">@lang('Back')</a>
         </div>
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Option: {{ $option->name }} </h4>
+                            <h4>@lang('Option'): {{ $option->name }} </h4>
                             <div class="card-header-action">
                                 <a href="{{ route('admin_user.products-option-item.create', ['productId' => $product->id, 'optionId' => $option->id]) }}" class="btn btn-primary"><i class="fas fa-plus"></i> @lang('Create New')</a>
                             </div>

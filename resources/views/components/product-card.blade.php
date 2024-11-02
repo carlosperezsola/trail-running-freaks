@@ -42,7 +42,7 @@
                     </select>
                 @endforeach
                 <input name="qty" type="hidden" min="1" max="100" value="1" />
-                <button class="add_cart" href="#" type="submit">add to cart</button>
+                <button class="add_cart" href="#" type="submit">@lang('add to cart')</button>
             </form>
         </div>
     </div>

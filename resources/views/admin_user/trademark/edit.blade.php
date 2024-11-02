@@ -13,7 +13,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Update Trademark</h4>
+                            <h4>@lang('Update') Trademark</h4>
                         </div>
                         <div class="card-body">
                             <form action="{{ route('admin_user.trademark.update', $trademark->id) }}" method="POST"
@@ -36,11 +36,11 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="inputState">Is Featured</label>
+                                    <label for="inputState">@lang('Is Featured')</label>
                                     <select id="inputState" class="form-control" name="is_featured">
-                                        <option value="">Select</option>
-                                        <option {{ $trademark->is_featured == 1 ? 'selected' : '' }} value="1">Yes</option>
-                                        <option {{ $trademark->is_featured == 0 ? 'selected' : '' }} value="0">No</option>
+                                        <option value="">@lang('Select')</option>
+                                        <option {{ $trademark->is_featured == 1 ? 'selected' : '' }} value="1">@lang('Yes')</option>
+                                        <option {{ $trademark->is_featured == 0 ? 'selected' : '' }} value="0">@lang('No')</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

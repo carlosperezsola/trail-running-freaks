@@ -30,7 +30,7 @@
                                         <select id="inputState" class="form-control" name="status">
                                             <option {{ $option->status == 1 ? 'selected' : '' }} value="1">Active
                                             </option>
-                                            <option {{ $option->status == 0 ? 'selected' : '' }} value="0">@lang('Update')
+                                            <option {{ $option->status == 0 ? 'selected' : '' }} value="0">@lang('Inactive')
                                             </option>
                                         </select>
                                     </div>

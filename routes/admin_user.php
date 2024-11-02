@@ -147,4 +147,4 @@ Route::get('payment-settings', [PaymentSettingController::class, 'index'])->name
 Route::resource('paypal-setting', PaypalSettingController::class);
 Route::put('stripe-setting/{id}', [StripeSettingController::class, 'update'])->name('stripe-setting.update');
 
-Route::get('translations', [AdminTranslationController::class, 'index'])->name('translations.index');
+Route::get('manage-translations', [AdminTranslationController::class, 'index'])->name('manage-translations.index');

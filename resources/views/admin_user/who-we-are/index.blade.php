@@ -3,7 +3,7 @@
 @section('container')
     <section class="section">
         <div class="section-header">
-            <h1>Who We Are</h1>
+            <h1>@lang('Who We Are')</h1>
         </div>
         <div class="section-body">
             <div class="row">
@@ -16,7 +16,7 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
-                                    <label>Content</label>
+                                    <label>@lang('Content')</label>
                                     <textarea name="content" class="summernote">{!! @$content->content !!}</textarea>
                                 </div>
                                 <button type="submmit" class="btn btn-primary">@lang('Update')</button>

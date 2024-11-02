@@ -3,14 +3,14 @@
 @section('container')
     <section class="section">
         <div class="section-header">
-            <h1>Product Option</h1>
+            <h1>@lang('Product Option')</h1>
         </div>
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Create Option</h4>
+                            <h4>@lang('Create Option')</h4>
                         </div>
                         <div class="card-body">
                             <form action="{{ route('admin_user.products-option.store') }}" method="POST">

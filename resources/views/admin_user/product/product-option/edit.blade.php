@@ -3,14 +3,14 @@
 @section('container')
     <section class="section">
         <div class="section-header">
-            <h1>Product Option</h1>
+            <h1>@lang('Product Option')</h1>
         </div>
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Update Option</h4>
+                            <h4>@lang('Update Option')</h4>
                         </div>
                         <div class="card-body">
                             <form action="{{ route('admin_user.products-option.update', $option->id) }}" method="POST">
@@ -24,7 +24,7 @@
                                     <label for="inputState">@lang('Status')</label>
                                     <select id="inputState" class="form-control" name="status">
                                         <option {{ $option->status == 1 ? 'selected' : '' }} value="1">@lang('Active')</option>
-                                        <option {{ $option->status == 0 ? 'selected' : '' }} value="0">@lang('Update')
+                                        <option {{ $option->status == 0 ? 'selected' : '' }} value="0">@lang('Inactive')
                                         </option>
                                     </select>
                                 </div>

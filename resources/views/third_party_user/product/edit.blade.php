@@ -158,7 +158,7 @@
                                         <select id="inputState" class="form-control" name="status">
                                             <option {{ $product->status == 1 ? 'selected' : '' }} value="1">Active
                                             </option>
-                                            <option {{ $product->status == 0 ? 'selected' : '' }} value="0">@lang('Update')
+                                            <option {{ $product->status == 0 ? 'selected' : '' }} value="0">@lang('Inactive')
                                             </option>
                                         </select>
                                     </div>

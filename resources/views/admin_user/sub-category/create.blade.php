@@ -3,7 +3,7 @@
 @section('container')
     <section class="section">
         <div class="section-header">
-            <h1>Sub Category</h1>
+            <h1>Sub @lang('Category')</h1>
         </div>
 
         <div class="section-body">
@@ -11,15 +11,14 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Create Sub Category</h4>
-                        </div>
+                            @lang('Create Sub Category')</div>
                         <div class="card-body">
                             <form action="{{ route('admin_user.sub-category.store') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="inputState">@lang('Status')</label>
                                     <select id="inputState" class="form-control" name="category">
-                                        <option value="">Select</option>
+                                        <option value="">@lang('Select')</option>
                                         @foreach ($categories as $category)
                                             <option value="{{$category->id}}">{{$category->name}}</option>
                                         @endforeach

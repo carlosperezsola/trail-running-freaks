@@ -36,7 +36,7 @@
                                     <label for="inputState">@lang('Status')</label>
                                     <select id="inputState" class="form-control" name="status">
                                         <option {{ $footer->status === 1 ? 'selected' : '' }} value="1">@lang('Active')</option>
-                                        <option {{ $footer->status === 0 ? 'selected' : '' }} value="0">@lang('Update')
+                                        <option {{ $footer->status === 0 ? 'selected' : '' }} value="0">@lang('Inactive')
                                         </option>
                                     </select>
                                 </div>

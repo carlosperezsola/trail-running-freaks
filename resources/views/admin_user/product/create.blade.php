@@ -3,20 +3,21 @@
 @section('container')
     <section class="section">
         <div class="section-header">
-            <h1>Product</h1>
+            <h1>@lang('Product')</h1>
         </div>
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Create Product</h4>
+                            <h4>@lang('Create Product')</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin_user.products.store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('admin_user.products.store') }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
-                                    <label>Image</label>
+                                    <label>@lang('Image')</label>
                                     <input type="file" class="form-control" name="image">
                                 </div>
                                 <div class="form-group">
@@ -26,9 +27,9 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="inputState">Category</label>
+                                            <label for="inputState">@lang('Category')</label>
                                             <select id="inputState" class="form-control main-category" name="category">
-                                                <option value="">Select</option>
+                                                <option value="">@lang('Select')</option>
                                                 @foreach ($categories as $category)
                                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                 @endforeach
@@ -37,18 +38,19 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="inputState">Sub Category</label>
+                                            <label for="inputState">Sub @lang('Category')</label>
                                             <select id="inputState" class="form-control sub-category" name="sub_category">
-                                                <option value="">Select</option>
+                                                <option value="">@lang('Select')</option>
 
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="inputState">Child Category</label>
-                                            <select id="inputState" class="form-control child-category" name="child_category">
-                                                <option value="">Select</option>
+                                            <label for="inputState">@lang('Child Category')</label>
+                                            <select id="inputState" class="form-control child-category"
+                                                name="child_category">
+                                                <option value="">@lang('Select')</option>
                                             </select>
                                         </div>
                                     </div>
@@ -56,7 +58,7 @@
                                 <div class="form-group">
                                     <label for="inputState">Trademark</label>
                                     <select id="inputState" class="form-control" name="trademark">
-                                        <option value="">Select</option>
+                                        <option value="">@lang('Select')</option>
                                         @foreach ($trademarks as $trademark)
                                             <option value="{{ $trademark->id }}">{{ $trademark->name }}</option>
                                         @endforeach
@@ -67,79 +69,76 @@
                                     <input type="text" class="form-control" name="sku" value="{{ old('sku') }}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Price</label>
+                                    <label>@lang('Price')</label>
                                     <input type="text" class="form-control" name="price" value="{{ old('price') }}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Offer Price</label>
+                                    <label>@lang('Offer Price')</label>
                                     <input type="text" class="form-control" name="offer_price"
                                         value="{{ old('offer_price') }}">
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Offer Start Date</label>
-                                            <input type="text" class="form-control datepicker" name="offer_start_date" value="{{ old('offer_start_date') }}">
+                                            <label>@lang('Offer Start Date')</label>
+                                            <input type="text" class="form-control datepicker" name="offer_start_date"
+                                                value="{{ old('offer_start_date') }}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Offer End Date</label>
-                                            <input type="text" class="form-control datepicker" name="offer_end_date" value="{{ old('offer_end_date') }}">
+                                            <label>@lang('Offer End Date')</label>
+                                            <input type="text" class="form-control datepicker" name="offer_end_date"
+                                                value="{{ old('offer_end_date') }}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Stock Quantity</label>
-                                    <input type="number" min="0" class="form-control" name="qty" value="{{ old('qty') }}">
+                                    <label>@lang('Stock Quantity')</label>
+                                    <input type="number" min="0" class="form-control" name="qty"
+                                        value="{{ old('qty') }}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Video Link</label>
+                                    <label>@lang('Video Link')</label>
                                     <input type="text" class="form-control" name="video_link"
                                         value="{{ old('video_link') }}">
                                 </div>
                                 @foreach (config('app.available_locales') as $locale)
                                     <div class="form-group">
-                                        <label for="short_description_{{ $locale }}">Short Description
-                                            ({{ strtoupper($locale) }})</label>
+                                        <label for="short_description_{{ $locale }}">@lang('Short Description')
+                                            ({{ strtoupper($locale) }})
+                                        </label>
                                         <textarea name="short_description_{{ $locale }}" id="short_description_{{ $locale }}"
                                             class="form-control">{!! $product->{'short_description_' . $locale} ?? '' !!}
                                         </textarea>
                                     </div>
-                                    
+
                                     <div class="form-group">
-                                        <label for="long_description_{{ $locale }}">Long Description
+                                        <label for="long_description_{{ $locale }}">@lang('Long Description')
                                             ({{ strtoupper($locale) }})</label>
                                         <textarea name="long_description_{{ $locale }}" id="long_description_{{ $locale }}"
                                             class="form-control summernote">{!! $product->{'long_description_' . $locale} ?? '' !!}
                                         </textarea>
                                     </div>
                                 @endforeach
-                                {{-- <div class="form-group">
-                                    <label>Short Description</label>
-                                    <textarea name="short_description" class="form-control"></textarea>
-                                </div>
                                 <div class="form-group">
-                                    <label>Long Description</label>
-                                    <textarea name="long_description" class="form-control summernote"></textarea>
-                                </div> --}}
-                                <div class="form-group">
-                                    <label for="inputState">Product Type</label>
+                                    <label for="inputState">@lang('Product Type')</label>
                                     <select id="inputState" class="form-control" name="product_type">
-                                        <option value="">Select</option>
-                                        <option value="new_arrival">New Arrival</option>
-                                        <option value="featured_product">Featured</option>
-                                        <option value="top_product">Top Product</option>
-                                        <option value="best_product">Best Product</option>
+                                        <option value="">@lang('Option')Select</option>
+                                        <option value="new_arrival">@lang('New Arrival')</option>
+                                        <option value="featured_product">@lang('Featured')</option>
+                                        <option value="top_product">@lang('Top Product')</option>
+                                        <option value="best_product">@lang('Best Product')</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Seo Title</label>
-                                    <input type="text" class="form-control" name="seo_title" value="{{ old('seo_title') }}">
+                                    <label>@lang('Seo Title')</label>
+                                    <input type="text" class="form-control" name="seo_title"
+                                        value="{{ old('seo_title') }}">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Seo Description</label>
+                                    <label>@lang('Seo Description')</label>
                                     <textarea name="seo_description" class="form-control"></textarea>
                                 </div>
                                 <div class="form-group">
@@ -174,7 +173,8 @@
                         $('.sub-category').html('<option value="">Select</option>')
 
                         $.each(data, function(i, item) {
-                            $('.sub-category').append(`<option value="${item.id}">${item.name}</option>`)
+                            $('.sub-category').append(
+                                `<option value="${item.id}">${item.name}</option>`)
                         })
                     },
                     error: function(xhr, status, error) {
@@ -197,7 +197,8 @@
                         $('.child-category').html('<option value="">Select</option>')
 
                         $.each(data, function(i, item) {
-                            $('.child-category').append(`<option value="${item.id}">${item.name}</option>`)
+                            $('.child-category').append(
+                                `<option value="${item.id}">${item.name}</option>`)
                         })
                     },
                     error: function(xhr, status, error) {

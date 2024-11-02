@@ -11,7 +11,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Create Slider</h4>
+                            <h4>@lang('Create') Slider</h4>
                         </div>
                         <div class="card-body">
                             <form action="{{route('admin_user.slider.store')}}" method="POST" enctype="multipart/form-data">
@@ -21,19 +21,19 @@
                                     <input type="file" class="form-control" name="banner">
                                 </div>
                                 <div class="form-group">
-                                    <label>Type</label>
+                                    <label>@lang('Type')</label>
                                     <input type="text" class="form-control" name="type" value="{{old('type')}}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Title</label>
+                                    <label>@lang('Title')</label>
                                     <input type="text" class="form-control" name="title" value="{{old('title')}}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Starting price</label>
+                                    <label>@lang('Starting price')</label>
                                     <input type="text" class="form-control" name="starting_price" value="{{old('starting_price')}}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Button Url</label>
+                                    <label>@lang('Button Url')</label>
                                     <input type="text" class="form-control" name="cta_url" value="{{old('cta_url')}}">
                                 </div>
                                 <div class="form-group">

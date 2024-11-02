@@ -3,7 +3,7 @@
 @section('container')
     <section class="section">
         <div class="section-header">
-            <h1>Third Party Profile</h1>
+            <h1>@lang('Third Party Profile')</h1>
         </div>
 
         <div class="section-body">
@@ -11,27 +11,27 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Update Third Party Profile</h4>
+                            <h4>@lang('Update Third Party Profile')</h4>
                         </div>
                         <div class="card-body">
                             <form action="{{ route('admin_user.third-party-profile.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
-                                    <label>Preview</label>
+                                    <label>@lang('Preview')</label>
                                     <br>
                                     <img width="200px" src="{{ asset($profile->banner) }}" alt="">
                                 </div>
                                 <div class="form-group">
-                                    <label>Banner</label>
+                                    <label>@lang('Banner')</label>
                                     <input type="file" class="form-control" name="banner">
                                 </div>
                                 <div class="form-group">
-                                    <label>Shop Name</label>
+                                    <label>@lang('Shop Name')</label>
                                     <input type="text" class="form-control" name="shop_name"
                                         value="{{ $profile->shop_name }}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Phone</label>
+                                    <label>@lang('Phone')</label>
                                     <input type="text" class="form-control" name="phone" value="{{ $profile->phone }}">
                                 </div>
                                 <div class="form-group">
@@ -39,12 +39,12 @@
                                     <input type="text" class="form-control" name="email" value="{{ $profile->email }}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Address</label>
+                                    <label>@lang('Address')</label>
                                     <input type="text" class="form-control" name="address"
                                         value="{{ $profile->address }}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Description</label>
+                                    <label>@lang('Description')</label>
                                     <textarea class="summernote" name="description">{{ $profile->description }}</textarea>
                                 </div>
                                 <div class="form-group">

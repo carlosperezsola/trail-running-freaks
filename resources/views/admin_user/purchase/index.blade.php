@@ -3,14 +3,14 @@
 @section('container')
     <section class="section">
         <div class="section-header">
-            <h1>Purchases</h1>
+            <h1>@lang('Purchases')</h1>
         </div>
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>All Purchases</h4>
+                            <h4>@lang('All Purchases')</h4>
                         </div>
                         <div class="card-body">
                             {{ $dataTable->table() }}
