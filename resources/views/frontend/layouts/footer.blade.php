@@ -17,11 +17,15 @@
                     <a class="trf__footer_2_logo" href="{{ url('/') }}">
                         <img src="{{ asset(@$footerInfo->logo) }}" alt="logo">
                     </a>
-                    <a class="action" href="callto:{{ @$footerInfo->phone }}"><i
-                            class="fas fa-phone-alt"></i>{{ @$footerInfo->phone }}</a>
-                    <a class="action" href="mailto:{{ @$footerInfo->email }}"><i
-                            class="far fa-envelope"></i>{{ @$footerInfo->email }}</a>
-                    <p><i class="fal fa-map-marker-alt"></i> {{ @$footerInfo->address }}</p>
+                    <a class="action" href="callto:{{ @$footerInfo->phone }}">
+                        <p><i class="fas fa-phone-alt me-3 fa-fw me-3 fa-fw"></i>{{ @$footerInfo->phone }}</p>
+                    </a>
+                    <a class="action" href="mailto:{{ @$footerInfo->email }}">
+                        <p><i class="far fa-envelope me-3 fa-fw"></i>{{ @$footerInfo->email }}</p>
+                    </a>
+                    <p>
+                        <i class="fal fa-map-marker-alt me-3 fa-fw"></i>{{ @$footerInfo->address }}
+                    </p>
                     <ul class="trf__footer_social">
                         @foreach ($FooterSocial as $link)
                             <li><a class="behance" target="_blank" href="{{ $link->url }}"><i

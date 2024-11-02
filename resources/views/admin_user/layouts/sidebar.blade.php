@@ -7,22 +7,38 @@
             <a href="">||</a>
         </div>
         <ul class="sidebar-menu">
+            <div class="dropdown menu-translation ml-4"> 
+                <a class="btn btn-dark shadow-none menu-translation dropdown-toggle ms-1 ms-md-0 p-0 rounded-circle" type="button" id="languageDropdownAdmin" data-toggle="dropdown" aria-expanded="false">
+                    <img class="border rounded-circle border border-1 border-white flag" src="{{ asset('vendor/blade-country-flags/1X1-' . (app()->getLocale() === 'en' ? 'gb' : app()->getLocale()) . '.svg') }}" alt="{{ strtoupper(app()->getLocale()) }}" />
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end w-auto" aria-labelledby="languageDropdownAdmin">
+                    @foreach (LocaleConfig::getLocales() as $locale)
+                        @if (!App::isLocale($locale))
+                            <li>
+                                <a class="dropdown-item mx-2" href="{{ Route::localizedUrl($locale) }}">
+                                    <img class="mx-auto d-block border rounded-circle border border-1 border-white flag" src="{{ asset('vendor/blade-country-flags/1x1-' . ($locale === 'en' ? 'gb' : $locale) . '.svg') }}" alt="{{ strtoupper($locale) }}" />
+                                </a>
+                            </li>
+                        @endif
+                    @endforeach
+                </ul>
+            </div>            
             <li class="menu-header">@lang('Dashboard')</li>
             <li class="dropdown {{ setActive([
                     'admin_user.*',
                     'user.dashboard.*',
                 ]) }}">
-                <a href="{{ route('admin_user.dashboard') }}" class="nav-link line-height-menu my-2"><i
+                <a href="{{ route('admin_user.dashboard') }}" class="nav-link line-height-menu"><i
                         class="fas fa-fire line-height-menu"></i><span>@lang('Dashboard')</span></a>
             </li>
             <li class="dropdown">
-                <a href="{{ route('user.dashboard') }}" class="nav-link line-height-menu my-2" target="_blank"><i
+                <a href="{{ route('user.dashboard') }}" class="nav-link line-height-menu" target="_blank"><i
                         class="fas fa-user line-height-menu"></i><span>@lang('User Dashboard')</span></a>
             </li>
             <li class="menu-header">Ecommerce</li>
             <li
                 class="dropdown {{ setActive(['admin_user.category.*', 'admin_user.sub-category.*', 'admin_user.child-category.*']) }}">
-                <a href="#" class="nav-link line-height-menu my-2 has-dropdown line-height-menu" data-toggle="dropdown"><i class="fas fa-list"></i>
+                <a href="#" class="nav-link line-height-menu has-dropdown line-height-menu" data-toggle="dropdown"><i class="fas fa-list"></i>
                     <span>@lang('Manage Categories')</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ setActive(['admin_user.category.*']) }}"><a class="nav-link line-height-menu my-2 line-height-menu"
@@ -43,7 +59,7 @@
                     'admin_user.seller-products.*',
                     'admin_user.seller-pending-products.*',
                 ]) }}">
-                <a href="#" class="nav-link line-height-menu my-2 has-dropdown line-height-menu" data-toggle="dropdown"><i class="fas fa-box"></i>
+                <a href="#" class="nav-link line-height-menu has-dropdown line-height-menu" data-toggle="dropdown"><i class="fas fa-box"></i>
                     <span>@lang('Manage Products')</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ setActive(['admin_user.trademark.*']) }}"><a class="nav-link line-height-menu my-2 line-height-menu"
@@ -66,7 +82,7 @@
                 </ul>
             </li>
             <li class="dropdown {{ setActive(['admin_user.third-party-profile.*', 'admin_user.shipping-rule.*']) }}">
-                <a href="#" class="nav-link line-height-menu my-2 has-dropdown" data-toggle="dropdown"><i
+                <a href="#" class="nav-link line-height-menu has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-columns"></i><span>Ecommerce</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ setActive(['admin_user.third-party-profile.*']) }}"><a class="nav-link line-height-menu my-2"
@@ -83,13 +99,13 @@
                 </ul>
             </li>
             <li>
-                <a class="nav-link line-height-menu my-2" href="{{ route('admin_user.purchase.index') }}">
+                <a class="nav-link line-height-menu" href="{{ route('admin_user.purchase.index') }}">
                     <i class="fas fa-cart-plus"></i><span>@lang('Purchases')</span>
                 </a>
             </li>
             <li
                 class="dropdown {{ setActive(['admin_user.slider.*', 'admin_user.who-we-are.*', 'admin_user.terms-and-conditions.*']) }}">
-                <a href="#" class="nav-link line-height-menu my-2 has-dropdown" data-toggle="dropdown"><i class="fas fa-cog"></i>
+                <a href="#" class="nav-link line-height-menu has-dropdown" data-toggle="dropdown"><i class="fas fa-cog"></i>
                     <span>@lang('Manage Website')</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ setActive(['admin_user.slider.*']) }}">
@@ -108,7 +124,7 @@
                 </ul>
             </li>
             <li>
-                <a class="nav-link line-height-menu my-2 {{ setActive(['admin_user.promo.*']) }}"
+                <a class="nav-link line-height-menu {{ setActive(['admin_user.promo.*']) }}"
                     href="{{ route('admin_user.promo.index') }}">
                     <i class="fas fa-ad"></i> <span>@lang('Promos')</span>
                 </a>
@@ -116,7 +132,7 @@
             <li class="menu-header">@lang('More features')</li>
             <li
                 class="dropdown {{ setActive(['admin_user.footer-info.index', 'admin_user.footer-socials.*', 'admin_user.footer-grid.*']) }}">
-                <a href="#" class="nav-link line-height-menu my-2 has-dropdown" data-toggle="dropdown"><i
+                <a href="#" class="nav-link line-height-menu has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-th-large"></i><span>@lang('Footer')</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ setActive(['admin_user.footer-info.index']) }}"><a class="nav-link line-height-menu my-2"
@@ -128,20 +144,20 @@
                 </ul>
             </li>
             <li>
-                <a class="nav-link line-height-menu my-2 {{ setActive(['admin_user.subscribers.*']) }}"
+                <a class="nav-link line-height-menu {{ setActive(['admin_user.subscribers.*']) }}"
                     href="{{ route('admin_user.subscribers.index') }}">
                     <i class="fas fa-envelope-open-text"></i><span>@lang('Subscribers')</span>
                 </a>
             </li>
             <li>
-                <a class="nav-link line-height-menu my-2 {{ setActive(['admin_user/manage-translations*']) }}"
+                <a class="nav-link line-height-menu {{ setActive(['admin_user/manage-translations*']) }}"
                    href="{{ route('admin_user.manage-translations.index') }}"
                    data-remote="false">
                     <i class="fas fa-language"></i><span>@lang('Translations')</span>
                 </a>
             </li> 
             <li>
-                <a class="nav-link line-height-menu my-2" href="{{ route('admin_user.settings.index') }}">
+                <a class="nav-link line-height-menu" href="{{ route('admin_user.settings.index') }}">
                     <i class="fas fa-wrench"></i><span>@lang('Settings')</span>
                 </a>
             </li>
