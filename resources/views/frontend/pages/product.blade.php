@@ -76,7 +76,7 @@
                                                 @endforeach
                                                 <input type="hidden" id="slider_range" name="range"
                                                     class="flat-slider" />
-                                                <button type="submit" class="common_btn">@lang('tracking')filter</button>
+                                                <button type="submit" class="common_btn">@lang('filter')</button>
                                             </form>
                                         </div>
                                     </div>

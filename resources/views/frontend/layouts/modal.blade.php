@@ -12,7 +12,7 @@
                 <div class="row modal_slider">
                     <div class="col-xl-12">
                         <div class="modal_slider_img">
-                            <img src="{{ asset($product->thumb_image) }}" alt="{{ asset($product->'name_' . app()->getLocale()) }}" class="img-fluid">
+                            <img src="{{ asset($product->thumb_image) }}" alt="{{ asset($product->name) }}" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
             <div class="trf__pro_details_text col-md-8 col-lg-12 mx-auto text-center text-lg-start">
-                <p class="fs-5 fw-bold">{{ limitText($product->'name_' . app()->getLocale(), 150) }}</p>
+                <p class="fs-5 fw-bold">{{ limitText($product->name, 150) }}</p>
                 @if ($product->qty > 0)
                     <p class="trf__stock_area"><span class="in_stock">@lang('in stock')</span>
                         ({{ $product->qty }}
@@ -38,7 +38,7 @@
                     <h4 class="text-center text-lg-start mx-auto d-block">{{ $settings->currency_icon }}{{ $product->currency_icon }}{{ $product->price }}
                     </h4>
                 @endif
-                <p class="description">{!! limitText($product->'short_description_' . app()->getLocale(), 200) !!}</p>
+                <p class="description">{!! limitText($product->{'short_description_' . app()->getLocale()}, 200) !!}</p>
                 <form class="shopping-cart-form">
                     <div class="trf__selectbox">
                         <div class="row d-flex justify-content-center justify-content-lg-start">
