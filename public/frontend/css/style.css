@@ -9606,6 +9606,24 @@ a:not([href]):not([class]):hover {
 	left: 60px;
 }
 
+.menu-translation .flag,
+img.border.rounded-circle.border.border-1.border-white.flag {
+	width: 25px;
+	height: auto;
+}
+
+.menu-translation a.dropdown-toggle::after {
+	display: none;
+}
+
+.menu-translation .dropdown-menu {
+	min-width: auto !important;
+}
+
+.z-indez-range {
+	z-index: 998;
+}
+
 @keyframes animloader {
 	0% {
 		top: 0;

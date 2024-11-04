@@ -3,7 +3,7 @@
 @section('container')
     <section class="section">
         <div class="section-header">
-            <h1>Dashboard</h1>
+            <h1>@lang('Dashboard')</h1>
         </div>
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
@@ -14,7 +14,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Todays Purchases</h4>
+                                <h4>@lang('Todays Purchases')</h4>
                             </div>
                             <div class="card-body">
                                 {{ $todaysPurchase }}
@@ -31,7 +31,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Todays Peding Purchases</h4>
+                                <h4>@lang('Todays Peding Purchases')</h4>
                             </div>
                             <div class="card-body">
                                 {{ $todaysPendingPurchase }}
@@ -48,7 +48,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Total Purchases</h4>
+                                <h4>@lang('Total Purchases')</h4>
                             </div>
                             <div class="card-body">
                                 {{ $totalPurchases }}
@@ -65,7 +65,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Total Pending Purchases</h4>
+                                <h4>@lang('Total Pending Purchases')</h4>
                             </div>
                             <div class="card-body">
                                 {{ $totalPendingPurchases }}
@@ -82,7 +82,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Total Canceled Purchases</h4>
+                                <h4>@lang('Total Canceled Purchases')</h4>
                             </div>
                             <div class="card-body">
                                 {{ $totalCanceledPurchases }}
@@ -99,7 +99,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Total Complete Purchases</h4>
+                                <h4>@lang('Total Complete Purchases')</h4>
                             </div>
                             <div class="card-body">
                                 {{ $totalCompletePurchases }}
@@ -116,7 +116,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Todays Earnings</h4>
+                                <h4>@lang('Todays Earnings')</h4>
                             </div>
                             <div class="card-body">
                                 {{ $settings->currency_icon }}{{ $todaysEarnings }}
@@ -133,7 +133,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>This Month Earnings</h4>
+                                <h4>@lang('This Month Earnings')</h4>
                             </div>
                             <div class="card-body">
                                 {{ $settings->currency_icon }}{{ $monthEarnings }}
@@ -150,7 +150,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>This Years Earnings</h4>
+                                <h4>@lang('This Years Earnings')</h4>
                             </div>
                             <div class="card-body">
                                 {{ $settings->currency_icon }}{{ $yearEarnings }}
@@ -167,7 +167,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Total Trademarks</h4>
+                                <h4>@lang('Total') Trademarks</h4>
                             </div>
                             <div class="card-body">
                                 {{ $totalTrademarks }}
@@ -184,7 +184,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Total Categories</h4>
+                                <h4>@lang('Total Categories')</h4>
                             </div>
                             <div class="card-body">
                                 {{ $totalCategories }}
@@ -201,7 +201,7 @@
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Total Subscribers</h4>
+                                <h4>@lang('Total Subscribers')</h4>
                             </div>
                             <div class="card-body">
                                 {{ $totalSubscriber }}

@@ -8,13 +8,13 @@
             <form action="{{ route('admin_user.popular-category-section') }}" method="POST">
                 @csrf
                 @method('PUT')
-                <h5>Category 1</h5>
+                <h5>@lang('Category') 1</h5>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label>Category</label>
+                            <label>@lang('Category')</label>
                             <select name="cat_one" class="form-control main-category">
-                                <option value="">Select</option>
+                                <option value="">@lang('Select')</option>
                                 @foreach ($categories as $category)
                                     <option
                                         {{ $category->id == $popularCategorySection[0]->category ? 'selected' : '' }}
@@ -31,9 +31,9 @@
                                     $popularCategorySection[0]->category,
                                 )->get();
                             @endphp
-                            <label>Sub Category</label>
+                            <label>Sub @lang('Category')</label>
                             <select name="sub_cat_one" id="" class="form-control sub-category">
-                                <option value="">select</option>
+                                <option value="">@lang('select')</option>
                                 @foreach ($subCategories as $subCategory)
                                     <option
                                         {{ $subCategory->id == $popularCategorySection[0]->sub_category ? 'selected' : '' }}
@@ -50,9 +50,9 @@
                                     $popularCategorySection[0]->sub_category,
                                 )->get();
                             @endphp
-                            <label>Child Category</label>
+                            <label>@lang('Child Category')</label>
                             <select name="child_cat_one" id="" class="form-control child-category">
-                                <option value="">select</option>
+                                <option value="">@lang('select')</option>
                                 @foreach ($childCategories as $childCategory)
                                     <option
                                         {{ $childCategory->id == $popularCategorySection[0]->child_category ? 'selected' : '' }}
@@ -62,13 +62,13 @@
                         </div>
                     </div>
                 </div>
-                <h5>Category 2</h5>
+                <h5>@lang('Category') 2</h5>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label>Category</label>
+                            <label>@lang('Category')</label>
                             <select name="cat_two" id="" class="form-control main-category">
-                                <option value="">Select</option>
+                                <option value="">@lang('Select')</option>
                                 @foreach ($categories as $category)
                                     <option
                                         {{ $category->id == $popularCategorySection[1]->category ? 'selected' : '' }}
@@ -85,9 +85,9 @@
                                     $popularCategorySection[1]->category,
                                 )->get();
                             @endphp
-                            <label>Sub Category</label>
+                            <label>Sub @lang('Category')</label>
                             <select name="sub_cat_two" id="" class="form-control sub-category">
-                                <option value="">select</option>
+                                <option value="">@lang('select')</option>
                                 @foreach ($subCategories as $subCategory)
                                     <option
                                         {{ $subCategory->id == $popularCategorySection[1]->sub_category ? 'selected' : '' }}
@@ -106,7 +106,7 @@
                             @endphp
                             <label>Child Category</label>
                             <select name="child_cat_two" id="" class="form-control child-category">
-                                <option value="">select</option>
+                                <option value="">@lang('select')</option>
                                 @foreach ($childCategories as $childCategory)
                                     <option
                                         {{ $childCategory->id == $popularCategorySection[1]->child_category ? 'selected' : '' }}
@@ -116,13 +116,13 @@
                         </div>
                     </div>
                 </div>
-                <h5>Category 3</h5>
+                <h5>@lang('Category') 3</h5>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label>Category</label>
+                            <label>@lang('Category')</label>
                             <select name="cat_three" id="" class="form-control main-category">
-                                <option value="">Select</option>
+                                <option value="">@lang('Select')</option>
                                 @foreach ($categories as $category)
                                     <option
                                         {{ $category->id == $popularCategorySection[2]->category ? 'selected' : '' }}
@@ -139,9 +139,9 @@
                                     $popularCategorySection[2]->category,
                                 )->get();
                             @endphp
-                            <label>Sub Category</label>
+                            <label>Sub @lang('Category')</label>
                             <select name="sub_cat_three" id="" class="form-control sub-category">
-                                <option value="">select</option>
+                                <option value="">@lang('select')</option>
                                 @foreach ($subCategories as $subCategory)
                                     <option
                                         {{ $subCategory->id == $popularCategorySection[2]->sub_category ? 'selected' : '' }}
@@ -158,9 +158,9 @@
                                     $popularCategorySection[2]->sub_category,
                                 )->get();
                             @endphp
-                            <label>Child Category</label>
+                            <label>@lang('Child Category')</label>
                             <select name="child_cat_three" id="" class="form-control child-category">
-                                <option value="">select</option>
+                                <option value="">@lang('select')</option>
                                 @foreach ($childCategories as $childCategory)
                                     <option
                                         {{ $childCategory->id == $popularCategorySection[2]->child_category ? 'selected' : '' }}
@@ -170,13 +170,13 @@
                         </div>
                     </div>
                 </div>
-                <h5>Category 4</h5>
+                <h5>@lang('Category') 4</h5>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label>Category</label>
+                            <label>@lang('Category')</label>
                             <select name="cat_four" id="" class="form-control main-category">
-                                <option value="">Select</option>
+                                <option value="">@lang('Select')</option>
                                 @foreach ($categories as $category)
                                     <option
                                         {{ $category->id == $popularCategorySection[3]->category ? 'selected' : '' }}
@@ -193,9 +193,9 @@
                                     $popularCategorySection[3]->category,
                                 )->get();
                             @endphp
-                            <label>Sub Category</label>
+                            <label>Sub @lang('Category')</label>
                             <select name="sub_cat_four" id="" class="form-control sub-category">
-                                <option value="">select</option>
+                                <option value="">@lang('select')</option>
                                 @foreach ($subCategories as $subCategory)
                                     <option
                                         {{ $subCategory->id == $popularCategorySection[3]->sub_category ? 'selected' : '' }}
@@ -212,9 +212,9 @@
                                     $popularCategorySection[3]->sub_category,
                                 )->get();
                             @endphp
-                            <label>Child Category</label>
+                            <label>@lang('Child Category')</label>
                             <select name="child_cat_four" id="" class="form-control child-category">
-                                <option value="">select</option>
+                                <option value="">@lang('select')</option>
                                 @foreach ($childCategories as $childCategory)
                                     <option
                                         {{ $childCategory->id == $popularCategorySection[3]->child_category ? 'selected' : '' }}
@@ -224,7 +224,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary">@lang('Update')</button>
             </form>
         </div>
     </div>
@@ -245,7 +245,7 @@
                     },
                     success: function(data) {
                         let selector = row.find('.sub-category');
-                        selector.html('<option value="">Select</option>')
+                        selector.html('<option value="">@lang('Select')</option>')
 
                         $.each(data, function(i, item) {
                             selector.append(
@@ -270,7 +270,7 @@
                     },
                     success: function(data) {
                         let selector = row.find('.child-category');
-                        selector.html('<option value="">Select</option>')
+                        selector.html('<option value="">@lang('Select')</option>')
 
                         $.each(data, function(i, item) {
                             selector.append(

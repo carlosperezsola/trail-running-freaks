@@ -35,16 +35,18 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+            
+            Route::localized(function () {
+                Route::middleware(['web', 'auth', 'typeUser:admin'])
+                    ->prefix('admin_user')
+                    ->as('admin_user.')
+                    ->group(base_path('routes/admin_user.php'));
 
-            Route::middleware(['web', 'auth', 'typeUser:admin'])
-                ->prefix('admin_user')
-                ->as('admin_user.')
-                ->group(base_path('routes/admin_user.php'));
-
-            Route::middleware(['web', 'auth', 'typeUser:third-party'])
-                ->prefix('third_party_user')
-                ->as('third_party_user.')
-                ->group(base_path('routes/third_party_user.php'));
+                Route::middleware(['web', 'auth', 'typeUser:third-party'])
+                    ->prefix('third_party_user')
+                    ->as('third_party_user.')
+                    ->group(base_path('routes/third_party_user.php'));
+            });
         });
     }
 }

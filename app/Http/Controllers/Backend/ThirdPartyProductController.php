@@ -42,6 +42,8 @@ class ThirdPartyProductController extends Controller
      */
     public function store(Request $request)
     {
+        $locales = config('app.available_locales');
+
         $request->validate([
             'image' => ['required', 'image', 'max:3000'],
             'name' => ['required', 'max:200'],
@@ -49,12 +51,17 @@ class ThirdPartyProductController extends Controller
             'trademark' => ['required'],
             'price' => ['required'],
             'qty' => ['required'],
-            'short_description' => ['required', 'max: 600'],
-            'long_description' => ['required'],
             'seo_title' => ['nullable','max:200'],
             'seo_description' => ['nullable','max:250'],
             'status' => ['required']
         ]);
+
+        foreach ($locales as $locale) {
+            $validationRules["short_description_$locale"] = ['required', 'max:600'];
+            $validationRules["long_description_$locale"] = ['required'];
+        }
+        
+        $request->validate($validationRules);
 
         /** Handle the image upload */
         $imagePath = $this->uploadImage($request, 'image', 'uploads');
@@ -69,8 +76,12 @@ class ThirdPartyProductController extends Controller
         $product->child_category_id = $request->child_category;
         $product->trademark_id = $request->trademark;
         $product->qty = $request->qty;
-        $product->short_description = $request->short_description;
-        $product->long_description = $request->long_description;
+
+        foreach ($locales as $locale) {
+            $product->{"short_description_$locale"} = $request->input("short_description_$locale");
+            $product->{"long_description_$locale"} = $request->input("long_description_$locale");
+        }
+
         $product->video_link = $request->video_link;
         $product->sku = $request->sku;
         $product->price = $request->price;
@@ -130,6 +141,8 @@ class ThirdPartyProductController extends Controller
     public function update(Request $request, string $id)
     {
 
+        $locales = config('app.available_locales');
+
         $request->validate([
             'image' => ['nullable', 'image', 'max:3000'],
             'name' => ['required', 'max:200'],
@@ -137,12 +150,17 @@ class ThirdPartyProductController extends Controller
             'trademark' => ['required'],
             'price' => ['required'],
             'qty' => ['required'],
-            'short_description' => ['required', 'max: 600'],
-            'long_description' => ['required'],
             'seo_title' => ['nullable','max:200'],
             'seo_description' => ['nullable','max:250'],
             'status' => ['required']
         ]);
+
+        foreach ($locales as $locale) {
+            $validationRules["short_description_$locale"] = ['required', 'max:600'];
+            $validationRules["long_description_$locale"] = ['required'];
+        }
+
+        $request->validate($validationRules);
 
         $product = Product::findOrFail($id);
 
@@ -162,8 +180,12 @@ class ThirdPartyProductController extends Controller
         $product->child_category_id = $request->child_category;
         $product->trademark_id = $request->trademark;
         $product->qty = $request->qty;
-        $product->short_description = $request->short_description;
-        $product->long_description = $request->long_description;
+
+        foreach ($locales as $locale) {
+            $product->{"short_description_$locale"} = $request->input("short_description_$locale");
+            $product->{"long_description_$locale"} = $request->input("long_description_$locale");
+        }
+
         $product->video_link = $request->video_link;
         $product->sku = $request->sku;
         $product->price = $request->price;

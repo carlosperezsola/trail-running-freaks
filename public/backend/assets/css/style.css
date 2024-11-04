@@ -2810,3 +2810,21 @@ span.select2.select2-container.select2-container--default.select2-container--foc
 span.select2.select2-container.select2-container--default.select2-container--below {
   width: 100% !important;
 }
+
+.line-height-menu {
+	line-height: 16px;
+}
+
+.menu-translation .flag,
+img.border.rounded-circle.border.border-1.border-white.flag {
+	width: 25px;
+	height: auto;
+}
+
+.menu-translation a.dropdown-toggle::after {
+	display: none;
+}
+
+.menu-translation .dropdown-menu {
+	min-width: auto !important;
+}

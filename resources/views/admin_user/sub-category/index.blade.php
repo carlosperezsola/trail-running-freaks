@@ -3,7 +3,7 @@
 @section('container')
     <section class="section">
         <div class="section-header">
-            <h1>Sub Category</h1>
+            <h1>Sub @lang('Category')</h1>
         </div>
         <div class="section-body">
             <div class="row">
@@ -11,11 +11,11 @@
                     <div class="card">
                         <div class="card-header row d-flex justify-content-around">
                             <div class="col">
-                                <h4>All Sub Categories</h4>
+                                <h4>@lang('All Sub Categories')</h4>
                             </div>
                             <div class="card-header-action text-end">
                                 <a href="{{ route('admin_user.sub-category.create') }}" class="btn btn-primary"><i
-                                        class="fas fa-plus"></i> Create New</a>
+                                        class="fas fa-plus"></i> @lang('Create New')</a>
                             </div>
                         </div>
                         <div class="card-body p-0 p-lg-4">

@@ -1,7 +1,7 @@
 @extends('third_party_user.layouts.main')
 
 @section('title')
-    {{ $settings->site_name }} || Product Option Item Section
+    {{ $settings->site_name }} || @lang('Product Option Item Section')
 @endsection
 
 @section('container')
@@ -11,13 +11,13 @@
             <div class="row">
                 <div class="col-xl-9 col-xxl-10 col-lg-9 ms-auto">
                     <a href="{{ route('third_party_user.products-option.index', ['product' => $product->id]) }}"
-                        class="btn btn-warning mb-4"><i class="fas fa-long-arrow-left"></i> Back</a>
+                        class="btn btn-warning mb-4"><i class="fas fa-long-arrow-left"></i> @lang('Back')</a>
                     <div class="dashboard_content mt-2 mt-md-0">
-                        <h3><i class="far fa-user"></i> Product Option Item</h3>
-                        <h6>Option: {{ $option->name }}</h6>
+                        <h3><i class="far fa-user"></i> @lang('Product Option Item')</h3>
+                        <h6>@lang('Option'): {{ $option->name }}</h6>
                         <div class="create_button">
                             <a href="{{ route('third_party_user.products-option-item.create', ['productId' => $product->id, 'optionId' => $option->id]) }}"
-                                class="btn btn-primary"><i class="fas fa-plus"></i> Create Option Item</a>
+                                class="btn btn-primary"><i class="fas fa-plus"></i> @lang('Create Option Item')</a>
                         </div>
                         <div class="trf__dashboard_profile">
                             <div class="trf__dash_pro_area  overflow-auto">

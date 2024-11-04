@@ -32,8 +32,8 @@ class SliderDataTable extends DataTable
                 return $img = "<img width='100px' src='".asset($query->banner)."'></img>";
             })
             ->addColumn('status', function($query) {
-                $active = '<i class="badge badge-success">Active</i>';
-                $inActive = '<i class="badge badge-danger">Inactive</i>';
+                $active = '<i class="badge badge-success">@lang('Active')</i>';
+                $inActive = '<i class="badge badge-danger">@lang('Inactive')</i>';
                 if($query->status == 1) {
                     return $active;
                 } else {

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg main-navbar">
     <form class="form-inline mr-auto">
-        <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+        <li class="d-flex"><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
     </form>
     <ul class="navbar-nav navbar-right">
         <li class="dropdown"><a href="#" data-toggle="dropdown"
@@ -10,10 +10,10 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <a href="{{ route('admin_user.profile') }}" class="dropdown-item has-icon">
-                    <i class="far fa-user"></i> Profile
+                    <i class="far fa-user"></i> @lang('Profile')
                 </a>
                 <a href="{{ route('admin_user.settings.index') }}" class="dropdown-item has-icon">
-                    <i class="fas fa-cog"></i> Settings
+                    <i class="fas fa-cog"></i> @lang('Settings')
                 </a>
                 <div class="dropdown-divider"></div>
                 <!-- Authentication -->
@@ -21,7 +21,7 @@
                     @csrf
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();"
                         class="dropdown-item has-icon text-danger">
-                        <i class="fas fa-sign-out-alt"></i> Logout
+                        <i class="fas fa-sign-out-alt"></i> @lang('Logout')
                     </a>
                 </form>
             </div>

@@ -29,24 +29,31 @@
                             <i class="fas fa-user-headset"></i>
                         </div>
                         <div class="trf__call_text">
-                            <a href="mailto:{{ $settings->contact_email }}"><p class="text-lowercase pb-0">{{ $settings->contact_email }}</p></a><br/>                            
-                            <a href="tel:{{ $settings->contact_phone }}"><p>{{ $settings->contact_phone }}</p></a>
+                            <a href="mailto:{{ $settings->contact_email }}">
+                                <p class="text-lowercase pb-0">{{ $settings->contact_email }}</p>
+                            </a><br />
+                            <a href="tel:{{ $settings->contact_phone }}">
+                                <p>{{ $settings->contact_phone }}</p>
+                            </a>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-around">
+                    <div class="d-flex justify-content-around align-items-center">
                         <ul class="trf__icon_area d-block d-lg-none col-6">
                             @if (auth()->check())
                                 @if (auth()->user()->type_user === 'regular')
-                                    <li class="mx-0 mx-lg-3"><a href="{{ route('user.profile') }}"><i class="fal fa-user"></i></a></li>
+                                    <li class="mx-0 mx-lg-3"><a href="{{ route('user.profile') }}"><i
+                                                class="fal fa-user"></i></a></li>
                                 @elseif (auth()->user()->type_user === 'third-party')
                                     <li class="mx-0 mx-lg-3"><a href="{{ route('third_party_user.dashboard') }}"><i
                                                 class="fal fa-user"></i></a></li>
                                 @elseif (auth()->user()->type_user === 'admin')
-                                    <li class="mx-0 mx-lg-3"><a href="{{ route('admin_user.dashboard') }}"><i class="fal fa-user"></i></a>
+                                    <li class="mx-0 mx-lg-3"><a href="{{ route('admin_user.dashboard') }}"><i
+                                                class="fal fa-user"></i></a>
                                     </li>
                                 @endif
                             @else
-                                <li class="mx-0 mx-lg-3"><a href="{{ route('login') }}"><i class="fal fa-user"></i></a></li>
+                                <li class="mx-0 mx-lg-3"><a href="{{ route('login') }}"><i class="fal fa-user"></i></a>
+                                </li>
                             @endif
                         </ul>
                         <ul class="trf__icon_area col-6">
@@ -56,6 +63,26 @@
                                         id="cart-count">{{ Cart::content()->count() }}</span>
                                 </a>
                             </li>
+                        </ul>
+                        <ul>
+                            @if (Route::isLocalized() || Route::isFallback())
+                                <div class="dropdown menu-translation"> 
+                                    <a class="btn btn-light menu-translation dropdown-toggle ms-1 ms-md-0 p-0 rounded-circle" type="button" id="languageDropdownAdmin" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img class="border rounded-circle border border-1 border-white flag" src="{{ asset('vendor/blade-country-flags/1X1-' . (app()->getLocale() === 'en' ? 'gb' : app()->getLocale()) . '.svg') }}" alt="{{ strtoupper(app()->getLocale()) }}" />
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="languageDropdownAdmin">
+                                        @foreach (LocaleConfig::getLocales() as $locale)
+                                            @if (!App::isLocale($locale))
+                                                <li>
+                                                    <a class="dropdown-item  mx-2" href="{{ Route::localizedUrl($locale) }}">
+                                                        <img class="mx-auto d-block border rounded-circle border border-1 border-white flag" src="{{ asset('vendor/blade-country-flags/1x1-' . ($locale === 'en' ? 'gb' : $locale) . '.svg') }}" alt="{{ strtoupper($locale) }}"/>
+                                                    </a>
+                                                </li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                         </ul>
                     </div>
                 </div>

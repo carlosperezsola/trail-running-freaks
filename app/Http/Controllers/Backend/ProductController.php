@@ -20,6 +20,7 @@ use Illuminate\Support\Str;
 class ProductController extends Controller
 {
     use ImageUploadTrait;
+
     /**
      * Display a listing of the resource.
      */
@@ -43,20 +44,29 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //dd(Auth::user()->thirdParty);
-        $request->validate([
+        // Obtén la configuración de idiomas
+        $locales = config('app.available_locales'); // Asegúrate de que los locales estén definidos
+
+        // Generar las reglas de validación dinámicamente para cada idioma
+        $validationRules = [
             'image' => ['required', 'image', 'max:3000'],
             'name' => ['required', 'max:200'],
             'category' => ['required'],
             'trademark' => ['required'],
             'price' => ['required'],
-            'qty' => ['required'],
-            'short_description' => ['required', 'max: 600'],
-            'long_description' => ['required'],
-            'seo_title' => ['nullable', 'max:200'],
-            'seo_description' => ['nullable', 'max:250'],
+            'qty' => ['required'],            
+            'seo_title' => ['nullable','max:200'],
+            'seo_description' => ['nullable','max:250'],
             'status' => ['required']
-        ]);
+        ];
+
+        foreach ($locales as $locale) {
+            $validationRules["short_description_$locale"] = ['required', 'max:600'];
+            $validationRules["long_description_$locale"] = ['required'];
+        }
+
+        // Validar los datos
+        $request->validate($validationRules);
 
         /** Handle the image upload */
         $imagePath = $this->uploadImage($request, 'image', 'uploads/selected');
@@ -71,8 +81,13 @@ class ProductController extends Controller
         $product->child_category_id = $request->child_category;
         $product->trademark_id = $request->trademark;
         $product->qty = $request->qty;
-        $product->short_description = $request->short_description;
-        $product->long_description = $request->long_description;
+
+        // Asignar las descripciones largas basadas en los sufijos
+        foreach ($locales as $locale) {
+            $product->{"short_description_$locale"} = $request->input("short_description_$locale");
+            $product->{"long_description_$locale"} = $request->input("long_description_$locale");
+        }
+
         $product->video_link = $request->video_link;
         $product->sku = $request->sku;
         $product->price = $request->price;
@@ -117,19 +132,29 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $request->validate([
+        // Obtén la configuración de idiomas
+        $locales = config('app.available_locales'); // Asegúrate de que los locales estén definidos
+
+        // Generar las reglas de validación dinámicamente para cada idioma
+        $validationRules = [
             'image' => ['nullable', 'image', 'max:3000'],
             'name' => ['required', 'max:200'],
             'category' => ['required'],
             'trademark' => ['required'],
             'price' => ['required'],
             'qty' => ['required'],
-            'short_description' => ['required', 'max: 600'],
-            'long_description' => ['required'],
             'seo_title' => ['nullable', 'max:200'],
             'seo_description' => ['nullable', 'max:250'],
             'status' => ['required']
-        ]);
+        ];
+
+        foreach ($locales as $locale) {
+            $validationRules["short_description_$locale"] = ['required', 'max:600'];
+            $validationRules["long_description_$locale"] = ['required'];
+        }
+
+        // Validar los datos
+        $request->validate($validationRules);
 
         $product = Product::findOrFail($id);
 
@@ -144,8 +169,13 @@ class ProductController extends Controller
         $product->child_category_id = $request->child_category;
         $product->trademark_id = $request->trademark;
         $product->qty = $request->qty;
-        $product->short_description = $request->short_description;
-        $product->long_description = $request->long_description;
+
+        // Asignar las descripciones largas basadas en los sufijos
+        foreach ($locales as $locale) {
+            $product->{"short_description_$locale"} = $request->input("short_description_$locale");
+            $product->{"long_description_$locale"} = $request->input("long_description_$locale");
+        }
+
         $product->video_link = $request->video_link;
         $product->sku = $request->sku;
         $product->price = $request->price;
@@ -169,8 +199,8 @@ class ProductController extends Controller
     public function destroy(string $id)
     {
         $product = Product::findOrFail($id);
-        if(PurchaseProduct::where('product_id',$product->id)->count() > 0){
-            return response(['status' => 'error', 'message' => 'This product have orders can\'t delete it.']);
+        if (PurchaseProduct::where('product_id', $product->id)->count() > 0) {
+            return response(['status' => 'error', 'message' => 'This product has orders and can\'t be deleted.']);
         }
 
         /** Delete the main product image */
@@ -185,7 +215,6 @@ class ProductController extends Controller
 
         /** Delete product options if exist */
         $options = ProductOption::where('product_id', $product->id)->get();
-
         foreach ($options as $option) {
             $option->productOptionItems()->delete();
             $option->delete();
@@ -206,9 +235,8 @@ class ProductController extends Controller
     }
 
     /**
-     * Get all product sub categores
+     * Get all product sub categories
      */
-
     public function getSubCategories(Request $request)
     {
         $subCategories = SubCategory::where('category_id', $request->id)->get();

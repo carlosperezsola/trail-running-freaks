@@ -106,13 +106,10 @@
                         <h6>@lang('total cart')</h6>
                         <p>@lang('subtotal'): <span id="sub_total">{{ $settings->currency_icon }}{{ getCartTotal() }}</span></p>
                         </p>
-                        <p class="total">
-                            <span>@lang('total'):</span> 
-                            <span id="cart_total"></span>
+                        <p class="total"><span>@lang('total'):</span> <span id="cart_total">{{$settings->currency_icon}}{{getCartTotal()}}</span>
                         </p>
                         <a class="common_btn mt-4 w-100 text-center" href="{{route('user.checkout')}}">@lang('checkout')</a>
-                        <a class="common_btn mt-1 w-100 text-center" href="{{route('home')}}"><i
-                                class="fab fa-shopify"></i> @lang('Keep Shopping')</a>
+                        <a class="common_btn mt-1 w-100 text-center" href="{{route('home')}}">@lang('Keep Shopping')</a>
                     </div>
                 </div>
             </div>

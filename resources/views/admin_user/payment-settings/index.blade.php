@@ -3,7 +3,7 @@
 @section('container')
     <section class="section">
         <div class="section-header">
-            <h1>Settings</h1>
+            <h1>@lang('Settings')</h1>
         </div>
         <div class="section-body">
             <div class="row">
@@ -14,9 +14,9 @@
                                 <div class="col-2">
                                     <div class="list-group" id="list-tab" role="tablist">
                                         <a class="list-group-item list-group-item-action active" id="list-home-list"
-                                            data-toggle="list" href="#list-home" role="tab">Paypal</a>
+                                            data-toggle="list" href="#list-home" role="tab">@lang('Paypal')</a>
                                         <a class="list-group-item list-group-item-action" id="list-stripe-list"
-                                            data-toggle="list" href="#list-stripe" role="tab">Stripe</a>
+                                            data-toggle="list" href="#list-stripe" role="tab">@lang('Stripe')</a>
                                     </div>
                                 </div>
                                 <div class="col-10">

@@ -47,11 +47,6 @@
                     <x-product-card :product="$product" />
                 @endforeach
             </div>
-            {{-- <div class="mt-5">
-                @if ($countDownItems->hasPages())
-                    {{ $countDownItems->links() }}
-                @endif
-            </div> --}}
         </div>
     </section>
 @endsection

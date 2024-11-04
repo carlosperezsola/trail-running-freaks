@@ -25,7 +25,7 @@
         <div class="container">
             <div class="trf__details_bg">
                 <div class="row">
-                    <div class="col-xl-4 col-md-5 col-lg-5 mb-3 mb-md-0" style="z-index:999">
+                    <div class="col-xl-4 col-md-5 col-lg-5 mb-3 mb-md-0 z-indez-range">
                         <div id="sticky_pro_zoom">
                             <div class="exzoom hidden" id="exzoom">
                                 <div class="exzoom_img_box">
@@ -80,7 +80,7 @@
                             @else
                                 <h4>{{ $settings->currency_icon }}{{ $product->currency_icon }}{{ $product->price }}</h4>
                             @endif
-                            <p class="description">{!! $product->short_description !!}</p>
+                            <p class="description">{!! $product->{'short_description_' . app()->getLocale()} !!}</p>
                             <form class="shopping-cart-form">
                                 <div class="trf__selectbox">
                                     <div class="row">
@@ -144,7 +144,7 @@
                                     <div class="row">
                                         <div class="col-xl-12">
                                             <div class="trf__description_area">
-                                                {!! $product->long_description !!}
+                                                {!! $product->{'long_description_' . app()->getLocale()} !!}
                                             </div>
                                         </div>
                                     </div>

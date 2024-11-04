@@ -192,7 +192,7 @@
                                                         <p class="trf__price">
                                                             {{ $settings->currency_icon }}{{ $product->price }}</p>
                                                     @endif
-                                                    <p class="list_description">{{ $product->short_description }}</p>
+                                                    <p class="list_description">{{ $product->{'short_description_' . app()->getLocale()} }}</p>
                                                     <ul class="trf__single_pro_icon">
                                                         <form class="shopping-cart-form">
                                                             <input type="hidden" name="product_id"
@@ -314,7 +314,7 @@
                                             <h4 class="text-center text-lg-start mx-auto d-block">{{ $settings->currency_icon }}{{ $product->currency_icon }}{{ $product->price }}
                                             </h4>
                                         @endif
-                                        <p class="description">{!! limitText($product->short_description, 200) !!}</p>
+                                        <p class="description">{!! limitText($product->{'short_description_' . app()->getLocale()}, 200) !!}</p>
                                         <form class="shopping-cart-form">
                                             <div class="trf__selectbox">
                                                 <div class="row d-flex justify-content-center justify-content-lg-start">
