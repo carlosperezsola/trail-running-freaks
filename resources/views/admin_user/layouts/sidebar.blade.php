@@ -3,9 +3,6 @@
         <div class="sidebar-brand">
             <a href="">{{ $settings->site_name }}</a>
         </div>
-        <div class="sidebar-brand sidebar-brand-sm">
-            <a href="">||</a>
-        </div>
         <ul class="sidebar-menu">
             <div class="dropdown menu-translation ml-4"> 
                 <a class="btn btn-dark shadow-none menu-translation dropdown-toggle ms-1 ms-md-0 p-0 rounded-circle" type="button" id="languageDropdownAdmin" data-toggle="dropdown" aria-expanded="false">
@@ -15,7 +12,7 @@
                     @foreach (LocaleConfig::getLocales() as $locale)
                         @if (!App::isLocale($locale))
                             <li>
-                                <a class="dropdown-item mx-2" href="{{ Route::localizedUrl($locale) }}">
+                                <a class="dropdown-item m-0 px-2" href="{{ Route::localizedUrl($locale) }}">
                                     <img class="mx-auto d-block border rounded-circle border border-1 border-white flag" src="{{ asset('vendor/blade-country-flags/1x1-' . ($locale === 'en' ? 'gb' : $locale) . '.svg') }}" alt="{{ strtoupper($locale) }}" />
                                 </a>
                             </li>

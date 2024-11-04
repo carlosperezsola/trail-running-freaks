@@ -415,7 +415,6 @@
             if (typeof $.cookie('base_locale') !== 'undefined') {
                 $('#base-locale').val($.cookie('base_locale'));
             }
-
         })
     </script>
 </head>
@@ -555,7 +554,7 @@
                                             <label for="base-locale">Base Locale for Auto Translations</label>
                                             <select name="base-locale" id="base-locale" class="form-control">
                                                 <?php foreach ($locales as $locale): ?>
-                                                <option value="<?= $locale ?>"><?= $locale ?></option>
+                                                    <option value="<?= $locale ?>"><?= $locale ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>
