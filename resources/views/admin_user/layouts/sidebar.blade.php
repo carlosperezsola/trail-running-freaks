@@ -118,8 +118,7 @@
                         <a class="nav-link line-height-menu my-2" href="{{ route('admin_user.who-we-are.index') }}">@lang('Who We Are Page')</a>
                     </li>
                     <li class="{{ setActive(['admin_user.terms-and-conditions.index']) }}">
-                        <a class="nav-link line-height-menu my-2" href="{{ route('admin_user.terms-and-conditions.index') }}">@lang('Terms &
-                            Conditions Page')</a>
+                        <a class="nav-link line-height-menu my-2" href="{{ route('admin_user.terms-and-conditions.index') }}">@lang('Terms & Conditions Page')</a>
                     </li>
                 </ul>
             </li>

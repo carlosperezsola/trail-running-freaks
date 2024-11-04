@@ -1,8 +1,8 @@
 @extends('third_party_user.layouts.main')
 
-<?php /* @section('title')
-    {{ $settings->site_name }} || Product
-@endsection */ ?>
+ @section('title')
+    {{ $settings->site_name }} || @lang('Product')
+@endsection
 
 @section('container')
     <section id="trf__dashboard">
@@ -11,14 +11,14 @@
             <div class="row">
                 <div class="col-xl-9 col-xxl-10 col-lg-9 ms-auto">
                     <div class="dashboard_content mt-2 mt-md-0">
-                        <h3><i class="far fa-user"></i> Create Product</h3>
+                        <h3><i class="far fa-user"></i> @lang('Create Product')</h3>
                         <div class="trf__dashboard_profile">
                             <div class="trf__dash_pro_area  overflow-auto">
                                 <form action="{{ route('third_party_user.products.store') }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group trf__input">
-                                        <label>Image</label>
+                                        <label>@lang('Image')</label>
                                         <input type="file" class="form-control" name="image">
                                     </div>
                                     <div class="form-group trf__input">
@@ -29,9 +29,9 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group trf__input">
-                                                <label for="inputState">Category</label>
+                                                <label for="inputState">@lang('Category')</label>
                                                 <select id="inputState" class="form-control main-category" name="category">
-                                                    <option value="">Select</option>
+                                                    <option value="">@lang('Select')</option>
                                                     @foreach ($categories as $category)
                                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                     @endforeach
@@ -40,20 +40,20 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group trf__input">
-                                                <label for="inputState">Sub Category</label>
+                                                <label for="inputState">@lang('Sub Category')</label>
                                                 <select id="inputState" class="form-control sub-category"
                                                     name="sub_category">
-                                                    <option value="">Select</option>
+                                                    <option value="">@lang('Select')</option>
 
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group trf__input">
-                                                <label for="inputState">Child Category</label>
+                                                <label for="inputState">@lang('Child Category')</label>
                                                 <select id="inputState" class="form-control child-category"
                                                     name="child_category">
-                                                    <option value="">Select</option>
+                                                    <option value="">@lang('Select')</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -61,7 +61,7 @@
                                     <div class="form-group trf__input">
                                         <label for="inputState">Trademark</label>
                                         <select id="inputState" class="form-control" name="trademark">
-                                            <option value="">Select</option>
+                                            <option value="">@lang('Select')</option>
                                             @foreach ($trademarks as $trademark)
                                                 <option value="{{ $trademark->id }}">{{ $trademark->name }}</option>
                                             @endforeach
@@ -73,63 +73,63 @@
                                             value="{{ old('sku') }}">
                                     </div>
                                     <div class="form-group trf__input">
-                                        <label>Price</label>
+                                        <label>@lang('Price')</label>
                                         <input type="text" class="form-control" name="price"
                                             value="{{ old('price') }}">
                                     </div>
                                     <div class="form-group trf__input">
-                                        <label>Offer Price</label>
+                                        <label>@lang('Offer Price')</label>
                                         <input type="text" class="form-control" name="offer_price"
                                             value="{{ old('offer_price') }}">
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group trf__input">
-                                                <label>Offer Start Date</label>
+                                                <label>@lang('Offer Start Date')</label>
                                                 <input type="text" class="form-control datepicker"
                                                     name="offer_start_date" value="{{ old('offer_start_date') }}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group trf__input">
-                                                <label>Offer End Date</label>
+                                                <label>@lang('Offer End Date')</label>
                                                 <input type="text" class="form-control datepicker" name="offer_end_date"
                                                     value="{{ old('offer_end_date') }}">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group trf__input">
-                                        <label>Stock Quantity</label>
+                                        <label>@lang('Stock Quantity')</label>
                                         <input type="number" min="0" class="form-control" name="qty"
                                             value="{{ old('qty') }}">
                                     </div>
                                     <div class="form-group trf__input">
-                                        <label>Video Link</label>
+                                        <label>@lang('Video Link')</label>
                                         <input type="text" class="form-control" name="video_link"
                                             value="{{ old('video_link') }}">
                                     </div>
                                     @foreach (config('app.available_locales') as $locale)
                                         <div class="form-group">
-                                            <label for="short_description_{{ $locale }}">Short Description
+                                            <label for="short_description_{{ $locale }}">@lang('Short Description')
                                                 ({{ strtoupper($locale) }})</label>
                                             <textarea name="short_description_{{ $locale }}" id="short_description_{{ $locale }}"
                                                 class="form-control"></textarea>
                                         </div>
                                         
                                         <div class="form-group">
-                                            <label for="long_description_{{ $locale }}">Long Description
+                                            <label for="long_description_{{ $locale }}">@lang('Long Description')
                                                 ({{ strtoupper($locale) }})</label>
                                             <textarea name="long_description_{{ $locale }}" id="long_description_{{ $locale }}"
                                                 class="form-control summernote"></textarea>
                                         </div>
                                     @endforeach
                                     <div class="form-group trf__input">
-                                        <label>Seo Title</label>
+                                        <label>@lang('Seo Title')</label>
                                         <input type="text" class="form-control" name="seo_title"
                                             value="{{ old('seo_title') }}">
                                     </div>
                                     <div class="form-group trf__input">
-                                        <label>Seo Description</label>
+                                        <label>@lang('Seo Description')</label>
                                         <textarea name="seo_description" class="form-control"></textarea>
                                     </div>
                                     <div class="form-group trf__input">

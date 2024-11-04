@@ -5,7 +5,7 @@
 @extends('third_party_user.layouts.main')
 
 @section('title')
-    {{ $settings->site_name }} || Product
+    {{ $settings->site_name }} || @lang('Product')
 @endsection
 
 @section('container')
@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-xl-9 col-xxl-10 col-lg-9 ms-auto">
                     <div class="dashboard_content mt-2 mt-md-0">
-                        <h3><i class="far fa-user"></i> Purchase Details</h3>
+                        <h3><i class="far fa-user"></i> @lang('Purchase Details')</h3>
                         <div class="trf__dashboard_profile">
                             <section id="" class="invoice-print">
                                 <div class="">
@@ -25,7 +25,7 @@
                                                 <div class="row">
                                                     <div class="col-xl-4 col-md-4 mb-5 mb-md-0">
                                                         <div class="trf__invoice_single">
-                                                            <h5>Billing Information</h5>
+                                                            <h5>@lang('Billing Information')</h5>
                                                             <h6>{{ $address->name }}</h6>
                                                             <p>{{ $address->email }}</p>
                                                             <p>{{ $address->phone }}</p>
@@ -36,7 +36,7 @@
                                                     </div>
                                                     <div class="col-xl-4 col-md-4 mb-5 mb-md-0">
                                                         <div class="trf__invoice_single text-md-start">
-                                                            <h5>shipping information</h5>
+                                                            <h5>@lang('shipping information')</h5>
                                                             <h6>{{ $address->name }}</h6>
                                                             <p>{{ $address->email }}</p>
                                                             <p>{{ $address->phone }}</p>
@@ -47,12 +47,12 @@
                                                     </div>
                                                     <div class="col-xl-4 col-md-4">
                                                         <div class="trf__invoice_single text-md-start">
-                                                            <h5>Purchase id: #{{ $purchase->invoice_id }}</h5>
-                                                            <h6>Purchase status: {{ config('purchase_status.purchase_status_admin_user')[$purchase->purchase_status]['status'] }}
+                                                            <h5>@lang('Purchase') id: #{{ $purchase->invoice_id }}</h5>
+                                                            <h6>@lang('Purchase status'): {{ config('purchase_status.purchase_status_admin_user')[$purchase->purchase_status]['status'] }}
                                                             </h6>
-                                                            <p>Payment Method: {{ $purchase->payment_method }}</p>
-                                                            <p>Payment Status: {{ $purchase->payment_status }}</p>
-                                                            <p>Transaction id: {{ $purchase->transaction->transaction_id }}
+                                                            <p>@lang('Payment Method'): {{ $purchase->payment_method }}</p>
+                                                            <p>@lang('Payment Status'): {{ $purchase->payment_status }}</p>
+                                                            <p>@lang('Transaction') id: {{ $purchase->transaction->transaction_id }}
                                                             </p>
                                                         </div>
                                                     </div>
@@ -63,19 +63,19 @@
                                                     <table class="table">
                                                         <tr>
                                                             <th class="name">
-                                                                product
+                                                                @lang('product')
                                                             </th>
                                                             <th class="amount">
-                                                                Third Party
+                                                                @lang('Third Party')
                                                             </th>
                                                             <th class="amount">
-                                                                amount
+                                                                @lang('amount')
                                                             </th>
                                                             <th class="quantity">
-                                                                quantity
+                                                                @lang('quantity')
                                                             </th>
                                                             <th class="total">
-                                                                total
+                                                                @lang('total')
                                                             </th>
                                                         </tr>
                                                         @foreach ($purchase->purchaseProducts as $product)
@@ -118,7 +118,7 @@
                                             </div>
                                         </div>
                                         <div class="trf__invoice_footer">
-                                            <p><span>Total Amount:</span> {{ $settings->currency_icon }}
+                                            <p><span>@lang('Total Amount'):</span> {{ $settings->currency_icon }}
                                                 {{ $total }} </p>
                                         </div>
                                     </div>
@@ -128,20 +128,20 @@
                                 <div class="col-md-4">
                                     <form action="{{ route('third_party_user.purchases.status', $purchase->id) }}">
                                         <div class="form-group mt-5">
-                                            <label for="" class="mb-2">Purchase Status</label>
+                                            <label for="" class="mb-2">@lang('Purchase Status')</label>
                                             <select name="status" id="" class="form-control">
                                                 @foreach (config('purchase_status.purchase_status_thirdParty') as $key => $status)
                                                     <option {{ $key === $purchase->purchase_status ? 'selected' : '' }}
                                                         value="{{ $key }}">{{ $status['status'] }}</option>
                                                 @endforeach
                                             </select>
-                                            <button class="btn btn-primary mt-3" type="submit">Save</button>
+                                            <button class="btn btn-primary mt-3" type="submit">@lang('Save')</button>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="mt-5 float-end">
-                                        <button class="btn btn-warning print_invoice">Print</button>
+                                        <button class="btn btn-warning print_invoice">@lang('Print')</button>
                                     </div>
                                 </div>
                             </div>
