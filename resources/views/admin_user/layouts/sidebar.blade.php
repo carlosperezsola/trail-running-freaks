@@ -145,13 +145,15 @@
                     <i class="fas fa-envelope-open-text"></i><span>@lang('Subscribers')</span>
                 </a>
             </li>
-            <li>
-                <a class="nav-link line-height-menu {{ setActive(['admin_user/manage-translations*']) }}"
-                   href="{{ route('admin_user.manage-translations.index') }}"
-                   data-remote="false">
-                    <i class="fas fa-language"></i><span>@lang('Translations')</span>
-                </a>
-            </li> 
+            @if (app()->getLocale() == config('app.fallback_locale'))
+                <li>
+                    <a class="nav-link line-height-menu {{ setActive(['admin_user/manage-translations*']) }}"
+                    href="{{ route('admin_user.manage-translations.index') }}"
+                    data-remote="false" target="_blank">
+                        <i class="fas fa-language"></i><span>@lang('Translations')</span>
+                    </a>
+                </li>
+            @endif        
             <li>
                 <a class="nav-link line-height-menu" href="{{ route('admin_user.settings.index') }}">
                     <i class="fas fa-wrench"></i><span>@lang('Settings')</span>
