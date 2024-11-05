@@ -11,13 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_options', function (Blueprint $table) {
-            $table->id();
-            $table->integer('product_id');
-            $table->string('name');
-            $table->boolean('status');
-            $table->timestamps();
-        });
+        // Verifica si la tabla 'product_options' no existe antes de crearla
+        if (!Schema::hasTable('product_options')) {
+            Schema::create('product_options', function (Blueprint $table) {
+                $table->id();
+                $table->integer('product_id')->unsigned(); // Asegúrate de que el product_id sea un entero sin signo
+                $table->string('name');
+                $table->boolean('status')->default(true); // Establecer un valor predeterminado para el estado
+                $table->timestamps();
+            });
+        }
     }
 
     /**
