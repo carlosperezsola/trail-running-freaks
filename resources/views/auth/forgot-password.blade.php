@@ -27,7 +27,7 @@
                         <div class="trf__forget_area">
                             <span class="qiestion_icon"><i class="fal fa-question-circle"></i></span>
                             <h4>@lang('forgot password?')</h4>
-                            <p>@lang('enter the email address to register with <span>e-shop</span>')</p>
+                            <p>@lang('enter the email address to register with <span>Trail Running Freaks</span>')</p>
                             <div class="trf__login">
                                 <form method="POST" action="{{ route('password.email') }}">
                                     @csrf
