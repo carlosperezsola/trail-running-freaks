@@ -53,12 +53,6 @@
                                 @endphp
                                 @if ($totalImages >= 2)
                                     <div class="exzoom_nav"></div>
-                                    {{-- <p class="exzoom_btn">
-                                        <a href="javascript:void(0);" class="exzoom_prev_btn"> <i
-                                                class="far fa-chevron-left"></i> </a>
-                                        <a href="javascript:void(0);" class="exzoom_next_btn"> <i
-                                                class="far fa-chevron-right"></i> </a>
-                                    </p> --}}
                                 @endif
                             </div>
                         </div>
@@ -94,7 +88,7 @@
                                                             @if ($optionItem->status != 0)
                                                                 <option value="{{ $optionItem->id }}"
                                                                     {{ $optionItem->is_default == 1 ? 'selected' : '' }}>
-                                                                    {{ $optionItem->name }} (${{ $optionItem->price }})
+                                                                    {{ $optionItem->name }} @if($optionItem->price > 0) (${{ $optionItem->price }}) @endif
                                                                 </option>
                                                             @endif
                                                         @endforeach
