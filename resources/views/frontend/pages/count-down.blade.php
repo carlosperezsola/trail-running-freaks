@@ -10,10 +10,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h4>@lang('Count Down')Count Down</h4>
+                        <h4>{{ $countDownDate ? $countDownDate->name : 'Default Text' }}</h4>
                         <ul>
                             <li><a href="{{ url('/') }}">Home</a></li>
-                            <li><a href="javascript:;">@lang('Count Down')Count Down</a></li>
+                            <li><a href="javascript:;">{{ $countDownDate ? $countDownDate->name : 'Default Text' }}</a></li>
                         </ul>
                     </div>
                 </div>

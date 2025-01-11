@@ -10,7 +10,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h4>@lang('purchase tracking')purchase tracking</h4>
+                        <h4>@lang('purchase tracking')</h4>
                         <ul>
                             <li><a href="{{ route('home') }}">home</a></li>
                             <li><a href="javascript:;">@lang('purchase tracking')</a></li>

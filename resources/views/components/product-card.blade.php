@@ -23,10 +23,10 @@
             <a class="trf__category" href="#">{{ $product->category->name }} </a>
             <a class="trf__pro_name" href="{{ route('product-detail', $product->slug) }}">{{ $product->name }}</a>
             @if (checkDiscount($product))
-                <p class="trf__price">{{ $product->offer_price }}€ <del>{{ $product->price }}€</del>
+                <p class="trf__price">{{ $settings->currency_icon }}{{ $product->offer_price }} <del>{{ $settings->currency_icon }}{{ $product->price }}</del>
                 </p>
             @else
-                <p class="trf__price">{{ $product->price }}€</p>
+                <p class="trf__price">{{ $settings->currency_icon }}{{ $product->price }}</p>
             @endif
             <form class="shopping-cart-form">
                 <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -36,7 +36,7 @@
                             <option value="{{ $optionItem->id }}"
                                 {{ $optionItem->is_default == 1 ? 'selected' : '' }}>
                                 {{ $optionItem->name }}
-                                ({{ $optionItem->price }}€)
+                                ({{ $settings->currency_icon }}{{ $optionItem->price }})
                             </option>
                         @endforeach
                     </select>

@@ -56,7 +56,7 @@
                                                         <option value="{{ $optionItem->id }}"
                                                             {{ $optionItem->is_default == 1 ? 'selected' : '' }}>
                                                             {{ $optionItem->name }}
-                                                            ({{ $optionItem->price }}€)
+                                                            ({{ $settings->currency_icon }}{{ $optionItem->price }})
                                                         </option>
                                                     @endif
                                                 @endforeach

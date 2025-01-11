@@ -40,7 +40,7 @@
                     <h5>General Info</h5>
                     <ul class="trf__footer_menu">
                         @foreach ($footerGridLinks as $link)
-                            <li><a target="_blank" href="{{ $link->url }}"><i class="fas fa-caret-right"></i>
+                            <li><a target="_blank" href="{{ route($link->url) }}"><i class="fas fa-caret-right"></i>
                                     {{ $link->name }}</a></li>
                         @endforeach
                     </ul>
