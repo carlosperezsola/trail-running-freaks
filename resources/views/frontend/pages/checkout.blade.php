@@ -62,28 +62,28 @@
                             @if ($method->type === 'min_cost' && getCartTotal() >= $method->min_cost)
                                 <div class="form-check">
                                     <input class="form-check-input shipping_method" type="radio" name="exampleRadios"
-                                        id="exampleRadios1" value="{{ $method->id }}" data-id="{{ $method->cost }}">
+                                        id="exampleRadios1" value="{{ $method->id }}" data-id="{{ number_format($method->cost, 2) }}">
                                     <label class="form-check-label" for="exampleRadios1">
                                         {{ $method->name }}
-                                        <span>@lang('cost'): ({{ $settings->currency_icon }}{{ $method->cost }})</span>
+                                        <span>@lang('cost'): ({{ $settings->currency_icon }}{{ number_format($method->cost, 2) }})</span>
                                     </label>
                                 </div>
                             @elseif ($method->type === 'flat_cost')
                                 <div class="form-check">
                                     <input class="form-check-input shipping_method" type="radio" name="exampleRadios"
-                                        id="exampleRadios1" value="{{ $method->id }}" data-id="{{ $method->cost }}">
+                                        id="exampleRadios1" value="{{ $method->id }}" data-id="{{ number_format($method->cost, 2) }}">
                                     <label class="form-check-label" for="exampleRadios1">
                                         {{ $method->name }}
-                                        <span>@lang('cost'): ({{ $settings->currency_icon }}{{ $method->cost }})</span>
+                                        <span>@lang('cost'): ({{ $settings->currency_icon }}{{ number_format($method->cost, 2) }})</span>
                                     </label>
                                 </div>
                             @endif
                         @endforeach
                         <div class="trf__order_details_summery">
-                            <p>@lang('subtotal'): <span>{{ $settings->currency_icon }}{{ getCartTotal() }}</span></p>
-                            <p>@lang('shipping fee')(+): <span id="shipping_fee">{{ $settings->currency_icon }}0</span></p>
+                            <p>@lang('subtotal'): <span>{{ $settings->currency_icon }}{{ number_format(getCartTotal(), 2) }}</span></p>
+                            <p>@lang('shipping fee')(+): <span id="shipping_fee">{{ $settings->currency_icon }}0.00</span></p>
                             <p><b>@lang('Total'):</b> <span><b id="total_amount"
-                                        data-id="{{ getCartTotal() }}">{{ $settings->currency_icon }}{{ getCartTotal() }}</b></span>
+                                        data-id="{{ number_format(getCartTotal(), 2) }}">{{ $settings->currency_icon }}{{ number_format(getCartTotal(), 2) }}</b></span>
                             </p>
                         </div>
                         <div class="terms_area">
@@ -91,8 +91,9 @@
                                 <input class="form-check-input agree_term" type="checkbox" value=""
                                     id="flexCheckChecked3" checked>
                                 <label class="form-check-label" for="flexCheckChecked3">
-                                    @lang('I have read and agree to the website <a href="#">terms and conditions.*')</a>
-                                </label>
+                                    @lang('I have read and agree to the website ') 
+                                    <a href="{{ url('/terms-and-conditions') }}">@lang('terms and conditions')</a>.
+                                </label>                                    
                             </div>
                         </div>
                         <form action="" id="checkOutForm">
@@ -200,49 +201,48 @@
             $('#shipping_address_id').val("");
 
             $('.shipping_method').on('click', function() {
-                let shippingFee = $(this).data('id');
-                let currentTotalAmount = $('#total_amount').data('id')
-                let totalAmount = currentTotalAmount + shippingFee;
+                let shippingFee = parseFloat($(this).data('id')).toFixed(2);
+                let currentTotalAmount = parseFloat($('#total_amount').data('id')).toFixed(2);
+                let totalAmount = (parseFloat(currentTotalAmount) + parseFloat(shippingFee)).toFixed(2);
 
                 $('#shipping_method_id').val($(this).val());
                 $('#shipping_fee').text("{{ $settings->currency_icon }}" + shippingFee);
 
-                $('#total_amount').text("{{ $settings->currency_icon }}" + totalAmount)
-            })
+                $('#total_amount').text("{{ $settings->currency_icon }}" + totalAmount);
+            });
 
             $('.shipping_address').on('click', function() {
                 $('#shipping_address_id').val($(this).data('id'));
-            })
+            });
 
             $('#submitCheckoutForm').on('click', function(e) {
                 e.preventDefault();
                 if ($('#shipping_method_id').val() == "") {
-                    toastr.error('Shipping method is requred');
+                    toastr.error('Shipping method is required');
                 } else if ($('#shipping_address_id').val() == "") {
-                    toastr.error('Shipping address is requred');
+                    toastr.error('Shipping address is required');
                 } else if (!$('.agree_term').prop('checked')) {
-                    toastr.error('You have to agree terms and conditions');
+                    toastr.error('You have to agree to the terms and conditions');
                 } else {
                     $.ajax({
                         url: "{{ route('user.checkout.form-submit') }}",
                         method: 'POST',
                         data: $('#checkOutForm').serialize(),
                         beforeSend: function() {
-                            $('#submitCheckoutForm').html(
-                                '<i class="fas fa-spinner fa-spin fa-1x"></i>')
+                            $('#submitCheckoutForm').html('<i class="fas fa-spinner fa-spin fa-1x"></i>');
                         },
                         success: function(data) {
                             if (data.status === 'success') {
-                                $('#submitCheckoutForm').text('Place Purchase')
+                                $('#submitCheckoutForm').text('Place Purchase');
                                 window.location.href = data.redirect_url;
                             }
                         },
                         error: function(data) {
                             console.log(data);
                         }
-                    })
+                    });
                 }
-            })
-        })
+            });
+        });
     </script>
 @endpush

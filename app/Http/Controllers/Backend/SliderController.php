@@ -38,7 +38,7 @@ class SliderController extends Controller
             'type' => ['string', 'max:200'],
             'title' => ['required', 'max:200'],
             'starting_price' => ['max:200'],
-            'cta_url' => ['url'],
+            'cta_url' => ['string'],
             'serial' => ['required', 'integer'],
             'status' => ['required']
         ]);
@@ -91,7 +91,7 @@ class SliderController extends Controller
             'type' => ['string', 'max:200'],
             'title' => ['required', 'max:200'],
             'starting_price' => ['max:200'],
-            'cta_url' => ['url'],
+            'cta_url' => ['string'],
             'serial' => ['required', 'integer'],
             'status' => ['required']
         ]);

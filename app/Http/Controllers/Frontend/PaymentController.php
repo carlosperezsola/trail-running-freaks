@@ -40,7 +40,7 @@ class PaymentController extends Controller
         $purchase->invoice_id = rand(1, 999999);
         $purchase->user_id = Auth::user()->id;
         $purchase->sub_total = getCartTotal();
-        $purchase->amount =  getFinalPayableAmount();
+        $purchase->amount = getFinalPayableAmount();
         $purchase->currency_name = $setting->currency_name;
         $purchase->currency_icon = $setting->currency_icon;
         $purchase->product_qty = \Cart::content()->count();
@@ -104,12 +104,11 @@ class PaymentController extends Controller
                 'client_secret'     => $paypalSetting->secret_key,
                 'app_id'            => '',
             ],
-
             'payment_action' => 'Sale',
             'currency'       => $paypalSetting->currency_name,
             'notify_url'     => '',
-            'locale'         => 'en_US',
-            'validate_ssl'   =>  true,
+            'locale'         => 'es_ES',
+            'validate_ssl'   => true,
         ];
         return $config;
     }
@@ -117,17 +116,16 @@ class PaymentController extends Controller
     /** Paypal redirect */
     public function payWithPaypal()
     {
+        $paypalSetting = PaypalSetting::first(); // Aseguramos que esté definida antes de usarla
         $config = $this->paypalConfig();
-        $paypalSetting = PaypalSetting::first();
 
         $provider = new PayPalClient($config);
         $provider->getAccessToken();
 
-
         // calculate payable amount depending on currency rate
         $total = getFinalPayableAmount();
-        $payableAmount = round($total * $paypalSetting->currency_rate, 2);
-
+        // Usamos number_format para asegurar solo dos decimales
+        $payableAmount = number_format($total * $paypalSetting->currency_rate, 2, '.', '');
 
         $response = $provider->createOrder([
             "intent" => "CAPTURE",
@@ -158,6 +156,7 @@ class PaymentController extends Controller
 
     public function paypalSuccess(Request $request)
     {
+        $paypalSetting = PaypalSetting::first(); // También aquí aseguramos que esté definida
         $config = $this->paypalConfig();
         $provider = new PayPalClient($config);
         $provider->getAccessToken();
@@ -167,9 +166,8 @@ class PaymentController extends Controller
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
 
             // calculate payable amount depending on currency rate
-            $paypalSetting = PaypalSetting::first();
             $total = getFinalPayableAmount();
-            $paidAmount = round($total * $paypalSetting->currency_rate, 2);
+            $paidAmount = number_format($total * $paypalSetting->currency_rate, 2, '.', '');
 
             $this->storePurchase('paypal', 1, $response['id'], $paidAmount, $paypalSetting->currency_name);
 
@@ -184,7 +182,7 @@ class PaymentController extends Controller
 
     public function paypalCancel()
     {
-        toastr('Something went wrong try agin later!', 'error', 'Error');
+        toastr('Something went wrong try again later!', 'error', 'Error');
         return redirect()->route('user.payment');
     }
 
@@ -193,7 +191,8 @@ class PaymentController extends Controller
     {
         $stripeSetting = StripeSetting::first();
         $total = getFinalPayableAmount();
-        $payableAmount = round($total * $stripeSetting->currency_rate, 2);
+        // También con number_format por coherencia
+        $payableAmount = number_format($total * $stripeSetting->currency_rate, 2, '.', '');
 
         Stripe::setApiKey($stripeSetting->secret_key);
         $response = Charge::create([
@@ -210,7 +209,7 @@ class PaymentController extends Controller
 
             return redirect()->route('user.payment.success');
         } else {
-            toastr('Someting went wrong try agin later!', 'error', 'Error');
+            toastr('Someting went wrong try again later!', 'error', 'Error');
             return redirect()->route('user.payment');
         }
     }

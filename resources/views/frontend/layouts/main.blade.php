@@ -140,7 +140,7 @@
             $('.auto_click').click();
         })
     </script>
-    @include('frontend.layouts.scripts');
+    @include('frontend.layouts.scripts')
     @stack('scripts')
 </body>
 

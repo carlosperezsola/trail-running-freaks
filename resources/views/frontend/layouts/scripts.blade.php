@@ -16,8 +16,8 @@
                 url: "{{ route('add-to-cart') }}",
                 success: function(data) {
                     if (data.status === 'success') {
-                        getCartCount()
-                        fetchSidebarCartProducts()
+                        getCartCount();
+                        fetchSidebarCartProducts();
                         $('.mini_cart_actions').removeClass('d-none');
                         toastr.success(data.message);
                     } else if (data.status === 'error') {
@@ -27,8 +27,8 @@
                 error: function(data) {
 
                 }
-            })
-        })
+            });
+        });
 
         function getCartCount() {
             $.ajax({
@@ -40,7 +40,7 @@
                 error: function(data) {
 
                 }
-            })
+            });
         }
 
         function fetchSidebarCartProducts() {
@@ -66,7 +66,7 @@
                             <br>
                             <small>Qty: ${product.qty}</small>
                         </div>
-                    </li>`
+                    </li>`;
                     }
 
                     $('.mini_cart_wrapper').html(html);
@@ -77,11 +77,11 @@
                 error: function(data) {
 
                 }
-            })
+            });
         }
 
         $('body').on('click', '.remove_sidebar_product', function(e) {
-            e.preventDefault()
+            e.preventDefault();
             let rowId = $(this).data('id');
             $.ajax({
                 method: 'POST',
@@ -91,22 +91,22 @@
                 },
                 success: function(data) {
                     let productId = '#mini_cart_' + rowId;
-                    $(productId).remove()
+                    $(productId).remove();
 
-                    getSidebarCartSubtoal()
+                    getSidebarCartSubtoal();
 
                     if ($('.mini_cart_wrapper').find('li').length === 0) {
                         $('.mini_cart_actions').addClass('d-none');
                         $('.mini_cart_wrapper').html(
                             '<li class="text-center">Cart Is Empty!</li>');
                     }
-                    toastr.success(data.message)
+                    toastr.success(data.message);
                 },
                 error: function(data) {
                     console.log(data);
                 }
-            })
-        })
+            });
+        });
 
         function getSidebarCartSubtoal() {
             $.ajax({
@@ -118,7 +118,7 @@
                 error: function(data) {
 
                 }
-            })
+            });
         }
 
         function getCartTotal() {
@@ -131,7 +131,7 @@
                 error: function(data) {
 
                 }
-            })
+            });
         }
 
         $('#newsletter').on('submit', function(e) {
@@ -162,12 +162,12 @@
                     if (errors) {
                         $.each(errors, function(key, value) {
                             toastr.error(value);
-                        })
+                        });
                     }
                     $('.subscribe_btn').text('Subscribe');
                 }
-            })
-        })
+            });
+        });
 
         $('.show_product_modal').on('click', function() {
             let id = $(this).data('id');
@@ -176,10 +176,10 @@
                 mehtod: 'GET',
                 url: '{{ route('show-product-modal', ':id') }}'.replace(":id", id),
                 beforeSend: function() {
-                    $('.product-modal-content').html('<span class="loader"></span>')
+                    $('.product-modal-content').html('<span class="loader"></span>');
                 },
                 success: function(response) {
-                    $('.product-modal-content').html(response)
+                    $('.product-modal-content').html(response);
                 },
                 error: function(xhr, status, error) {
 
@@ -187,7 +187,7 @@
                 complete: function() {
 
                 }
-            })
-        })
-    })
+            });
+        });
+    });
 </script>
