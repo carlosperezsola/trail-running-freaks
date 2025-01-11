@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\thirdParty;
+use App\Models\ThirdParty;
 use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

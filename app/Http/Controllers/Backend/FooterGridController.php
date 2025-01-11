@@ -33,7 +33,7 @@ class FooterGridController extends Controller
     {
         $request->validate([
             'name' => ['required', 'max:200'],
-            'url' => ['required', 'url'],
+            'url' => ['required', 'string'],
             'status' => ['required']
         ]);
 
@@ -67,7 +67,7 @@ class FooterGridController extends Controller
     {
         $request->validate([
             'name' => ['required', 'max:200'],
-            'url' => ['required', 'url'],
+            'url' => ['required', 'string'],
             'status' => ['required']
         ]);
 

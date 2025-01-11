@@ -29,6 +29,7 @@ class ProductOptionItemController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'product_id' => ['integer', 'required'],
             'option_id' => ['integer', 'required'],
             'name' => ['required', 'max:200'],
             'price' => ['integer', 'required'],
@@ -37,6 +38,7 @@ class ProductOptionItemController extends Controller
         ]);
 
         $optionItem = new ProductOptionItem();
+        $optionItem->product_id = $request->product_id; // Asignar el campo product_id
         $optionItem->product_option_id = $request->option_id;
         $optionItem->name = $request->name;
         $optionItem->price = $request->price;
@@ -46,8 +48,10 @@ class ProductOptionItemController extends Controller
 
         toastr('Created Successfully!', 'success', 'success');
 
-        return redirect()->route('admin_user.products-option-item.index',
-        ['productId' => $request->product_id, 'optionId' => $request->option_id]);
+        return redirect()->route('admin_user.products-option-item.index', [
+            'productId' => $request->product_id,
+            'optionId' => $request->option_id
+        ]);
     }
 
     public function edit(string $optionItemId)
