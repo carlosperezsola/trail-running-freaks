@@ -6,7 +6,7 @@
         <ul class="sidebar-menu">
             <div class="dropdown menu-translation ml-4"> 
                 <a class="btn btn-dark shadow-none menu-translation dropdown-toggle ms-1 ms-md-0 p-0 rounded-circle" type="button" id="languageDropdownAdmin" data-toggle="dropdown" aria-expanded="false">
-                    <img class="border rounded-circle border border-1 border-white flag" src="{{ asset('public/vendor/blade-country-flags/1x1-' . (app()->getLocale() === 'en' ? 'gb' : app()->getLocale()) . '.svg') }}" alt="{{ strtoupper(app()->getLocale()) }}" />
+                    <img class="border rounded-circle border border-1 border-white flag" src="{{ asset('vendor/blade-country-flags/1x1-' . (app()->getLocale() === 'en' ? 'gb' : app()->getLocale()) . '.svg') }}" alt="{{ strtoupper(app()->getLocale()) }}" />
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end w-auto" aria-labelledby="languageDropdownAdmin">
                     @foreach (LocaleConfig::getLocales() as $locale)

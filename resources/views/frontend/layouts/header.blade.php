@@ -68,7 +68,7 @@
                             @if (Route::isLocalized() || Route::isFallback())
                                 <div class="dropdown menu-translation"> 
                                     <a class="btn btn-light menu-translation dropdown-toggle ms-1 ms-md-0 p-0 rounded-circle" type="button" id="languageDropdownAdmin" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img class="border rounded-circle border border-1 border-white flag" src="{{ asset('public/vendor/blade-country-flags/1x1-' . (app()->getLocale() === 'en' ? 'gb' : app()->getLocale()) . '.svg') }}" alt="{{ strtoupper(app()->getLocale()) }}" />
+                                        <img class="border rounded-circle border border-1 border-white flag" src="{{ asset('vendor/blade-country-flags/1x1-' . (app()->getLocale() === 'en' ? 'gb' : app()->getLocale()) . '.svg') }}" alt="{{ strtoupper(app()->getLocale()) }}" />
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="languageDropdownAdmin">
                                         @foreach (LocaleConfig::getLocales() as $locale)
