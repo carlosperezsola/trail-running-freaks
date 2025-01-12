@@ -53,7 +53,7 @@
                         <li><a class="{{ setActive(['thirdParty.index']) }}"
                                 href="{{ route('thirdParty.index') }}">@lang('third party')</a></li>
                         <li><a class="{{ setActive(['count-down']) }}"
-                                href="{{ route('count-down') }}">{{ $countDownDate ? $countDownDate->name : 'Default Text' }}</a>
+                                href="{{ route('count-down') }}">@lang('trending race')</a>
                         </li>
                         <li><a class="{{ setActive(['who-we-are']) }}"
                                 href="{{ route('who-we-are') }}">@lang('who we are')</a></li>
@@ -193,7 +193,7 @@
                         <li><a class="{{ setActive(['thirdParty.index']) }}"
                                 href="{{ route('thirdParty.index') }}">@lang('third party')</a></li>
                         <li><a class="{{ setActive(['count-down']) }}"
-                                href="{{ route('count-down') }}">{{ $countDownDate ? $countDownDate->name : 'Default Text' }}</a>
+                                href="{{ route('count-down') }}">@lang('trending race')</a>
                         </li>
                         <li><a class="{{ setActive(['who-we-are']) }}"
                                 href="{{ route('who-we-are') }}">@lang('who we are')</a>
